@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf");
@@ -7,6 +8,7 @@ body {
   height: 100%;
   width: 100%;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -67,13 +69,11 @@ body {
 
 .horizontal-separator {
   background-color: #334562;
-  width: 96%;
-  margin-right: 20px;
+  width: 100%;
 }
 
 .vertical-separator {
   background-color: #334562;
-  margin: 20px 0 20px 0;
 }
 
 .container {
@@ -117,9 +117,7 @@ body {
   grid-template-rows: 50px 1fr;
   justify-items: center;
   gap: 30px;
-
   margin: 40px 0 40px 40px;
-
   border: 1px solid #334562;
   border-radius: 10px;
 }
@@ -170,11 +168,11 @@ body {
   display: grid;
   grid-template-columns: 3fr 3px 2fr 3px 1fr;
   grid-template-rows: 1fr;
-  height: calc(100vh - 30px - 30px - 30px - 40px - 2px);
+  height: calc(100vh - 30px - 29px - 30px - 40px - 2px);
   margin: 40px 40px 40px 0;
   border: 1px solid #334562;
   border-radius: 10px;
-  /* gap: 20px; */
+  gap: 20px;
 }
 
 .main-card-left-side {
@@ -182,20 +180,10 @@ body {
   grid-template-columns: 96px 1fr;
   grid-template-rows: 180px 300px 1fr;
   justify-items: left;
-  column-gap: 30px;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
   grid-template-rows: 210px 310px;
   min-width: 700px;
-  margin: 30px 0 0 30px;
-  overflow-y: auto;
-}
-
-.main-card-left-side::-webkit-scrollbar {
-  width: 5px;
-}
-
-.main-card-left-side::-webkit-scrollbar-thumb {
-  background-color: #334562;
-  border-radius: 5px;
 }
 
 .main-card-left-side-head {

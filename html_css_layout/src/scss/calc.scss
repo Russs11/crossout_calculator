@@ -2,12 +2,17 @@
 	font-family: "Roboto";
 	src: url("../fonts/Roboto-Regular.ttf");
 }
+html,
+body {
+	height: 100%;
+	width: 100%;
+}
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	// overflow: hidden;
 }
+
 .text-1,
 .text-2,
 .text-3,
@@ -24,34 +29,42 @@
 	font-weight: 700;
 	font-size: 24px;
 }
+
 .text-2 {
 	font-weight: 400;
 	font-size: 24px;
 }
+
 .text-3 {
 	font-weight: 700;
 	font-size: 20px;
 }
+
 .text-4 {
 	font-weight: 400;
 	font-size: 20px;
 }
+
 .text-5 {
 	font-weight: 400;
 	font-size: 18px;
 }
+
 .text-6 {
 	font-weight: 400;
 	font-size: 16px;
 }
+
 .text-7 {
 	font-weight: 400;
 	font-size: 14px;
 }
+
 .text-8 {
 	font-weight: 700;
 	font-size: 14px;
 }
+
 .horizontal-separator {
 	background-color: #334562;
 	width: 100%;
@@ -67,12 +80,11 @@
 	grid-template-rows: 50px 1fr;
 	width: 100%;
 	height: 100%;
-	// overflow: hidden;
 }
+
 .header {
 	display: grid;
 	grid-template-columns: 1fr;
-	width: 100%;
 	height: 50px;
 	background-color: #343a40;
 }
@@ -90,35 +102,30 @@
 
 .main {
 	display: grid;
-	grid-template-columns: 200px 4fr 1fr;
+	grid-template-columns: 200px 1fr;
 	grid-template-rows: 1fr;
 	width: 100%;
 	height: 100%;
 	background-color: #1e1e1e;
 	gap: 40px;
-	padding: 40px;
-	justify-items: center;
-	align-items: center;
 }
+
 .components {
 	display: grid;
 	grid-template-rows: 50px 1fr;
 	justify-items: center;
 	gap: 30px;
-	width: 200px;
-	height: 950px;
+
+	margin: 40px 0 40px 40px;
+
 	border: 1px solid #334562;
 	border-radius: 10px;
 }
 
 .components-title {
 	display: grid;
-	grid-template-columns: 1fr;
 	justify-content: center;
 	align-items: center;
-	width: 200px;
-	width: 100%;
-	// height: 50px;
 	font-family: "Roboto";
 	font-size: 20px;
 	text-align: center;
@@ -127,12 +134,13 @@
 
 .components-wrapper {
 	display: grid;
-	grid-template-rows: repeat(7, 1fr);
-	gap: 30px;
+	grid-template-rows: repeat(auto-fill, 126px);
 	justify-items: center;
 	width: 100%;
-	overflow-y: scroll;
+	height: calc(100vh - 50px - 40px - 50px - 30px - 40px - 2px);
+	overflow-y: auto;
 }
+
 .components-wrapper::-webkit-scrollbar {
 	width: 5px;
 }
@@ -141,6 +149,7 @@
 	background-color: #334562;
 	border-radius: 5px;
 }
+
 .component-image1 {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -148,6 +157,7 @@
 	height: 96px;
 	border: 1px solid #fff;
 	background: url("../images/component_1.png");
+	margin-bottom: 30px;
 }
 
 .active {
@@ -157,14 +167,14 @@
 .main-card {
 	display: grid;
 	grid-template-columns: 3fr 3px 2fr 3px 1fr;
-	grid-template-rows: 890px;
-	width: 100%;
-	height: 950px;
-	padding: 30px;
+	grid-template-rows: 1fr;
+	height: calc(100vh - 30px - 29px - 30px - 40px - 2px);
+	margin: 40px 40px 40px 0;
 	border: 1px solid #334562;
 	border-radius: 10px;
 	gap: 20px;
 }
+
 .main-card-left-side {
 	display: grid;
 	grid-template-columns: 96px 1fr;
@@ -174,12 +184,14 @@
 	grid-template-rows: 210px 310px;
 	min-width: 700px;
 }
+
 .main-card-left-side-head {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 180px;
 	justify-items: left;
 	color: #fff;
+	overflow-y: auto;
 }
 
 .main-card-head-item-img {
@@ -194,25 +206,25 @@
 	grid-template-columns: 1fr 1fr;
 	gap: 20px;
 }
+
 .item-name-title,
 .item-type {
 	display: grid;
 	grid-column: 1/3;
 }
 
-.token{
+.token {
 	display: grid;
 	grid-template-columns: 32px 32px;
 	grid-template-rows: 1fr;
 	row-gap: 10px;
 }
-.token-img{
-	background: url('../images/token-img.png');
+
+.token-img {
+	background: url("../images/token-img.png");
 	width: 32px;
 	height: 100%;
 }
-
-
 
 .production-requirements {
 	display: grid;
@@ -229,6 +241,7 @@
 	grid-template-rows: 30px;
 	justify-self: left;
 }
+
 .production-requirements-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -241,21 +254,27 @@
 .resourses-img_1 {
 	background: url("../images/res_1.png");
 }
+
 .resourses-img_2 {
 	background: url("../images/res_2.png");
 }
+
 .resourses-img_3 {
 	background: url("../images/res_3.png");
 }
+
 .resourses-img_4 {
 	background: url("../images/res_4.png");
 }
+
 .resourses-img_5 {
 	background: url("../images/res_5.png");
 }
+
 .resourses-img_6 {
 	background: url("../images/res_6.png");
 }
+
 .resourses-img_7 {
 	background: url("../images/res_7.png");
 }
@@ -272,9 +291,11 @@
 	background-position: center;
 	background-size: cover;
 }
+
 .value-white {
 	color: #fff;
 }
+
 .value-orange {
 	color: #ff9900;
 }
@@ -294,6 +315,7 @@
 	row-gap: 10px;
 	width: 100%;
 }
+
 .required-components-title {
 	display: grid;
 	grid-template-rows: 30px;
@@ -301,10 +323,12 @@
 	justify-self: left;
 	margin-left: 20px;
 }
+
 .item-required {
 	display: grid;
 	grid-template-columns: 96px 1fr;
 	grid-template-rows: 1fr;
+	-moz-column-gap: 30px;
 	column-gap: 30px;
 	width: 100%;
 }
@@ -361,12 +385,14 @@
 	align-items: center;
 	margin-top: 20px;
 }
+
 .machine-rental {
 	display: grid;
 	grid-column: 1/4;
 	justify-self: left;
 	margin-left: 20px;
 }
+
 .total {
 	display: grid;
 	grid-column: 1/4;
@@ -379,13 +405,14 @@
 	grid-template-columns: 1fr;
 	grid-template-rows: 30px 1fr 3px;
 	margin-top: 10px;
-
 }
+
 .components-cost-title {
 	display: grid;
 	grid-template-columns: 210px 1fr;
 	grid-template-rows: 25px;
 }
+
 .switch-btn {
 	display: inline-block;
 	width: 50px; /* ширина переключателя */
@@ -401,6 +428,7 @@
 	transition-duration: 300ms; /* анимация */
 	align-self: center;
 }
+
 .switch-btn::after {
 	content: "";
 	height: 19px; /* высота кнопки */
@@ -414,16 +442,18 @@
 	position: absolute;
 	z-index: 1;
 }
+
 .switch-on {
 	background: #d8d8d8;
 	box-shadow: inset 0 0 10px 0 #999999; /* тень */
 }
+
 .switch-on::after {
 	left: 30px;
 	background: #ff9900;
 }
 
-.components-cost-grid{
+.components-cost-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: 25px repeat(4, 40px);
@@ -432,14 +462,16 @@
 	align-items: center;
 	justify-items: center;
 }
-.small-component-img{
+
+.small-component-img {
 	width: 40px;
 	height: 40px;
 }
 
-.component-img-small_2{
-	background: url('../images/component-small_2.png')
+.component-img-small_2 {
+	background: url("../images/component-small_2.png");
 }
-.component-img-small_3{
-	background: url('../images/component-small_3.png')
+
+.component-img-small_3 {
+	background: url("../images/component-small_3.png");
 }
