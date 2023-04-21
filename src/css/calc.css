@@ -385,6 +385,15 @@ body {
   overflow-x: hidden;
 }
 
+.main-card-middle-side::-webkit-scrollbar {
+  width: 5px;
+}
+
+.main-card-middle-side::-webkit-scrollbar-thumb {
+  background-color: #334562;
+  border-radius: 5px;
+}
+
 .production-cost {
   display: grid;
   grid-template-columns: 1fr;
@@ -491,4 +500,12 @@ body {
 
 .component-img-small_3 {
   background: url("../images/component-small_3.png");
+}
+
+.profit {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(4, 25px);
+  margin-top: 10px;
+  align-items: center;
 }
