@@ -96,10 +96,11 @@ body {
 	grid-template-columns: 1fr;
 	width: 350px;
 	font-family: "Roboto";
-	font-size: 40px;
+	font-size: 30px;
 	font-weight: 400px;
 	color: #fff;
 	margin-left: 40px;
+	align-items:center;
 }
 
 .main {
@@ -404,8 +405,8 @@ body {
 .production-cost-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: 25px repeat(8, 40px);
-	row-gap: 10px;
+	grid-template-rows: 25px repeat(6, 40px) 25px 40px;
+	row-gap: 5px;
 	column-gap: 5px;
 	justify-items: center;
 	align-items: center;
