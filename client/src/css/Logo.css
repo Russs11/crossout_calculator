@@ -1,0 +1,11 @@
+.logo {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 350px;
+  font-family: "Roboto";
+  font-size: 30px;
+  font-weight: 400px;
+  color: #fff;
+  margin-left: 40px;
+  align-items: center;
+}

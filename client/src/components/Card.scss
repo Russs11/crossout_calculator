@@ -1,0 +1,10 @@
+.card {
+	display: grid;
+	grid-template-columns: 3fr 3px 2fr 3px 1fr;
+	grid-template-rows: 1fr;
+	height: calc(100vh - 30px - 30px - 30px - 40px - 2px);
+	margin: 40px 40px 40px 0;
+	border: 1px solid #334562;
+	border-radius: 10px;
+	/* gap: 20px; */
+}
