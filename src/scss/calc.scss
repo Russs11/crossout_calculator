@@ -82,6 +82,7 @@ body {
 	grid-template-rows: 50px 1fr;
 	width: 100%;
 	height: 100%;
+	overflow-y: hidden;
 }
 
 .header {
@@ -510,3 +511,65 @@ body {
 	margin-top: 10px;
 	align-items:center;
 }
+
+.main-card-right-side {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 620px;
+	min-width: 340px;
+	align-items: start;
+	// height: 100%;
+	margin: 30px 0 0 20px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.main-card-right-side::-webkit-scrollbar {
+	width: 5px;
+}
+
+.main-card-right-side::-webkit-scrollbar-thumb {
+	background-color: #334562;
+	border-radius: 5px;
+}
+.resourses-available {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 25px 1fr 1fr 3px;
+	height: 100%;
+	margin-right: 10px;
+}
+
+.resourses-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 25px repeat(7, 40px);
+	row-gap: 5px;
+	column-gap: 5px;
+	justify-items: center;
+	align-items: center;
+	margin-top: 20px;
+	margin-right: 80px;
+}
+
+.rectangle {
+	display: grid;
+	background: #334562;
+	width: 120px;
+	height: 30px;
+	border-radius: 10px;
+	text-align: center;
+	align-items: center;
+}
+
+.components-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(5, 40px);
+	row-gap: 5px;
+	column-gap: 5px;
+	justify-items: center;
+	align-items: center;
+	margin-right: 80px;
+}
+
