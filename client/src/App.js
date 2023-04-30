@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <Header><Logo /></Header>
+        <Header><Logo/></Header>
         <Main>
           <Components />
           <Card>
