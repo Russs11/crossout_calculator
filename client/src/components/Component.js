@@ -6,8 +6,7 @@ const Component = () => {
 
 
 	function clickHandler(event){
-		event.target.classList.add('component-image-active');
-		event.target.classList.remove('component-image-active');
+		event.currentTarget.classList.toggle('component-image-active');
 	}
 
 
