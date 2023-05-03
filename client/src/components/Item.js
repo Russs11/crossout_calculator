@@ -1,8 +1,8 @@
 import React from 'react';
-import './Component.scss'
+import './Item.scss'
 
 
-const Component = () => {
+const Item = () => {
 
 
 	function clickHandler(event){
@@ -17,4 +17,4 @@ const Component = () => {
 	);
 };
 
-export default Component;
+export default Item;
