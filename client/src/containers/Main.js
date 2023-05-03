@@ -4,9 +4,11 @@ import "./Main.scss"
 
 const Main = ({ children }) => {
     return (
-        <div className="main">
-            {children}
-        </div>
+        <>
+            <div className="main">
+                {children}
+            </div>
+        </>
     );
 };
 

@@ -4,9 +4,12 @@ import Container from './containers/Container';
 import Header from './containers/Header';
 import Main from './containers/Main';
 import Logo from './components/Logo';
-import Card from './components/Card';
+import MainCard from './components/MainCard';
 import ComponentsList from './components/ItemList';
 import ItemCard from './components/ItemCard';
+import ProductionRequirements from './components/ProductionRequirements';
+import RequiredComponents from './components/RequiredComponents';
+import HorizontalSeparator from './components/HorizontalSeparator';
 
 
 
@@ -18,12 +21,17 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <Header><Logo/></Header>
+        <Header><Logo /></Header>
         <Main>
           <ComponentsList />
-          <Card>
-            <ItemCard></ItemCard>
-          </Card>
+          <MainCard>
+            <ItemCard/>
+            <ProductionRequirements/>
+            {/* <HorizontalSeparator /> */}
+            <RequiredComponents/>
+            {/* <HorizontalSeparator /> */}
+
+          </MainCard>
         </Main>
       </Container>
 

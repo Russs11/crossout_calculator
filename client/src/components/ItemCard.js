@@ -4,7 +4,7 @@ import './ItemCard.scss'
 
 const ItemCard = () => {
 	return (
-		<div>
+		<>
 			<div className="main-card-head-item-img"></div>
 			<div className="main-card-left-side-head">
 				<div className="item-info">
@@ -17,7 +17,7 @@ const ItemCard = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
