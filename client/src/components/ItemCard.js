@@ -33,7 +33,7 @@ const ItemCard = ({ type }) => {
 						<div className="item-production-time-title text-6">Время производства:</div>
 						<div className="item-production-cost-title text-6">Стоимость производства:</div>
 						<div className="item-production-time-value text-3">6 часов</div>
-						<div className="value-orange text-3">15</div>
+						<div className="small-token value-orange text-3">15 <div className="token-img"></div></div>
 					</div>
 				</div>
 			</>

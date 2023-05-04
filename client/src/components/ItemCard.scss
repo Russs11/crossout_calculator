@@ -31,13 +31,18 @@
 	grid-template-columns: 32px 32px;
 	grid-template-rows: 1fr;
 	row-gap: 10px;
+	column-gap:5px;
+	
 }
 
 .token-img {
 	background: url("../images/token-img.png");
-	width: 32px;
+	width: 100%;
 	height: 100%;
+	background-size:contain;
+	background-repeat:no-repeat;
 }
+
 
 .item-required {
 	display: grid;
@@ -59,3 +64,19 @@
 	background-repeat: no-repeat;
 	background-size: contain;
 }
+
+.small-token {
+	display: grid;
+	grid-template-columns: 23px 23px;
+	column-gap:5px;
+	grid-template-rows: 1fr;
+	row-gap: 10px;
+}
+
+// .small-token-img {
+// 	background: url("../images/token-img.png");
+// 	width: 100%;
+// 	height: 100%;
+// 	background-size:contain;
+// 	background-repeat:no-repeat;
+// }
