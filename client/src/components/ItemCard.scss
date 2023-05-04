@@ -38,3 +38,24 @@
 	width: 32px;
 	height: 100%;
 }
+
+.item-required {
+	display: grid;
+	grid-template-columns: 96px 1fr;
+	grid-template-rows: 1fr;
+	-moz-column-gap: 30px;
+	column-gap: 30px;
+	width: 100%;
+}
+
+.item-required-info {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: repeat(4, 1fr);
+}
+
+.component-image_8 {
+	background: url("../images/component_8.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
