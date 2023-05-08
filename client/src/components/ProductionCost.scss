@@ -1,0 +1,31 @@
+.production-cost {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 25px 1fr 3px;
+	// min-width: 350px;
+}
+
+.production-cost-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 25px repeat(6, 40px) 25px 40px;
+	row-gap: 5px;
+	column-gap: 5px;
+	justify-items: center;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.machine-rental {
+	display: grid;
+	grid-column: 1/4;
+	justify-self: left;
+	margin-left: 20px;
+}
+
+.total {
+	display: grid;
+	grid-column: 1/4;
+	justify-self: left;
+	margin-left: 50px;
+}

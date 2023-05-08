@@ -1,0 +1,40 @@
+.resourses-available {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 25px 1fr 1fr 3px;
+	height: 100%;
+	margin-right: 10px;
+}
+
+.resourses-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 25px repeat(7, 40px);
+	row-gap: 5px;
+	column-gap: 5px;
+	justify-items: center;
+	align-items: center;
+	margin-top: 20px;
+	margin-right: 80px;
+}
+
+.rectangle {
+	display: grid;
+	background: #334562;
+	width: 120px;
+	height: 30px;
+	border-radius: 10px;
+	text-align: center;
+	align-items: center;
+}
+
+.components-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(5, 40px);
+	row-gap: 5px;
+	column-gap: 5px;
+	justify-items: center;
+	align-items: center;
+	margin-right: 80px;
+}
