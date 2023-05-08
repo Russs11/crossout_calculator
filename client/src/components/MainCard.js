@@ -1,5 +1,6 @@
 import React from 'react';
 import './MainCard.scss'
+import VerticalSeparator from './VerticalSeparator';
 
 
 const MainCard = ({ children }) => {
@@ -7,8 +8,9 @@ const MainCard = ({ children }) => {
 		<>
 			<div className="main-card">
 				<div className="main-card-left-side">
-					{children}	
+					{children}
 				</div>
+				<VerticalSeparator/>
 			</div>
 		</>
 	);

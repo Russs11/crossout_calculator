@@ -10,6 +10,7 @@ import ItemCard from './components/ItemCard';
 import ProductionRequirements from './components/ProductionRequirements';
 import RequiredComponents from './components/RequiredComponents';
 import HorizontalSeparator from './components/HorizontalSeparator';
+import VerticalSeparator from './components/VerticalSeparator';
 
 
 
@@ -27,7 +28,7 @@ function App() {
           <MainCard>
             <ItemCard type='bigCard'/>
             <ProductionRequirements/>
-            <RequiredComponents/>
+            <RequiredComponents />
           </MainCard>
         </Main>
       </Container>
