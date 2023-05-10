@@ -11,10 +11,8 @@ const MainCard = ({ children }) => {
 	return (
 		<>
 			<div className="main-card">
-				<div className="main-card-left-side">
-					{children}
-				</div>
-				<VerticalSeparator />
+				{children}
+				
 				<div className="main-card-middle-side">
 					<ProductionCost />
 					<ComponentsCost />

@@ -9,26 +9,7 @@
 	/* gap: 20px; */
 }
 
-.main-card-left-side {
-	display: grid;
-	grid-template-columns: 96px 1fr;
-	grid-template-rows: 180px 300px 1fr;
-	justify-items: left;
-	column-gap: 30px;
-	grid-template-rows: 210px 310px;
-	min-width: 650px;
-	margin: 30px 0 0 30px;
-	overflow-y: auto;
-}
 
-.main-card-left-side::-webkit-scrollbar {
-	width: 5px;
-}
-
-.main-card-left-side::-webkit-scrollbar-thumb {
-	background-color: #334562;
-	border-radius: 5px;
-}
 
 .main-card-middle-side {
 	display: grid;
