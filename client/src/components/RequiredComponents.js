@@ -22,8 +22,8 @@ const RequiredComponents = () => {
                         <div className="small-token value-orange text-3">15 <div className="token-img"></div></div>
                     </div>
                 </div>
-            </div>
-            <HorizontalSeparator />
+            <HorizontalSeparator/>
+           
             <div className="item-required-resources-grid">
                 <div className="text-7">Ресурсы:</div>
                 <div className="text-7">Количество:</div>
@@ -47,6 +47,7 @@ const RequiredComponents = () => {
                 <div className="value-orange text-8">36.33</div>
                 <div className="total-resourses-cost text-7">Общая стоимость ресурсов:</div>
                 <div className="value-orange text-8">66.96</div>
+                </div>
             </div>
         </>
     );
