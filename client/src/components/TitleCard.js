@@ -2,10 +2,9 @@ import React from 'react';
 import './TitleCard.scss'
 
 
-const TitleCard = ({ type }) => {
+const TitleCard = () => {
 
-	if (type === 'bigCard') {
-		return (
+			return (
 			<>
 				<div className="main-card-head-item-img"></div>
 				<div className="main-card-left-side-head">
@@ -20,8 +19,7 @@ const TitleCard = ({ type }) => {
 					</div>
 				</div>
 			</>
-		);
-	}
+		)
 
 };
 
