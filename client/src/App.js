@@ -4,7 +4,7 @@ import Container from "./containers/Container";
 import Header from "./containers/Header";
 import Main from "./containers/Main";
 import Logo from "./components/Logo";
-import MainCard from "./components/MainCard";
+import MainCard from "./containers/MainCard";
 import ItemList from "./components/ItemList";
 import TitleCard from "./components/TitleCard";
 import ProductionRequirements from "./components/ProductionRequirements";
@@ -16,12 +16,16 @@ import ProductionCostWrapper from "./containers/ProductionCostWrapper";
 import ProductionCost from "./components/ProductionCost";
 import ComponentsCost from "./components/ComponentsCost";
 import Profit from "./components/Profit";
+import ResoursesAvailableWrapper from "./containers/ResoursesAvailableWrapper";
+import ResoursesAvailable from "./components/ResoursesAvailable";
 
 function App() {
 
 
-
-
+const itemsArr = []
+  for (let i = 0; i < 10; i++){
+    itemsArr.push(<Item/>)
+  }
 
 
 
@@ -35,7 +39,7 @@ function App() {
         </Header>
         <Main>
           <ItemList>
-            <Item />
+            {itemsArr}
           </ItemList>
           <MainCard>
             <ItemCard>
@@ -49,6 +53,10 @@ function App() {
               <ComponentsCost />
               <Profit />
             </ProductionCostWrapper>
+            <VerticalSeparator/>
+            <ResoursesAvailableWrapper>
+              <ResoursesAvailable />
+            </ResoursesAvailableWrapper>
           </MainCard>
         </Main>
       </Container>

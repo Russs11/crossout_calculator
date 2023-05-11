@@ -1,12 +1,19 @@
 import React from 'react';
 import './Item.scss'
+import { useState } from 'react';
 
 
 const Item = () => {
-
+const [itemActive, setItemActive] = useState(false)
 
 	function clickHandler(event){
-		event.currentTarget.classList.toggle('component-image-active');
+		setItemActive(true)
+		event.currentTarget.classList.add('component-image-active');
+		if (itemActive) {
+			event.currentTarget.classList.remove('component-image-active');
+
+			setItemActive(false)
+		}
 	}
 
 
