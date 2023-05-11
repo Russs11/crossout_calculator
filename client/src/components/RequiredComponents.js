@@ -1,8 +1,7 @@
 import React from 'react';
 import './RequiredComponents.scss'
 import HorizontalSeparator from './HorizontalSeparator';
-import RequiredResourses from './RequiredResourses';
-import ItemCard from './TitleCard';
+
 
 
 const RequiredComponents = () => {

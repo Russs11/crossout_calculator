@@ -18,6 +18,15 @@ import ComponentsCost from "./components/ComponentsCost";
 import Profit from "./components/Profit";
 
 function App() {
+
+
+
+
+
+
+
+
+  
   return (
     <div className="App">
       <Container>
