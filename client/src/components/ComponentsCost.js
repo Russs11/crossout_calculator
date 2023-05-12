@@ -4,11 +4,16 @@ import HorizontalSeparator from './HorizontalSeparator';
 
 
 const ComponentsCost = () => {
+
+    function clickHandler(event) {
+        event.currentTarget.classList.toggle("switch-on")
+}
+
     return (
         <>
             <div className="components-cost">
                 <div className="components-cost-title text-4">Купить компоненты
-                    <div className="switch-btn"></div>
+                    <div className="switch-btn" onClick={clickHandler}></div>
                 </div>
                 <div className="components-cost-grid">
                     <div className="text-5">Ресурсы:</div>
