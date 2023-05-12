@@ -11,25 +11,7 @@
 
 
 
-.main-card-middle-side {
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 1fr 3px 1fr 2fr;
-	min-width: 350px;
-	// height: 100%;
-	margin: 30px 0 0 20px;
-	overflow-y: auto;
-	overflow-x: hidden;
-}
 
-.main-card-middle-side::-webkit-scrollbar {
-	width: 5px;
-}
-
-.main-card-middle-side::-webkit-scrollbar-thumb {
-	background-color: #334562;
-	border-radius: 5px;
-}
 
 
 
