@@ -6,7 +6,7 @@ const ProductionCost = () => {
     return (
         <>
             <div className="production-cost">
-                <div className="production-cost-title text-4">Себестоимость производства</div>
+                <div className="production-cost-title text-4">Себестоимость производства:</div>
                 <div className="production-cost-grid">
                     <div className="text-5">Ресурсы:</div>
                     <div className="text-5">Количество:</div>
