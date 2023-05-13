@@ -3,25 +3,23 @@ import './Item.scss'
 import { useState } from 'react';
 
 
-const Item = () => {
-const [itemActive, setItemActive] = useState(false)
+const Item = ({ id, active, handleClick }) => {
 
-	function clickHandler(event){
-		setItemActive(true)
-		event.currentTarget.classList.add('component-image-active');
-		if (itemActive) {
-			event.currentTarget.classList.remove('component-image-active');
 
-			setItemActive(false)
-		}
+	if (active) {
+		return (
+			<div>
+				<div className="component-image component-image-active" onClick={() => handleClick(id)} >{id}</div>
+			</div>
+		);
 	}
-
-
-	return (
-		<div>
-			<div className="component-image" onClick={clickHandler} ></div>
-		</div>
-	);
+	else {
+		return (
+			<div>
+				<div className="component-image " onClick={() => handleClick(id)} >{id}</div>
+			</div>
+		);
+	}
 };
 
 export default Item;

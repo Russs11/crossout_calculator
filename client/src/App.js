@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Container from "./containers/Container";
 import Header from "./containers/Header";
@@ -20,17 +21,48 @@ import ResoursesAvailableWrapper from "./containers/ResoursesAvailableWrapper";
 import ResoursesAvailable from "./components/ResoursesAvailable";
 
 function App() {
+  const [items, setItems] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null)
+  let itemsArr
 
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then((response) => response.json())
+      .then((items) => {
+        setItems(items)
+        console.log(items);
+      });
+  }, []);
 
-const itemsArr = []
-  for (let i = 0; i < 10; i++){
-    itemsArr.push(<Item/>)
+  if (items) {
+    itemsArr = items.map(item => {
+      if (selectedItem === item.id) {
+        return (
+          <Item
+            key={item.id}
+            id={item.id}
+            active={true}
+            handleClick={handleClick}
+          />)
+      }
+      return (
+        <Item
+          key={item.id}
+          id={item.id}
+          active={false}
+          handleClick={handleClick}
+        />)
+    })
   }
 
 
 
+  function handleClick(id) {
+    setSelectedItem(id)
+  }
 
-  
+
+
   return (
     <div className="App">
       <Container>
@@ -53,7 +85,7 @@ const itemsArr = []
               <ComponentsCost />
               <Profit />
             </ProductionCostWrapper>
-            <VerticalSeparator/>
+            <VerticalSeparator />
             <ResoursesAvailableWrapper>
               <ResoursesAvailable />
             </ResoursesAvailableWrapper>

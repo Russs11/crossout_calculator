@@ -5,7 +5,7 @@ import './ResoursesAvailableWrapper.scss'
 const ResoursesAvailableWrapper = ({ children }) => {
 	return (
 		<>
-			<div class="main-card-right-side">
+			<div className="main-card-right-side">
 				{children}
 			</div>
 		</>
