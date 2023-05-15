@@ -23,6 +23,7 @@ import ResoursesAvailable from "./components/ResoursesAvailable";
 function App() {
   const [items, setItems] = useState();
   const [selectedItem, setSelectedItem] = useState(null)
+  const [titleCard, setTitleCard] = useState()
   let itemsArr
 
   useEffect(() => {
@@ -63,6 +64,7 @@ function App() {
 
   function handleClick(id) {
     setSelectedItem(id)
+
   }
 
 
@@ -78,11 +80,13 @@ function App() {
             {itemsArr}
           </ItemList>
           <MainCard>
+            {items &&
             <ItemCard>
               <TitleCard />
               <ProductionRequirements />
               <RequiredComponents />
             </ItemCard>
+            }
             <VerticalSeparator />
             <ProductionCostWrapper>
               <ProductionCost />
