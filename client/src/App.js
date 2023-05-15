@@ -21,26 +21,28 @@ import ResoursesAvailableWrapper from "./containers/ResoursesAvailableWrapper";
 import ResoursesAvailable from "./components/ResoursesAvailable";
 
 function App() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState();
   const [selectedItem, setSelectedItem] = useState(null)
   let itemsArr
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('https://dummyjson.com/products')
       .then((response) => response.json())
       .then((items) => {
         setItems(items)
-        console.log(items);
+        console.log(items.products);
       });
   }, []);
 
   if (items) {
-    itemsArr = items.map(item => {
+    itemsArr = items.products.map(item => {
       if (selectedItem === item.id) {
         return (
           <Item
             key={item.id}
             id={item.id}
+            title={item.title}
+            category={item.category}
             active={true}
             handleClick={handleClick}
           />)
@@ -49,6 +51,8 @@ function App() {
         <Item
           key={item.id}
           id={item.id}
+          title={item.title}
+          category={item.category}
           active={false}
           handleClick={handleClick}
         />)

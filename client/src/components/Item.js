@@ -5,7 +5,6 @@ import { useState } from 'react';
 
 const Item = ({ id, active, handleClick }) => {
 
-
 	if (active) {
 		return (
 			<div>
