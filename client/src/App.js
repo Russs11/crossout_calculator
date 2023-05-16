@@ -19,6 +19,8 @@ import ComponentsCost from "./components/ComponentsCost";
 import Profit from "./components/Profit";
 import ResoursesAvailableWrapper from "./containers/ResoursesAvailableWrapper";
 import ResoursesAvailable from "./components/ResoursesAvailable";
+import {data} from './data'
+
 
 function App() {
   const [items, setItems] = useState();
@@ -26,17 +28,37 @@ function App() {
   const [titleCard, setTitleCard] = useState()
   let itemsArr
 
+
+  const data1 = JSON.parse(data())
+  console.log(data1.map((item) => {
+    const obj = {}
+    obj.id = item.id
+    obj.name = item.name
+    obj.formatBuyPrice = item.formatBuyPrice
+    obj.formatSellPrice = item.formatSellPrice
+    return obj
+  }) );
+
+
+
+
+
+
+
+
   useEffect(() => {
     fetch('https://dummyjson.com/products')
       .then((response) => response.json())
-      .then((items) => {
-        setItems(items)
-        console.log(items.products);
+      .then(({products}) => {
+
+        console.log(products);
+        setItems(products)
+        console.log(items);
       });
   }, []);
 
   if (items) {
-    itemsArr = items.products.map(item => {
+    itemsArr = items.map(item => {
       if (selectedItem === item.id) {
         return (
           <Item
