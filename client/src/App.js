@@ -30,14 +30,15 @@ function App() {
 
 
   const data1 = JSON.parse(data())
-  console.log(data1.map((item) => {
+  const resData = data1.map((item) => {
     const obj = {}
     obj.id = item.id
     obj.name = item.name
     obj.formatBuyPrice = item.formatBuyPrice
     obj.formatSellPrice = item.formatSellPrice
     return obj
-  }) );
+  });
+  console.log(resData.json());
 
 
 
