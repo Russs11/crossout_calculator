@@ -20,34 +20,27 @@ import Profit from "./components/Profit";
 import ResoursesAvailableWrapper from "./containers/ResoursesAvailableWrapper";
 import ResoursesAvailable from "./components/ResoursesAvailable";
 import { data, dataForList } from './data'
-
+import { P54MAccord, Lupara, Avenger57mm } from "./entity/weapons/common";
 
 
 function App() {
-  const [items, setItems] = useState();
+  const [itemsList, setItemsList] = useState();
   const [selectedItem, setSelectedItem] = useState(null)
-  const [titleCard, setTitleCard] = useState([
-    
+  const [classInstances, setClassInstances] = useState([
+    new P54MAccord(), new Lupara(), new Avenger57mm()
   ])
-  let itemsArr
+  let itemsArr = []
 
 
-  const data1 = JSON.parse(data())
-  const resData = data1.map((item) => {
-    const obj = {}
-    obj.id = item.id
-    obj.name = item.name
-    obj.formatBuyPrice = item.formatBuyPrice
-    obj.formatSellPrice = item.formatSellPrice
-    return obj
-  });
- 
-
-
-
-
-
-
+  // const data1 = JSON.parse(data())
+  // const resData = data1.map((item) => {
+  //   const obj = {}
+  //   obj.id = item.id
+  //   obj.name = item.name
+  //   obj.formatBuyPrice = item.formatBuyPrice
+  //   obj.formatSellPrice = item.formatSellPrice
+  //   return obj
+  // });
 
 
   useEffect(() => {
@@ -60,30 +53,44 @@ function App() {
     //     console.log(items);
     //   });
 
-      
-    setItems(JSON.parse(dataForList()))
+    setItemsList(JSON.parse(dataForList()))
   }, []);
 
-  if (items) {
-    console.log(items);
-    itemsArr = items.map(item => {
-      if (selectedItem === item.id) {
-        return (
-          <Item
-            key={item.id}
-            id={item.id}
-            active={true}
-            handleClick={handleClick}
-          />)
+  if (itemsList) {
+
+    for (const key in itemsList) {
+      
+      const arr = itemsList[key];
+      for (let i = 0; i < arr.length; i++) {
+        const item = arr[i];
+        for (let j = 0; j < classInstances.length; j++) {
+          const instance = classInstances[j];
+
+          if (item.id === instance.id) { // Сравниваем id объекта с id экземпляра класса
+            console.log('отрисовка айтема');
+            itemsArr = classInstances.map(inst => {
+              if (selectedItem === inst.id) {
+                return (
+                  <Item
+                    key={inst.name}
+                    id={inst.id}
+                    active={true}
+                    handleClick={handleClick}
+                  />)
+              }
+              return (
+                <Item
+                  key={inst.name}
+                  id={inst.id}
+                  active={false}
+                  handleClick={handleClick}
+                />)
+            })
+
+          }
+        }
       }
-      return (
-        <Item
-          key={item.id}
-          id={item.id}
-          active={false}
-          handleClick={handleClick}
-        />)
-    })
+    }
   }
 
 
@@ -106,12 +113,12 @@ function App() {
             {itemsArr}
           </ItemList>
           <MainCard>
-            {items &&
-            <ItemCard>
-              <TitleCard />
-              <ProductionRequirements />
-              <RequiredComponents />
-            </ItemCard>
+            {itemsList &&
+              <ItemCard>
+                <TitleCard />
+                <ProductionRequirements />
+                <RequiredComponents />
+              </ItemCard>
             }
             <VerticalSeparator />
             <ProductionCostWrapper>
