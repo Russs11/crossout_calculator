@@ -77,7 +77,7 @@ console.log(typeof(WeaponsCommon));
                     id={inst.id}
                     active={true}
                     handleClick={handleClick}
-                    img={inst.getImg()}
+                    img={inst.img}
                   />)
               }
               return (
