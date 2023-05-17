@@ -31,7 +31,9 @@ function App() {
   ])
   let itemsArr = []
 
-
+  for (const item in WeaponsCommon) {
+  console.log(item);
+}
   // const data1 = JSON.parse(data())
   // const resData = data1.map((item) => {
   //   const obj = {}
