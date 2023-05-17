@@ -20,14 +20,14 @@ import Profit from "./components/Profit";
 import ResoursesAvailableWrapper from "./containers/ResoursesAvailableWrapper";
 import ResoursesAvailable from "./components/ResoursesAvailable";
 import { data, dataForList } from './data'
-import { P54MAccord, Lupara, Avenger57mm } from "./entity/weapons/common";
+import * as WeaponsCommon from "./entity/weapons/common";
 
 
 function App() {
   const [itemsList, setItemsList] = useState();
   const [selectedItem, setSelectedItem] = useState(null)
   const [classInstances, setClassInstances] = useState([
-    new P54MAccord(), new Lupara(), new Avenger57mm()
+    new WeaponsCommon.P54MAccord(), new WeaponsCommon.Lupara(), new WeaponsCommon.Avenger57mm()
   ])
   let itemsArr = []
 
