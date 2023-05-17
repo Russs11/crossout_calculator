@@ -30,9 +30,9 @@ function App() {
     new WeaponsCommon.P54MAccord(), new WeaponsCommon.Lupara(), new WeaponsCommon.Avenger57mm()
   ])
   let itemsArr = []
-
+console.log(typeof(WeaponsCommon));
   for (const item in WeaponsCommon) {
-  console.log(item);
+  console.log(typeof(item));
 }
   // const data1 = JSON.parse(data())
   // const resData = data1.map((item) => {
@@ -77,6 +77,7 @@ function App() {
                     id={inst.id}
                     active={true}
                     handleClick={handleClick}
+                    img={inst.getImg()}
                   />)
               }
               return (
@@ -85,6 +86,7 @@ function App() {
                   id={inst.id}
                   active={false}
                   handleClick={handleClick}
+                  img={inst.img}
                 />)
             });
           }
