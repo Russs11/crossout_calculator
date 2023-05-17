@@ -1,0 +1,82 @@
+{
+	"resources": [
+		{
+			"dbId": 53,
+			"name": "scrapMetal",
+			"dbName": "Scrap Metal x100",
+			"buyPrice": "4.67",
+			"sellPrice": "4.71"
+		},
+		{
+			"dbId": 43,
+			"name": "copper",
+			"dbName": "Copper x100",
+			"buyPrice": "3.82",
+			"sellPrice": "3.92"
+		},
+		{
+			"dbId": 85,
+			"name": "wires",
+			"dbName": "Wires x100",
+			"buyPrice": "13.72",
+			"sellPrice": "14.20"
+		},
+		{
+			"dbId": 785,
+			"name": "plastic",
+			"dbName": "Plastic x100",
+			"buyPrice": "37.08",
+			"sellPrice": "38.83"
+		},
+		{
+			"dbId": 783,
+			"name": "batteries",
+			"dbName": "Batteries x10",
+			"buyPrice": "2.10",
+			"sellPrice": "2.23"
+		},
+		{
+			"dbId": 201,
+			"name": "electronics",
+			"dbName": "Electronics x10",
+			"buyPrice": "4.55",
+			"sellPrice": "4.88"
+		},
+		{
+			"dbId": 919,
+			"name": "engravedCasings",
+			"dbName": "Engraved casings x100",
+			"buyPrice": "2.12",
+			"sellPrice": "2.12"
+		}
+	],
+	"cabins": [],
+	"weapons": [
+		{
+			"id": 1,
+			"dbId": 93,
+			"name": "P54MAccord",
+			"dbName": "LM-54 Chord",
+			"buyPrice": "0.37",
+			"sellPrice": "0.69"
+		},
+		{
+			"id": 2,
+			"dbId": 5,
+			"name": "Lupara",
+			"dbName": "Lupara",
+			"buyPrice": "0.49",
+			"sellPrice": "0.78"
+		},
+		{
+			"id": 3,
+			"dbId": 99,
+			"name": "Avenger57mm",
+			"dbName": "Avenger 57mm",
+			"buyPrice": "0.72",
+			"sellPrice": "1.28"
+		}
+	],
+	"hardwares": [],
+	"movements": []
+}

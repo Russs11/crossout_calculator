@@ -19,13 +19,16 @@ import ComponentsCost from "./components/ComponentsCost";
 import Profit from "./components/Profit";
 import ResoursesAvailableWrapper from "./containers/ResoursesAvailableWrapper";
 import ResoursesAvailable from "./components/ResoursesAvailable";
-import {data} from './data'
+import { data, dataForList } from './data'
+
 
 
 function App() {
   const [items, setItems] = useState();
   const [selectedItem, setSelectedItem] = useState(null)
-  const [titleCard, setTitleCard] = useState()
+  const [titleCard, setTitleCard] = useState([
+    
+  ])
   let itemsArr
 
 
@@ -38,7 +41,7 @@ function App() {
     obj.formatSellPrice = item.formatSellPrice
     return obj
   });
-  console.log(resData.json());
+ 
 
 
 
@@ -48,25 +51,27 @@ function App() {
 
 
   useEffect(() => {
-    fetch('https://dummyjson.com/products')
-      .then((response) => response.json())
-      .then(({products}) => {
+    // fetch('https://dummyjson.com/products')
+    //   .then((response) => response.json())
+    //   .then(({products}) => {
 
-        console.log(products);
-        setItems(products)
-        console.log(items);
-      });
+    //     console.log(products);
+    //     setItems(products)
+    //     console.log(items);
+    //   });
+
+      
+    setItems(JSON.parse(dataForList()))
   }, []);
 
   if (items) {
+    console.log(items);
     itemsArr = items.map(item => {
       if (selectedItem === item.id) {
         return (
           <Item
             key={item.id}
             id={item.id}
-            title={item.title}
-            category={item.category}
             active={true}
             handleClick={handleClick}
           />)
@@ -75,8 +80,6 @@ function App() {
         <Item
           key={item.id}
           id={item.id}
-          title={item.title}
-          category={item.category}
           active={false}
           handleClick={handleClick}
         />)
