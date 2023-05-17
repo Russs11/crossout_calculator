@@ -10,9 +10,7 @@ export class P54MAccord extends CommonVehicleComponent {
     this.copper = 6;
     this.img = '.././../images/WeaponsCommon/P54MAccord.png'
   }
-  getImg(){
-    return this.img;
-  }
+  
 }
 export class Lupara extends CommonVehicleComponent {
   constructor() {
