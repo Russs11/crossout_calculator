@@ -59,7 +59,6 @@ function App() {
   if (itemsList) {
 
     for (const key in itemsList) {
-      
       const arr = itemsList[key];
       for (let i = 0; i < arr.length; i++) {
         const item = arr[i];
@@ -85,8 +84,7 @@ function App() {
                   active={false}
                   handleClick={handleClick}
                 />)
-            })
-
+            });
           }
         }
       }
