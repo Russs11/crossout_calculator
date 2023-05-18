@@ -1,7 +1,5 @@
 import { CommonVehicleComponent } from "../commonVehicleComponent";
-import * as WeaponImages from './WeapoImages'
-// import Avenger57mmImg from "../../images/WeaponsCommon/Avenger57mm.png";
-// console.log(typeof Avenger57mmImg);
+import * as WeaponImages from "./WeaponImages";
 export class P54MAccord extends CommonVehicleComponent {
   constructor() {
     super();
@@ -12,7 +10,6 @@ export class P54MAccord extends CommonVehicleComponent {
     this.copper = 6;
     this.img = WeaponImages.P54MAccord;
   }
-  
 }
 export class Lupara extends CommonVehicleComponent {
   constructor() {
@@ -34,6 +31,5 @@ export class Avenger57mm extends CommonVehicleComponent {
     this.scrapMetal = 30;
     this.copper = 6;
     this.img = WeaponImages.Avenger57mm;
-
   }
 }

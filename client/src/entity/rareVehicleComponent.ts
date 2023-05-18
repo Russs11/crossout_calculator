@@ -9,6 +9,7 @@ export class RareVehicleComponent {
   scrapMetal: number
   copper: number
   ingredients: CommonVehicleComponent[]
+  img: string
 
   constructor() {
     this.name = ''
@@ -19,6 +20,7 @@ export class RareVehicleComponent {
     this.scrapMetal = 650
     this.copper = 130
     this.ingredients = []
+    this.img = ''
   }
 
   getScrapMetal = (): number => { return this.scrapMetal }

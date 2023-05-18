@@ -23,6 +23,7 @@ import { data, dataForList } from './data'
 import * as WeaponsCommon from "./entity/weapons/common";
 
 
+
 function App() {
   const [itemsList, setItemsList] = useState();
   const [selectedItem, setSelectedItem] = useState(null)

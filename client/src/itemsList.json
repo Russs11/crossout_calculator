@@ -75,6 +75,14 @@
 			"dbName": "Avenger 57mm",
 			"buyPrice": "0.72",
 			"sellPrice": "1.28"
+		},
+		{
+			"id": 4,
+			"dbId": 34,
+			"name": "AC43Rapier",
+			"dbName": "AC43 Rapier",
+			"buyPrice": "40.01",
+			"sellPrice": "40.02"
 		}
 	],
 	"hardwares": [],
