@@ -26,14 +26,22 @@ import * as WeaponsCommon from "./entity/weapons/common";
 function App() {
   const [itemsList, setItemsList] = useState();
   const [selectedItem, setSelectedItem] = useState(null)
-  const [classInstances, setClassInstances] = useState([
-    new WeaponsCommon.P54MAccord(), new WeaponsCommon.Lupara(), new WeaponsCommon.Avenger57mm()
-  ])
+  const [classInstances, setClassInstances] = useState(
+  //   [
+  //   new WeaponsCommon.P54MAccord(), new WeaponsCommon.Lupara(), new WeaponsCommon.Avenger57mm()
+  // ]
+  )
   let itemsArr = []
-console.log(typeof(WeaponsCommon));
-  for (const item in WeaponsCommon) {
-  console.log(typeof(item));
-}
+// console.log(typeof(WeaponsCommon));
+  useEffect(() => {
+    let entityArr = []
+    for (const item in WeaponsCommon) {
+      entityArr.push(new WeaponsCommon[item]())
+    }
+    setClassInstances(entityArr)
+  }, [])
+  console.log(classInstances);
+ 
   // const data1 = JSON.parse(data())
   // const resData = data1.map((item) => {
   //   const obj = {}
@@ -68,7 +76,7 @@ console.log(typeof(WeaponsCommon));
           const instance = classInstances[j];
 
           if (item.id === instance.id) { // Сравниваем id объекта с id экземпляра класса
-            console.log('отрисовка айтема');
+            // console.log('отрисовка айтема');
             itemsArr = classInstances.map(inst => {
               if (selectedItem === inst.id) {
                 return (

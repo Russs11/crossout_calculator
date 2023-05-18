@@ -8,7 +8,7 @@ export class P54MAccord extends CommonVehicleComponent {
     this.type = "Пулемет";
     this.scrapMetal = 30;
     this.copper = 6;
-    this.img = '.././../images/WeaponsCommon/P54MAccord.png'
+    this.img = './images/WeaponsCommon/P54MAccord.png'
   }
   
 }
@@ -20,7 +20,7 @@ export class Lupara extends CommonVehicleComponent {
     this.type = "Дробовик";
     this.scrapMetal = 30;
     this.copper = 6;
-    this.img = '.././../images/WeaponsCommon/Lupara.png'
+    this.img = "./images/WeaponsCommon/Lupara.png";
   }
 }
 export class Avenger57mm extends CommonVehicleComponent {
@@ -31,7 +31,7 @@ export class Avenger57mm extends CommonVehicleComponent {
     this.type = "Пушка";
     this.scrapMetal = 30;
     this.copper = 6;
-    this.img = '.././../images/WeaponsCommon/Avenger57mm.png'
+    this.img = "./images/WeaponsCommon/Avenger57mm.png";
 
   }
 }
