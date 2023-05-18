@@ -55,14 +55,7 @@ function App() {
 
 
   useEffect(() => {
-    // fetch('https://dummyjson.com/products')
-    //   .then((response) => response.json())
-    //   .then(({products}) => {
-
-    //     console.log(products);
-    //     setItems(products)
-    //     console.log(items);
-    //   });
+    
 
     setItemsList(JSON.parse(dataForList()))
   }, []);
