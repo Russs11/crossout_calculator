@@ -1,5 +1,6 @@
 import { CommonVehicleComponent } from "../commonVehicleComponent";
-
+import Avenger57mmImg from "../../images/WeaponsCommon/Avenger57mm.png";
+console.log(typeof Avenger57mmImg);
 export class P54MAccord extends CommonVehicleComponent {
   constructor() {
     super();
@@ -8,7 +9,7 @@ export class P54MAccord extends CommonVehicleComponent {
     this.type = "Пулемет";
     this.scrapMetal = 30;
     this.copper = 6;
-    this.img = './images/WeaponsCommon/P54MAccord.png'
+    this.img = 'images/WeaponsCommon/P54MAccord.png'
   }
   
 }
@@ -31,7 +32,7 @@ export class Avenger57mm extends CommonVehicleComponent {
     this.type = "Пушка";
     this.scrapMetal = 30;
     this.copper = 6;
-    this.img = "./images/WeaponsCommon/Avenger57mm.png";
+    this.img = Avenger57mmImg
 
   }
 }
