@@ -39,9 +39,9 @@ function App() {
     for (const item in WeaponsCommon) {
       entityArr.push(new WeaponsCommon[item]())
     }
-    for (const item in WeaponsRare) {
-      entityArr.push(new WeaponsRare[item]())
-    }
+    // for (const item in WeaponsRare) {
+    //   entityArr.push(new WeaponsRare[item]())
+    // }
     setClassInstances(entityArr)
   }, [])
   // console.log(classInstances);
@@ -74,10 +74,8 @@ function App() {
   
 
   if (itemsList) {
-    for (let i = 0; i < itemsList.length; i++) {
-      const item = itemsList[i];
-      for (let j = 0; j < classInstances.length; j++) {
-        const instance = classInstances[j];
+    for (const item of itemsList) {
+      for (const instance of classInstances) {
         if (item === instance.id) { // Сравниваем id объекта с id экземпляра класса
           // console.log('отрисовка айтема');
           itemsArr = classInstances.map(inst => {
