@@ -19,30 +19,33 @@ import ComponentsCost from "./components/ComponentsCost";
 import Profit from "./components/Profit";
 import ResoursesAvailableWrapper from "./containers/ResoursesAvailableWrapper";
 import ResoursesAvailable from "./components/ResoursesAvailable";
-import { data, dataForList } from './data'
+import { data, dataForList, dataId } from './data'
 import * as WeaponsCommon from "./entity/weapons/common";
-
+import * as WeaponsRare from "./entity/weapons/rare"
 
 
 function App() {
   const [itemsList, setItemsList] = useState();
   const [selectedItem, setSelectedItem] = useState(null)
   const [classInstances, setClassInstances] = useState(
-  //   [
-  //   new WeaponsCommon.P54MAccord(), new WeaponsCommon.Lupara(), new WeaponsCommon.Avenger57mm()
-  // ]
+    //   [
+    //   new WeaponsCommon.P54MAccord(), new WeaponsCommon.Lupara(), new WeaponsCommon.Avenger57mm()
+    // ]
   )
   let itemsArr = []
-// console.log(typeof(WeaponsCommon));
+  // console.log(typeof(WeaponsCommon));
   useEffect(() => {
     let entityArr = []
     for (const item in WeaponsCommon) {
       entityArr.push(new WeaponsCommon[item]())
     }
+    for (const item in WeaponsRare) {
+      entityArr.push(new WeaponsRare[item]())
+    }
     setClassInstances(entityArr)
   }, [])
-  console.log(classInstances);
- 
+  // console.log(classInstances);
+
   // const data1 = JSON.parse(data())
   // const resData = data1.map((item) => {
   //   const obj = {}
@@ -55,48 +58,54 @@ function App() {
 
 
   useEffect(() => {
-    
+    // fetch('https://dummyjson.com/products')
+    //   .then((response) => response.json())
+    //   .then(({products}) => {
 
-    setItemsList(JSON.parse(dataForList()))
+    //     console.log(products);
+    //     setItems(products)
+    //     console.log(items);
+    //   });
+    const listArr = JSON.parse(dataId())
+    setItemsList(listArr)
+    setSelectedItem(listArr[0]) 
+
   }, []);
+  
 
   if (itemsList) {
-
-    for (const key in itemsList) {
-      const arr = itemsList[key];
-      for (let i = 0; i < arr.length; i++) {
-        const item = arr[i];
-        for (let j = 0; j < classInstances.length; j++) {
-          const instance = classInstances[j];
-
-          if (item.id === instance.id) { // Сравниваем id объекта с id экземпляра класса
-            // console.log('отрисовка айтема');
-            itemsArr = classInstances.map(inst => {
-              if (selectedItem === inst.id) {
-                return (
-                  <Item
-                    key={inst.name}
-                    id={inst.id}
-                    active={true}
-                    handleClick={handleClick}
-                    img={inst.img}
-                  />)
+    for (let i = 0; i < itemsList.length; i++) {
+      const item = itemsList[i];
+      for (let j = 0; j < classInstances.length; j++) {
+        const instance = classInstances[j];
+        if (item === instance.id) { // Сравниваем id объекта с id экземпляра класса
+          // console.log('отрисовка айтема');
+          itemsArr = classInstances.map(inst => {
+            if (selectedItem === inst.id) {
+              return (
+                <Item
+                key={inst.name}
+                id={inst.id}
+                active={true}
+                handleClick={handleClick}
+                img={inst.img}
+                />)
               }
               return (
                 <Item
-                  key={inst.name}
-                  id={inst.id}
-                  active={false}
-                  handleClick={handleClick}
-                  img={inst.img}
+                key={inst.name}
+                id={inst.id}
+                active={false}
+                handleClick={handleClick}
+                img={inst.img}
                 />)
-            });
-          }
+          });
         }
       }
     }
+    console.log(itemsList[0]);
   }
-
+  
 
 
   function handleClick(id) {
