@@ -101,7 +101,6 @@ function App() {
         }
       }
     }
-    console.log(itemsList[0]);
   }
   
 
