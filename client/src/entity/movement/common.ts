@@ -3,6 +3,7 @@ import { CommonVehicleComponent } from '../commonVehicleComponent'
 export class SmallWheel extends CommonVehicleComponent {
   constructor() {
     super()
+    this.id = 501;
     this.name = 'Колесо малое'
     this.type = 'Колесо легкое'
     this.scrapMetal = 15
@@ -12,6 +13,7 @@ export class SmallWheel extends CommonVehicleComponent {
 export class SmallWheelST extends CommonVehicleComponent {
   constructor() {
     super()
+    this.id = 502;
     this.name = 'Колесо малое (пов.)'
     this.type = 'Колесо легкое'
     this.scrapMetal = 15
@@ -21,6 +23,7 @@ export class SmallWheelST extends CommonVehicleComponent {
 export class MediumWheel extends CommonVehicleComponent {
   constructor() {
     super()
+    this.id = 503;
     this.name = 'Колесо среднее'
     this.type = 'Колесо среднее'
     this.scrapMetal = 15
@@ -30,6 +33,7 @@ export class MediumWheel extends CommonVehicleComponent {
 export class MediumWheelST extends CommonVehicleComponent {
   constructor() {
     super()
+    this.id = 504;
     this.name = 'Колесо среднее (пов.)'
     this.type = 'Колесо среднее'
     this.scrapMetal = 15
