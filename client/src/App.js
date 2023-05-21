@@ -27,11 +27,8 @@ import * as WeaponsRare from "./entity/weapons/rare"
 function App() {
   const [itemsList, setItemsList] = useState();
   const [selectedItem, setSelectedItem] = useState(null)
-  const [classInstances, setClassInstances] = useState(
-    //   [
-    //   new WeaponsCommon.P54MAccord(), new WeaponsCommon.Lupara(), new WeaponsCommon.Avenger57mm()
-    // ]
-  )
+  const [classInstances, setClassInstances] = useState(null)
+  const [selectedInstance, setSelectedInstance] = useState()
   let itemsArr = []
   // console.log(typeof(WeaponsCommon));
   useEffect(() => {
@@ -44,7 +41,7 @@ function App() {
     // }
     setClassInstances(entityArr)
   }, [])
-  // console.log(classInstances);
+  // console.log('classInstances', classInstances);
 
   // const data1 = JSON.parse(data())
   // const resData = data1.map((item) => {
@@ -55,7 +52,7 @@ function App() {
   //   obj.formatSellPrice = item.formatSellPrice
   //   return obj
   // });
-
+  // console.log(classInstances);
 
   useEffect(() => {
     // fetch('https://dummyjson.com/products')
@@ -71,7 +68,7 @@ function App() {
     setSelectedItem(listArr[0]) 
 
   }, []);
-  
+  // console.log(classInstances);
 
   if (itemsList) {
     for (const item of itemsList) {
@@ -102,14 +99,26 @@ function App() {
       }
     }
   }
-  
+  // console.log(selectedInstance);
+  useEffect(() =>{
+    if (selectedItem) {
+      let selectedInst = classInstances.find(inst => inst.id === selectedItem);
+      setSelectedInstance(selectedInst)
+      }
+    
+  }, [selectedItem, classInstances])
 
+  
+    
+  
 
   function handleClick(id) {
     setSelectedItem(id)
-
+    // let selectedInst = classInstances.find(inst => inst.id === selectedItem);
+    // setSelectedInstance(selectedInst)
+    console.log('selectedInstance' ,selectedInstance.name);
   }
-
+// console.log(activeItemCard);
 
 
   return (
@@ -125,7 +134,7 @@ function App() {
           <MainCard>
             {itemsList &&
               <ItemCard>
-                <TitleCard />
+                <TitleCard/>
                 <ProductionRequirements />
                 <RequiredComponents />
               </ItemCard>

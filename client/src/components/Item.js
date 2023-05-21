@@ -9,7 +9,7 @@ const Item = ({ id, active, handleClick, img }) => {
 		backgroundImage: 'url(' + img + ')'
 		// background: 'green'
 	}
-	console.log(itemImg);
+
 	// console.log(itemImg);
 	if (active) {
 		return (
