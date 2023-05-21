@@ -100,10 +100,11 @@ function App() {
     }
   }
   // console.log(selectedInstance);
+  console.log(selectedItem);
   useEffect(() =>{
     if (selectedItem) {
-      let selectedInst = classInstances.find(inst => inst.id === selectedItem);
-      setSelectedInstance(selectedInst)
+      // let selectedInst = classInstances.find(inst => inst.id === selectedItem);
+      setSelectedInstance(classInstances.find(inst => inst.id === selectedItem))
       }
     
   }, [selectedItem, classInstances])
@@ -116,8 +117,8 @@ function App() {
     setSelectedItem(id)
     // let selectedInst = classInstances.find(inst => inst.id === selectedItem);
     // setSelectedInstance(selectedInst)
-    console.log('selectedInstance' ,selectedInstance.name);
   }
+  console.log('selectedInstance', selectedInstance);
 // console.log(activeItemCard);
 
 
@@ -132,9 +133,13 @@ function App() {
             {itemsArr}
           </ItemList>
           <MainCard>
-            {itemsList &&
-              <ItemCard>
-                <TitleCard/>
+            {selectedInstance &&
+              <ItemCard> 
+                <TitleCard 
+                name={selectedInstance.name}
+                type={selectedInstance.type}
+                img={selectedInstance.img}
+                />
                 <ProductionRequirements />
                 <RequiredComponents />
               </ItemCard>
