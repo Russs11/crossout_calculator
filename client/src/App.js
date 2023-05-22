@@ -28,8 +28,10 @@ function App() {
   const [itemsList, setItemsList] = useState();
   const [selectedItem, setSelectedItem] = useState(null)
   const [classInstances, setClassInstances] = useState(null)
-  const [selectedInstance, setSelectedInstance] = useState()
+  // const [selectedInstance, setSelectedInstance] = useState()
+  let selectedInstance
   let itemsArr = []
+  
   // console.log(typeof(WeaponsCommon));
   useEffect(() => {
     let entityArr = []
@@ -99,15 +101,11 @@ function App() {
       }
     }
   }
-  // console.log(selectedInstance);
-  console.log(selectedItem);
-  useEffect(() =>{
+
     if (selectedItem) {
-      // let selectedInst = classInstances.find(inst => inst.id === selectedItem);
-      setSelectedInstance(classInstances.find(inst => inst.id === selectedItem))
+      selectedInstance = classInstances.find(inst => inst.id === selectedItem);
       }
     
-  }, [selectedItem, classInstances])
 
   
     
@@ -135,11 +133,7 @@ function App() {
           <MainCard>
             {selectedInstance &&
               <ItemCard> 
-                <TitleCard 
-                name={selectedInstance.name}
-                type={selectedInstance.type}
-                img={selectedInstance.img}
-                />
+                <TitleCard component={ selectedInstance} />
                 <ProductionRequirements />
                 <RequiredComponents />
               </ItemCard>
