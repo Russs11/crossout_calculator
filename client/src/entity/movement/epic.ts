@@ -7,6 +7,7 @@ import { APCWheelST, Camber, CamberST, LunarIV, LunarIVST, Shiv, ShivST, TwinWhe
 export class BuggyWheel extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 427
     this.name = 'Колесо багги'
     this.type = 'Колесо легкое'
     this.scrapMetal = 250
@@ -20,6 +21,7 @@ export class BuggyWheel extends EpicVehicleComponent {
 export class BuggyWheelST extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 428
     this.name = 'Колесо багги (пов.)'
     this.type = 'Колесо легкое'
     this.scrapMetal = 250
@@ -33,6 +35,7 @@ export class BuggyWheelST extends EpicVehicleComponent {
 export class Bigfoot extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 429
     this.name = 'Бигфут'
     this.type = 'Колесо тяжелое'    
     this.ingredients = [new Shiv(), new Bat(), new TwinWheel()]
@@ -41,6 +44,7 @@ export class Bigfoot extends EpicVehicleComponent {
 export class BigfootST extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 430
     this.name = 'Бигфут (пов.)'
     this.type = 'Колесо тяжелое'
     this.ingredients = [new ShivST(), new Bat(), new TwinWheelST()]
@@ -49,6 +53,7 @@ export class BigfootST extends EpicVehicleComponent {
 export class Omni extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 431
     this.name = 'Омни'
     this.type = 'Роликонесущая ходовая'
     this.scrapMetal = 250
@@ -62,6 +67,7 @@ export class Omni extends EpicVehicleComponent {
 export class SmallTrack extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 432
     this.name = 'Гусеница малая'
     this.type = 'Гусеница'
     this.ingredients = [new Hardcore(), new Buzzsaw(), new Mace()]
@@ -70,6 +76,7 @@ export class SmallTrack extends EpicVehicleComponent {
 export class HardenedTrack extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 433
     this.name = 'Гусеница укрепленная'
     this.type = 'Гусеница'
     this.ingredients = [new Ampere(), new Chameleon(), new DunHorse()]
@@ -78,20 +85,36 @@ export class HardenedTrack extends EpicVehicleComponent {
 export class ArmoredTrack extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 434
     this.name = 'Гусеница бронированная'
     this.type = 'Гусеница'
     this.ingredients = [new TwinWheel(), new TwinWheelST(), new Razorback()]
   }
 }
 export class IcarusVII extends EpicVehicleComponent {
-  name = 'Икар VII'
-  ingredients = [new LunarIVST(), new LunarIV(), new DunHorse()]
+  constructor() {
+    super()
+    this.id = 435
+    this.name = 'Икар VII'
+    this.type = 'Ховер'
+    this.ingredients = [new LunarIVST(), new LunarIV(), new DunHorse()]
+  }
 }
 export class ML200 extends EpicVehicleComponent {
-  name = 'МН-Л 200'
-  ingredients = [new Sidekick(), new APCWheelST(), new Razorback()]
+  constructor() {
+    super()
+    this.id = 436
+    this.name = 'МН-Л 200'
+    this.type = 'Механическая нога'
+    this.ingredients = [new Sidekick(), new APCWheelST(), new Razorback()]
+  }
 }
 export class MeatGrinder extends EpicVehicleComponent {
-  name = 'Мясорубка'
-  ingredients = [new Shiv(), new ShivST(), new Buzzsaw()]
+  constructor() {
+    super()
+    this.id = 437
+    this.name = 'Мясорубка'
+    this.type = 'Шнек'
+    this.ingredients = [new Shiv(), new ShivST(), new Buzzsaw()]
+  }
 }

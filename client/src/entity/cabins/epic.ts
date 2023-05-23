@@ -7,6 +7,7 @@ import { Jawbreaker, Bat, Pilgrim } from './special'
 export class Jannabi extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 111
     this.name = 'Джаннаби'
     this.type = 'Легкая кабина'
     this.scrapMetal = 250
@@ -20,6 +21,7 @@ export class Jannabi extends EpicVehicleComponent {
 export class Harpy extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 112
     this.name = 'Гарпия'
     this.type = 'Легкая кабина'
     this.ingredients = [new Bat(), new Shiv(), new Sinus0()]
@@ -28,6 +30,7 @@ export class Harpy extends EpicVehicleComponent {
 export class Werewolf extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 113
     this.name = 'Оборотень'
     this.type = 'Легкая кабина'
     this.ingredients = [new Bat(), new ShivST(), new Ampere()]
@@ -36,6 +39,7 @@ export class Werewolf extends EpicVehicleComponent {
 export class Aggressor extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 114
     this.name = 'Агрессор'
     this.type = 'Легкая кабина'
     this.scrapMetal = 250
@@ -49,6 +53,7 @@ export class Aggressor extends EpicVehicleComponent {
 export class Quantum extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 115
     this.name = 'Квант'
     this.type = 'Средняя кабина'
     this.ingredients = [new Pilgrim(), new Genesis(), new AD13Hawk()]
@@ -57,6 +62,7 @@ export class Quantum extends EpicVehicleComponent {
 export class Photon extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 116
     this.name = 'Фотон'
     this.type = 'Средняя кабина'
     this.ingredients = [new Pilgrim(), new Synthesis(), new AD13Hawk()]
@@ -65,6 +71,7 @@ export class Photon extends EpicVehicleComponent {
 export class Humpback extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 117
     this.name = 'Горбун'
     this.type = 'Тяжелая кабина'
     this.ingredients = [new Jawbreaker(), new APCWheel(), new Razorback()]
@@ -73,6 +80,7 @@ export class Humpback extends EpicVehicleComponent {
 export class Bastion extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 118
     this.name = 'Бастион'
     this.type = 'Тяжелая кабина'
     this.ingredients = [new Jawbreaker(), new APCWheelST(), new PU1Charge()]

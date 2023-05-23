@@ -7,6 +7,7 @@ import { R2Chill, AmmoPack, Blastoff, CSTaymyr, TS1Horizon, RD1Listener } from '
 export class Chameleon extends SpecialVehicleComponent {
   constructor() {
     super()
+    this.id = 315
     this.name = 'Хамелеон'
     this.type = 'Невидимость'
     this.ingredients = [new LandingGear(), new CSTaymyr()]
@@ -15,6 +16,7 @@ export class Chameleon extends SpecialVehicleComponent {
 export class KA1Discharger extends SpecialVehicleComponent {
   constructor() {
     super()
+    this.id = 316
     this.name = 'КА-1 Разрядник'
     this.type = 'Ускоритель перезарядки'
     this.scrapMetal = 200
@@ -26,6 +28,7 @@ export class KA1Discharger extends SpecialVehicleComponent {
 export class OculusVI extends SpecialVehicleComponent {
   constructor() {
     super()
+    this.id = 317
     this.name = 'Окулус VI'
     this.type = 'Радар'
     this.ingredients = [new RD1Listener(), new TS1Horizon()]
@@ -34,6 +37,7 @@ export class OculusVI extends SpecialVehicleComponent {
 export class Maxwell extends SpecialVehicleComponent {
   constructor() {
     super()
+    this.id = 318
     this.name = 'Максвелл'
     this.type = 'Радар'
     this.ingredients = [new LandingGearST(), new TS1Horizon()]
@@ -42,6 +46,7 @@ export class Maxwell extends SpecialVehicleComponent {
 export class PU1Charge extends SpecialVehicleComponent {
   constructor() {
     super()
+    this.id = 319
     this.name = 'ЭУ-1 Заряд'
     this.type = 'Генератор'
     this.ingredients = [new DTCobra(), new TS1Horizon()]
@@ -50,6 +55,7 @@ export class PU1Charge extends SpecialVehicleComponent {
 export class Ampere extends SpecialVehicleComponent {
   constructor() {
     super()
+    this.id = 320
     this.name = 'Ампер'
     this.type = 'Генератор'
     this.ingredients = [new RacingWheelST(), new R2Chill()]
@@ -58,6 +64,7 @@ export class Ampere extends SpecialVehicleComponent {
 export class Hardcore extends SpecialVehicleComponent {
   constructor() {
     super()
+    this.id = 321
     this.name = 'Жесткач'
     this.type = 'Двигатель'
     this.ingredients = [new Blastoff(), new CSTaymyr()]
@@ -66,6 +73,7 @@ export class Hardcore extends SpecialVehicleComponent {
 export class Razorback extends SpecialVehicleComponent {
   constructor() {
     super()
+    this.id = 322
     this.name = 'Работяга'
     this.type = 'Двигатель'
     this.ingredients = [new Trucker(), new LittleBoy6LB()]
@@ -74,6 +82,7 @@ export class Razorback extends SpecialVehicleComponent {
 export class DunHorse extends SpecialVehicleComponent {
   constructor() {
     super()
+    this.id = 323
     this.name = 'Саврас'
     this.type = 'Двигатель'
     this.ingredients = [new RacingWheel(), new R2Chill()]
@@ -82,6 +91,7 @@ export class DunHorse extends SpecialVehicleComponent {
 export class Genesis extends SpecialVehicleComponent {
   constructor() {
     super()
+    this.id = 324
     this.name = 'Генезис'
     this.type = 'Боеприпасы'
     this.ingredients = [new AD12Falcon(), new AmmoPack()]

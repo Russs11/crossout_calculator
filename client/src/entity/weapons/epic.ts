@@ -7,6 +7,7 @@ import { Synthesis, Prosecutor76mm, T3Python, AC50Storm, Sinus0, ZS33Hulk, Mace,
 export class M29Protector extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 230
     this.name = 'П-29 Заступник'
     this.type = 'Пулемет'
     this.ingredients = [new Sinus0(), new DunHorse(), new Chameleon()]
@@ -15,6 +16,7 @@ export class M29Protector extends EpicVehicleComponent {
 export class M38Fidget extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 231
     this.name = 'П-38 Егоза'
     this.type = 'Пулемет'
     this.scrapMetal = 600
@@ -28,6 +30,7 @@ export class M38Fidget extends EpicVehicleComponent {
 export class Spectre2 extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 232
     this.name = 'Спектр-2'
     this.type = 'Пулемет'
     this.ingredients = [new Sinus0(), new AD13Hawk(), new Maxwell()]
@@ -36,6 +39,7 @@ export class Spectre2 extends EpicVehicleComponent {
 export class MG13Equalizer extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 233
     this.name = 'ПУ13 Уравнитель'
     this.type = 'Пулемет'
     this.ingredients = [new AC50Storm(), new Sinus0(), new Ampere()]
@@ -44,6 +48,7 @@ export class MG13Equalizer extends EpicVehicleComponent {
 export class Caucasus extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 234
     this.name = 'Кавказ'
     this.type = 'Пулемет'
     this.ingredients = [new Prosecutor76mm(), new Jawbreaker(), new APCWheel()]
@@ -52,6 +57,7 @@ export class Caucasus extends EpicVehicleComponent {
 export class Gremlin extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 235
     this.name = 'Гремлин'
     this.type = 'Дробовик'
     this.scrapMetal = 250
@@ -65,6 +71,7 @@ export class Gremlin extends EpicVehicleComponent {
 export class Fafnir extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 236
     this.name = 'Фафнир'
     this.type = 'Дробовик'
     this.ingredients = [new Junkbow(), new Junkbow(), new ZS33Hulk()]
@@ -73,6 +80,7 @@ export class Fafnir extends EpicVehicleComponent {
 export class Thunderbolt extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 237
     this.name = 'Гром'
     this.type = 'Дробовик'
     this.ingredients = [new Mace(), new Goblin(), new Buzzsaw()]
@@ -81,6 +89,7 @@ export class Thunderbolt extends EpicVehicleComponent {
 export class Rupture extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 238
     this.name = 'Разрыватель'
     this.type = 'Дробовик'
     this.ingredients = [new Goblin(), new Hardcore(), new Buzzsaw()]
@@ -89,6 +98,7 @@ export class Rupture extends EpicVehicleComponent {
 export class AC72Whirlwind extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 239
     this.name = 'АП72 Вихрь'
     this.type = 'Автопушка'
     this.ingredients = [new AC50Storm(), new Chameleon(), new Sinus0()]
@@ -97,6 +107,7 @@ export class AC72Whirlwind extends EpicVehicleComponent {
 export class ZS34FatMan extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 240
     this.name = 'ЗИС-34 Толстяк'
     this.type = 'Пушка'
     this.ingredients = [new ZS33Hulk(), new ZS33Hulk(), new TwinWheelST() ]
@@ -105,6 +116,7 @@ export class ZS34FatMan extends EpicVehicleComponent {
 export class Executioner88mm extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 241
     this.name = 'Палач 88мм'
     this.type = 'Пушка'
     this.ingredients = [new Prosecutor76mm(), new TwinWheel(), new OculusVI()]
@@ -113,6 +125,7 @@ export class Executioner88mm extends EpicVehicleComponent {
 export class Cricket extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 242
     this.name = 'Сверчок'
     this.type = 'Ракетница'
     this.ingredients = [new Goblin(), new Boom(), new Mace()]
@@ -121,6 +134,7 @@ export class Cricket extends EpicVehicleComponent {
 export class Pyre extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 243
     this.name = 'Пламя'
     this.type = 'Ракетница'
     this.ingredients = [new Prosecutor76mm(), new OculusVI(), new T3Python()]
@@ -129,6 +143,7 @@ export class Pyre extends EpicVehicleComponent {
 export class ClarinetTOW extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 244
     this.name = 'ПТУР Кларнет-С'
     this.type = 'Ракетница'
     this.ingredients = [new T3Python(), new Sidekick(), new APCWheelST()]
@@ -137,6 +152,7 @@ export class ClarinetTOW extends EpicVehicleComponent {
 export class Thresher extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 245
     this.name = 'Дробитель'
     this.type = 'Гранатомет'
     this.scrapMetal = 250
@@ -150,6 +166,7 @@ export class Thresher extends EpicVehicleComponent {
 export class GL55Impulse extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 246
     this.name = 'АГС-55 Импульс'
     this.type = 'Гранатомет'
     this.ingredients = [new Prosecutor76mm(), new T3Python(), new PU1Charge()]
@@ -158,6 +175,7 @@ export class GL55Impulse extends EpicVehicleComponent {
 export class Aurora extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 247
     this.name = 'Аврора'
     this.type = 'Энергетическое оружие'
     this.ingredients = [new Synthesis(), new LunarIVST(), new Ampere()]
@@ -166,6 +184,7 @@ export class Aurora extends EpicVehicleComponent {
 export class Quasar extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 248
     this.name = 'Квазар'
     this.type = 'Энергетическое оружие'
     this.ingredients = [new ZS33Hulk(), new Synthesis(), new Genesis()]
@@ -174,6 +193,7 @@ export class Quasar extends EpicVehicleComponent {
 export class PrometheusV extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 249
     this.name = 'Прометей V'
     this.type = 'Энергетическое оружие'
     this.ingredients = [new Synthesis(), new Genesis(), new Maxwell()]
@@ -182,6 +202,7 @@ export class PrometheusV extends EpicVehicleComponent {
 export class Phoenix extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 250
     this.name = 'Феникс'
     this.type = 'Арбалет'
     this.ingredients = [new Junkbow(), new Shiv(), new Boom()]
@@ -190,6 +211,7 @@ export class Phoenix extends EpicVehicleComponent {
 export class Lancelot extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 251
     this.name = 'Ланселот'
     this.type = 'Контактное оружие'
     this.ingredients = [new Boom(), new Goblin(), new Hardcore()]
@@ -198,6 +220,7 @@ export class Lancelot extends EpicVehicleComponent {
 export class Mauler extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 252
     this.name = 'Терзатель'
     this.type = 'Контактное оружие'
     this.ingredients = [new Buzzsaw(), new Boom(), new Goblin()]
@@ -206,6 +229,7 @@ export class Mauler extends EpicVehicleComponent {
 export class Incinerator extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 253
     this.name = 'Испепелитель'
     this.type = 'Огненое оружие'
     this.ingredients = [new Shiv(), new Junkbow(), new PU1Charge()]
@@ -214,6 +238,7 @@ export class Incinerator extends EpicVehicleComponent {
 export class MD3Owl extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 254
     this.name = 'РД-3 Филин'
     this.type = 'Дрон'
     this.ingredients = [new AD13Hawk(), new Ampere(), new Sinus0()]
@@ -223,6 +248,7 @@ export class MD3Owl extends EpicVehicleComponent {
 export class Fuze extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 255
     this.name = 'Запал'
     this.type = 'Дрон'
     this.ingredients = [new Hardcore(), new Boom(), new Goblin()]
@@ -231,6 +257,7 @@ export class Fuze extends EpicVehicleComponent {
 export class RTAnaconda extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 256
     this.name = 'ТР Анаконда'
     this.type = 'Дрон'
     this.ingredients = [new T3Python(), new PU1Charge(), new TwinWheelST()]
@@ -239,6 +266,7 @@ export class RTAnaconda extends EpicVehicleComponent {
 export class BarrierIX extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 257
     this.name = 'Барьер IX'
     this.type = 'Дрон'
     this.ingredients = [new Pilgrim(), new LunarIV(), new T3Python()]
@@ -247,6 +275,7 @@ export class BarrierIX extends EpicVehicleComponent {
 export class Yaoguai extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 258
     this.name = 'Яогуай'
     this.type = 'Дрон'
     this.scrapMetal = 250
@@ -260,6 +289,7 @@ export class Yaoguai extends EpicVehicleComponent {
 export class Skinner extends EpicVehicleComponent {
   constructor() {
     super()
+    this.id = 259
     this.name = 'Шкуродер'
     this.type = 'Оружие без категории'
     this.ingredients = [new Junkbow(), new ShivST(), new Mace()]
