@@ -15,8 +15,10 @@ export class SpecialVehicleComponent {
   plastic: number
   engravedCasings: number
   ingredients: RareVehicleComponent[]
+  img: string
 
   constructor() {
+    this.id = 0
     this.name = ''
     this.type = ''
     this.rarity = 'special'
@@ -30,6 +32,7 @@ export class SpecialVehicleComponent {
     this.plastic = 50
     this.engravedCasings = 0
     this.ingredients = []
+    this.img = ''
   }
 
   getScrapMetal = (): number => {

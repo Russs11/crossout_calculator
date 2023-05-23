@@ -58,6 +58,7 @@ export class AC43Rapier extends RareVehicleComponent {
     this.name = "АП43 Рапира";
     this.type = "Автопушка";
     this.ingredients = [new B1Aviator(), new P54MAccord()];
+    this.img = WeaponImages.AC43Rapier
   }
 }
 export class LittleBoy6LB extends RareVehicleComponent {
@@ -67,6 +68,7 @@ export class LittleBoy6LB extends RareVehicleComponent {
     this.name = "Малыш 6Ф";
     this.type = "Пушка";
     this.ingredients = [new Avenger57mm(), new FuelBarrel()];
+    this.img = WeaponImages.LittleBoy6LB
   }
 }
 export class Judge76mm extends RareVehicleComponent {
@@ -76,6 +78,7 @@ export class Judge76mm extends RareVehicleComponent {
     this.name = "Судья 76мм";
     this.type = "Пушка";
     this.ingredients = [new Avenger57mm(), new MediumWheelST()];
+    this.img = WeaponImages.Judge76mm
   }
 }
 export class Wasp extends RareVehicleComponent {
@@ -85,6 +88,7 @@ export class Wasp extends RareVehicleComponent {
     this.name = "Оса";
     this.type = "Ракетница";
     this.ingredients = [new Avenger57mm(), new FuelBarrel()];
+    this.img = WeaponImages.Wasp
   }
 }
 export class Borer extends RareVehicleComponent {
@@ -94,6 +98,7 @@ export class Borer extends RareVehicleComponent {
     this.name = "Бур";
     this.type = "Контактное оружие";
     this.ingredients = [new CarJack(), new R1Breese()];
+    this.img = WeaponImages.Borer
   }
 }
 export class AD12Falcon extends RareVehicleComponent {
@@ -103,6 +108,7 @@ export class AD12Falcon extends RareVehicleComponent {
     this.name = "АД-12 Сокол";
     this.type = "Дрон";
     this.ingredients = [new P54MAccord(), new RS1Ruby()];
+    this.img = WeaponImages.AD12Falcon
   }
 }
 export class DTCobra extends RareVehicleComponent {
@@ -112,5 +118,6 @@ export class DTCobra extends RareVehicleComponent {
     this.name = "Т3 Кобра";
     this.type = "Дрон";
     this.ingredients = [new Radio(), new Lupara()];
+    this.img = WeaponImages.DTCobra
   }
 }

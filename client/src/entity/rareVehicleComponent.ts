@@ -15,6 +15,7 @@ export class RareVehicleComponent {
   img: string;
 
   constructor() {
+    this.id = 0
     this.name = "";
     this.type = "";
     this.rarity = "rare";
