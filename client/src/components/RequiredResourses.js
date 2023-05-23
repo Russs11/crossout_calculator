@@ -3,9 +3,9 @@ import './RequiredResourses.scss'
 
 
 
-const RequiredResourses = ({ type }) => {
+const RequiredResourses = () => {
 
-	if (type === 'bigCard') {
+
 		return (
 			<div>
 				<div className="production-requirements-grid">
@@ -34,9 +34,6 @@ const RequiredResourses = ({ type }) => {
 				</div>
 			</div>
 		);
-		
-	}
-	
 };
 
 export default RequiredResourses;

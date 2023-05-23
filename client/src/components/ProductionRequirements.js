@@ -11,7 +11,7 @@ const ProductionRequirements = () => {
             <div className="production-requirements">
                 <div className="production-requirements-title text-4">Для производства требуется:</div>
                 <HorizontalSeparator />
-                <RequiredResourses type='bigCard'/>
+                <RequiredResourses/>
                 <HorizontalSeparator />
             </div>
         </>

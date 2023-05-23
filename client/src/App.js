@@ -117,8 +117,6 @@ function App() {
 
   function handleClick(id) {
     setSelectedItem(id)
-    // let selectedInst = classInstances.find(inst => inst.id === selectedItem);
-    // setSelectedInstance(selectedInst)
   }
   
 
