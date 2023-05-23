@@ -22,6 +22,7 @@ import ResoursesAvailable from "./components/ResoursesAvailable";
 import { data, dataForList, dataId } from './data'
 import * as WeaponsCommon from "./entity/weapons/common";
 import * as WeaponsRare from "./entity/weapons/rare"
+import * as WeaponsSpecial from "./entity/weapons/special"
 
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
     }
     for (const item in WeaponsRare) {
       entityArr.push(new WeaponsRare[item]())
+    }
+    for (const item in WeaponsSpecial) {
+      entityArr.push(new WeaponsSpecial[item]())
     }
     setClassInstances(entityArr)
   }, [])

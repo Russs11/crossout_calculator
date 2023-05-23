@@ -16,8 +16,8 @@ const TitleCard = ({component}) => {
 						<div className="item-type text-5">{component.type}</div>
 						<div className="item-production-time-title text-4">Время производства:</div>
 						<div className="item-production-cost-title text-4">Стоимость производства:</div>
-						<div className="item-production-time-value text-1">12 часов</div>
-						<div className="token value-orange text-1">75 <div className="token-img"></div>
+							<div className="item-production-time-value text-1">{component.productionTime ? component.productionTime : 0 }</div>
+							<div className="token value-orange text-1">{component.benchCost ? component.benchCost : 0}<div className="token-img"></div>
 						</div>
 					</div>
 				</div>

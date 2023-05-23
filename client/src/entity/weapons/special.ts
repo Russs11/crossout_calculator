@@ -52,6 +52,7 @@ export class Goblin extends SpecialVehicleComponent {
     this.name = "Гоблин";
     this.type = "Дробовик";
     this.ingredients = [new Wasp(), new Spitfire()];
+    this.img = WeaponImages.Goblin
   }
 }
 export class Junkbow extends SpecialVehicleComponent {
@@ -61,6 +62,7 @@ export class Junkbow extends SpecialVehicleComponent {
     this.name = "Самопал";
     this.type = "Дробовик";
     this.ingredients = [new Sledgehammer(), new Growl()];
+    this.img = WeaponImages.Junkbow
   }
 }
 export class Mace extends SpecialVehicleComponent {
@@ -70,6 +72,7 @@ export class Mace extends SpecialVehicleComponent {
     this.name = "Булава";
     this.type = "Дробовик";
     this.ingredients = [new Sledgehammer(), new Spitfire()];
+    this.img = WeaponImages.Mace
   }
 }
 export class AC50Storm extends SpecialVehicleComponent {
@@ -79,6 +82,7 @@ export class AC50Storm extends SpecialVehicleComponent {
     this.name = "АП50 Шторм";
     this.type = "Автопушка";
     this.ingredients = [new STM23Defender(), new AC43Rapier()];
+    this.img = WeaponImages.AC50Storm
   }
 }
 export class ZS33Hulk extends SpecialVehicleComponent {
@@ -88,6 +92,7 @@ export class ZS33Hulk extends SpecialVehicleComponent {
     this.name = "ЗИС-33 Верзила";
     this.type = "Пушка";
     this.ingredients = [new Judge76mm(), new FuelTank()];
+    this.img = WeaponImages.ZS33Hulk
   }
 }
 export class Prosecutor76mm extends SpecialVehicleComponent {
@@ -97,6 +102,7 @@ export class Prosecutor76mm extends SpecialVehicleComponent {
     this.name = "Обвинитель 76мм";
     this.type = "Пушка";
     this.ingredients = [new Judge76mm(), new AmmoPack()];
+    this.img = WeaponImages.Prosecutor76mm
   }
 }
 export class Synthesis extends SpecialVehicleComponent {
@@ -106,6 +112,7 @@ export class Synthesis extends SpecialVehicleComponent {
     this.name = "Синтез";
     this.type = "Энергетическое оружие";
     this.ingredients = [new Vector(), new Wyvern()];
+    this.img = WeaponImages.Synthesis
   }
 }
 export class Boom extends SpecialVehicleComponent {
@@ -115,6 +122,7 @@ export class Boom extends SpecialVehicleComponent {
     this.name = "Бум";
     this.type = "Контактное оружие";
     this.ingredients = [new Wasp(), new FuelTank()];
+    this.img = WeaponImages.Boom
   }
 }
 export class Tempura extends SpecialVehicleComponent {
@@ -127,6 +135,7 @@ export class Tempura extends SpecialVehicleComponent {
     this.wires = 200;
     this.plastic = 30;
     this.ingredients = [new Borer(), new RD1Listener()];
+    this.img = WeaponImages.Tempura
   }
 }
 export class Buzzsaw extends SpecialVehicleComponent {
@@ -136,6 +145,7 @@ export class Buzzsaw extends SpecialVehicleComponent {
     this.name = "Циркулярка";
     this.type = "Контактное оружие";
     this.ingredients = [new Blastoff(), new LittleBoy6LB()];
+    this.img = WeaponImages.Buzzsaw
   }
 }
 export class AD13Hawk extends SpecialVehicleComponent {
@@ -145,6 +155,7 @@ export class AD13Hawk extends SpecialVehicleComponent {
     this.name = "АД-13 Ястреб";
     this.type = "Дрон";
     this.ingredients = [new AD12Falcon(), new CSTaymyr()];
+    this.img = WeaponImages.AD13Hawk
   }
 }
 export class Sidekick extends SpecialVehicleComponent {
@@ -154,6 +165,7 @@ export class Sidekick extends SpecialVehicleComponent {
     this.name = "Прихвостень";
     this.type = "Дрон";
     this.ingredients = [new DTCobra(), new Borer()];
+    this.img = WeaponImages.Sidekick
   }
 }
 export class T3Python extends SpecialVehicleComponent {
@@ -163,5 +175,6 @@ export class T3Python extends SpecialVehicleComponent {
     this.name = "ТЗ Питон";
     this.type = "Дрон";
     this.ingredients = [new DTCobra(), new R2Chill()];
+    this.img = WeaponImages.T3Python
   }
 }

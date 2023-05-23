@@ -16,6 +16,7 @@ export class EpicVehicleComponent {
   batteries: number
   engravedCasings: number
   ingredients: SpecialVehicleComponent[]
+  img: string
 
   constructor() {
     this.id = 0
@@ -33,6 +34,7 @@ export class EpicVehicleComponent {
     this.batteries = 0
     this.engravedCasings = 0
     this.ingredients = []
+    this.img = ''
   }
 
   getScrapMetal = (): number => {
