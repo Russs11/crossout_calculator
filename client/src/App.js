@@ -23,6 +23,7 @@ import { data, dataForList, dataId } from './data'
 import * as WeaponsCommon from "./entity/weapons/common";
 import * as WeaponsRare from "./entity/weapons/rare"
 import * as WeaponsSpecial from "./entity/weapons/special"
+import * as WeaponsEpic from "./entity/weapons/epic"
 
 
 function App() {
@@ -44,6 +45,9 @@ function App() {
     }
     for (const item in WeaponsSpecial) {
       entityArr.push(new WeaponsSpecial[item]())
+    }
+    for (const item in WeaponsEpic) {
+      entityArr.push(new WeaponsEpic[item]())
     }
     setClassInstances(entityArr)
   }, [])

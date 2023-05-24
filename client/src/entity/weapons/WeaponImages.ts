@@ -31,7 +31,37 @@ import AD13Hawk from "../../images/WeaponImages/AD13Hawk.png";
 import Sidekick from "../../images/WeaponImages/Sidekick.png";
 import T3Python from "../../images/WeaponImages/Sidekick.png";
 //epic
-
+import M29Protector from "../../images/WeaponImages/M29Protector.png";
+import M38Fidget from "../../images/WeaponImages/M38Fidget.png";
+import Spectre2 from "../../images/WeaponImages/Spectre2.png";
+import MG13Equalizer from "../../images/WeaponImages/MG13Equalizer.png";
+import Caucasus from "../../images/WeaponImages/Caucasus.png";
+import Gremlin from "../../images/WeaponImages/Gremlin.png";
+import Fafnir from "../../images/WeaponImages/Fafnir.png";
+import Thunderbolt from "../../images/WeaponImages/Thunderbolt.png";
+import Rupture from "../../images/WeaponImages/Rupture.png";
+import AC72Whirlwind from "../../images/WeaponImages/AC72Whirlwind.png";
+import ZS34FatMan from "../../images/WeaponImages/ZS34FatMan.png";
+import Executioner88mm from "../../images/WeaponImages/Executioner88mm.png";
+import Cricket from "../../images/WeaponImages/Cricket.png";
+import Pyre from "../../images/WeaponImages/Pyre.png";
+import ClarinetTOW from "../../images/WeaponImages/ClarinetTOW.png";
+import Thresher from "../../images/WeaponImages/Thresher.png";
+import GL55Impulse from "../../images/WeaponImages/GL55Impulse.png";
+import Aurora from "../../images/WeaponImages/Aurora.png";
+import Quasar from "../../images/WeaponImages/Quasar.png";
+import PrometheusV from "../../images/WeaponImages/PrometheusV.png";
+import Phoenix from "../../images/WeaponImages/Phoenix.png";
+import Lancelot from "../../images/WeaponImages/Lancelot.png";
+import Mauler from "../../images/WeaponImages/Mauler.png";
+import Incinerator from "../../images/WeaponImages/Incinerator.png";
+import MD3Owl from "../../images/WeaponImages/MD3Owl.png";
+import Fuze from "../../images/WeaponImages/Fuze.png";
+import RTAnaconda from "../../images/WeaponImages/RTAnaconda.png";
+import BarrierIX from "../../images/WeaponImages/BarrierIX.png";
+import Yaoguai from "../../images/WeaponImages/Yaoguai.png";
+import Skinner from "../../images/WeaponImages/Skinner.png";
+//
 
 //
 export {
@@ -64,4 +94,34 @@ export {
   AD13Hawk,
   Sidekick,
   T3Python,
+  M29Protector,
+  M38Fidget,
+  Spectre2,
+  MG13Equalizer,
+  Caucasus,
+  Gremlin,
+  Fafnir,
+  Thunderbolt,
+  Rupture,
+  AC72Whirlwind,
+  ZS34FatMan,
+  Executioner88mm,
+  Cricket,
+  Pyre,
+  ClarinetTOW,
+  Thresher,
+  GL55Impulse,
+  Aurora,
+  Quasar,
+  PrometheusV,
+  Phoenix,
+  Lancelot,
+  Mauler,
+  Incinerator,
+  MD3Owl,
+  Fuze,
+  RTAnaconda,
+  BarrierIX,
+  Yaoguai,
+  Skinner,
 };
