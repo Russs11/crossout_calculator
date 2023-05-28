@@ -3,7 +3,7 @@ import { Bat } from '../cabins/special'
 import { LunarIV, ShivST, TwinWheel, TwinWheelST } from '../movement/special'
 import { Prosecutor76mm, Buzzsaw, Goblin, Boom, Junkbow, Mace, AC50Storm, ZS33Hulk, AD13Hawk } from '../weapons/special'
 import { Ampere, Chameleon, DunHorse, Genesis, Hardcore, KA1Discharger, Maxwell, OculusVI, PU1Charge, Razorback } from './special'
-
+import * as HardwareImages from './HardwareImages'
 export class Tormentor extends EpicVehicleComponent {
   constructor() {
     super()
@@ -11,6 +11,7 @@ export class Tormentor extends EpicVehicleComponent {
     this.name = 'Мучитель'
     this.type = ''
     this.ingredients = [new Bat(), new Junkbow(), new AD13Hawk()]
+    this.img = HardwareImages.Tormentor
   }
 }
 export class ChameleonMk2 extends EpicVehicleComponent {
@@ -20,6 +21,7 @@ export class ChameleonMk2 extends EpicVehicleComponent {
     this.name = 'Хамелеон Mk2'
     this.type = ''
     this.ingredients = [new Maxwell(), new AC50Storm(), new Chameleon()]
+    this.img = HardwareImages.ChameleonMk2
   }
 }
 export class KA2Flywheel extends EpicVehicleComponent {
@@ -34,6 +36,7 @@ export class KA2Flywheel extends EpicVehicleComponent {
     this.plastic = 60
     this.batteries = 100
     this.ingredients = [new KA1Discharger(), new Razorback(), new OculusVI()]
+    this.img = HardwareImages.KA2Flywheel
   }
 }
 export class Doppler extends EpicVehicleComponent {
@@ -43,6 +46,7 @@ export class Doppler extends EpicVehicleComponent {
     this.name = 'Доплер'
     this.type = ''
     this.ingredients = [new Maxwell(), new Chameleon()]
+    this.img = HardwareImages.Doppler
   }
 }
 export class RD2Keen extends EpicVehicleComponent {
@@ -52,6 +56,8 @@ export class RD2Keen extends EpicVehicleComponent {
     this.name = 'РЛС-2 Чуткий'
     this.type = ''
     this.ingredients = [new OculusVI(), new TwinWheel(), new PU1Charge()]
+    this.img = HardwareImages.RD2Keen
+
   }
 }
 export class Neutrino extends EpicVehicleComponent {
@@ -61,6 +67,8 @@ export class Neutrino extends EpicVehicleComponent {
     this.name = 'Нейтрино'
     this.type = ''
     this.ingredients = [new LunarIV(), new Genesis(), new TwinWheelST()]
+    this.img = HardwareImages.Neutrino
+
   }
 }
 export class Gasgen extends EpicVehicleComponent {
@@ -70,6 +78,8 @@ export class Gasgen extends EpicVehicleComponent {
     this.name = 'Газген'
     this.type = ''
     this.ingredients = [new Buzzsaw(), new Goblin(), new Boom()]
+    this.img = HardwareImages.Gasgen
+
   }
 }
 export class Oppressor extends EpicVehicleComponent {
@@ -79,6 +89,7 @@ export class Oppressor extends EpicVehicleComponent {
     this.name = 'Гонитель'
     this.type = ''
     this.ingredients = [new Bat(), new ShivST(), new Hardcore()]
+    this.img = HardwareImages.Oppressor
   }
 }
 export class HotRed extends EpicVehicleComponent {
@@ -88,6 +99,8 @@ export class HotRed extends EpicVehicleComponent {
     this.name = 'Четкий'
     this.type = ''
     this.ingredients = [new Hardcore(), new Goblin(), new Mace()]
+    this.img = HardwareImages.HotRed
+
   }
 }
 export class Colossus extends EpicVehicleComponent {
@@ -97,6 +110,7 @@ export class Colossus extends EpicVehicleComponent {
     this.name = 'Исполин'
     this.type = ''
     this.ingredients = [new Razorback(), new TwinWheel(), new ZS33Hulk()]
+    this.img = HardwareImages.Colossus
   }
 }
 export class Cheetah extends EpicVehicleComponent {
@@ -106,6 +120,7 @@ export class Cheetah extends EpicVehicleComponent {
     this.name = 'Гепард'
     this.type = ''
     this.ingredients = [new DunHorse(), new Chameleon(), new AC50Storm()]
+    this.img = HardwareImages.Cheetah
   }
 }
 export class Hermes extends EpicVehicleComponent {
@@ -115,6 +130,7 @@ export class Hermes extends EpicVehicleComponent {
     this.name = 'Гермес'
     this.type = ''
     this.ingredients = [new Hardcore(), new Boom(), new Buzzsaw()]
+    this.img = HardwareImages.Hermes
   }
 }
 export class RNSeal extends EpicVehicleComponent {
@@ -124,6 +140,7 @@ export class RNSeal extends EpicVehicleComponent {
     this.name = 'РС Нерпа'
     this.type = ''
     this.ingredients = [new Maxwell(), new Ampere(), new DunHorse()]
+    this.img = HardwareImages.RNSeal
   }
 }
 export class Shiver extends EpicVehicleComponent {
@@ -133,6 +150,7 @@ export class Shiver extends EpicVehicleComponent {
     this.name = 'Озноб'
     this.type = ''
     this.ingredients = [new Buzzsaw(), new Mace(), new Hardcore()]
+    this.img = HardwareImages.Shiver
   }
 }
 export class ExpandedAmmoPack extends EpicVehicleComponent {
@@ -142,5 +160,6 @@ export class ExpandedAmmoPack extends EpicVehicleComponent {
     this.name = 'Боезапас увеличенный'
     this.type = ''
     this.ingredients = [new OculusVI(), new PU1Charge(), new Prosecutor76mm()]
+    this.img = HardwareImages.ExpandedAmmoPack
   }
 }

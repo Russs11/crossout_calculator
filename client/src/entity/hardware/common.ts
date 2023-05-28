@@ -1,5 +1,5 @@
 import { CommonVehicleComponent } from '../commonVehicleComponent'
-
+import * as HardwareImages from './HardwareImages'
 export class FuelBarrel extends CommonVehicleComponent {
   constructor() {
     super()
@@ -8,6 +8,7 @@ export class FuelBarrel extends CommonVehicleComponent {
     this.type = 'Особый модуль'
     this.scrapMetal = 60
     this.copper = 12
+    this.img = HardwareImages.FuelBarrel
   }
 }
 export class CarJack extends CommonVehicleComponent {
@@ -18,6 +19,7 @@ export class CarJack extends CommonVehicleComponent {
     this.type = 'Особый модуль'
     this.scrapMetal = 20
     this.copper = 4
+    this.img = HardwareImages.CarJack
   }
 }
 export class Radio extends CommonVehicleComponent {
@@ -28,6 +30,7 @@ export class Radio extends CommonVehicleComponent {
     this.type = 'Особый модуль'
     this.scrapMetal = 20
     this.copper = 4
+    this.img = HardwareImages.Radio
   }
 }
 export class RS1Ruby extends CommonVehicleComponent {
@@ -38,6 +41,7 @@ export class RS1Ruby extends CommonVehicleComponent {
     this.type = 'Радар'
     this.scrapMetal = 35
     this.copper = 8
+    this.img = HardwareImages.RS1Ruby
   }
 }
 export class B1Aviator extends CommonVehicleComponent {
@@ -48,6 +52,7 @@ export class B1Aviator extends CommonVehicleComponent {
     this.type = ''
     this.scrapMetal = 55
     this.copper = 11
+    this.img = HardwareImages.B1Aviator
   }
 }
 
@@ -59,5 +64,6 @@ export class R1Breese extends CommonVehicleComponent {
     this.type = 'Радиатор'
     this.scrapMetal = 20
     this.copper = 4
+    this.img = HardwareImages.R1Breese
   }
 }

@@ -3,7 +3,7 @@ import { Trucker } from '../cabins/rare'
 import { RacingWheelST, LandingGearST, RacingWheel, LandingGear } from '../movement/rare'
 import { LittleBoy6LB, DTCobra, AD12Falcon } from '../weapons/rare'
 import { R2Chill, AmmoPack, Blastoff, CSTaymyr, TS1Horizon, RD1Listener } from './rare'
-
+import * as HardwareImages from './HardwareImages'
 export class Chameleon extends SpecialVehicleComponent {
   constructor() {
     super()
@@ -11,6 +11,7 @@ export class Chameleon extends SpecialVehicleComponent {
     this.name = 'Хамелеон'
     this.type = 'Невидимость'
     this.ingredients = [new LandingGear(), new CSTaymyr()]
+    this.img = HardwareImages.Chameleon
   }
 }
 export class KA1Discharger extends SpecialVehicleComponent {
@@ -23,6 +24,7 @@ export class KA1Discharger extends SpecialVehicleComponent {
     this.copper = 200
     this.plastic = 30
     this.ingredients = [new CSTaymyr(), new Trucker()]
+    this.img = HardwareImages.KA1Discharger
   }
 }
 export class OculusVI extends SpecialVehicleComponent {
@@ -32,6 +34,7 @@ export class OculusVI extends SpecialVehicleComponent {
     this.name = 'Окулус VI'
     this.type = 'Радар'
     this.ingredients = [new RD1Listener(), new TS1Horizon()]
+    this.img = HardwareImages.OculusVI
   }
 }
 export class Maxwell extends SpecialVehicleComponent {
@@ -41,6 +44,7 @@ export class Maxwell extends SpecialVehicleComponent {
     this.name = 'Максвелл'
     this.type = 'Радар'
     this.ingredients = [new LandingGearST(), new TS1Horizon()]
+    this.img = HardwareImages.Maxwell
   }
 }
 export class PU1Charge extends SpecialVehicleComponent {
@@ -50,6 +54,7 @@ export class PU1Charge extends SpecialVehicleComponent {
     this.name = 'ЭУ-1 Заряд'
     this.type = 'Генератор'
     this.ingredients = [new DTCobra(), new TS1Horizon()]
+    this.img = HardwareImages.PU1Charge
   }
 }
 export class Ampere extends SpecialVehicleComponent {
@@ -59,6 +64,7 @@ export class Ampere extends SpecialVehicleComponent {
     this.name = 'Ампер'
     this.type = 'Генератор'
     this.ingredients = [new RacingWheelST(), new R2Chill()]
+    this.img = HardwareImages.Ampere
   }
 }
 export class Hardcore extends SpecialVehicleComponent {
@@ -68,6 +74,7 @@ export class Hardcore extends SpecialVehicleComponent {
     this.name = 'Жесткач'
     this.type = 'Двигатель'
     this.ingredients = [new Blastoff(), new CSTaymyr()]
+    this.img = HardwareImages.Hardcore
   }
 }
 export class Razorback extends SpecialVehicleComponent {
@@ -77,6 +84,7 @@ export class Razorback extends SpecialVehicleComponent {
     this.name = 'Работяга'
     this.type = 'Двигатель'
     this.ingredients = [new Trucker(), new LittleBoy6LB()]
+    this.img = HardwareImages.Razorback
   }
 }
 export class DunHorse extends SpecialVehicleComponent {
@@ -86,6 +94,7 @@ export class DunHorse extends SpecialVehicleComponent {
     this.name = 'Саврас'
     this.type = 'Двигатель'
     this.ingredients = [new RacingWheel(), new R2Chill()]
+    this.img = HardwareImages.DunHorse
   }
 }
 export class Genesis extends SpecialVehicleComponent {
@@ -95,5 +104,6 @@ export class Genesis extends SpecialVehicleComponent {
     this.name = 'Генезис'
     this.type = 'Боеприпасы'
     this.ingredients = [new AD12Falcon(), new AmmoPack()]
+    this.img = HardwareImages.Genesis
   }
 }
