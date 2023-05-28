@@ -3,6 +3,7 @@ import { Hardcore, Razorback, Genesis, PU1Charge, Ampere, OculusVI } from '../ha
 import { APCWheel, APCWheelST, Shiv, ShivST } from '../movement/special'
 import { Goblin, Buzzsaw, Synthesis, Sinus0, Tempura, AD13Hawk } from '../weapons/special'
 import { Jawbreaker, Bat, Pilgrim } from './special'
+import * as CabinsImages from './CabinsImages'
 
 export class Jannabi extends EpicVehicleComponent {
   constructor() {
@@ -16,6 +17,7 @@ export class Jannabi extends EpicVehicleComponent {
     this.plastic = 60
     this.batteries = 100
     this.ingredients = [new Bat(), new Tempura(), new Razorback()]
+    this.img = CabinsImages.Jannabi
   }
 }
 export class Harpy extends EpicVehicleComponent {
@@ -25,6 +27,7 @@ export class Harpy extends EpicVehicleComponent {
     this.name = 'Гарпия'
     this.type = 'Легкая кабина'
     this.ingredients = [new Bat(), new Shiv(), new Sinus0()]
+    this.img = CabinsImages.Harpy
   }
 }
 export class Werewolf extends EpicVehicleComponent {
@@ -34,6 +37,7 @@ export class Werewolf extends EpicVehicleComponent {
     this.name = 'Оборотень'
     this.type = 'Легкая кабина'
     this.ingredients = [new Bat(), new ShivST(), new Ampere()]
+    this.img = CabinsImages.Werewolf
   }
 }
 export class Aggressor extends EpicVehicleComponent {
@@ -48,6 +52,7 @@ export class Aggressor extends EpicVehicleComponent {
     this.plastic = 60
     this.batteries = 100
     this.ingredients = [new Hardcore(), new Goblin(), new Buzzsaw()]
+    this.img = CabinsImages.Aggressor
   }
 }
 export class Quantum extends EpicVehicleComponent {
@@ -57,6 +62,7 @@ export class Quantum extends EpicVehicleComponent {
     this.name = 'Квант'
     this.type = 'Средняя кабина'
     this.ingredients = [new Pilgrim(), new Genesis(), new AD13Hawk()]
+    this.img = CabinsImages.Quantum
   }
 }
 export class Photon extends EpicVehicleComponent {
@@ -66,6 +72,7 @@ export class Photon extends EpicVehicleComponent {
     this.name = 'Фотон'
     this.type = 'Средняя кабина'
     this.ingredients = [new Pilgrim(), new Synthesis(), new AD13Hawk()]
+    this.img = CabinsImages.Photon
   }
 }
 export class Humpback extends EpicVehicleComponent {
@@ -75,6 +82,7 @@ export class Humpback extends EpicVehicleComponent {
     this.name = 'Горбун'
     this.type = 'Тяжелая кабина'
     this.ingredients = [new Jawbreaker(), new APCWheel(), new Razorback()]
+    this.img = CabinsImages.Humpback
   }
 }
 export class Bastion extends EpicVehicleComponent {
@@ -84,5 +92,6 @@ export class Bastion extends EpicVehicleComponent {
     this.name = 'Бастион'
     this.type = 'Тяжелая кабина'
     this.ingredients = [new Jawbreaker(), new APCWheelST(), new PU1Charge()]
+    this.img = CabinsImages.Bastion
   }
 }

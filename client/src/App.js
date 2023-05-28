@@ -24,6 +24,7 @@ import * as WeaponsCommon from "./entity/weapons/common";
 import * as WeaponsRare from "./entity/weapons/rare"
 import * as WeaponsSpecial from "./entity/weapons/special"
 import * as WeaponsEpic from "./entity/weapons/epic"
+import * as CabinsEpic from "./entity/cabins/epic"
 
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
     }
     for (const item in WeaponsEpic) {
       entityArr.push(new WeaponsEpic[item]())
+    }
+    for (const item in CabinsEpic) {
+      entityArr.push(new CabinsEpic[item]())
     }
     setClassInstances(entityArr)
   }, [])

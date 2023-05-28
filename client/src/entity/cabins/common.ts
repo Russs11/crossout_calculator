@@ -1,5 +1,5 @@
 import { CommonVehicleComponent } from '../commonVehicleComponent'
-
+import * as CabinsImages from './CabinsImages'
 export class Sprinter extends CommonVehicleComponent {
   constructor() {
     super()
@@ -8,6 +8,7 @@ export class Sprinter extends CommonVehicleComponent {
     this.type = 'Легкая кабина'
     this.scrapMetal = 75
     this.copper = 15
+    this.img = CabinsImages.Sprinter
   }
 }
 export class Huntsman extends CommonVehicleComponent {
@@ -18,6 +19,7 @@ export class Huntsman extends CommonVehicleComponent {
     this.type = 'Средняя кабина'
     this.scrapMetal = 75
     this.copper = 15
+    this.img = CabinsImages.Huntsman
   }
 }
 export class WWT1 extends CommonVehicleComponent {
@@ -28,6 +30,7 @@ export class WWT1 extends CommonVehicleComponent {
     this.type = 'Средняя кабина'
     this.scrapMetal = 75
     this.copper = 15
+    this.img = CabinsImages.WWT1
   }
 }
 export class Docker extends CommonVehicleComponent {
@@ -38,5 +41,6 @@ export class Docker extends CommonVehicleComponent {
     this.type = 'Тяжелая кабина'
     this.scrapMetal = 75
     this.copper = 15
+    this.img = CabinsImages.Docker
   }
 }
