@@ -144,7 +144,7 @@ function App() {
             {selectedInstance &&
               <ItemCard> 
                 <TitleCard component={ selectedInstance} />
-                <ProductionRequirements />
+                <ProductionRequirements component={ selectedInstance} />
                 <RequiredComponents />
               </ItemCard>
             }

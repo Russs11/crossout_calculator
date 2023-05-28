@@ -5,13 +5,13 @@ import RequiredResourses from './RequiredResourses';
 
 
 
-const ProductionRequirements = () => {
+const ProductionRequirements = ({component}) => {
     return (
         <>
             <div className="production-requirements">
                 <div className="production-requirements-title text-4">Для производства требуется:</div>
                 <HorizontalSeparator />
-                <RequiredResourses/>
+                <RequiredResourses component={ component}/>
                 <HorizontalSeparator />
             </div>
         </>
