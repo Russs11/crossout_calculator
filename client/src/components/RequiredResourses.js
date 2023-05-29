@@ -27,7 +27,6 @@ const RequiredResourses = ({ component }) => {
 			</>
 		)
 	}
-	
 	if (component.copper) {
 		resoursesArr.push(
 			<>
