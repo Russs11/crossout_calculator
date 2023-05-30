@@ -145,7 +145,7 @@ function App() {
               <ItemCard> 
                 <TitleCard component={ selectedInstance} />
                 <ProductionRequirements component={ selectedInstance} />
-                <RequiredComponents />
+                <RequiredComponents component={selectedInstance} />
               </ItemCard>
             }
             <VerticalSeparator />

@@ -4,13 +4,41 @@ import HorizontalSeparator from './HorizontalSeparator';
 
 
 
-const RequiredComponents = () => {
+const RequiredComponents = ({component}) => {
+    let childrenItems = []
+    console.log('component.ingredients', component.ingredients);
+if(component.ingredients){
+
+    childrenItems = component.ingredients.map((item) =>{
+   console.log(item);
+   return (
+    <div className="item-required">
+    <div className="component-image_8"></div>
+    <div className="item-required-info">
+        <div className="item-name-title text-4">{item.name}</div>
+        <div className="item-type text-7">{item.type}</div>
+        <div className="item-production-time-title text-6">Время производства:</div>
+        <div className="item-production-cost-title text-6">Стоимость производства:</div>
+        <div className="item-production-time-value text-3">6 часов</div>
+        <div className="small-token value-orange text-3">15 <div className="token-img"></div></div>
+    </div>
+</div>
+   )
+})
+}
+
+console.log(childrenItems);
+    function clickHandler(){
+console.log('click');
+    }
+
+
     return (
         <>
             <div className="required-components">
-                <div className="required-components-title text-5">Компоненты:</div>
+                <div className="required-components-title text-5" onClick={clickHandler}>Компоненты:</div>
                 <HorizontalSeparator />
-                <div className="item-required">
+                {/* <div className="item-required">
                     <div className="component-image_8"></div>
                     <div className="item-required-info">
                         <div className="item-name-title text-4">ПУ13 Уравнитель</div>
@@ -20,7 +48,8 @@ const RequiredComponents = () => {
                         <div className="item-production-time-value text-3">6 часов</div>
                         <div className="small-token value-orange text-3">15 <div className="token-img"></div></div>
                     </div>
-                </div>
+                </div> */}
+                {childrenItems}
             <HorizontalSeparator/>
            
             <div className="item-required-resources-grid">
