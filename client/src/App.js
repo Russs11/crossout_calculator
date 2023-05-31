@@ -34,7 +34,7 @@ function App() {
   // const [selectedInstance, setSelectedInstance] = useState()
   let selectedInstance
   let itemsArr = []
-  
+
   // console.log(typeof(WeaponsCommon));
   useEffect(() => {
     let entityArr = []
@@ -79,10 +79,10 @@ function App() {
     //   });
     const listArr = JSON.parse(dataId())
     setItemsList(listArr)
-    setSelectedItem(listArr[0]) 
+    setSelectedItem(listArr[0])
 
   }, []);
-  console.log('itemsList' , itemsList);
+  console.log('itemsList', itemsList);
   if (itemsList) {
     const instanceFromData = []
     for (const item of itemsList) {
@@ -93,40 +93,40 @@ function App() {
             if (selectedItem === inst.id) {
               return (
                 <Item
-                key={inst.name}
-                id={inst.id}
-                active={true}
-                handleClick={handleClick}
-                img={inst.img}
+                  key={inst.name}
+                  id={inst.id}
+                  active={true}
+                  handleClick={handleClick}
+                  img={inst.img}
                 />)
-              }
-              return (
-                <Item
+            }
+            return (
+              <Item
                 key={inst.name}
                 id={inst.id}
                 active={false}
                 handleClick={handleClick}
                 img={inst.img}
-                />)
+              />)
           });
         }
       }
     }
   }
 
-    if (selectedItem) {
-      selectedInstance = classInstances.find(inst => inst.id === selectedItem);
-      }
-    
+  if (selectedItem) {
+    selectedInstance = classInstances.find(inst => inst.id === selectedItem);
+  }
 
-  
-    
-  
+
+
+
+
 
   function handleClick(id) {
     setSelectedItem(id)
   }
-  
+
 
 
 
@@ -142,9 +142,9 @@ function App() {
           </ItemList>
           <MainCard>
             {selectedInstance &&
-              <ItemCard> 
-                <TitleCard component={ selectedInstance} />
-                <ProductionRequirements component={ selectedInstance} />
+              <ItemCard>
+                <TitleCard component={selectedInstance} />
+                <ProductionRequirements component={selectedInstance} />
                 <RequiredComponents component={selectedInstance} />
               </ItemCard>
             }
