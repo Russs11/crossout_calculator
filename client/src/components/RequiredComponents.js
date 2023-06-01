@@ -55,9 +55,9 @@ const RequiredComponents = ({ component }) => {
           <div className="required-components-title text-5" >Компоненты:</div>
           <HorizontalSeparator />
           {ingredientsArr}
+          {/* {selectedItem &&
+            <ResoursesForIngredients ingredient={selectedItem} />} */}
           <HorizontalSeparator />
-          {selectedItem &&
-            <ResoursesForIngredients ingredient={selectedItem} />}
         </div>
       </>
     );
