@@ -4,11 +4,11 @@ import React from 'react';
 
 const ResoursesForIngredients = ({ ingredient }) => {
 	
-	console.log('ingredient', ingredient);
-	const resoursesArr = []
+	console.log('ingredient', ingredient.scrapMetal);
+	const resoursesArr2 = []
 
 	if (ingredient.scrapMetal) {
-		resoursesArr.push(
+		resoursesArr2.push(
 			<>
 				<div className="resourses-img_1 small"></div>
 				<div className="value text-8">{ingredient.scrapMetal ? ingredient.scrapMetal : null}</div>
@@ -18,7 +18,7 @@ const ResoursesForIngredients = ({ ingredient }) => {
 		)
 	}
 	if (ingredient.electronics) {
-		resoursesArr.push(
+		resoursesArr2.push(
 			<>
 				<div className="resourses-img_2 small"></div>
 				<div className="value text-8">{ingredient.electronics}</div>
@@ -28,7 +28,7 @@ const ResoursesForIngredients = ({ ingredient }) => {
 		)
 	}
 	if (ingredient.copper) {
-		resoursesArr.push(
+		resoursesArr2.push(
 			<>
 				<div className="resourses-img_3 small"></div>
 				<div className="value text-8">{ingredient.copper}</div>
@@ -38,7 +38,7 @@ const ResoursesForIngredients = ({ ingredient }) => {
 		)
 	}
 	if (ingredient.batteries) {
-		resoursesArr.push(
+		resoursesArr2.push(
 			<>
 				<div className="resourses-img_4 small"></div>
 				<div className="value text-8">{ingredient.batteries}</div>
@@ -48,7 +48,7 @@ const ResoursesForIngredients = ({ ingredient }) => {
 		)
 	}
 	if (ingredient.wires) {
-		resoursesArr.push(
+		resoursesArr2.push(
 			<>
 				<div className="resourses-img_5 small"></div>
 				<div className="value text-8">{ingredient.wires}</div>
@@ -59,7 +59,7 @@ const ResoursesForIngredients = ({ ingredient }) => {
 	}
 
 	if (ingredient.engravedCasings) {
-		resoursesArr.push(
+		resoursesArr2.push(
 			<>
 				<div className="resourses-img_6 small"></div>
 				<div className="value text-8">{ingredient.engravedCasings}</div>
@@ -69,7 +69,7 @@ const ResoursesForIngredients = ({ ingredient }) => {
 		)
 	}
 	if (ingredient.plastic) {
-		resoursesArr.push(
+		resoursesArr2.push(
 			<>
 				<div className="resourses-img_7 small"></div>
 				<div className="value text-8">{ingredient.plastic}</div>
@@ -78,6 +78,7 @@ const ResoursesForIngredients = ({ ingredient }) => {
 			</>
 		)
 	}
+	
 	return (
 		<>
 			<div className="item-required-resources-grid">
@@ -101,7 +102,7 @@ const ResoursesForIngredients = ({ ingredient }) => {
 				<div className="value text-8">100</div>
 				<div className="value-orange text-8">36.33</div>
 				<div className="value-orange text-8">36.33</div> */}
-				{resoursesArr}
+				{resoursesArr2}
 				<div className="total-resourses-cost text-7">Общая стоимость ресурсов:</div>
 				<div className="value-orange text-8">66.96</div>
 			</div>

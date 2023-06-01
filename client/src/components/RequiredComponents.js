@@ -56,7 +56,7 @@ const RequiredComponents = ({ component }) => {
           <HorizontalSeparator />
           {ingredientsArr}
           <HorizontalSeparator />
-          {selectedIngredient &&
+          {selectedItem &&
             <ResoursesForIngredients ingredient={selectedItem} />}
         </div>
       </>
