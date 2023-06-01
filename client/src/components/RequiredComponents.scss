@@ -36,7 +36,9 @@
 	background-repeat: no-repeat;
 	background-size: contain;
 }
-
+.component-image-active {
+	box-shadow: 1px 1px 50px 0px #e7e6e6;
+}
 .small-token {
 	display: grid;
 	grid-template-columns: 23px 23px;
