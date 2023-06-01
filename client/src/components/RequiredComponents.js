@@ -4,9 +4,13 @@ import "./RequiredComponents.scss";
 import HorizontalSeparator from "./HorizontalSeparator";
 import ResoursesForIngredients from "./ResoursesForIngredients";
 import Ingredient from "./Ingredient";
-const RequiredComponents = ({ component }) => {
-  const [selectedIngredient, setSelectedIngredient] = useState()
 
+
+
+
+const RequiredComponents = ({ component }) => {
+  const [selectedIngredient, setSelectedIngredient] = useState(null)
+  let selectedItem
 
 
   let ingredientsArr = [];
@@ -16,6 +20,7 @@ const RequiredComponents = ({ component }) => {
       if (selectedIngredient === ingredient.id) {
         return (
           <Ingredient
+            key={ingredient.name}
             ingredient={ingredient}
             clickHandler={clickHandler}
             active={true} />
@@ -23,6 +28,7 @@ const RequiredComponents = ({ component }) => {
       }
       return (
         <Ingredient
+          key={ingredient.name}
           ingredient={ingredient}
           clickHandler={clickHandler}
           active={false} />
@@ -36,7 +42,13 @@ const RequiredComponents = ({ component }) => {
       console.log("click");
       setSelectedIngredient(id)
     }
-    console.log(selectedIngredient);
+    console.log('selectedIngredient', selectedIngredient);
+
+    if (selectedIngredient) {
+      selectedItem = component.ingredients.find(item => selectedIngredient === item.id)
+    }
+    console.log('selectedItem', selectedItem);
+
     return (
       <>
         <div className="required-components">
@@ -45,7 +57,7 @@ const RequiredComponents = ({ component }) => {
           {ingredientsArr}
           <HorizontalSeparator />
           {selectedIngredient &&
-            <ResoursesForIngredients />}
+            <ResoursesForIngredients ingredient={selectedItem} />}
         </div>
       </>
     );
