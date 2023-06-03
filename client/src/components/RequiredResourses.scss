@@ -73,9 +73,17 @@
 	justify-items: center;
 	align-items: center;
 	margin-left: 105px;
-	transition: all 1s ease-out;
+	
 }
 
+.animated{
+transition: all 0.2s ease-out;
+
+}
+.invisible{
+	opacity: 0;
+	height: 0;
+}
 .small {
 	width: 20px;
 	height: 20px;

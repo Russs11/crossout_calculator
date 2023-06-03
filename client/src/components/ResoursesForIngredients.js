@@ -2,7 +2,7 @@ import React from 'react';
 // import './RequiredResourses.scss'
 
 
-const ResoursesForIngredients = ({ ingredient }) => {
+const ResoursesForIngredients = ({ ingredient, active }) => {
 	
 	console.log('ingredient', ingredient.scrapMetal);
 	const resoursesArr2 = []
@@ -78,36 +78,28 @@ const ResoursesForIngredients = ({ ingredient }) => {
 			</>
 		)
 	}
-	
-	return (
+	if(active){
+		return (
 		<>
-			<div className="item-required-resources-grid">
+			<div className="item-required-resources-grid animated">
 				<div className="text-7">Ресурсы:</div>
 				<div className="text-7">Количество:</div>
 				<div className="text-7">Цена:</div>
 				<div className="text-7">Стоимость:</div>
-				{/* <div className="resourses-img_1 small"></div>
-				<div className="value text-8">100</div>
-				<div className="value-orange text-8">4.91</div>
-				<div className="value-orange text-8">4.91</div>
-				<div className="resourses-img_2 small"></div>
-				<div className="value text-8">750</div>
-				<div className="value-orange text-8">11.04</div>
-				<div className="value-orange text-8">22.08</div>
-				<div className="resourses-img_8 small"></div>
-				<div className="value text-8">150</div>
-				<div className="value-orange text-8">8.32</div>
-				<div className="value-orange text-8">6.64</div>
-				<div className="resourses-img_4 small"></div>
-				<div className="value text-8">100</div>
-				<div className="value-orange text-8">36.33</div>
-				<div className="value-orange text-8">36.33</div> */}
 				{resoursesArr2}
 				<div className="total-resourses-cost text-7">Общая стоимость ресурсов:</div>
 				<div className="value-orange text-8">66.96</div>
 			</div>
 		</>
 	);
+	}
+	return (
+		<>
+			<div className="invisible">
+			</div>
+		</>
+	);
+	
 };
 
 export default ResoursesForIngredients;

@@ -11,7 +11,6 @@ import Ingredient from "./Ingredient";
 const RequiredComponents = ({ component }) => {
   const [selectedIngredient, setSelectedIngredient] = useState(null)
   const [isActive, setIsActive] = useState(false)
-  let selectedItem
 
 
   let ingredientsArr = [];
@@ -40,19 +39,12 @@ const RequiredComponents = ({ component }) => {
 
     // console.log(childrenItems);
     function clickHandler(id) {
-      // console.log("click");
       setSelectedIngredient(id)
       setIsActive(true)
       if(isActive && id === selectedIngredient){
         setIsActive(false)
       }
     }
-    // console.log('selectedIngredient', selectedIngredient);
-
-    // if (selectedIngredient) {
-    //   selectedItem = component.ingredients.find(item => selectedIngredient === item.id)
-    // }
-    // console.log('selectedItem', selectedItem);
 
     return (
       <>

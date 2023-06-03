@@ -2,7 +2,6 @@ import React from 'react';
 import ResoursesForIngredients from './ResoursesForIngredients';
 
 const Ingredient = ({ ingredient, clickHandler, active }) => {
-	
 	const itemImg = {
 		backgroundImage: "url(" + ingredient.img + ")",
 	};
@@ -27,7 +26,7 @@ const Ingredient = ({ ingredient, clickHandler, active }) => {
 						</div>
 					</div>
 				</div>
-				<ResoursesForIngredients ingredient={ingredient}/>
+				<ResoursesForIngredients ingredient={ingredient} active={true}/>
 			</>
 		);
 	}
@@ -50,6 +49,7 @@ const Ingredient = ({ ingredient, clickHandler, active }) => {
 						</div>
 					</div>
 				</div>
+				<ResoursesForIngredients ingredient={ingredient} active={false}/>
 			</>
 		);
 	}
