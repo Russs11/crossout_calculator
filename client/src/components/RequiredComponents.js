@@ -10,6 +10,7 @@ import Ingredient from "./Ingredient";
 
 const RequiredComponents = ({ component }) => {
   const [selectedIngredient, setSelectedIngredient] = useState(null)
+  const [isActive, setIsActive] = useState(false)
   let selectedItem
 
 
@@ -17,7 +18,7 @@ const RequiredComponents = ({ component }) => {
   // console.log("component.ingredients", component.ingredients);
   if (component.ingredients) {
     ingredientsArr = component.ingredients.map((ingredient) => {
-      if (selectedIngredient === ingredient.id) {
+      if (selectedIngredient === ingredient.id && isActive) {
         return (
           <Ingredient
             key={ingredient.name}
@@ -39,15 +40,19 @@ const RequiredComponents = ({ component }) => {
 
     // console.log(childrenItems);
     function clickHandler(id) {
-      console.log("click");
+      // console.log("click");
       setSelectedIngredient(id)
+      setIsActive(true)
+      if(isActive && id === selectedIngredient){
+        setIsActive(false)
+      }
     }
-    console.log('selectedIngredient', selectedIngredient);
+    // console.log('selectedIngredient', selectedIngredient);
 
-    if (selectedIngredient) {
-      selectedItem = component.ingredients.find(item => selectedIngredient === item.id)
-    }
-    console.log('selectedItem', selectedItem);
+    // if (selectedIngredient) {
+    //   selectedItem = component.ingredients.find(item => selectedIngredient === item.id)
+    // }
+    // console.log('selectedItem', selectedItem);
 
     return (
       <>
@@ -55,8 +60,7 @@ const RequiredComponents = ({ component }) => {
           <div className="required-components-title text-5" >Компоненты:</div>
           <HorizontalSeparator />
           {ingredientsArr}
-          {/* {selectedItem &&
-            <ResoursesForIngredients ingredient={selectedItem} />} */}
+          
           <HorizontalSeparator />
         </div>
       </>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './RequiredResourses.scss'
+import HorizontalSeparator from './HorizontalSeparator';
 
 
 
@@ -79,7 +80,7 @@ const RequiredResourses = ({ component }) => {
 		)
 	}
 	return (
-		<div>
+		<>
 			<div className="production-requirements-grid">
 				<div className="text-5">Ресурсы:</div>
 				<div className="text-5">Количество:</div>
@@ -89,7 +90,7 @@ const RequiredResourses = ({ component }) => {
 				<div className="total-resourses-cost text-5">Общая стоимость ресурсов:</div>
 				<div className="value-orange text-3">3540.72</div>
 			</div>
-		</div>
+		</>
 	);
 };
 

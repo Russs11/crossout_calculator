@@ -1,7 +1,7 @@
 .production-requirements-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: 45px repeat(5, 40px) 50px;
+	grid-template-rows: 45px repeat(5, 40px) 50px 3px;
 	width: 500px;
 	justify-items: center;
 	align-items: center;
@@ -73,6 +73,7 @@
 	justify-items: center;
 	align-items: center;
 	margin-left: 105px;
+	transition: all 1s ease-out;
 }
 
 .small {
