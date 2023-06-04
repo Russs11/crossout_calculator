@@ -1,4 +1,5 @@
 import React from 'react';
+import HorizontalSeparator from './HorizontalSeparator';
 // import './RequiredResourses.scss'
 
 
@@ -90,13 +91,14 @@ const ResoursesForIngredients = ({ ingredient, active }) => {
 				<div className="total-resourses-cost text-7">Общая стоимость ресурсов:</div>
 				<div className="value-orange text-8">66.96</div>
 			</div>
+			<HorizontalSeparator/>
 		</>
 	);
 	}
 	return (
 		<>
-			<div className="invisible">
-			</div>
+			<div className="invisible"></div>
+			{/* <HorizontalSeparator/> */}
 		</>
 	);
 	

@@ -1,10 +1,12 @@
 .production-requirements-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: 45px repeat(5, 40px) 50px 3px;
+	// grid-template-rows: 45px repeat(5, 40px) 50px 3px;
+	grid-template-rows: repeat(auto-fit, 40px) 55px 45px;
 	width: 500px;
 	justify-items: center;
 	align-items: center;
+	margin-bottom: 10px;
 }
 
 .resourses-img_1 {
@@ -67,7 +69,7 @@
 .item-required-resources-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: repeat(5, 20px) 25px;
+	grid-template-rows: repeat(auto-fit, 20px) 25px;
 	row-gap: 5px;
 	width: 70%;
 	justify-items: center;

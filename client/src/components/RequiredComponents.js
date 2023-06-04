@@ -52,8 +52,6 @@ const RequiredComponents = ({ component }) => {
           <div className="required-components-title text-5" >Компоненты:</div>
           <HorizontalSeparator />
           {ingredientsArr}
-          
-          <HorizontalSeparator />
         </div>
       </>
     );
