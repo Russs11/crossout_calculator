@@ -13,7 +13,7 @@ const RequiredResourses = ({ component }) => {
 			<>
 				<div className="resourses-img_1"></div>
 				<div className="value text-3">{component.scrapMetal}</div>
-				<div className="value-orange text-3">4.91</div>
+				<div className="value-orange text-3">{}</div>
 				<div className="value-orange text-3">100</div>
 			</>
 		)
