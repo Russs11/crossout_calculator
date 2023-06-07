@@ -69,14 +69,14 @@ function App() {
   // console.log(classInstances);
 
   useEffect(() => {
-    // fetch('https://dummyjson.com/products')
-    //   .then((response) => response.json())
-    //   .then(({products}) => {
+    fetch('http://45.12.73.147:3001/prices/start')
+      .then((response) => response.json())
+      .then(({prices, list}) => {
 
-    //     console.log(products);
-    //     setItems(products)
-    //     console.log(items);
-    //   });
+        console.log(prices, list);
+        
+      });
+     
     const listArr = JSON.parse(dataId())
     setItemsList(listArr)
     setSelectedItem(listArr[0])
