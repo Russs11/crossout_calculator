@@ -24,7 +24,15 @@ import * as WeaponsCommon from "./entity/weapons/common";
 import * as WeaponsRare from "./entity/weapons/rare"
 import * as WeaponsSpecial from "./entity/weapons/special"
 import * as WeaponsEpic from "./entity/weapons/epic"
+import * as CabinsCommon from "./entity/cabins/common"
+import * as CabinsRare from "./entity/cabins/rare"
+import * as CabinsSpecial from "./entity/cabins/special"
 import * as CabinsEpic from "./entity/cabins/epic"
+import * as HardwareCommon from "./entity/hardware/common"
+import * as HardwareRare from "./entity/hardware/rare"
+import * as HardwareSpecial from "./entity/hardware/special"
+import * as HardwareEpic from "./entity/hardware/epic"
+
 
 
 function App() {
@@ -50,8 +58,29 @@ function App() {
     for (const item in WeaponsEpic) {
       entityArr.push(new WeaponsEpic[item]())
     }
+    for (const item in CabinsCommon) {
+      entityArr.push(new CabinsCommon[item]())
+    }
+    for (const item in CabinsRare) {
+      entityArr.push(new CabinsRare[item]())
+    }
+    for (const item in CabinsSpecial) {
+      entityArr.push(new CabinsSpecial[item]())
+    }
     for (const item in CabinsEpic) {
       entityArr.push(new CabinsEpic[item]())
+    }
+    for (const item in HardwareCommon) {
+      entityArr.push(new HardwareCommon[item]())
+    }
+    for (const item in HardwareRare) {
+      entityArr.push(new HardwareRare[item]())
+    }
+    for (const item in HardwareSpecial) {
+      entityArr.push(new HardwareSpecial[item]())
+    }
+    for (const item in HardwareEpic) {
+      entityArr.push(new HardwareEpic[item]())
     }
     setClassInstances(entityArr)
   }, [])
@@ -72,10 +101,10 @@ function App() {
     fetch('http://45.12.73.147:3001/prices/start')
       .then((response) => response.json())
       .then(({prices, list}) => {
-        console.log(prices);
+        console.log(list);
         // console.log(list);
         setItemsList(list)
-        setSelectedItem(list[0])
+        setSelectedItem(list[0].id)
       });
       
       // const listArr = JSON.parse(dataId())
