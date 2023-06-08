@@ -72,22 +72,23 @@ function App() {
     fetch('http://45.12.73.147:3001/prices/start')
       .then((response) => response.json())
       .then(({prices, list}) => {
-
-        console.log(prices, list);
-        
+        console.log(prices);
+        // console.log(list);
+        setItemsList(list)
+        setSelectedItem(list[0])
       });
-     
-    const listArr = JSON.parse(dataId())
-    setItemsList(listArr)
-    setSelectedItem(listArr[0])
-
-  }, []);
-  console.log('itemsList', itemsList);
-  if (itemsList) {
-    const instanceFromData = []
-    for (const item of itemsList) {
-      for (const instance of classInstances) {
-        if (item === instance.id) { // Сравниваем id объекта с id экземпляра класса
+      
+      // const listArr = JSON.parse(dataId())
+      
+    }, []);
+    // console.log('itemsList', itemsList);
+    if (itemsList) {
+      const instanceFromData = []
+      for (const item of itemsList) {
+        
+        for (const instance of classInstances) {
+          if (item.id === instance.id) { // Сравниваем id объекта с id экземпляра класса
+            console.log('instance', item.id, instance.id);
           instanceFromData.push(instance)
           itemsArr = instanceFromData.map(inst => {
             if (selectedItem === inst.id) {
