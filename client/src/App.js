@@ -32,6 +32,7 @@ import * as HardwareCommon from "./entity/hardware/common"
 import * as HardwareRare from "./entity/hardware/rare"
 import * as HardwareSpecial from "./entity/hardware/special"
 import * as HardwareEpic from "./entity/hardware/epic"
+import LoadingSpinner from "./components/LoadingSpinner";
 
 
 
@@ -100,24 +101,24 @@ function App() {
   useEffect(() => {
     fetch('http://45.12.73.147:3001/prices/start')
       .then((response) => response.json())
-      .then(({prices, list}) => {
+      .then(({ prices, list }) => {
         console.log(list);
         // console.log(list);
         setItemsList(list)
         setSelectedItem(list[0].id)
       });
-      
-      // const listArr = JSON.parse(dataId())
-      
-    }, []);
-    // console.log('itemsList', itemsList);
-    if (itemsList) {
-      const instanceFromData = []
-      for (const item of itemsList) {
-        
-        for (const instance of classInstances) {
-          if (item.id === instance.id) { // Сравниваем id объекта с id экземпляра класса
-            console.log('instance', item.id, instance.id);
+
+    // const listArr = JSON.parse(dataId())
+
+  }, []);
+  // console.log('itemsList', itemsList);
+  if (itemsList) {
+    const instanceFromData = []
+    for (const item of itemsList) {
+
+      for (const instance of classInstances) {
+        if (item.id === instance.id) { // Сравниваем id объекта с id экземпляра класса
+          console.log('instance', item.id, instance.id);
           instanceFromData.push(instance)
           itemsArr = instanceFromData.map(inst => {
             if (selectedItem === inst.id) {
@@ -170,25 +171,24 @@ function App() {
           <ItemList>
             {itemsArr}
           </ItemList>
-          <MainCard>
-            {selectedInstance &&
+          {selectedInstance ?
+            <MainCard>
               <ItemCard>
                 <TitleCard component={selectedInstance} />
                 <ProductionRequirements component={selectedInstance} />
                 <RequiredComponents component={selectedInstance} />
               </ItemCard>
-            }
-            <VerticalSeparator />
-            <ProductionCostWrapper>
-              <ProductionCost />
-              <ComponentsCost />
-              <Profit />
-            </ProductionCostWrapper>
-            <VerticalSeparator />
-            <ResoursesAvailableWrapper>
-              <ResoursesAvailable />
-            </ResoursesAvailableWrapper>
-          </MainCard>
+              <VerticalSeparator />
+              <ProductionCostWrapper>
+                <ProductionCost />
+                <ComponentsCost />
+                <Profit />
+              </ProductionCostWrapper>
+              <VerticalSeparator />
+              <ResoursesAvailableWrapper>
+                <ResoursesAvailable />
+              </ResoursesAvailableWrapper>
+            </MainCard> : <LoadingSpinner />}
         </Main>
       </Container>
     </div>
