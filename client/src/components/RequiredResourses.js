@@ -4,8 +4,9 @@ import HorizontalSeparator from './HorizontalSeparator';
 
 
 
-const RequiredResourses = ({ component }) => {
-
+const RequiredResourses = ({ component, resourcePrices }) => {
+	let scrapMetalSellPrice = resourcePrices[0].sellPrice / 100
+	let copperSellPrice = resourcePrices[0].sellPrice / 100
 	const resoursesArr = []
 
 	if (component.scrapMetal) {
@@ -13,8 +14,8 @@ const RequiredResourses = ({ component }) => {
 			<>
 				<div className="resourses-img_1"></div>
 				<div className="value text-3">{component.scrapMetal}</div>
-				<div className="value-orange text-3">{}</div>
-				<div className="value-orange text-3">100</div>
+				<div className="value-orange text-3">{scrapMetalSellPrice * 100}</div>
+				<div className="value-orange text-3">{component.scrapMetal * scrapMetalSellPrice}</div>
 			</>
 		)
 	}
@@ -24,7 +25,7 @@ const RequiredResourses = ({ component }) => {
 				<div className="resourses-img_2"></div>
 				<div className="value text-3">{component.electronics}</div>
 				<div className="value-orange text-3">4.91</div>
-				<div className="value-orange text-3">100</div>
+				<div className="value-orange text-3">10</div>
 			</>
 		)
 	}
@@ -33,8 +34,8 @@ const RequiredResourses = ({ component }) => {
 			<>
 				<div className="resourses-img_3"></div>
 				<div className="value text-3">{component.copper}</div>
-				<div className="value-orange text-3">3.32</div>
-				<div className="value-orange text-3">26.56</div>
+				<div className="value-orange text-3">{copperSellPrice * 100}</div>
+				<div className="value-orange text-3">{(component.copper * copperSellPrice).toFixed(2)}</div>
 			</>
 		)
 	}
