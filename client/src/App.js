@@ -32,6 +32,11 @@ import * as HardwareCommon from "./entity/hardware/common"
 import * as HardwareRare from "./entity/hardware/rare"
 import * as HardwareSpecial from "./entity/hardware/special"
 import * as HardwareEpic from "./entity/hardware/epic"
+import * as MovementCommon from "./entity/movement/common"
+import * as MovementRare from "./entity/movement/rare"
+import * as MovementSpecial from "./entity/movement/special"
+import * as MovementEpic from "./entity/movement/epic"
+
 import LoadingSpinner from "./components/LoadingSpinner";
 
 
@@ -83,6 +88,18 @@ function App() {
     }
     for (const item in HardwareEpic) {
       entityArr.push(new HardwareEpic[item]())
+    }
+    for (const item in MovementCommon) {
+      entityArr.push(new MovementCommon[item]())
+    }
+    for (const item in MovementRare) {
+      entityArr.push(new MovementRare[item]())
+    }
+    for (const item in MovementSpecial) {
+      entityArr.push(new MovementSpecial[item]())
+    }
+    for (const item in MovementEpic) {
+      entityArr.push(new MovementEpic[item]())
     }
     setClassInstances(entityArr)
   }, [])

@@ -3,7 +3,7 @@ import { Bat } from '../cabins/special'
 import { Razorback, Hardcore, Ampere, Chameleon, DunHorse } from '../hardware/special'
 import { Buzzsaw, Mace, Goblin, Sidekick, Boom } from '../weapons/special'
 import { APCWheelST, Camber, CamberST, LunarIV, LunarIVST, Shiv, ShivST, TwinWheel, TwinWheelST } from './special'
-
+import * as MovementImages from './MovementImages'
 export class BuggyWheel extends EpicVehicleComponent {
   constructor() {
     super()
@@ -16,6 +16,7 @@ export class BuggyWheel extends EpicVehicleComponent {
     this.plastic = 60
     this.batteries = 100
     this.ingredients = [new Buzzsaw(), new Hardcore(), new Mace()]
+    this.img = MovementImages.BuggyWheel
   }
 }
 export class BuggyWheelST extends EpicVehicleComponent {
@@ -30,6 +31,7 @@ export class BuggyWheelST extends EpicVehicleComponent {
     this.plastic = 60
     this.batteries = 100
     this.ingredients = [new Buzzsaw(), new Mace(), new Boom()]
+    this.img = MovementImages.BuggyWheelST
   }
 }
 export class Bigfoot extends EpicVehicleComponent {
@@ -39,6 +41,7 @@ export class Bigfoot extends EpicVehicleComponent {
     this.name = 'Бигфут'
     this.type = 'Колесо тяжелое'    
     this.ingredients = [new Shiv(), new Bat(), new TwinWheel()]
+    this.img = MovementImages.Bigfoot
   }
 }
 export class BigfootST extends EpicVehicleComponent {
@@ -48,6 +51,7 @@ export class BigfootST extends EpicVehicleComponent {
     this.name = 'Бигфут (пов.)'
     this.type = 'Колесо тяжелое'
     this.ingredients = [new ShivST(), new Bat(), new TwinWheelST()]
+    this.img = MovementImages.BigfootST
   }
 }
 export class Omni extends EpicVehicleComponent {
@@ -62,6 +66,7 @@ export class Omni extends EpicVehicleComponent {
     this.plastic = 60
     this.batteries = 100
     this.ingredients = [new Camber(), new CamberST(), new TwinWheelST()]
+    this.img = MovementImages.Omni
   }
 }
 export class SmallTrack extends EpicVehicleComponent {
@@ -71,6 +76,7 @@ export class SmallTrack extends EpicVehicleComponent {
     this.name = 'Гусеница малая'
     this.type = 'Гусеница'
     this.ingredients = [new Hardcore(), new Buzzsaw(), new Mace()]
+    this.img = MovementImages.SmallTrack
   }
 }
 export class HardenedTrack extends EpicVehicleComponent {
@@ -80,6 +86,7 @@ export class HardenedTrack extends EpicVehicleComponent {
     this.name = 'Гусеница укрепленная'
     this.type = 'Гусеница'
     this.ingredients = [new Ampere(), new Chameleon(), new DunHorse()]
+    this.img = MovementImages.HardenedTrack
   }
 }
 export class ArmoredTrack extends EpicVehicleComponent {
@@ -89,6 +96,7 @@ export class ArmoredTrack extends EpicVehicleComponent {
     this.name = 'Гусеница бронированная'
     this.type = 'Гусеница'
     this.ingredients = [new TwinWheel(), new TwinWheelST(), new Razorback()]
+    this.img = MovementImages.ArmoredTrack
   }
 }
 export class IcarusVII extends EpicVehicleComponent {
@@ -98,6 +106,7 @@ export class IcarusVII extends EpicVehicleComponent {
     this.name = 'Икар VII'
     this.type = 'Ховер'
     this.ingredients = [new LunarIVST(), new LunarIV(), new DunHorse()]
+    this.img = MovementImages.IcarusVII
   }
 }
 export class ML200 extends EpicVehicleComponent {
@@ -107,6 +116,7 @@ export class ML200 extends EpicVehicleComponent {
     this.name = 'МН-Л 200'
     this.type = 'Механическая нога'
     this.ingredients = [new Sidekick(), new APCWheelST(), new Razorback()]
+    this.img = MovementImages.ML200
   }
 }
 export class MeatGrinder extends EpicVehicleComponent {
@@ -116,5 +126,6 @@ export class MeatGrinder extends EpicVehicleComponent {
     this.name = 'Мясорубка'
     this.type = 'Шнек'
     this.ingredients = [new Shiv(), new ShivST(), new Buzzsaw()]
+    this.img = MovementImages.MeatGrinder
   }
 }

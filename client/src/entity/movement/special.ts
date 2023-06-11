@@ -1,6 +1,6 @@
 import { SpecialVehicleComponent } from '../specialVehicleComponent'
 import { StuddedWheel, ChainedWheel, StuddedWheelST, ChainedWheelST, LargeWheel, BalloonTyre, LargeWheelST, BalloonTyreST, RacingWheel, LandingGear, RacingWheelST, LandingGearST } from './rare'
-
+import * as MovementImages from './MovementImages'
 export class LunarIV extends SpecialVehicleComponent {
   constructor() {
     super()
@@ -8,6 +8,7 @@ export class LunarIV extends SpecialVehicleComponent {
     this.name = 'Лунар IV'
     this.type = 'Колесо легкое'
     this.ingredients = [new RacingWheel(), new LandingGear()]
+    this.img = MovementImages.LunarIV
   }
 }
 export class LunarIVST extends SpecialVehicleComponent {
@@ -17,6 +18,7 @@ export class LunarIVST extends SpecialVehicleComponent {
     this.name = 'Лунар IV(пов.)'
     this.type = 'Колесо легкое'
     this.ingredients = [new RacingWheelST(), new LandingGearST()]
+    this.img = MovementImages.LunarIVST
   }
 }
 export class Camber extends SpecialVehicleComponent {
@@ -29,6 +31,7 @@ export class Camber extends SpecialVehicleComponent {
     this.wires = 200
     this.plastic = 30
     this.ingredients = [new RacingWheel(), new BalloonTyre()]
+    this.img = MovementImages.Camber
   }
 }
 export class CamberST extends SpecialVehicleComponent {
@@ -41,6 +44,7 @@ export class CamberST extends SpecialVehicleComponent {
     this.wires = 200
     this.plastic = 30
     this.ingredients = [new RacingWheelST(), new BalloonTyreST()]
+    this.img = MovementImages.CamberST
   }
 }
 export class Shiv extends SpecialVehicleComponent {
@@ -50,6 +54,7 @@ export class Shiv extends SpecialVehicleComponent {
     this.name = 'Заточка'
     this.type = 'Колесо среднее'
     this.ingredients = [new StuddedWheel(), new ChainedWheel()]
+    this.img = MovementImages.Shiv
   }
 }
 export class ShivST extends SpecialVehicleComponent {
@@ -59,6 +64,7 @@ export class ShivST extends SpecialVehicleComponent {
     this.name = 'Заточка(пов.)'
     this.type = 'Колесо среднее'
     this.ingredients = [new StuddedWheelST(), new ChainedWheelST()]
+    this.img = MovementImages.ShivST
   }
 }
 export class APCWheel extends SpecialVehicleComponent {
@@ -68,6 +74,7 @@ export class APCWheel extends SpecialVehicleComponent {
     this.name = 'Колесо броневика'
     this.type = 'Колесо тяжелое'
     this.ingredients = [new LargeWheel(), new BalloonTyre()]
+    this.img = MovementImages.APCWheel
   }
 }
 export class APCWheelST extends SpecialVehicleComponent {
@@ -77,6 +84,7 @@ export class APCWheelST extends SpecialVehicleComponent {
     this.name = 'Колесо броневика(пов.)'
     this.type = 'Колесо тяжелое'
     this.ingredients = [new LargeWheelST(), new BalloonTyreST()]
+    this.img = MovementImages.APCWheelST
   }
 }
 export class TwinWheel extends SpecialVehicleComponent {
@@ -86,6 +94,7 @@ export class TwinWheel extends SpecialVehicleComponent {
     this.name = 'Колесо двойное'
     this.type = 'Колесо тяжелое'
     this.ingredients = [new LargeWheel(), new BalloonTyre()]
+    this.img = MovementImages.TwinWheel
   }
 }
 export class TwinWheelST extends SpecialVehicleComponent {
@@ -95,5 +104,6 @@ export class TwinWheelST extends SpecialVehicleComponent {
     this.name = 'Колесо двойное(пов.)'
     this.type = 'Колесо тяжелое'
     this.ingredients = [new LargeWheelST(), new BalloonTyreST()]
+    this.img = MovementImages.TwinWheelST
   }
 }

@@ -1,5 +1,5 @@
 import { CommonVehicleComponent } from '../commonVehicleComponent'
-
+import * as MovementImages from './MovementImages'
 export class SmallWheel extends CommonVehicleComponent {
   constructor() {
     super()
@@ -8,6 +8,7 @@ export class SmallWheel extends CommonVehicleComponent {
     this.type = 'Колесо легкое'
     this.scrapMetal = 15
     this.copper = 3
+    this.img = MovementImages.SmallWheel
   }
 }
 export class SmallWheelST extends CommonVehicleComponent {
@@ -18,6 +19,7 @@ export class SmallWheelST extends CommonVehicleComponent {
     this.type = 'Колесо легкое'
     this.scrapMetal = 15
     this.copper = 3
+    this.img = MovementImages.SmallWheelST
   }
 }
 export class MediumWheel extends CommonVehicleComponent {
@@ -28,6 +30,7 @@ export class MediumWheel extends CommonVehicleComponent {
     this.type = 'Колесо среднее'
     this.scrapMetal = 15
     this.copper = 3
+    this.img = MovementImages.MediumWheel
   }
 }
 export class MediumWheelST extends CommonVehicleComponent {
@@ -38,5 +41,6 @@ export class MediumWheelST extends CommonVehicleComponent {
     this.type = 'Колесо среднее'
     this.scrapMetal = 15
     this.copper = 3
+    this.img = MovementImages.MediumWheelST
   }
 }

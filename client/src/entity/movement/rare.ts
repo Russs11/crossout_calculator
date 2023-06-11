@@ -1,6 +1,7 @@
 import { RareVehicleComponent } from '../rareVehicleComponent'
 import { WWT1 } from '../cabins/common'
 import { MediumWheel, MediumWheelST, SmallWheel, SmallWheelST } from './common'
+import * as MovementImages from './MovementImages'
 
 export class StuddedWheel extends RareVehicleComponent {
   constructor() {
@@ -10,6 +11,7 @@ export class StuddedWheel extends RareVehicleComponent {
     this.type = 'Колесо легкое'
     this.scrapMetal = 600
     this.ingredients = [new SmallWheel(), new MediumWheel()]
+    this.img = MovementImages.StuddedWheel
   }
 }
 export class StuddedWheelST extends RareVehicleComponent {
@@ -20,6 +22,7 @@ export class StuddedWheelST extends RareVehicleComponent {
     this.type = 'Колесо легкое'
     this.scrapMetal = 600
     this.ingredients = [new SmallWheelST(), new MediumWheelST()]
+    this.img = MovementImages.StuddedWheelST
   }
 }
 export class ChainedWheel extends RareVehicleComponent {
@@ -30,6 +33,7 @@ export class ChainedWheel extends RareVehicleComponent {
     this.type = 'Колесо легкое'
     this.scrapMetal = 600
     this.ingredients = [new MediumWheel(), new SmallWheel()]
+    this.img = MovementImages.ChainedWheel
   }
 }
 
@@ -41,6 +45,7 @@ export class ChainedWheelST extends RareVehicleComponent {
     this.type = 'Колесо легкое'
     this.scrapMetal = 600
     this.ingredients = [new MediumWheelST(), new SmallWheelST()]
+    this.img = MovementImages.ChainedWheelST
   }
 }
 export class BalloonTyre extends RareVehicleComponent {
@@ -51,6 +56,7 @@ export class BalloonTyre extends RareVehicleComponent {
     this.type = 'Колесо среднее'
     this.scrapMetal = 600
     this.ingredients = [new MediumWheel(), new MediumWheel()]
+    this.img = MovementImages.BalloonTyre
   }
 }
 
@@ -62,6 +68,7 @@ export class BalloonTyreST extends RareVehicleComponent {
     this.type = 'Колесо среднее'
     this.scrapMetal = 600
     this.ingredients = [new SmallWheelST(), new SmallWheelST()]
+    this.img = MovementImages.BalloonTyreST
   }
 }
 export class RacingWheel extends RareVehicleComponent {
@@ -72,6 +79,7 @@ export class RacingWheel extends RareVehicleComponent {
     this.type = 'Колесо среднее'
     this.scrapMetal = 600
     this.ingredients = [new MediumWheel(), new SmallWheel()]
+    this.img = MovementImages.RacingWheel
   }
 }
 
@@ -83,6 +91,7 @@ export class RacingWheelST extends RareVehicleComponent {
     this.type = 'Колесо среднее'
     this.scrapMetal = 600
     this.ingredients = [new MediumWheelST(), new SmallWheelST()]
+    this.img = MovementImages.RacingWheelST
   }
 }
 export class LandingGear extends RareVehicleComponent {
@@ -93,6 +102,7 @@ export class LandingGear extends RareVehicleComponent {
     this.type = 'Колесо среднее'
     this.scrapMetal = 600
     this.ingredients = [new SmallWheel(), new MediumWheel()]
+    this.img = MovementImages.LandingGear
   }
 }
 export class LandingGearST extends RareVehicleComponent {
@@ -103,6 +113,7 @@ export class LandingGearST extends RareVehicleComponent {
     this.type = 'Колесо среднее'
     this.scrapMetal = 600
     this.ingredients = [new SmallWheelST(), new MediumWheelST()]
+    this.img = MovementImages.LandingGearST
   }
 }
 export class LargeWheel extends RareVehicleComponent {
@@ -113,6 +124,7 @@ export class LargeWheel extends RareVehicleComponent {
     this.type = 'Колесо тяжелое'
     this.scrapMetal = 600
     this.ingredients = [new SmallWheel(), new WWT1()]
+    this.img = MovementImages.LargeWheel
   }
 }
 export class LargeWheelST extends RareVehicleComponent {
@@ -123,5 +135,6 @@ export class LargeWheelST extends RareVehicleComponent {
     this.type = 'Колесо тяжелое'
     this.scrapMetal = 600
     this.ingredients = [new MediumWheelST(), new WWT1()]
+    this.img = MovementImages.LargeWheelST
   }
 }
