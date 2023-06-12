@@ -198,7 +198,9 @@ function App() {
                 <ProductionRequirements
                   component={selectedInstance}
                   resourcePrices={resourcePrices} />
-                <RequiredComponents component={selectedInstance} />
+                <RequiredComponents 
+                component={selectedInstance}
+                resourcePrices={resourcePrices} />
               </ItemCard>
               <VerticalSeparator />
               <ProductionCostWrapper>

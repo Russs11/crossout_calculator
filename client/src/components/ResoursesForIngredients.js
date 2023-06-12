@@ -3,18 +3,28 @@ import HorizontalSeparator from './HorizontalSeparator';
 // import './RequiredResourses.scss'
 
 
-const ResoursesForIngredients = ({ ingredient, active }) => {
+const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 	
 	console.log('ingredient', ingredient.scrapMetal);
 	const resoursesArr2 = []
+	let scrapMetalSellPrice = resourcePrices[0].sellPrice / 100
+	let copperSellPrice = resourcePrices[1].sellPrice / 100
+	let wiresSellPrice = resourcePrices[2].sellPrice / 100
+	let plasticSellPrice = resourcePrices[3].sellPrice / 100
+	let batteriesSellPrice = resourcePrices[4].sellPrice / 10
+	let electronicsSellPrice = resourcePrices[5].sellPrice / 10
+	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
+
+console.log('resoursePrices', resourcePrices);
+
 
 	if (ingredient.scrapMetal) {
 		resoursesArr2.push(
 			<>
 				<div className="resourses-img_1 small"></div>
 				<div className="value text-8">{ingredient.scrapMetal ? ingredient.scrapMetal : null}</div>
-				<div className="value-orange text-8">4.91</div>
-				<div className="value-orange text-8">100</div>
+				<div className="value-orange text-8">{(scrapMetalSellPrice * 100).toFixed(2)}</div>
+				<div className="value-orange text-8">{(ingredient.scrapMetal * scrapMetalSellPrice).toFixed(2)}</div>
 			</>
 		)
 	}
@@ -23,8 +33,8 @@ const ResoursesForIngredients = ({ ingredient, active }) => {
 			<>
 				<div className="resourses-img_2 small"></div>
 				<div className="value text-8">{ingredient.electronics}</div>
-				<div className="value-orange text-8">4.91</div>
-				<div className="value-orange text-8">100</div>
+				<div className="value-orange text-8">{(electronicsSellPrice * 10).toFixed(2)}</div>
+				<div className="value-orange text-8">{(ingredient.electronics * electronicsSellPrice).toFixed(2)}</div>
 			</>
 		)
 	}
@@ -33,8 +43,8 @@ const ResoursesForIngredients = ({ ingredient, active }) => {
 			<>
 				<div className="resourses-img_3 small"></div>
 				<div className="value text-8">{ingredient.copper}</div>
-				<div className="value-orange text-8">8.82</div>
-				<div className="value-orange text-8">26.56</div>
+				<div className="value-orange text-8">{(copperSellPrice * 100).toFixed(2)}</div>
+				<div className="value-orange text-8">{(ingredient.copper * copperSellPrice).toFixed(2)}</div>
 			</>
 		)
 	}
@@ -43,8 +53,8 @@ const ResoursesForIngredients = ({ ingredient, active }) => {
 			<>
 				<div className="resourses-img_4 small"></div>
 				<div className="value text-8">{ingredient.batteries}</div>
-				<div className="value-orange text-8">8.82</div>
-				<div className="value-orange text-8">26.56</div>
+				<div className="value-orange text-8">{(batteriesSellPrice * 10).toFixed(2)}</div>
+				<div className="value-orange text-8">{(ingredient.batteries * batteriesSellPrice).toFixed(2)}</div>
 			</>
 		)
 	}
@@ -53,8 +63,8 @@ const ResoursesForIngredients = ({ ingredient, active }) => {
 			<>
 				<div className="resourses-img_5 small"></div>
 				<div className="value text-8">{ingredient.wires}</div>
-				<div className="value-orange text-8">8.82</div>
-				<div className="value-orange text-8">26.56</div>
+				<div className="value-orange text-8">{(wiresSellPrice * 100).toFixed(2)}</div>
+				<div className="value-orange text-8">{(ingredient.wires * wiresSellPrice).toFixed(2)}</div>
 			</>
 		)
 	}
@@ -64,8 +74,8 @@ const ResoursesForIngredients = ({ ingredient, active }) => {
 			<>
 				<div className="resourses-img_6 small"></div>
 				<div className="value text-8">{ingredient.engravedCasings}</div>
-				<div className="value-orange text-8">8.82</div>
-				<div className="value-orange text-8">26.56</div>
+				<div className="value-orange text-8">{(engravedCasingsSellPrice * 10).toFixed(2)}</div>
+				<div className="value-orange text-8">{(ingredient.engravedCasings * engravedCasingsSellPrice).toFixed(2)}</div>
 			</>
 		)
 	}
@@ -74,8 +84,8 @@ const ResoursesForIngredients = ({ ingredient, active }) => {
 			<>
 				<div className="resourses-img_7 small"></div>
 				<div className="value text-8">{ingredient.plastic}</div>
-				<div className="value-orange text-8">8.82</div>
-				<div className="value-orange text-8">26.56</div>
+				<div className="value-orange text-8">{(plasticSellPrice * 100).toFixed(2)}</div>
+				<div className="value-orange text-8">{(ingredient.plastic  * plasticSellPrice).toFixed(2)}</div>
 			</>
 		)
 	}

@@ -8,7 +8,7 @@ import Ingredient from "./Ingredient";
 
 
 
-const RequiredComponents = ({ component }) => {
+const RequiredComponents = ({ component, resourcePrices }) => {
   const [selectedIngredient, setSelectedIngredient] = useState(null)
   const [isActive, setIsActive] = useState(false)
 
@@ -22,6 +22,7 @@ const RequiredComponents = ({ component }) => {
           <Ingredient
             key={ingredient.name}
             ingredient={ingredient}
+            resourcePrices={resourcePrices}
             clickHandler={clickHandler}
             active={true} />
         )
@@ -30,6 +31,7 @@ const RequiredComponents = ({ component }) => {
         <Ingredient
           key={ingredient.name}
           ingredient={ingredient}
+          resourcePrices={resourcePrices}
           clickHandler={clickHandler}
           active={false} />
       )
