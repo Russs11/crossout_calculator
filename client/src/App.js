@@ -130,7 +130,7 @@ function App() {
       
   }, []);
   
-  console.log(resourcePrices);
+  // console.log(resourcePrices);
     // console.log('itemsList', itemsList);
   if (itemsList) {
     const instanceFromData = []

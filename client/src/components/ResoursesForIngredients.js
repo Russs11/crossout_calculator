@@ -15,7 +15,7 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 	let electronicsSellPrice = resourcePrices[5].sellPrice / 10
 	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
 
-console.log('resoursePrices', resourcePrices);
+// console.log('resoursePrices', resourcePrices);
 
 
 	if (ingredient.scrapMetal) {
