@@ -4,7 +4,7 @@ import HorizontalSeparator from './HorizontalSeparator';
 
 
 const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
-	
+
 	console.log('ingredient', ingredient.scrapMetal);
 	const resoursesArr2 = []
 	let scrapMetalSellPrice = resourcePrices[0].sellPrice / 100
@@ -15,95 +15,117 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 	let electronicsSellPrice = resourcePrices[5].sellPrice / 10
 	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
 
-// console.log('resoursePrices', resourcePrices);
-
+	let scrapMetalCost = (ingredient.scrapMetal * scrapMetalSellPrice).toFixed(2)
+	let copperCost = (ingredient.copper * copperSellPrice).toFixed(2)
+	let wiresCost = (ingredient.wires * wiresSellPrice).toFixed(2)
+	let plasticCost = (ingredient.plastic * plasticSellPrice).toFixed(2)
+	let batteriesCost = (ingredient.batteries * batteriesSellPrice).toFixed(2)
+	let electronicsCost = (ingredient.electronics * electronicsSellPrice).toFixed(2)
+	let engravedCasingsCost = (ingredient.engravedCasings * engravedCasingsSellPrice).toFixed(2)
+	// console.log('resoursePrices', resourcePrices);
+	let activeResourses = []
+	let totalResoursesСost
 
 	if (ingredient.scrapMetal) {
+		activeResourses.push(+scrapMetalCost)
 		resoursesArr2.push(
 			<>
 				<div className="resourses-img_1 small"></div>
 				<div className="value text-8">{ingredient.scrapMetal ? ingredient.scrapMetal : null}</div>
 				<div className="value-orange text-8">{(scrapMetalSellPrice * 100).toFixed(2)}</div>
-				<div className="value-orange text-8">{(ingredient.scrapMetal * scrapMetalSellPrice).toFixed(2)}</div>
-			</>
-		)
-	}
-	if (ingredient.electronics) {
-		resoursesArr2.push(
-			<>
-				<div className="resourses-img_2 small"></div>
-				<div className="value text-8">{ingredient.electronics}</div>
-				<div className="value-orange text-8">{(electronicsSellPrice * 10).toFixed(2)}</div>
-				<div className="value-orange text-8">{(ingredient.electronics * electronicsSellPrice).toFixed(2)}</div>
+				<div className="value-orange text-8">{scrapMetalCost}</div>
 			</>
 		)
 	}
 	if (ingredient.copper) {
+		activeResourses.push(+copperCost)
 		resoursesArr2.push(
 			<>
 				<div className="resourses-img_3 small"></div>
 				<div className="value text-8">{ingredient.copper}</div>
 				<div className="value-orange text-8">{(copperSellPrice * 100).toFixed(2)}</div>
-				<div className="value-orange text-8">{(ingredient.copper * copperSellPrice).toFixed(2)}</div>
+				<div className="value-orange text-8">{copperCost}</div>
+			</>
+		)
+	}
+	if (ingredient.electronics) {
+		activeResourses.push(+electronicsCost)
+		resoursesArr2.push(
+			<>
+				<div className="resourses-img_2 small"></div>
+				<div className="value text-8">{ingredient.electronics}</div>
+				<div className="value-orange text-8">{(electronicsSellPrice * 10).toFixed(2)}</div>
+				<div className="value-orange text-8">{electronicsCost}</div>
 			</>
 		)
 	}
 	if (ingredient.batteries) {
+		activeResourses.push(+batteriesCost)
 		resoursesArr2.push(
 			<>
 				<div className="resourses-img_4 small"></div>
 				<div className="value text-8">{ingredient.batteries}</div>
 				<div className="value-orange text-8">{(batteriesSellPrice * 10).toFixed(2)}</div>
-				<div className="value-orange text-8">{(ingredient.batteries * batteriesSellPrice).toFixed(2)}</div>
+				<div className="value-orange text-8">{batteriesCost}</div>
 			</>
 		)
 	}
 	if (ingredient.wires) {
+		activeResourses.push(+wiresCost)
 		resoursesArr2.push(
 			<>
 				<div className="resourses-img_5 small"></div>
 				<div className="value text-8">{ingredient.wires}</div>
 				<div className="value-orange text-8">{(wiresSellPrice * 100).toFixed(2)}</div>
-				<div className="value-orange text-8">{(ingredient.wires * wiresSellPrice).toFixed(2)}</div>
+				<div className="value-orange text-8">{wiresCost}</div>
 			</>
 		)
 	}
 
-	if (ingredient.engravedCasings) {
-		resoursesArr2.push(
-			<>
-				<div className="resourses-img_6 small"></div>
-				<div className="value text-8">{ingredient.engravedCasings}</div>
-				<div className="value-orange text-8">{(engravedCasingsSellPrice * 10).toFixed(2)}</div>
-				<div className="value-orange text-8">{(ingredient.engravedCasings * engravedCasingsSellPrice).toFixed(2)}</div>
-			</>
-		)
-	}
 	if (ingredient.plastic) {
+		activeResourses.push(+plasticCost)
 		resoursesArr2.push(
 			<>
 				<div className="resourses-img_7 small"></div>
 				<div className="value text-8">{ingredient.plastic}</div>
 				<div className="value-orange text-8">{(plasticSellPrice * 100).toFixed(2)}</div>
-				<div className="value-orange text-8">{(ingredient.plastic  * plasticSellPrice).toFixed(2)}</div>
+				<div className="value-orange text-8">{plasticCost}</div>
 			</>
 		)
 	}
-	if(active){
+	if (ingredient.engravedCasings) {
+		activeResourses.push(+engravedCasingsCost)
+		resoursesArr2.push(
+			<>
+				<div className="resourses-img_6 small"></div>
+				<div className="value text-8">{ingredient.engravedCasings}</div>
+				<div className="value-orange text-8">{(engravedCasingsSellPrice * 10).toFixed(2)}</div>
+				<div className="value-orange text-8">{engravedCasingsCost}</div>
+			</>
+		)
+	}
+
+	if(activeResourses.length){
+		totalResoursesСost = activeResourses.reduce((a, b) => {
+			return a + b
+		}, 0)
+	}
+
+	if (active) {
 		return (
-		<>
-			<div className="item-required-resources-grid animated">
-				<div className="text-7">Ресурсы:</div>
-				<div className="text-7">Количество:</div>
-				<div className="text-7">Цена:</div>
-				<div className="text-7">Стоимость:</div>
-				{resoursesArr2}
-				<div className="total-resourses-cost text-7">Общая стоимость ресурсов:</div>
-				<div className="value-orange text-8">66.96</div>
-			</div>
-			<HorizontalSeparator/>
-		</>
-	);
+			<>
+				<div className="item-required-resources-grid animated">
+					<div className="text-7">Ресурсы:</div>
+					<div className="text-7">Количество:</div>
+					<div className="text-7">Цена:</div>
+					<div className="text-7">Стоимость:</div>
+					{resoursesArr2}
+					<div className="total-resourses-cost text-7">Общая стоимость ресурсов:</div>
+					<div className="value-orange text-8">{totalResoursesСost.toFixed(2)}</div>
+				</div>
+				<HorizontalSeparator />
+			</>
+		);
 	}
 	return (
 		<>
@@ -111,7 +133,7 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 			{/* <HorizontalSeparator/> */}
 		</>
 	);
-	
+
 };
 
 export default ResoursesForIngredients;
