@@ -5,6 +5,9 @@ import HorizontalSeparator from './HorizontalSeparator';
 
 
 const RequiredResourses = ({ component, resourcePrices }) => {
+	
+	const resoursesArr = []
+	
 	let scrapMetalSellPrice = resourcePrices[0].sellPrice / 100
 	let copperSellPrice = resourcePrices[1].sellPrice / 100
 	let wiresSellPrice = resourcePrices[2].sellPrice / 100
@@ -14,36 +17,16 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
 
 	let scrapMetalCost = (component.scrapMetal * scrapMetalSellPrice).toFixed(2)
-	
 	let copperCost = (component.copper * copperSellPrice).toFixed(2)
-	
 	let wiresCost = (component.wires * wiresSellPrice).toFixed(2)
-	
 	let plasticCost = (component.plastic * plasticSellPrice).toFixed(2)
-	
 	let batteriesCost = (component.batteries * batteriesSellPrice).toFixed(2)
-	
 	let electronicsCost = (component.electronics * electronicsSellPrice).toFixed(2)
-	
 	let engravedCasingsCost = (component.engravedCasings * engravedCasingsSellPrice).toFixed(2)
 	
-
-	let activeResourses = []
-	const resoursesArr = []
-	let totalResoursesСost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
-
+	let totalResoursesСost = Number(scrapMetalCost) + Number(copperCost) + Number(wiresCost) + Number(plasticCost) + Number(batteriesCost) + Number(electronicsCost) + Number(engravedCasingsCost)
 	
-	
-	console.log('component.electronics: ', component.electronics);
-	
-	console.log('component.batteries: ', component.batteries);
-
-	
-
-
-
 	if (component.scrapMetal) {
-		activeResourses.push(+scrapMetalCost)
 		resoursesArr.push(
 			<>
 				<div className="resourses-img_1"></div>
@@ -54,7 +37,6 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 		)
 	}
 	if (component.copper) {
-		activeResourses.push(+copperCost)
 		resoursesArr.push(
 			<>
 				<div className="resourses-img_3"></div>
@@ -65,7 +47,6 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 		)
 	}
 	if (component.electronics) {
-		activeResourses.push(+electronicsCost)
 		resoursesArr.push(
 			<>
 				<div className="resourses-img_2"></div>
@@ -77,7 +58,6 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	}
 
 	if (component.batteries) {
-		activeResourses.push(+batteriesCost)
 		resoursesArr.push(
 			<>
 				<div className="resourses-img_4"></div>
@@ -88,7 +68,6 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 		)
 	}
 	if (component.wires) {
-		activeResourses.push(+wiresCost)
 		resoursesArr.push(
 			<>
 				<div className="resourses-img_5"></div>
@@ -100,7 +79,6 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	}
 
 	if (component.plastic) {
-		activeResourses.push(+plasticCost)
 		resoursesArr.push(
 			<>
 				<div className="resourses-img_7"></div>
@@ -111,7 +89,6 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 		)
 	}
 	if (component.engravedCasings) {
-		activeResourses.push(+engravedCasingsCost)
 		resoursesArr.push(
 			<>
 				<div className="resourses-img_7"></div>
@@ -121,13 +98,6 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 			</>
 		)
 	}
-
-	if(activeResourses.length){
-		totalResoursesСost = activeResourses.reduce((a, b) => {
-			return a + b
-		}, 0)
-	}
-
 	return (
 		<>
 			<div className="production-requirements-grid">

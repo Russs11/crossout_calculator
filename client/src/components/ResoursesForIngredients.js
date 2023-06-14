@@ -5,8 +5,8 @@ import HorizontalSeparator from './HorizontalSeparator';
 
 const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 
-	console.log('ingredient', ingredient.scrapMetal);
 	const resoursesArr2 = []
+
 	let scrapMetalSellPrice = resourcePrices[0].sellPrice / 100
 	let copperSellPrice = resourcePrices[1].sellPrice / 100
 	let wiresSellPrice = resourcePrices[2].sellPrice / 100
@@ -16,18 +16,24 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
 
 	let scrapMetalCost = (ingredient.scrapMetal * scrapMetalSellPrice).toFixed(2)
+	console.log('scrapMetalCost: ', scrapMetalCost);
 	let copperCost = (ingredient.copper * copperSellPrice).toFixed(2)
+	console.log('copperCost: ', copperCost);
 	let wiresCost = (ingredient.wires * wiresSellPrice).toFixed(2)
+	console.log('wiresCost: ', wiresCost);
 	let plasticCost = (ingredient.plastic * plasticSellPrice).toFixed(2)
+	console.log('plasticCost: ', plasticCost);
 	let batteriesCost = (ingredient.batteries * batteriesSellPrice).toFixed(2)
+	console.log('batteriesCost: ', batteriesCost);
 	let electronicsCost = (ingredient.electronics * electronicsSellPrice).toFixed(2)
+	console.log('electronicsCost: ', electronicsCost);
 	let engravedCasingsCost = (ingredient.engravedCasings * engravedCasingsSellPrice).toFixed(2)
+	console.log('engravedCasingsCost: ', engravedCasingsCost);
 	// console.log('resoursePrices', resourcePrices);
-	let activeResourses = []
-	let totalResoursesСost
+	let totalResoursesСost = Number(scrapMetalCost) + Number(copperCost) + Number(wiresCost) + Number(plasticCost) + Number(batteriesCost) + Number(electronicsCost) + Number(engravedCasingsCost);
+	console.log('totalResoursesСost: ', totalResoursesСost);
 
 	if (ingredient.scrapMetal) {
-		activeResourses.push(+scrapMetalCost)
 		resoursesArr2.push(
 			<>
 				<div className="resourses-img_1 small"></div>
@@ -38,7 +44,6 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 		)
 	}
 	if (ingredient.copper) {
-		activeResourses.push(+copperCost)
 		resoursesArr2.push(
 			<>
 				<div className="resourses-img_3 small"></div>
@@ -49,7 +54,6 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 		)
 	}
 	if (ingredient.electronics) {
-		activeResourses.push(+electronicsCost)
 		resoursesArr2.push(
 			<>
 				<div className="resourses-img_2 small"></div>
@@ -60,7 +64,6 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 		)
 	}
 	if (ingredient.batteries) {
-		activeResourses.push(+batteriesCost)
 		resoursesArr2.push(
 			<>
 				<div className="resourses-img_4 small"></div>
@@ -71,7 +74,6 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 		)
 	}
 	if (ingredient.wires) {
-		activeResourses.push(+wiresCost)
 		resoursesArr2.push(
 			<>
 				<div className="resourses-img_5 small"></div>
@@ -83,7 +85,6 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 	}
 
 	if (ingredient.plastic) {
-		activeResourses.push(+plasticCost)
 		resoursesArr2.push(
 			<>
 				<div className="resourses-img_7 small"></div>
@@ -94,7 +95,6 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 		)
 	}
 	if (ingredient.engravedCasings) {
-		activeResourses.push(+engravedCasingsCost)
 		resoursesArr2.push(
 			<>
 				<div className="resourses-img_6 small"></div>
@@ -104,13 +104,6 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 			</>
 		)
 	}
-
-	if(activeResourses.length){
-		totalResoursesСost = activeResourses.reduce((a, b) => {
-			return a + b
-		}, 0)
-	}
-
 	if (active) {
 		return (
 			<>
