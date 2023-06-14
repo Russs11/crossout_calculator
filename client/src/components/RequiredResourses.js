@@ -14,22 +14,31 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
 
 	let scrapMetalCost = (component.scrapMetal * scrapMetalSellPrice).toFixed(2)
+	
 	let copperCost = (component.copper * copperSellPrice).toFixed(2)
+	
 	let wiresCost = (component.wires * wiresSellPrice).toFixed(2)
+	
 	let plasticCost = (component.plastic * plasticSellPrice).toFixed(2)
+	
 	let batteriesCost = (component.batteries * batteriesSellPrice).toFixed(2)
+	
 	let electronicsCost = (component.electronics * electronicsSellPrice).toFixed(2)
+	
 	let engravedCasingsCost = (component.engravedCasings * engravedCasingsSellPrice).toFixed(2)
+	
 
 	let activeResourses = []
 	const resoursesArr = []
-	let totalResoursesСost
+	let totalResoursesСost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
 
 	
+	
+	console.log('component.electronics: ', component.electronics);
+	
+	console.log('component.batteries: ', component.batteries);
 
-
-
-	console.log('totalResoursesСost', totalResoursesСost);
+	
 
 
 

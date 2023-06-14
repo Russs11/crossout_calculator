@@ -14,6 +14,7 @@ export class EpicVehicleComponent {
   wires: number
   plastic: number
   batteries: number
+  electronics: number
   engravedCasings: number
   ingredients: SpecialVehicleComponent[]
   img: string
@@ -32,6 +33,7 @@ export class EpicVehicleComponent {
     this.wires = 200
     this.plastic = 100
     this.batteries = 0
+    this.electronics = 0
     this.engravedCasings = 0
     this.ingredients = []
     this.img = ''
