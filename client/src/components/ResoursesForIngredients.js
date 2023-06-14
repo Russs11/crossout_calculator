@@ -14,16 +14,17 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 	let batteriesSellPrice = resourcePrices[4].sellPrice / 10
 	let electronicsSellPrice = resourcePrices[5].sellPrice / 10
 	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
-
+	
+	
 	let scrapMetalCost = (ingredient.scrapMetal * scrapMetalSellPrice).toFixed(2)
-	console.log('scrapMetalCost: ', scrapMetalCost);
+	console.log('scrapMetalCost: ', +scrapMetalCost);
 	let copperCost = (ingredient.copper * copperSellPrice).toFixed(2)
 	console.log('copperCost: ', copperCost);
 	let wiresCost = (ingredient.wires * wiresSellPrice).toFixed(2)
 	console.log('wiresCost: ', wiresCost);
 	let plasticCost = (ingredient.plastic * plasticSellPrice).toFixed(2)
 	console.log('plasticCost: ', plasticCost);
-	let batteriesCost = (ingredient.batteries * batteriesSellPrice).toFixed(2)
+	let batteriesCost = ingredient.batteries? (ingredient.batteries * batteriesSellPrice).toFixed(2): 0
 	console.log('batteriesCost: ', batteriesCost);
 	let electronicsCost = (ingredient.electronics * electronicsSellPrice).toFixed(2)
 	console.log('electronicsCost: ', electronicsCost);
@@ -31,8 +32,13 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 	console.log('engravedCasingsCost: ', engravedCasingsCost);
 	// console.log('resoursePrices', resourcePrices);
 	let totalResoursesСost = Number(scrapMetalCost) + Number(copperCost) + Number(wiresCost) + Number(plasticCost) + Number(batteriesCost) + Number(electronicsCost) + Number(engravedCasingsCost);
-	console.log('totalResoursesСost: ', totalResoursesСost);
 
+
+
+
+
+	console.log('totalResoursesСost: ', totalResoursesСost);
+	console.log('resourcePrices', resourcePrices);
 	if (ingredient.scrapMetal) {
 		resoursesArr2.push(
 			<>
