@@ -16,13 +16,13 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	let electronicsSellPrice = resourcePrices[5].sellPrice / 10
 	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
 
-	let scrapMetalCost = (component.scrapMetal * scrapMetalSellPrice).toFixed(2)
-	let copperCost = (component.copper * copperSellPrice).toFixed(2)
-	let wiresCost = (component.wires * wiresSellPrice).toFixed(2)
-	let plasticCost = (component.plastic * plasticSellPrice).toFixed(2)
-	let batteriesCost = (component.batteries * batteriesSellPrice).toFixed(2)
-	let electronicsCost = (component.electronics * electronicsSellPrice).toFixed(2)
-	let engravedCasingsCost = (component.engravedCasings * engravedCasingsSellPrice).toFixed(2)
+	let scrapMetalCost = component.scrapMetal? (component.scrapMetal * scrapMetalSellPrice).toFixed(2):0
+	let copperCost = component.copper? (component.copper * copperSellPrice).toFixed(2):0
+	let wiresCost = component.wires? (component.wires * wiresSellPrice).toFixed(2):0
+	let plasticCost = component.plastic? (component.plastic * plasticSellPrice).toFixed(2):0
+	let batteriesCost = component.batteries? (component.batteries * batteriesSellPrice).toFixed(2):0
+	let electronicsCost = component.electronics? (component.electronics * electronicsSellPrice).toFixed(2):0
+	let engravedCasingsCost = component.engravedCasings?(component.engravedCasings * engravedCasingsSellPrice).toFixed(2):0
 	
 	let totalResoursesСost = Number(scrapMetalCost) + Number(copperCost) + Number(wiresCost) + Number(plasticCost) + Number(batteriesCost) + Number(electronicsCost) + Number(engravedCasingsCost)
 	
