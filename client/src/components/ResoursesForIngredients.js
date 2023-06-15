@@ -16,20 +16,20 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
 	
 	
-	let scrapMetalCost = (ingredient.scrapMetal * scrapMetalSellPrice).toFixed(2)
-	console.log('scrapMetalCost: ', +scrapMetalCost);
-	let copperCost = (ingredient.copper * copperSellPrice).toFixed(2)
-	console.log('copperCost: ', copperCost);
-	let wiresCost = (ingredient.wires * wiresSellPrice).toFixed(2)
-	console.log('wiresCost: ', wiresCost);
-	let plasticCost = (ingredient.plastic * plasticSellPrice).toFixed(2)
-	console.log('plasticCost: ', plasticCost);
+	let scrapMetalCost = ingredient.scrapMetal? (ingredient.scrapMetal * scrapMetalSellPrice).toFixed(2):0
+	
+	let copperCost = ingredient.copper? (ingredient.copper * copperSellPrice).toFixed(2):0
+	
+	let wiresCost = ingredient.wires? (ingredient.wires * wiresSellPrice).toFixed(2):0
+	
+	let plasticCost = ingredient.plastic? (ingredient.plastic * plasticSellPrice).toFixed(2): 0
+	
 	let batteriesCost = ingredient.batteries? (ingredient.batteries * batteriesSellPrice).toFixed(2): 0
-	console.log('batteriesCost: ', batteriesCost);
-	let electronicsCost = (ingredient.electronics * electronicsSellPrice).toFixed(2)
-	console.log('electronicsCost: ', electronicsCost);
-	let engravedCasingsCost = (ingredient.engravedCasings * engravedCasingsSellPrice).toFixed(2)
-	console.log('engravedCasingsCost: ', engravedCasingsCost);
+
+	let electronicsCost = ingredient.electronics? (ingredient.electronics * electronicsSellPrice).toFixed(2):0
+
+	let engravedCasingsCost = ingredient.engravedCasings? (ingredient.engravedCasings * engravedCasingsSellPrice).toFixed(2):0
+	
 	// console.log('resoursePrices', resourcePrices);
 	let totalResoursesСost = Number(scrapMetalCost) + Number(copperCost) + Number(wiresCost) + Number(plasticCost) + Number(batteriesCost) + Number(electronicsCost) + Number(engravedCasingsCost);
 
