@@ -6,7 +6,7 @@ const ProductionCost = ({component}) => {
 let resoursesArr3 = []
 
 
-    if (component.scrapMetal) {
+    if (component.getAllScrapMetal()) {
 		resoursesArr3.push(
 			<>
 				<div className="resourses-img_1"></div>

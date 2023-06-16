@@ -16,8 +16,11 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	let electronicsSellPrice = resourcePrices[5].sellPrice / 10
 	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
 
-	let scrapMetalCost = component.scrapMetal? (component.scrapMetal * scrapMetalSellPrice).toFixed(2):0
-	let copperCost = component.copper? (component.copper * copperSellPrice).toFixed(2):0
+	// let scrapMetalCost = component.scrapMetal ? (component.scrapMetal * scrapMetalSellPrice).toFixed(2) : 0
+	let scrapMetalCost = component.scrapMetal ? component.scrapMetal * scrapMetalSellPrice : 0
+	
+	// let copperCost = component.copper ? (component.copper * copperSellPrice).toFixed(2) : 0
+	let copperCost = component.copper ? Math.ceil((component.copper * copperSellPrice) * 100 ) / 100 : 0
 	let wiresCost = component.wires? (component.wires * wiresSellPrice).toFixed(2):0
 	let plasticCost = component.plastic? (component.plastic * plasticSellPrice).toFixed(2):0
 	let batteriesCost = component.batteries? (component.batteries * batteriesSellPrice).toFixed(2):0
@@ -31,7 +34,7 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 			<>
 				<div className="resourses-img_1"></div>
 				<div className="value text-3">{component.scrapMetal}</div>
-				<div className="value-orange text-3">{(scrapMetalSellPrice * 100).toFixed(2)}</div>
+				<div className="value-orange text-3">{(scrapMetalSellPrice * 100)}</div>
 				<div className="value-orange text-3">{scrapMetalCost}</div>
 			</>
 		)
