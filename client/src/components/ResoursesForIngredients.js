@@ -16,18 +16,11 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
 	
 	let scrapMetalCost = ingredient.scrapMetal ? ingredient.scrapMetal * scrapMetalSellPrice : 0
-
 	let copperCost = ingredient.copper ? Math.ceil((ingredient.copper * copperSellPrice) * 100) / 100 : 0
-	// let wiresCost = ingredient.wires? (ingredient.wires * wiresSellPrice).toFixed(2):0
 	let wiresCost = ingredient.wires ? Math.ceil((ingredient.wires * wiresSellPrice) * 100) / 100 : 0
-	// let plasticCost = ingredient.plastic ? (ingredient.plastic * plasticSellPrice).toFixed(2) : 0
 	let plasticCost = ingredient.plastic ? Math.ceil((ingredient.plastic * plasticSellPrice) * 100) / 100 : 0
-
-	// let batteriesCost = ingredient.batteries? (ingredient.batteries * batteriesSellPrice).toFixed(2):0
 	let batteriesCost = ingredient.batteries ? Math.ceil((ingredient.batteries * batteriesSellPrice) * 100) / 100 : 0
-	// let electronicsCost = ingredient.electronics ? (ingredient.electronics * electronicsSellPrice).toFixed(2) : 0
 	let electronicsCost = ingredient.electronics ? Math.ceil((ingredient.electronics * electronicsSellPrice) * 100) / 100 : 0
-	// let engravedCasingsCost = ingredient.engravedCasings?(ingredient.engravedCasings * engravedCasingsSellPrice).toFixed(2):0
 	let engravedCasingsCost = ingredient.engravedCasings ? Math.ceil((ingredient.engravedCasings * engravedCasingsSellPrice) * 100) / 100 : 0
 
 	let totalResoursesСost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost

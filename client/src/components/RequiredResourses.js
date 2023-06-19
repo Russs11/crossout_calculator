@@ -16,21 +16,12 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	let electronicsSellPrice = resourcePrices[5].sellPrice / 10
 	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
 
-	// let scrapMetalCost = component.scrapMetal ? (component.scrapMetal * scrapMetalSellPrice).toFixed(2) : 0
 	let scrapMetalCost = component.scrapMetal ? component.scrapMetal * scrapMetalSellPrice : 0
-
-	// let copperCost = component.copper ? (component.copper * copperSellPrice).toFixed(2) : 0
 	let copperCost = component.copper ? Math.ceil((component.copper * copperSellPrice) * 100) / 100 : 0
-	// let wiresCost = component.wires? (component.wires * wiresSellPrice).toFixed(2):0
 	let wiresCost = component.wires ? Math.ceil((component.wires * wiresSellPrice) * 100) / 100 : 0
-	// let plasticCost = component.plastic ? (component.plastic * plasticSellPrice).toFixed(2) : 0
 	let plasticCost = component.plastic ? Math.ceil((component.plastic * plasticSellPrice) * 100) / 100 : 0
-
-	// let batteriesCost = component.batteries? (component.batteries * batteriesSellPrice).toFixed(2):0
 	let batteriesCost = component.batteries ? Math.ceil((component.batteries * batteriesSellPrice) * 100) / 100 : 0
-	// let electronicsCost = component.electronics ? (component.electronics * electronicsSellPrice).toFixed(2) : 0
 	let electronicsCost = component.electronics ? Math.ceil((component.electronics * electronicsSellPrice) * 100) / 100 : 0
-	// let engravedCasingsCost = component.engravedCasings?(component.engravedCasings * engravedCasingsSellPrice).toFixed(2):0
 	let engravedCasingsCost = component.engravedCasings ? Math.ceil((component.engravedCasings * engravedCasingsSellPrice) * 100) / 100 : 0
 
 	let totalResoursesСost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
