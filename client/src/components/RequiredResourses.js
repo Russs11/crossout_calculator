@@ -26,8 +26,7 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 
 	let totalResoursesСost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
 
-	console.log('Math.round((component.scrapMetal * scrapMetalSellPrice)', Math.round((component.scrapMetal * scrapMetalSellPrice) * 100) / 100);
-	console.log('resourcePrices[0].sellPrice', resourcePrices[0].sellPrice);
+	
 
 
 

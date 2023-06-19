@@ -89,7 +89,7 @@ const ProductionCost = ({ component, resourcePrices }) => {
                     <div className="machine-rental text-7">Аренда станка:</div>
                     <div className="value-orange text-3">{machineRent}</div>
                     <div className="total text-7">Всего:</div>
-                    <div className="value-orange text-3">{totalResoursesСost}</div>
+                    <div className="value-orange text-3">{Math.round(totalResoursesСost * 100) / 100}</div>
                 </div>
             </div>
             <HorizontalSeparator />

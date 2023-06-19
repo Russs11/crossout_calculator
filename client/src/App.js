@@ -207,7 +207,7 @@ function App() {
                 <ProductionCost
                   component={selectedInstance}
                   resourcePrices={resourcePrices} />
-                <ComponentsCost />
+                <ComponentsCost component={selectedInstance}  />
                 <Profit />
               </ProductionCostWrapper>
               <VerticalSeparator />

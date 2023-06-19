@@ -8,7 +8,7 @@
 .production-cost-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: 25px repeat(6, 40px) 25px 40px;
+	grid-template-rows: 25px repeat(auto-fit, 40px);
 	row-gap: 5px;
 	column-gap: 5px;
 	justify-items: center;

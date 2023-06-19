@@ -3,11 +3,28 @@ import './ComponentsCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
 
-const ComponentsCost = () => {
+const ComponentsCost = ({ component }) => {
+  
+
 
     function clickHandler(event) {
         event.currentTarget.classList.toggle("switch-on")
-}
+    }
+    console.log('component', component.img);
+
+
+
+    let ingredientsArr = component.ingredients.map(ingredient => {
+        return (
+            <>
+                <div className="component-image_8 small-component-img"
+                    style={{ backgroundImage: "url(" + ingredient.img + ")" }}></div>
+                <div className="value text-3">{1}</div>
+                <div className="value-orange text-3">{ingredient.getBenchCost()}</div>
+                <div className="value-orange text-3">{ingredient.getBenchCost()}</div>
+            </>
+        )
+    })
 
     return (
         <>
@@ -20,7 +37,7 @@ const ComponentsCost = () => {
                     <div className="text-5">Количество:</div>
                     <div className="text-5">Цена:</div>
                     <div className="text-5">Стоимость:</div>
-                    <div className="component-image_8 small-component-img"></div>
+                    {/* <div className="component-image_8 small-component-img"></div>
                     <div className="value text-3">2</div>
                     <div className="value-orange text-3">352</div>
                     <div className="value-orange text-3">704</div>
@@ -31,11 +48,12 @@ const ComponentsCost = () => {
                     <div className="component-img-small_3 small-component-img"></div>
                     <div className="value text-3">2</div>
                     <div className="value-orange text-3">241.5</div>
-                    <div className="value-orange text-3">483</div>
+                    <div className="value-orange text-3">483</div> */}
+                    {ingredientsArr}
                     <div className="total text-7">Всего:</div>
-                    <div className="value-orange text-3">1583</div>
+                    <div className="value-orange text-3">{component.getAllBenchCost()}</div>
                 </div>
-                <HorizontalSeparator/>
+                <HorizontalSeparator />
             </div>
         </>
     );
