@@ -204,7 +204,9 @@ function App() {
               </ItemCard>
               <VerticalSeparator />
               <ProductionCostWrapper>
-                <ProductionCost component={selectedInstance} />
+                <ProductionCost
+                  component={selectedInstance}
+                  resourcePrices={resourcePrices} />
                 <ComponentsCost />
                 <Profit />
               </ProductionCostWrapper>

@@ -16,15 +16,20 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	let electronicsSellPrice = resourcePrices[5].sellPrice / 10
 	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
 
-	let scrapMetalCost = component.scrapMetal ? component.scrapMetal * scrapMetalSellPrice : 0
-	let copperCost = component.copper ? Math.ceil((component.copper * copperSellPrice) * 100) / 100 : 0
-	let wiresCost = component.wires ? Math.ceil((component.wires * wiresSellPrice) * 100) / 100 : 0
-	let plasticCost = component.plastic ? Math.ceil((component.plastic * plasticSellPrice) * 100) / 100 : 0
-	let batteriesCost = component.batteries ? Math.ceil((component.batteries * batteriesSellPrice) * 100) / 100 : 0
-	let electronicsCost = component.electronics ? Math.ceil((component.electronics * electronicsSellPrice) * 100) / 100 : 0
-	let engravedCasingsCost = component.engravedCasings ? Math.ceil((component.engravedCasings * engravedCasingsSellPrice) * 100) / 100 : 0
+	let scrapMetalCost = component.scrapMetal ? Math.round((component.scrapMetal * scrapMetalSellPrice) * 100) / 100 : 0
+	let copperCost = component.copper ? Math.round((component.copper * copperSellPrice) * 100) / 100 : 0
+	let wiresCost = component.wires ? Math.round((component.wires * wiresSellPrice) * 100) / 100 : 0
+	let plasticCost = component.plastic ? Math.round((component.plastic * plasticSellPrice) * 100) / 100 : 0
+	let batteriesCost = component.batteries ? Math.round((component.batteries * batteriesSellPrice) * 100) / 100 : 0
+	let electronicsCost = component.electronics ? Math.round((component.electronics * electronicsSellPrice) * 100) / 100 : 0
+	let engravedCasingsCost = component.engravedCasings ? Math.round((component.engravedCasings * engravedCasingsSellPrice) * 100) / 100 : 0
 
 	let totalResoursesСost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
+
+	console.log('Math.round((component.scrapMetal * scrapMetalSellPrice)', Math.round((component.scrapMetal * scrapMetalSellPrice) * 100) / 100);
+	console.log('resourcePrices[0].sellPrice', resourcePrices[0].sellPrice);
+
+
 
 	if (component.scrapMetal) {
 		resoursesArr.push(
@@ -107,7 +112,7 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 				<div className="text-5">Стоимость:</div>
 				{component && resoursesArr}
 				<div className="total-resourses-cost text-5">Общая стоимость ресурсов:</div>
-				<div className="value-orange text-3">{Math.ceil(totalResoursesСost * 100) / 100}</div>
+				<div className="value-orange text-3">{Math.round(totalResoursesСost * 100) / 100}</div>
 			</div>
 		</>
 	);

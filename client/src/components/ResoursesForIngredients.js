@@ -15,13 +15,13 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 	let electronicsSellPrice = resourcePrices[5].sellPrice / 10
 	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
 	
-	let scrapMetalCost = ingredient.scrapMetal ? ingredient.scrapMetal * scrapMetalSellPrice : 0
-	let copperCost = ingredient.copper ? Math.ceil((ingredient.copper * copperSellPrice) * 100) / 100 : 0
-	let wiresCost = ingredient.wires ? Math.ceil((ingredient.wires * wiresSellPrice) * 100) / 100 : 0
-	let plasticCost = ingredient.plastic ? Math.ceil((ingredient.plastic * plasticSellPrice) * 100) / 100 : 0
-	let batteriesCost = ingredient.batteries ? Math.ceil((ingredient.batteries * batteriesSellPrice) * 100) / 100 : 0
-	let electronicsCost = ingredient.electronics ? Math.ceil((ingredient.electronics * electronicsSellPrice) * 100) / 100 : 0
-	let engravedCasingsCost = ingredient.engravedCasings ? Math.ceil((ingredient.engravedCasings * engravedCasingsSellPrice) * 100) / 100 : 0
+	let scrapMetalCost = ingredient.scrapMetal ? Math.round((ingredient.scrapMetal * scrapMetalSellPrice) * 100) / 100 : 0
+	let copperCost = ingredient.copper ? Math.round((ingredient.copper * copperSellPrice) * 100) / 100 : 0
+	let wiresCost = ingredient.wires ? Math.round((ingredient.wires * wiresSellPrice) * 100) / 100 : 0
+	let plasticCost = ingredient.plastic ? Math.round((ingredient.plastic * plasticSellPrice) * 100) / 100 : 0
+	let batteriesCost = ingredient.batteries ? Math.round((ingredient.batteries * batteriesSellPrice) * 100) / 100 : 0
+	let electronicsCost = ingredient.electronics ? Math.round((ingredient.electronics * electronicsSellPrice) * 100) / 100 : 0
+	let engravedCasingsCost = ingredient.engravedCasings ? Math.round((ingredient.engravedCasings * engravedCasingsSellPrice) * 100) / 100 : 0
 
 	let totalResoursesСost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
 
@@ -108,7 +108,7 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 					<div className="text-7">Стоимость:</div>
 					{resoursesArr2}
 					<div className="total-resourses-cost text-7">Общая стоимость ресурсов:</div>
-					<div className="value-orange text-8">{Math.ceil(totalResoursesСost * 100) / 100}</div>
+					<div className="value-orange text-8">{ Math.round(totalResoursesСost * 100) / 100 }</div>
 				</div>
 				<HorizontalSeparator />
 			</>
