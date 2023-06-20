@@ -6,7 +6,7 @@ const ProductionCost = ({ component, resourcePrices }) => {
     
     let resoursesArr3 = []
 
-    let machineRent = 330
+    // let machineRent = 330
 
     let scrapMetalSellPrice = resourcePrices[0].sellPrice / 100
     let copperSellPrice = resourcePrices[1].sellPrice / 100
@@ -24,7 +24,7 @@ const ProductionCost = ({ component, resourcePrices }) => {
     // let batteriesCost = component.batteries ? Math.round((component.batteries * batteriesSellPrice) * 100) / 100 : 0
     // let electronicsCost = component.electronics ? Math.round((component.electronics * electronicsSellPrice) * 100) / 100 : 0
 
-    let totalResoursesСost = machineRent + scrapMetalCost + copperCost + wiresCost + plasticCost +  engravedCasingsCost
+    let totalResoursesСost = scrapMetalCost + copperCost + wiresCost + plasticCost +  engravedCasingsCost
 
     if (component.getAllScrapMetal()) {
         resoursesArr3.push(
@@ -87,7 +87,7 @@ const ProductionCost = ({ component, resourcePrices }) => {
                     <div className="value-orange text-3">4.49</div>
                     <div className="value-orange text-3">336.75</div> */}
                     <div className="machine-rental text-7">Аренда станка:</div>
-                    <div className="value-orange text-3">{machineRent}</div>
+                    <div className="value-orange text-3">{component.getAllBenchCost()}</div>
                     <div className="total text-7">Всего:</div>
                     <div className="value-orange text-3">{Math.round(totalResoursesСost * 100) / 100}</div>
                 </div>

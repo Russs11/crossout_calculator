@@ -10,7 +10,7 @@ const ComponentsCost = ({ component }) => {
     function clickHandler(event) {
         event.currentTarget.classList.toggle("switch-on")
     }
-    console.log('component', component.img);
+    
 
 
 
@@ -24,7 +24,7 @@ const ComponentsCost = ({ component }) => {
                 <div className="value-orange text-3">{ingredient.getBenchCost()}</div>
             </>
         )
-    })
+    });
 
     return (
         <>

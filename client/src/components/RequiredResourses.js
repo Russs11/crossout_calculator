@@ -8,16 +8,17 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 
 	const resoursesArr = []
 
-	let scrapMetalSellPrice = resourcePrices[0].sellPrice / 100
-	let copperSellPrice = resourcePrices[1].sellPrice / 100
-	let wiresSellPrice = resourcePrices[2].sellPrice / 100
-	let plasticSellPrice = resourcePrices[3].sellPrice / 100
-	let batteriesSellPrice = resourcePrices[4].sellPrice / 10
-	let electronicsSellPrice = resourcePrices[5].sellPrice / 10
-	let engravedCasingsSellPrice = resourcePrices[6].sellPrice / 100
+	let scrapMetalSellPrice = resourcePrices[0].sellPrice
+	let copperSellPrice = resourcePrices[1].sellPrice
+	let wiresSellPrice = resourcePrices[2].sellPrice
+	let plasticSellPrice = resourcePrices[3].sellPrice
+	let batteriesSellPrice = resourcePrices[4].sellPrice 
+	let electronicsSellPrice = resourcePrices[5].sellPrice 
+	let engravedCasingsSellPrice = resourcePrices[6].sellPrice
 
 	let scrapMetalCost = component.scrapMetal ? Math.round((component.scrapMetal * scrapMetalSellPrice) * 100) / 100 : 0
 	let copperCost = component.copper ? Math.round((component.copper * copperSellPrice) * 100) / 100 : 0
+
 	let wiresCost = component.wires ? Math.round((component.wires * wiresSellPrice) * 100) / 100 : 0
 	let plasticCost = component.plastic ? Math.round((component.plastic * plasticSellPrice) * 100) / 100 : 0
 	let batteriesCost = component.batteries ? Math.round((component.batteries * batteriesSellPrice) * 100) / 100 : 0
@@ -26,7 +27,7 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 
 	let totalResoursesСost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
 
-	
+
 
 
 
@@ -35,8 +36,8 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 			<>
 				<div className="resourses-img_1"></div>
 				<div className="value text-3">{component.scrapMetal}</div>
-				<div className="value-orange text-3">{(scrapMetalSellPrice * 100)}</div>
-				<div className="value-orange text-3">{scrapMetalCost}</div>
+				<div className="value-orange text-3">{scrapMetalSellPrice}</div>
+				<div className="value-orange text-3">{Math.round((scrapMetalCost / 100) * 100) / 100}</div>
 			</>
 		)
 	}
@@ -45,8 +46,8 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 			<>
 				<div className="resourses-img_3"></div>
 				<div className="value text-3">{component.copper}</div>
-				<div className="value-orange text-3">{(copperSellPrice * 100)}</div>
-				<div className="value-orange text-3">{copperCost}</div>
+				<div className="value-orange text-3">{copperSellPrice}</div>
+				<div className="value-orange text-3">{Math.round((copperCost / 100) * 100) / 100}</div>
 			</>
 		)
 	}
@@ -55,8 +56,8 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 			<>
 				<div className="resourses-img_2"></div>
 				<div className="value text-3">{component.electronics}</div>
-				<div className="value-orange text-3">{(electronicsSellPrice * 10)}</div>
-				<div className="value-orange text-3">{electronicsCost}</div>
+				<div className="value-orange text-3">{electronicsSellPrice}</div>
+				<div className="value-orange text-3">{Math.round((electronicsCost / 10) * 100) / 100}</div>
 			</>
 		)
 	}
@@ -66,8 +67,8 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 			<>
 				<div className="resourses-img_4"></div>
 				<div className="value text-3">{component.batteries}</div>
-				<div className="value-orange text-3">{(batteriesSellPrice * 10)}</div>
-				<div className="value-orange text-3">{batteriesCost}</div>
+				<div className="value-orange text-3">{batteriesSellPrice}</div>
+				<div className="value-orange text-3">{Math.round((batteriesCost / 10) * 100) / 10}</div>
 			</>
 		)
 	}
@@ -76,8 +77,8 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 			<>
 				<div className="resourses-img_5"></div>
 				<div className="value text-3">{component.wires}</div>
-				<div className="value-orange text-3">{(wiresSellPrice * 100)}</div>
-				<div className="value-orange text-3">{wiresCost}</div>
+				<div className="value-orange text-3">{wiresSellPrice}</div>
+				<div className="value-orange text-3">{Math.round((wiresCost / 100) * 100) / 100}</div>
 			</>
 		)
 	}
@@ -87,8 +88,8 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 			<>
 				<div className="resourses-img_7"></div>
 				<div className="value text-3">{component.plastic}</div>
-				<div className="value-orange text-3">{(plasticSellPrice * 100)}</div>
-				<div className="value-orange text-3">{plasticCost}</div>
+				<div className="value-orange text-3">{plasticSellPrice}</div>
+				<div className="value-orange text-3">{Math.round((plasticCost / 100) * 100) / 100}</div>
 			</>
 		)
 	}
@@ -97,8 +98,8 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 			<>
 				<div className="resourses-img_7"></div>
 				<div className="value text-3">{component.engravedCasings}</div>
-				<div className="value-orange text-3">{(engravedCasingsSellPrice * 100)}</div>
-				<div className="value-orange text-3">{engravedCasingsCost}</div>
+				<div className="value-orange text-3">{engravedCasingsSellPrice}</div>
+				<div className="value-orange text-3">{Math.round((engravedCasingsCost / 100) * 100) / 100}</div>
 			</>
 		)
 	}
@@ -111,7 +112,7 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 				<div className="text-5">Стоимость:</div>
 				{component && resoursesArr}
 				<div className="total-resourses-cost text-5">Общая стоимость ресурсов:</div>
-				<div className="value-orange text-3">{Math.round(totalResoursesСost * 100) / 100}</div>
+				<div className="value-orange text-3">{Math.round((totalResoursesСost / 100) * 100) / 100}</div>
 			</div>
 		</>
 	);
