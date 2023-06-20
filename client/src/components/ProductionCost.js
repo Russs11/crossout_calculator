@@ -6,7 +6,7 @@ const ProductionCost = ({ component, resourcePrices }) => {
 
     let resoursesArr3 = []
 
-    // let machineRent = 330
+    
 
     let scrapMetalSellPrice = resourcePrices[0].sellPrice
     let copperSellPrice = resourcePrices[1].sellPrice
