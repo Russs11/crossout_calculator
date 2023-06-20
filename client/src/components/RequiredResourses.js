@@ -26,7 +26,7 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 
 	let totalResoursesСost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
 
-
+console.log('engravedCasingsSellPrice', engravedCasingsSellPrice);
 
 
 
@@ -95,13 +95,15 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	if (component.engravedCasings) {
 		resoursesArr.push(
 			<>
-				<div className="resourses-img_7"></div>
+				<div className="resourses-img_6"></div>
 				<div className="value text-3">{component.engravedCasings}</div>
 				<div className="value-orange text-3">{engravedCasingsSellPrice}</div>
 				<div className="value-orange text-3">{engravedCasingsCost}</div>
 			</>
 		)
 	}
+
+	
 	return (
 		<>
 			<div className="production-requirements-grid">
