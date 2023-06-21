@@ -30,12 +30,12 @@ const ProductionCost = ({ component, resourcePrices }) => {
 
         if (component.getAllScrapMetal()) {
             resoursesArr3.push(
-                <>
+                <React.Fragment key={resourcePrices[0].dbId}>
                     <div className="resourses-img_1"></div>
                     <div className="value text-3">{component.getAllScrapMetal()}</div>
                     <div className="value-orange text-3">{scrapMetalSellPrice}</div>
                     <div className="value-orange text-3">{scrapMetalCost}</div>
-                </>
+                </React.Fragment>
             )
         }
         if (component.getAllCopper()) {

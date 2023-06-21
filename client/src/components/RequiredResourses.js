@@ -5,7 +5,7 @@ import HorizontalSeparator from './HorizontalSeparator';
 
 
 const RequiredResourses = ({ component, resourcePrices }) => {
-
+	
 	const resoursesArr = []
 
 	let scrapMetalSellPrice = resourcePrices[0].sellPrice
@@ -28,10 +28,10 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 
 
 
-console.log(component);
+
 	if (component.scrapMetal) {
 		resoursesArr.push(
-			<React.Fragment key={scrapMetalSellPrice}>
+			<React.Fragment key={resourcePrices[0].dbId}>
 				<div className="resourses-img_1"></div>
 				<div className="value text-3">{component.scrapMetal}</div>
 				<div className="value-orange text-3">{scrapMetalSellPrice}</div>
@@ -41,7 +41,7 @@ console.log(component);
 	}
 	if (component.copper) {
 		resoursesArr.push(
-			<React.Fragment key={copperSellPrice}>
+			<React.Fragment key={resourcePrices[1].dbId}>
 				<div className="resourses-img_3"></div>
 				<div className="value text-3">{component.copper}</div>
 				<div className="value-orange text-3">{copperSellPrice}</div>
@@ -49,9 +49,39 @@ console.log(component);
 			</React.Fragment>
 		)
 	}
+	if (component.wires) {
+		resoursesArr.push(
+			<React.Fragment key={resourcePrices[2].dbId}>
+				<div className="resourses-img_5"></div>
+				<div className="value text-3">{component.wires}</div>
+				<div className="value-orange text-3">{wiresSellPrice}</div>
+				<div className="value-orange text-3">{wiresCost}</div>
+			</React.Fragment>
+		)
+	}
+	if (component.plastic) {
+		resoursesArr.push(
+			<React.Fragment key={resourcePrices[3].dbId}>
+				<div className="resourses-img_7"></div>
+				<div className="value text-3">{component.plastic}</div>
+				<div className="value-orange text-3">{plasticSellPrice}</div>
+				<div className="value-orange text-3">{plasticCost}</div>
+			</React.Fragment>
+		)
+	}
+	if (component.batteries) {
+		resoursesArr.push(
+			<React.Fragment key={resourcePrices[4].dbId}>
+				<div className="resourses-img_4"></div>
+				<div className="value text-3">{component.batteries}</div>
+				<div className="value-orange text-3">{batteriesSellPrice}</div>
+				<div className="value-orange text-3">{batteriesCost}</div>
+			</React.Fragment>
+		)
+	}
 	if (component.electronics) {
 		resoursesArr.push(
-			<React.Fragment key={electronicsSellPrice}>
+			<React.Fragment key={resourcePrices[5].dbId}>
 				<div className="resourses-img_2"></div>
 				<div className="value text-3">{component.electronics}</div>
 				<div className="value-orange text-3">{electronicsSellPrice}</div>
@@ -60,40 +90,9 @@ console.log(component);
 		)
 	}
 
-	if (component.batteries) {
-		resoursesArr.push(
-			<React.Fragment key={batteriesSellPrice}>
-				<div className="resourses-img_4"></div>
-				<div className="value text-3">{component.batteries}</div>
-				<div className="value-orange text-3">{batteriesSellPrice}</div>
-				<div className="value-orange text-3">{batteriesCost}</div>
-			</React.Fragment>
-		)
-	}
-	if (component.wires) {
-		resoursesArr.push(
-			<React.Fragment key={wiresSellPrice}>
-				<div className="resourses-img_5"></div>
-				<div className="value text-3">{component.wires}</div>
-				<div className="value-orange text-3">{wiresSellPrice}</div>
-				<div className="value-orange text-3">{wiresCost }</div>
-			</React.Fragment>
-		)
-	}
-
-	if (component.plastic) {
-		resoursesArr.push(
-			<React.Fragment key={plasticSellPrice}>
-				<div className="resourses-img_7"></div>
-				<div className="value text-3">{component.plastic}</div>
-				<div className="value-orange text-3">{plasticSellPrice}</div>
-				<div className="value-orange text-3">{plasticCost }</div>
-			</React.Fragment>
-		)
-	}
 	if (component.engravedCasings) {
 		resoursesArr.push(
-			<React.Fragment key={engravedCasingsSellPrice}>
+			<React.Fragment key={resourcePrices[6].dbId}>
 				<div className="resourses-img_6"></div>
 				<div className="value text-3">{component.engravedCasings}</div>
 				<div className="value-orange text-3">{engravedCasingsSellPrice}</div>
@@ -102,7 +101,6 @@ console.log(component);
 		)
 	}
 
-	
 	return (
 		<>
 			<div className="production-requirements-grid">
