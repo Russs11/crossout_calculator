@@ -40,42 +40,42 @@ const ProductionCost = ({ component, resourcePrices }) => {
         }
         if (component.getAllCopper()) {
             resoursesArr3.push(
-                <>
+                <React.Fragment key={resourcePrices[1].dbId}>
                     <div className="resourses-img_3"></div>
                     <div className="value text-3">{component.getAllCopper()}</div>
                     <div className="value-orange text-3">{copperSellPrice}</div>
                     <div className="value-orange text-3">{copperCost}</div>
-                </>
+                </React.Fragment>
             )
         }
         if (component.getAllWires()) {
             resoursesArr3.push(
-                <>
+                <React.Fragment key={resourcePrices[2].dbId}>
                     <div className="resourses-img_5"></div>
                     <div className="value text-3">{component.getAllWires()}</div>
                     <div className="value-orange text-3">{wiresSellPrice}</div>
                     <div className="value-orange text-3">{wiresCost}</div>
-                </>
+                </React.Fragment>
             )
         }
         if (component.getAllPlastic()) {
             resoursesArr3.push(
-                <>
+                <React.Fragment key={resourcePrices[3].dbId}>
                     <div className="resourses-img_7"></div>
                     <div className="value text-3">{component.getAllPlastic()}</div>
                     <div className="value-orange text-3">{plasticSellPrice}</div>
                     <div className="value-orange text-3">{plasticCost}</div>
-                </>
+                </React.Fragment>
             )
         }
         if (component.getAllEngravedCasings()) {
             resoursesArr3.push(
-                <>
+                <React.Fragment key={resourcePrices[6].dbId}>
                     <div className="resourses-img_7"></div>
                     <div className="value text-3">{component.getAllEngravedCasings()}</div>
                     <div className="value-orange text-3">{engravedCasingsSellPrice}</div>
                     <div className="value-orange text-3">{engravedCasingsCost}</div>
-                </>
+                </React.Fragment>
             )
         }
     }
