@@ -26,80 +26,79 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 
 	let totalResoursesСost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
 
-console.log('engravedCasingsSellPrice', engravedCasingsSellPrice);
 
 
-
+console.log(component);
 	if (component.scrapMetal) {
 		resoursesArr.push(
-			<>
+			<React.Fragment key={scrapMetalSellPrice}>
 				<div className="resourses-img_1"></div>
 				<div className="value text-3">{component.scrapMetal}</div>
 				<div className="value-orange text-3">{scrapMetalSellPrice}</div>
 				<div className="value-orange text-3">{scrapMetalCost}</div>
-			</>
+			</React.Fragment>
 		)
 	}
 	if (component.copper) {
 		resoursesArr.push(
-			<>
+			<React.Fragment key={copperSellPrice}>
 				<div className="resourses-img_3"></div>
 				<div className="value text-3">{component.copper}</div>
 				<div className="value-orange text-3">{copperSellPrice}</div>
 				<div className="value-orange text-3">{copperCost}</div>
-			</>
+			</React.Fragment>
 		)
 	}
 	if (component.electronics) {
 		resoursesArr.push(
-			<>
+			<React.Fragment key={electronicsSellPrice}>
 				<div className="resourses-img_2"></div>
 				<div className="value text-3">{component.electronics}</div>
 				<div className="value-orange text-3">{electronicsSellPrice}</div>
 				<div className="value-orange text-3">{electronicsCost }</div>
-			</>
+			</React.Fragment>
 		)
 	}
 
 	if (component.batteries) {
 		resoursesArr.push(
-			<>
+			<React.Fragment key={batteriesSellPrice}>
 				<div className="resourses-img_4"></div>
 				<div className="value text-3">{component.batteries}</div>
 				<div className="value-orange text-3">{batteriesSellPrice}</div>
 				<div className="value-orange text-3">{batteriesCost}</div>
-			</>
+			</React.Fragment>
 		)
 	}
 	if (component.wires) {
 		resoursesArr.push(
-			<>
+			<React.Fragment key={wiresSellPrice}>
 				<div className="resourses-img_5"></div>
 				<div className="value text-3">{component.wires}</div>
 				<div className="value-orange text-3">{wiresSellPrice}</div>
 				<div className="value-orange text-3">{wiresCost }</div>
-			</>
+			</React.Fragment>
 		)
 	}
 
 	if (component.plastic) {
 		resoursesArr.push(
-			<>
+			<React.Fragment key={plasticSellPrice}>
 				<div className="resourses-img_7"></div>
 				<div className="value text-3">{component.plastic}</div>
 				<div className="value-orange text-3">{plasticSellPrice}</div>
 				<div className="value-orange text-3">{plasticCost }</div>
-			</>
+			</React.Fragment>
 		)
 	}
 	if (component.engravedCasings) {
 		resoursesArr.push(
-			<>
+			<React.Fragment key={engravedCasingsSellPrice}>
 				<div className="resourses-img_6"></div>
 				<div className="value text-3">{component.engravedCasings}</div>
 				<div className="value-orange text-3">{engravedCasingsSellPrice}</div>
 				<div className="value-orange text-3">{engravedCasingsCost}</div>
-			</>
+			</React.Fragment>
 		)
 	}
 

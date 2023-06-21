@@ -20,8 +20,8 @@ const ComponentsCost = ({ component }) => {
                 <div className="component-image_8 small-component-img"
                     style={{ backgroundImage: "url(" + ingredient.img + ")" }}></div>
                 <div className="value text-3">{1}</div>
-                <div className="value-orange text-3">{ingredient.getBenchCost()}</div>
-                <div className="value-orange text-3">{ingredient.getBenchCost()}</div>
+                <div className="value-orange text-3">{ingredient.sellPrice}</div>
+                <div className="value-orange text-3">{ingredient.sellPrice}</div>
             </>
         )
     });

@@ -102,6 +102,7 @@ function App() {
       entityArr.push(new MovementEpic[item]())
     }
     setClassInstances(entityArr)
+
   }, [])
   // console.log('classInstances', classInstances);
 
@@ -124,11 +125,49 @@ function App() {
         setItemsList(list)
         setSelectedItem(list[0].id)
         setResourcePrices(prices.resourcePrices)
+        for (const item of prices.cabinPrices) {
+          for (let i = 0; i < classInstances.length; i++) {
+            if (item.id === classInstances[i].id) {
+              classInstances[i].sellPrice = item.sellPrice
+              classInstances[i].buyPrice = item.buyPrice
+              break;
+            }
+            console.log(classInstances[i].name);
+          }
+        }
+        // for (const item of prices.weaponPrices) {
+        //   for (const instance of classInstances) {
+        //     if (item.id === instance.id) {
+        //       instance.sellPrice = item.sellPrice
+        //       instance.buyPrice = item.buyPrice
+        //       break;
+        //     }
+        //   }
+        // }
+        // for (const item of prices.hardwarePrices) {
+        //   for (const instance of classInstances) {
+        //     if (item.id === instance.id) {
+        //       instance.sellPrice = item.sellPrice
+        //       instance.buyPrice = item.buyPrice
+        //       break;
+        //     }
+        //   }
+        // }
+        // for (const item of prices.movementPrices) {
+        //   for (const instance of classInstances) {
+        //     if (item.id === instance.id) {
+        //       instance.sellPrice = item.sellPrice
+        //       instance.buyPrice = item.buyPrice
+        //       break;
+        //     }
+        //   }
+        // }
+        
       });
       // const listArr = JSON.parse(dataId())
       
   }, []);
-  
+ 
   // console.log(resourcePrices);
     // console.log('itemsList', itemsList);
   if (itemsList) {
