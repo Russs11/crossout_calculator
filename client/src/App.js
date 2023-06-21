@@ -44,7 +44,7 @@ import LoadingSpinner from "./components/LoadingSpinner";
 function App() {
   const [itemsList, setItemsList] = useState();
   const [selectedItem, setSelectedItem] = useState(null)
-  const [classInstances, setClassInstances] = useState(null)
+  const [classInstances, setClassInstances] = useState([])
   const [resourcePrices, setResourcePrices] = useState()
   // const [selectedInstance, setSelectedInstance] = useState()
   let selectedInstance
@@ -132,7 +132,7 @@ function App() {
               classInstances[i].buyPrice = item.buyPrice
               break;
             }
-            console.log(classInstances[i].name);
+            console.log(classInstances[i].sellPrice);
           }
         }
         // for (const item of prices.weaponPrices) {

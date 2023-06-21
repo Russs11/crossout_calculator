@@ -4,25 +4,24 @@ import HorizontalSeparator from './HorizontalSeparator';
 
 
 const ComponentsCost = ({ component }) => {
-  
 
-
+console.log(component.sellPrice);
     function clickHandler(event) {
         event.currentTarget.classList.toggle("switch-on")
     }
-    
+
 
 
 
     let ingredientsArr = component.ingredients.map(ingredient => {
         return (
-            <>
+            <React.Fragment key={ingredient.name}>
                 <div className="component-image_8 small-component-img"
                     style={{ backgroundImage: "url(" + ingredient.img + ")" }}></div>
                 <div className="value text-3">{1}</div>
                 <div className="value-orange text-3">{ingredient.sellPrice}</div>
                 <div className="value-orange text-3">{ingredient.sellPrice}</div>
-            </>
+            </React.Fragment>
         )
     });
 

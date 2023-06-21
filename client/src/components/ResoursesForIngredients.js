@@ -29,73 +29,73 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 
 	if (ingredient.scrapMetal) {
 		resoursesArr2.push(
-			<>
+			<React.Fragment key={resourcePrices[0].dbId}>
 				<div className="resourses-img_1 small"></div>
 				<div className="value text-8">{ingredient.scrapMetal ? ingredient.scrapMetal : null}</div>
 				<div className="value-orange text-8">{scrapMetalSellPrice}</div>
 				<div className="value-orange text-8">{scrapMetalCost}</div>
-			</>
+			</React.Fragment>
 		)
 	}
 	if (ingredient.copper) {
 		resoursesArr2.push(
-			<>
+			<React.Fragment key={resourcePrices[1].dbId}>
 				<div className="resourses-img_3 small"></div>
 				<div className="value text-8">{ingredient.copper}</div>
 				<div className="value-orange text-8">{copperSellPrice}</div>
 				<div className="value-orange text-8">{copperCost}</div>
-			</>
-		)
-	}
-	if (ingredient.electronics) {
-		resoursesArr2.push(
-			<>
-				<div className="resourses-img_2 small"></div>
-				<div className="value text-8">{ingredient.electronics}</div>
-				<div className="value-orange text-8">{electronicsSellPrice}</div>
-				<div className="value-orange text-8">{electronicsCost}</div>
-			</>
-		)
-	}
-	if (ingredient.batteries) {
-		resoursesArr2.push(
-			<>
-				<div className="resourses-img_4 small"></div>
-				<div className="value text-8">{ingredient.batteries}</div>
-				<div className="value-orange text-8">{batteriesSellPrice}</div>
-				<div className="value-orange text-8">{batteriesCost}</div>
-			</>
+			</React.Fragment>
 		)
 	}
 	if (ingredient.wires) {
 		resoursesArr2.push(
-			<>
+			<React.Fragment key={resourcePrices[2].dbId}>
 				<div className="resourses-img_5 small"></div>
 				<div className="value text-8">{ingredient.wires}</div>
 				<div className="value-orange text-8">{wiresSellPrice}</div>
 				<div className="value-orange text-8">{wiresCost}</div>
-			</>
+			</React.Fragment>
 		)
 	}
-
 	if (ingredient.plastic) {
 		resoursesArr2.push(
-			<>
+			<React.Fragment key={resourcePrices[3].dbId}>
 				<div className="resourses-img_7 small"></div>
 				<div className="value text-8">{ingredient.plastic}</div>
 				<div className="value-orange text-8">{plasticSellPrice}</div>
 				<div className="value-orange text-8">{plasticCost}</div>
-			</>
+			</React.Fragment>
 		)
 	}
+	if (ingredient.batteries) {
+		resoursesArr2.push(
+			<React.Fragment key={resourcePrices[4].dbId}>
+				<div className="resourses-img_4 small"></div>
+				<div className="value text-8">{ingredient.batteries}</div>
+				<div className="value-orange text-8">{batteriesSellPrice}</div>
+				<div className="value-orange text-8">{batteriesCost}</div>
+			</React.Fragment>
+		)
+	}
+	if (ingredient.electronics) {
+		resoursesArr2.push(
+			<React.Fragment key={resourcePrices[5].dbId}>
+				<div className="resourses-img_2 small"></div>
+				<div className="value text-8">{ingredient.electronics}</div>
+				<div className="value-orange text-8">{electronicsSellPrice}</div>
+				<div className="value-orange text-8">{electronicsCost}</div>
+			</React.Fragment>
+		)
+	}
+
 	if (ingredient.engravedCasings) {
 		resoursesArr2.push(
-			<>
+			<React.Fragment key={resourcePrices[6].dbId}>
 				<div className="resourses-img_6 small"></div>
 				<div className="value text-8">{ingredient.engravedCasings}</div>
 				<div className="value-orange text-8">{engravedCasingsSellPrice}</div>
 				<div className="value-orange text-8">{engravedCasingsCost}</div>
-			</>
+			</React.Fragment>
 		)
 	}
 	if (active) {
