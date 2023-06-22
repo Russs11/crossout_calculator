@@ -125,6 +125,7 @@ function App() {
         setItemsList(list)
         setSelectedItem(list[0].id)
         setResourcePrices(prices.resourcePrices)
+        // console.log('prices', prices);
         for (const item of prices.cabinPrices) {
           for (let i = 0; i < classInstances.length; i++) {
             if (item.id === classInstances[i].id) {
@@ -132,41 +133,42 @@ function App() {
               classInstances[i].buyPrice = item.buyPrice
               break;
             }
-            console.log(classInstances[i].sellPrice);
           }
         }
-        // for (const item of prices.weaponPrices) {
-        //   for (const instance of classInstances) {
-        //     if (item.id === instance.id) {
-        //       instance.sellPrice = item.sellPrice
-        //       instance.buyPrice = item.buyPrice
-        //       break;
-        //     }
-        //   }
-        // }
-        // for (const item of prices.hardwarePrices) {
-        //   for (const instance of classInstances) {
-        //     if (item.id === instance.id) {
-        //       instance.sellPrice = item.sellPrice
-        //       instance.buyPrice = item.buyPrice
-        //       break;
-        //     }
-        //   }
-        // }
-        // for (const item of prices.movementPrices) {
-        //   for (const instance of classInstances) {
-        //     if (item.id === instance.id) {
-        //       instance.sellPrice = item.sellPrice
-        //       instance.buyPrice = item.buyPrice
-        //       break;
-        //     }
-        //   }
-        // }
+        
+        for (const item of prices.weaponPrices) {
+          for (const instance of classInstances) {
+            if (item.id === instance.id) {
+              instance.sellPrice = item.sellPrice
+              instance.buyPrice = item.buyPrice
+              break;
+            }
+          }
+        }
+        for (const item of prices.hardwarePrices) {
+          for (const instance of classInstances) {
+            if (item.id === instance.id) {
+              instance.sellPrice = item.sellPrice
+              instance.buyPrice = item.buyPrice
+              break;
+            }
+          }
+        }
+        for (const item of prices.movementPrices) {
+          for (const instance of classInstances) {
+            if (item.id === instance.id) {
+              instance.sellPrice = item.sellPrice
+              instance.buyPrice = item.buyPrice
+              break;
+            }
+          }
+        }
+        console.log(classInstances);
         
       });
       // const listArr = JSON.parse(dataId())
       
-  }, []);
+  }, [classInstances]);
  
   // console.log(resourcePrices);
     // console.log('itemsList', itemsList);
@@ -216,7 +218,7 @@ function App() {
     setSelectedItem(id)
   }
 
-
+// console.log(selectedInstance);
 
 
   return (
@@ -245,7 +247,9 @@ function App() {
                 <ProductionCost
                   component={selectedInstance}
                   resourcePrices={resourcePrices} />
-                <ComponentsCost component={selectedInstance}  />
+                <ComponentsCost
+                  component={selectedInstance}
+                  classInstances={ classInstances} />
                 <Profit />
               </ProductionCostWrapper>
               <VerticalSeparator />
