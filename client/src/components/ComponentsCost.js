@@ -4,8 +4,10 @@ import HorizontalSeparator from './HorizontalSeparator';
 
 
 const ComponentsCost = ({ component, classInstances }) => {
+    let localIngredientArr = []
+    let renderIngredientsArr = []
+    let counter
 
-    // console.log(component.sellPrice);
     function clickHandler(event) {
         event.currentTarget.classList.toggle("switch-on")
     }
@@ -20,7 +22,6 @@ const ComponentsCost = ({ component, classInstances }) => {
             }
         }
     }
-    let localIngredientArr = []
 
     function setCounterOfIngredients(ingredientsArr) {
         let count = {};
@@ -29,20 +30,20 @@ const ComponentsCost = ({ component, classInstances }) => {
         
         return count
     }
-    let counter = setCounterOfIngredients(component.ingredients)
-    // console.log(setCounterOfIngredients(component.ingredients));
+    counter = setCounterOfIngredients(component.ingredients)
+    
     setInstanceSellPrice(component.ingredients, classInstances);
-    // console.log(setCounterOfIngredients(component.ingredients));
-    console.log(counter);
-    console.log(localIngredientArr);
-    component.ingredients.push(component.ingredients[2])
-    let renderIngredientsArr = localIngredientArr.map(ingredient => {
+    
+    
+
+    // component.ingredients.push(component.ingredients[2])
+
+
+    renderIngredientsArr = localIngredientArr.map(ingredient => {
         let counterOfIng 
         for (const id in counter) {
             if (ingredient.id === +id) {
-                console.log(+counter[id]);
-                counterOfIng = +counter[id]
-
+                counterOfIng = counter[id]
             }
         }
         return (
@@ -51,7 +52,7 @@ const ComponentsCost = ({ component, classInstances }) => {
                     style={{ backgroundImage: "url(" + ingredient.img + ")" }}></div>
                 <div className="value text-3">{counterOfIng}</div>
                 <div className="value-orange text-3">{ingredient.sellPrice}</div>
-                <div className="value-orange text-3">{component.sellPrice}</div>
+                <div className="value-orange text-3">{counterOfIng * ingredient.sellPrice}</div>
             </React.Fragment>
         )
     });
