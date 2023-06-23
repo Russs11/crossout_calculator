@@ -10,10 +10,10 @@
 .spinner2 {
 	display: grid;
 	grid-template-columns: 1fr;
-	justify-content: center;
-	align-items: center;
-	width: 150px;
-	height: 150px;
+	justify-self: center;
+	align-self: center;
+	width: 100px;
+	height: 100px;
 	// right: 300px;
 }
 

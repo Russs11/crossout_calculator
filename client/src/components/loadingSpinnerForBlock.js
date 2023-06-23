@@ -1,7 +1,7 @@
 import React from 'react';
-import './loadingSpinnerForBlock.scss'
+import './LoadingSpinnerForBlock.scss'
 
-const loadingSpinnerForBlock = () => {
+const LoadingSpinnerForBlock = () => {
 	return (
 		<>
 			<div className="loading-spinner-for-block">
@@ -11,4 +11,4 @@ const loadingSpinnerForBlock = () => {
 	);
 };
 
-export default loadingSpinnerForBlock;
+export default LoadingSpinnerForBlock;
