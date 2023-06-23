@@ -1,34 +1,58 @@
-.loading-spinner-for-block {
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 1fr;
-	justify-content: center;
-	align-items: center;
-	margin-top: 10px;
-}
+// .loading-spinner-for-block {
+// 	display: grid;
+// 	grid-template-columns: 1fr;
+// 	grid-template-rows: 1fr;
+// 	justify-content: center;
+// 	align-items: center;
+// 	// margin-top: 10px;
+// }
 
-.spinner2 {
-	display: grid;
-	grid-template-columns: 1fr;
-	justify-self: center;
-	align-self: center;
-	width: 100px;
-	height: 100px;
-	// right: 300px;
-}
-
-.spinner2::after {
-	content: "";
-	width: 50px;
-	height: 50px;
-	border: 5px solid #dddddd;
-	border-top-color: #334562;
+.loader,
+.loader:before,
+.loader:after {
+	color: #ff9900;
 	border-radius: 50%;
-	animation: loading 1s ease infinite;
+	width: 2.5em;
+	height: 2.5em;
+	animation-fill-mode: both;
+	animation: bblFadInOut 1.8s infinite ease-in-out;
+	
+}
+.loader {
+	
+	font-size: 5px;
+	position: relative;
+	text-indent: -9999em;
+	transform: translateZ(0);
+	animation-delay: -0.16s;
 }
 
-@keyframes loading {
-	to {
-		transform: rotate(1turn);
+.loader:before,
+.loader:after {
+	
+	content: "";
+	position: absolute;
+	top: 0;
+
+}
+.loader:before {
+	left: -3.5em;
+	animation-delay: -0.32s;
+	
+}
+
+.loader:after {
+	left: 3.5em;
+	
+}
+
+@keyframes bblFadInOut {
+	0%,
+	80%,
+	100% {
+		box-shadow: 0 2.5em 0 -1.3em;
+	}
+	40% {
+		box-shadow: 0 2.5em 0 0;
 	}
 }

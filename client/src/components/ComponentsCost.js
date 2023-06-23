@@ -82,9 +82,9 @@ const ComponentsCost = ({ component, classInstances }) => {
                     <div className="value-orange text-3">483</div> */}
                     {renderIngredientsArr}
                     <div className="total text-7">Всего:</div>
-                    <div className="value-orange text-3">{component.getAllBenchCost()}</div>
+                    <div className="value-orange text-3">780</div>
                 </div>
-                <HorizontalSeparator />
+                {/* <HorizontalSeparator /> */}
             </div>
         </>
     );

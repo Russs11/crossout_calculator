@@ -39,6 +39,8 @@ import * as MovementEpic from "./entity/movement/epic"
 
 import LoadingSpinner from "./components/LoadingSpinner";
 import LoadingSpinnerForBlock from "./components/LoadingSpinnerForBlock";
+import Spinner from "./components/Spinner";
+import HorizontalSeparator from "./components/HorizontalSeparator";
 
 
 
@@ -248,18 +250,21 @@ function App() {
                 <ProductionCost
                   component={selectedInstance}
                   resourcePrices={resourcePrices} />
-                {selectedInstance.sellPrice  === 0 ?
+                {selectedInstance.sellPrice ?
                   <ComponentsCost
                     component={selectedInstance}
                     classInstances={classInstances} /> :
-                  <LoadingSpinnerForBlock />}
+                    <LoadingSpinnerForBlock />}
+                    <HorizontalSeparator/>
                 <Profit />
               </ProductionCostWrapper>
               <VerticalSeparator />
               <ResoursesAvailableWrapper>
                 <ResoursesAvailable />
               </ResoursesAvailableWrapper>
-            </MainCard> : <LoadingSpinner />}
+            </MainCard> :
+          //  <Spinner/>}
+           <LoadingSpinnerForBlock />}
         </Main>
       </Container>
     </div>
