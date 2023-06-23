@@ -7,7 +7,8 @@ const ComponentsCost = ({ component, classInstances }) => {
     let localIngredientArr = []
     let renderIngredientsArr = []
     let counter
-
+    
+    component.ingredients.push(component.ingredients[2])
     function clickHandler(event) {
         event.currentTarget.classList.toggle("switch-on")
     }
@@ -30,13 +31,12 @@ const ComponentsCost = ({ component, classInstances }) => {
         
         return count
     }
-    counter = setCounterOfIngredients(component.ingredients)
     
     setInstanceSellPrice(component.ingredients, classInstances);
+    counter = setCounterOfIngredients(component.ingredients)
     
     
 
-    // component.ingredients.push(component.ingredients[2])
 
 
     renderIngredientsArr = localIngredientArr.map(ingredient => {
@@ -52,7 +52,7 @@ const ComponentsCost = ({ component, classInstances }) => {
                     style={{ backgroundImage: "url(" + ingredient.img + ")" }}></div>
                 <div className="value text-3">{counterOfIng}</div>
                 <div className="value-orange text-3">{ingredient.sellPrice}</div>
-                <div className="value-orange text-3">{counterOfIng * ingredient.sellPrice}</div>
+                <div className="value-orange text-3">{Math.round((counterOfIng * ingredient.sellPrice) * 100) / 100}</div>
             </React.Fragment>
         )
     });

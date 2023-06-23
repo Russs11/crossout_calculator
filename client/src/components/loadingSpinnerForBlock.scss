@@ -1,0 +1,34 @@
+.loading-spinner-for-block {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.spinner2 {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-content: center;
+	align-items: center;
+	width: 150px;
+	height: 150px;
+	// right: 300px;
+}
+
+.spinner2::after {
+	content: "";
+	width: 50px;
+	height: 50px;
+	border: 5px solid #dddddd;
+	border-top-color: #334562;
+	border-radius: 50%;
+	animation: loading 1s ease infinite;
+}
+
+@keyframes loading {
+	to {
+		transform: rotate(1turn);
+	}
+}

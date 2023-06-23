@@ -121,7 +121,7 @@ function App() {
     fetch('http://45.12.73.147:3001/prices/start')
       .then((response) => response.json())
       .then(({ prices, list }) => {
-        
+
         setItemsList(list)
         setSelectedItem(list[0].id)
         setResourcePrices(prices.resourcePrices)
@@ -135,7 +135,7 @@ function App() {
             }
           }
         }
-        
+
         for (const item of prices.weaponPrices) {
           for (const instance of classInstances) {
             if (item.id === instance.id) {
@@ -164,14 +164,14 @@ function App() {
           }
         }
         console.log(classInstances);
-        
+
       });
-      // const listArr = JSON.parse(dataId())
-      
+    // const listArr = JSON.parse(dataId())
+
   }, [classInstances]);
- 
+
   // console.log(resourcePrices);
-    // console.log('itemsList', itemsList);
+  // console.log('itemsList', itemsList);
   if (itemsList) {
     const instanceFromData = []
     for (const item of itemsList) {
@@ -218,7 +218,7 @@ function App() {
     setSelectedItem(id)
   }
 
-// console.log(selectedInstance);
+  // console.log(selectedInstance);
 
 
   return (
@@ -238,18 +238,20 @@ function App() {
                 <ProductionRequirements
                   component={selectedInstance}
                   resourcePrices={resourcePrices} />
-                <RequiredComponents 
-                component={selectedInstance}
-                resourcePrices={resourcePrices} />
+                <RequiredComponents
+                  component={selectedInstance}
+                  resourcePrices={resourcePrices} />
               </ItemCard>
               <VerticalSeparator />
               <ProductionCostWrapper>
                 <ProductionCost
                   component={selectedInstance}
                   resourcePrices={resourcePrices} />
-                <ComponentsCost
-                  component={selectedInstance}
-                  classInstances={ classInstances} />
+                {selectedInstance.sellPrice ?
+                  <ComponentsCost
+                    component={selectedInstance}
+                    classInstances={classInstances} /> :
+                  <loadingSpinnerForBlock />}
                 <Profit />
               </ProductionCostWrapper>
               <VerticalSeparator />
