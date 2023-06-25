@@ -130,10 +130,10 @@ function App() {
         setResourcePrices(prices.resourcePrices)
         // console.log('prices', prices);
         for (const item of prices.cabinPrices) {
-          for (let i = 0; i < classInstances.length; i++) {
-            if (item.id === classInstances[i].id) {
-              classInstances[i].sellPrice = item.sellPrice
-              classInstances[i].buyPrice = item.buyPrice
+          for (const instance of classInstances) {
+            if (item.id === instance.id) {
+              instance.sellPrice = item.sellPrice
+              instance.buyPrice = item.buyPrice
               break;
             }
           }
@@ -254,8 +254,8 @@ function App() {
                   <ComponentsCost
                     component={selectedInstance}
                     classInstances={classInstances} /> :
-                    <LoadingSpinnerForBlock />}
-                    <HorizontalSeparator/>
+                  <LoadingSpinnerForBlock />}
+                <HorizontalSeparator />
                 <Profit />
               </ProductionCostWrapper>
               <VerticalSeparator />
@@ -263,8 +263,8 @@ function App() {
                 <ResoursesAvailable />
               </ResoursesAvailableWrapper>
             </MainCard> :
-          //  <Spinner/>}
-           <LoadingSpinnerForBlock />}
+            //  <Spinner/>}
+            <LoadingSpinnerForBlock />}
         </Main>
       </Container>
     </div>

@@ -82,7 +82,7 @@ const ProductionCost = ({ component, resourcePrices }) => {
         resoursesArr3.push(
             <React.Fragment key={resourcePrices[4].dbId}>
                 <div className="resourses-img_7"></div>
-                <div className="value text-3">{component.getAllBatteries() }</div>
+                <div className="value text-3">{component.getAllBatteries() ? component.getAllBatteries() : 0}</div>
                 <div className="value-orange text-3">{batteriesSellPrice}</div>
                 <div className="value-orange text-3">{batteriesCost}</div>
             </React.Fragment>
