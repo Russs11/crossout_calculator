@@ -7,7 +7,7 @@ const ComponentsCost = ({ component, classInstances }) => {
     let localIngredientArr = []
     let renderIngredientsArr = []
     let counter
-    console.log(component.batteries);
+    
     // component.ingredients.push(component.ingredients[2])
     function clickHandler(event) {
         event.currentTarget.classList.toggle("switch-on")
