@@ -46,19 +46,19 @@ const ComponentsCost = ({ component, classInstances }) => {
 
 
     renderIngredientsArr = localIngredientArr.map(ingredient => {
-        let quantityOfIng 
+        let quantityOfIngredients 
         for (const id in counter) {
             if (ingredient.id === +id) {
-                quantityOfIng = counter[id]
+                quantityOfIngredients = counter[id]
             }
         }
-        ingredientsCost = Math.round((quantityOfIng * ingredient.sellPrice) * 100) / 100
+        ingredientsCost = Math.round((quantityOfIngredients * ingredient.sellPrice) * 100) / 100
 
         return (
             <React.Fragment key={ingredient.name}>
                 <div className="component-image_8 small-component-img"
                     style={{ backgroundImage: "url(" + ingredient.img + ")" }}></div>
-                <div className="value text-3">{quantityOfIng}</div>
+                <div className="value text-3">{quantityOfIngredients}</div>
                 <div className="value-orange text-3">{ingredient.sellPrice}</div>
                 <div className="value-orange text-3">{ingredientsCost}</div>
             </React.Fragment>
