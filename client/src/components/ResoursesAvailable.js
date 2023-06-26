@@ -4,6 +4,16 @@ import HorizontalSeparator from './HorizontalSeparator';
 
 
 const ResoursesAvailable = () => {
+
+    let scrapmetalInput = ''
+    function inputClickHandler(event) {
+        scrapmetalInput = event.target.value
+        // console.log(event.target.value);
+    }
+    console.log('scrapmetalInput', scrapmetalInput);
+
+
+
     return (
         <>
             <div className="resourses-available">
@@ -12,17 +22,17 @@ const ResoursesAvailable = () => {
                     <div className="text-5">Ресурсы:</div>
                     <div className="text-5">Количество:</div>
                     <div className="resourses-img_1"></div>
-                    <div className="value text-3 rectangle">684</div>
+                    <input type="text" className="value text-3 rectangle" onChange={inputClickHandler}></input>
                     <div className="resourses-img_2"></div>
-                    <div className="value text-3 rectangle">4567</div>
+                    <input type="text" className="value text-3 rectangle"></input>
                     <div className="resourses-img_3"></div>
-                    <div className="value text-3 rectangle">203</div>
+                    <input type="text" className="value text-3 rectangle"></input>
                     <div className="resourses-img_4"></div>
-                    <div className="value text-3 rectangle">102</div>
+                    <input type="text" className="value text-3 rectangle"></input>
                     <div className="resourses-img_5"></div>
-                    <div className="value text-3 rectangle">21</div>
+                    <input type="text" className="value text-3 rectangle"></input>
                     <div className="resourses-img_6"></div>
-                    <div className="value text-3 rectangle">27</div>
+                    <input type="text" className="value text-3 rectangle"></input>
                     <div className="text-5">Стоимость:</div>
                     <div className="value-orange text-3">2704</div>
                 </div>
