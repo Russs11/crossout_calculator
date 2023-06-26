@@ -49,6 +49,18 @@ function App() {
   const [selectedItem, setSelectedItem] = useState(null)
   const [classInstances, setClassInstances] = useState([])
   const [resourcePrices, setResourcePrices] = useState()
+
+  const [resoursesFromInput, setResoursesFromInput] = useState({
+    scrapMetal: 0,
+    copper: 0,
+    wires: 0,
+    plastic: 0,
+    engravedCasings: 0,
+    batteries: 0,
+    electronics: 0, 
+  })
+
+
   // const [selectedInstance, setSelectedInstance] = useState()
   let selectedInstance
   let itemsArr = []
@@ -172,7 +184,7 @@ function App() {
     // const listArr = JSON.parse(dataId())
 
   }, [classInstances]);
-// console.log(itemsList);
+  // console.log(itemsList);
   // console.log(resourcePrices);
   // console.log('itemsList', itemsList);
   if (itemsList) {
@@ -211,9 +223,14 @@ function App() {
   if (selectedItem) {
     selectedInstance = classInstances.find(inst => inst.id === selectedItem);
   }
+  console.log('scrapmetalInput', resoursesFromInput.scrapMetal);
 
+  // function inputClickHandler(event) {
 
-
+  //   setResoursesFromInput((prev) => {    
+  //   return Object.assign({resoursesFromInput, ...prev, scrapMetal: +event.target.value })
+  // });
+  // }
 
 
 
@@ -260,7 +277,11 @@ function App() {
               </ProductionCostWrapper>
               <VerticalSeparator />
               <ResoursesAvailableWrapper>
-                <ResoursesAvailable />
+                <ResoursesAvailable
+                  resoursesFromInput={resoursesFromInput}
+                  setResoursesFromInput={setResoursesFromInput}
+                // inputClickHandler={inputClickHandler}
+                />
               </ResoursesAvailableWrapper>
             </MainCard> :
             //  <Spinner/>}
