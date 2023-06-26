@@ -48,59 +48,59 @@ const ProductionCost = ({ component, resourcePrices }) => {
             </React.Fragment>
         )
     }
-    if (component.wires !== 0) {
+    if (component.wires !== 0){
         resoursesArr3.push(
-            <React.Fragment key={resourcePrices[2].dbId}>
-                <div className="resourses-img_5"></div>
-                <div className="value text-3">{component.getAllWires() ? component.getAllWires() : null }</div>
-                <div className="value-orange text-3">{wiresSellPrice}</div>
-                <div className="value-orange text-3">{wiresCost}</div>
-            </React.Fragment>
+        <React.Fragment key={resourcePrices[2].dbId}>
+            <div className="resourses-img_5"></div>
+            <div className="value text-3">{component?.getAllWires()}</div>
+            <div className="value-orange text-3">{wiresSellPrice}</div>
+            <div className="value-orange text-3">{wiresCost}</div>
+        </React.Fragment>
         )
     }
-    if (component.plastic !== 0) {
-        resoursesArr3.push(
-            <React.Fragment key={resourcePrices[3].dbId}>
-                <div className="resourses-img_7"></div>
-                <div className="value text-3">{component.getAllPlastic()}</div>
-                <div className="value-orange text-3">{plasticSellPrice}</div>
-                <div className="value-orange text-3">{plasticCost}</div>
-            </React.Fragment>
-        )
-    }
-    if (component.engravedCasings !== 0) {
-        resoursesArr3.push(
-            <React.Fragment key={resourcePrices[6].dbId}>
-                <div className="resourses-img_7"></div>
-                <div className="value text-3">{component.getAllEngravedCasings()}</div>
-                <div className="value-orange text-3">{engravedCasingsSellPrice}</div>
-                <div className="value-orange text-3">{engravedCasingsCost}</div>
-            </React.Fragment>
-        )
-    }
-    if (component.batteries !== 0) {
-        resoursesArr3.push(
-            <React.Fragment key={resourcePrices[4].dbId}>
-                <div className="resourses-img_7"></div>
-                <div className="value text-3">{component.getAllBatteries() ? component.getAllBatteries() : 0}</div>
-                <div className="value-orange text-3">{batteriesSellPrice}</div>
-                <div className="value-orange text-3">{batteriesCost}</div>
-            </React.Fragment>
-        )
-    }
+if (component.plastic !== 0) {
+    resoursesArr3.push(
+        <React.Fragment key={resourcePrices[3].dbId}>
+            <div className="resourses-img_7"></div>
+            <div className="value text-3">{component.getAllPlastic()}</div>
+            <div className="value-orange text-3">{plasticSellPrice}</div>
+            <div className="value-orange text-3">{plasticCost}</div>
+        </React.Fragment>
+    )
+}
+if (component.engravedCasings !== 0) {
+    resoursesArr3.push(
+        <React.Fragment key={resourcePrices[6].dbId}>
+            <div className="resourses-img_7"></div>
+            <div className="value text-3">{component.getAllEngravedCasings()}</div>
+            <div className="value-orange text-3">{engravedCasingsSellPrice}</div>
+            <div className="value-orange text-3">{engravedCasingsCost}</div>
+        </React.Fragment>
+    )
+}
+if (component.batteries !== 0) {
+    resoursesArr3.push(
+        <React.Fragment key={resourcePrices[4].dbId}>
+            <div className="resourses-img_7"></div>
+            <div className="value text-3">{component.getAllBatteries() ? component.getAllBatteries() : 0}</div>
+            <div className="value-orange text-3">{batteriesSellPrice}</div>
+            <div className="value-orange text-3">{batteriesCost}</div>
+        </React.Fragment>
+    )
+}
 
 
-    return (
-        <>
-            <div className="production-cost">
-                <div className="production-cost-title text-4">Себестоимость производства:</div>
-                <div className="production-cost-grid">
-                    <div className="text-5">Ресурсы:</div>
-                    <div className="text-5">Количество:</div>
-                    <div className="text-5">Цена:</div>
-                    <div className="text-5">Стоимость:</div>
-                    {resoursesArr3}
-                    {/* <div className="resourses-img_4"></div>
+return (
+    <>
+        <div className="production-cost">
+            <div className="production-cost-title text-4">Себестоимость производства:</div>
+            <div className="production-cost-grid">
+                <div className="text-5">Ресурсы:</div>
+                <div className="text-5">Количество:</div>
+                <div className="text-5">Цена:</div>
+                <div className="text-5">Стоимость:</div>
+                {resoursesArr3}
+                {/* <div className="resourses-img_4"></div>
                     <div className="value text-3">750</div>
                     <div className="value-orange text-3">1.89</div>
                     <div className="value-orange text-3">141.75</div>
@@ -108,15 +108,15 @@ const ProductionCost = ({ component, resourcePrices }) => {
                     <div className="value text-3">750</div>
                     <div className="value-orange text-3">4.49</div>
                     <div className="value-orange text-3">336.75</div> */}
-                    <div className="machine-rental text-7">Аренда станка:</div>
-                    <div className="value-orange text-3">{component.getAllBenchCost()}</div>
-                    <div className="total text-7">Всего:</div>
-                    <div className="value-orange text-3">{Math.round(totalResoursesСost * 100) / 100}</div>
-                </div>
+                <div className="machine-rental text-7">Аренда станка:</div>
+                <div className="value-orange text-3">{component.getAllBenchCost()}</div>
+                <div className="total text-7">Всего:</div>
+                <div className="value-orange text-3">{Math.round(totalResoursesСost * 100) / 100}</div>
             </div>
-            <HorizontalSeparator />
-        </>
-    );
+        </div>
+        <HorizontalSeparator />
+    </>
+);
 };
 
 export default ProductionCost;
