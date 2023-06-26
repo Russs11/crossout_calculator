@@ -84,7 +84,6 @@ const ComponentsCost = ({ component, classInstances }) => {
                     <div className="total text-7">Всего:</div>
                     <div className="value-orange text-3">780</div>
                 </div>
-                {/* <HorizontalSeparator /> */}
             </div>
         </>
     );

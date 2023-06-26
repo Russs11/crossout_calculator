@@ -6,6 +6,8 @@ import HorizontalSeparator from './HorizontalSeparator';
 const ResoursesAvailable = () => {
 
     let scrapmetalInput = ''
+
+
     function inputClickHandler(event) {
         scrapmetalInput = event.target.value
         // console.log(event.target.value);
@@ -40,11 +42,11 @@ const ResoursesAvailable = () => {
                     <div className="text-5">Компоненты:</div>
                     <div className="text-5">Количество:</div>
                     <div className="component-image_8 small-component-img"></div>
-                    <div className="value text-3 rectangle">2</div>
+                    <input type="text" className="value text-3 rectangle"></input>
                     <div className="component-img-small_2 small-component-img"></div>
-                    <div className="value text-3 rectangle">1</div>
+                    <input type="text" className="value text-3 rectangle"></input>
                     <div className="component-img-small_3 small-component-img"></div>
-                    <div className="value text-3 rectangle">0</div>
+                    <input type="text" className="value text-3 rectangle"></input>
                     <div className="text-5">Стоимость:</div>
                     <div className="value-orange text-3">2123</div>
                 </div>
