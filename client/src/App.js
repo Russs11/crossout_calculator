@@ -172,7 +172,7 @@ function App() {
     // const listArr = JSON.parse(dataId())
 
   }, [classInstances]);
-console.log(itemsList);
+// console.log(itemsList);
   // console.log(resourcePrices);
   // console.log('itemsList', itemsList);
   if (itemsList) {

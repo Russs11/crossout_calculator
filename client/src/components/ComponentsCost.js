@@ -7,8 +7,12 @@ const ComponentsCost = ({ component, classInstances }) => {
     let localIngredientArr = []
     let renderIngredientsArr = []
     let counter
+    let ingredientsCost
+    let totalIngredientsCost
+    // component.ingredients.push(component.ingredients[0])
+
+
     
-    // component.ingredients.push(component.ingredients[2])
     function clickHandler(event) {
         event.currentTarget.classList.toggle("switch-on")
     }
@@ -35,7 +39,9 @@ const ComponentsCost = ({ component, classInstances }) => {
     setInstanceSellPrice(component.ingredients, classInstances);
     counter = setCounterOfIngredients(component.ingredients)
     
-    
+    totalIngredientsCost = component.ingredients.reduce((a, b) => {
+        return a + b.sellPrice
+    },0)
 
 
 
@@ -46,13 +52,15 @@ const ComponentsCost = ({ component, classInstances }) => {
                 quantityOfIng = counter[id]
             }
         }
+        ingredientsCost = Math.round((quantityOfIng * ingredient.sellPrice) * 100) / 100
+
         return (
             <React.Fragment key={ingredient.name}>
                 <div className="component-image_8 small-component-img"
                     style={{ backgroundImage: "url(" + ingredient.img + ")" }}></div>
                 <div className="value text-3">{quantityOfIng}</div>
                 <div className="value-orange text-3">{ingredient.sellPrice}</div>
-                <div className="value-orange text-3">{Math.round((quantityOfIng * ingredient.sellPrice) * 100) / 100}</div>
+                <div className="value-orange text-3">{ingredientsCost}</div>
             </React.Fragment>
         )
     });
@@ -82,7 +90,7 @@ const ComponentsCost = ({ component, classInstances }) => {
                     <div className="value-orange text-3">483</div> */}
                     {renderIngredientsArr}
                     <div className="total text-7">Всего:</div>
-                    <div className="value-orange text-3">780</div>
+                    <div className="value-orange text-3">{Math.round((totalIngredientsCost * 100) / 100 )}</div>
                 </div>
             </div>
         </>
