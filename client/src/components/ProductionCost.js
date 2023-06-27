@@ -8,9 +8,20 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate }) =>
 
 
     let scrapMetalRequires = component.getScrapMetal()
-    console.log('scrapMetalRequires: ', scrapMetalRequires);
+    let copperRequires = component.getCopper()
+    let wiresRequires = component.getWires()
+    let plasticRequires = component.getPlastic()
+    let batteriesRequires = component.getBatteries()
+    let electronicsRequires = component?.getElectronics?.()
+    let engravedCasingsRequires = component.getEngravedCasings()
+
     let allScrapMetalRequires = component.getAllScrapMetal()
-    console.log('allScrapMetalRequires: ', allScrapMetalRequires);
+    let allCopperRequires = component.getAllCopper?.()
+    let allWiresRequires = component.getAllWires?.()
+    let allPlasticRequires = component.getAllPlastic?.()
+    let allBattrriesRequires = component.getAllBatteries?.()
+    let allElectronicsRequires = component.getAllElectronics?.()
+    let allEngravedCasingsRequires = component.getAllEngravedCasings?.()
 
     let scrapMetalSellPrice = resourcePrices[0].sellPrice
     let copperSellPrice = resourcePrices[1].sellPrice
@@ -38,7 +49,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate }) =>
         console.log('allScrapMetalRequires', allScrapMetalRequires);
         resoursesArr3.push(
             <React.Fragment key={resourcePrices[0].dbId}>
-                <div className="resourses-img_1"></div>
+                <div className="scrapmetal"></div>
                 <div className="value text-3">{btnSwitchBuyFabricate ? scrapMetalRequires : allScrapMetalRequires  }</div>
                 <div className="value-orange text-3">{scrapMetalSellPrice}</div>
                 <div className="value-orange text-3">{scrapMetalCost}</div>
@@ -48,8 +59,8 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate }) =>
     if (component.copper !== 0) {
         resoursesArr3.push(
             <React.Fragment key={resourcePrices[1].dbId}>
-                <div className="resourses-img_3"></div>
-                <div className="value text-3">{component.getAllCopper()}</div>
+                <div className="copper"></div>
+                <div className="value text-3">{btnSwitchBuyFabricate ? copperRequires : allCopperRequires  }</div>
                 <div className="value-orange text-3">{copperSellPrice}</div>
                 <div className="value-orange text-3">{copperCost}</div>
             </React.Fragment>
@@ -58,8 +69,8 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate }) =>
     if (component.wires !== 0){
         resoursesArr3.push(
         <React.Fragment key={resourcePrices[2].dbId}>
-            <div className="resourses-img_5"></div>
-            <div className="value text-3">{component?.getAllWires()}</div>
+            <div className="wires"></div>
+            <div className="value text-3">{btnSwitchBuyFabricate ? wiresRequires : allWiresRequires  }</div>
             <div className="value-orange text-3">{wiresSellPrice}</div>
             <div className="value-orange text-3">{wiresCost}</div>
         </React.Fragment>
@@ -68,9 +79,9 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate }) =>
 if (component.plastic !== 0) {
     resoursesArr3.push(
         <React.Fragment key={resourcePrices[3].dbId}>
-            <div className="resourses-img_7"></div>
-            <div className="value text-3">{component.getAllPlastic()}</div>
-            <div className="value-orange text-3">{plasticSellPrice}</div>
+            <div className="plastic"></div>
+            <div className="value text-3">{btnSwitchBuyFabricate ? plasticRequires : allPlasticRequires  }</div>
+            <div className="value-orange text-3">{plasticSellPrice}</div >
             <div className="value-orange text-3">{plasticCost}</div>
         </React.Fragment>
     )
@@ -78,8 +89,8 @@ if (component.plastic !== 0) {
 if (component.engravedCasings !== 0) {
     resoursesArr3.push(
         <React.Fragment key={resourcePrices[6].dbId}>
-            <div className="resourses-img_7"></div>
-            <div className="value text-3">{component.getAllEngravedCasings()}</div>
+            <div className="engravedcasigs"></div>
+            <div className="value text-3">{btnSwitchBuyFabricate ? engravedCasingsRequires : allEngravedCasingsRequires }</div>
             <div className="value-orange text-3">{engravedCasingsSellPrice}</div>
             <div className="value-orange text-3">{engravedCasingsCost}</div>
         </React.Fragment>
@@ -88,8 +99,8 @@ if (component.engravedCasings !== 0) {
 if (component.batteries !== 0) {
     resoursesArr3.push(
         <React.Fragment key={resourcePrices[4].dbId}>
-            <div className="resourses-img_7"></div>
-            <div className="value text-3">{component.getAllBatteries() ? component.getAllBatteries() : 0}</div>
+            <div className="batteries"></div>
+            <div className="value text-3">{btnSwitchBuyFabricate ? batteriesRequires : allBattrriesRequires }</div>
             <div className="value-orange text-3">{batteriesSellPrice}</div>
             <div className="value-orange text-3">{batteriesCost}</div>
         </React.Fragment>

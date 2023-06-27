@@ -32,7 +32,7 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	if (component.scrapMetal) {
 		resoursesArr.push(
 			<React.Fragment key={resourcePrices[0].dbId}>
-				<div className="resourses-img_1"></div>
+				<div className="scrapmetal"></div>
 				<div className="value text-3">{component.scrapMetal}</div>
 				<div className="value-orange text-3">{scrapMetalSellPrice}</div>
 				<div className="value-orange text-3">{scrapMetalCost}</div>
@@ -42,7 +42,7 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	if (component.copper) {
 		resoursesArr.push(
 			<React.Fragment key={resourcePrices[1].dbId}>
-				<div className="resourses-img_3"></div>
+				<div className="copper"></div>
 				<div className="value text-3">{component.copper}</div>
 				<div className="value-orange text-3">{copperSellPrice}</div>
 				<div className="value-orange text-3">{copperCost}</div>
@@ -52,7 +52,7 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	if (component.wires) {
 		resoursesArr.push(
 			<React.Fragment key={resourcePrices[2].dbId}>
-				<div className="resourses-img_5"></div>
+				<div className="wires"></div>
 				<div className="value text-3">{component.wires}</div>
 				<div className="value-orange text-3">{wiresSellPrice}</div>
 				<div className="value-orange text-3">{wiresCost}</div>
@@ -62,7 +62,7 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	if (component.plastic) {
 		resoursesArr.push(
 			<React.Fragment key={resourcePrices[3].dbId}>
-				<div className="resourses-img_7"></div>
+				<div className="plastic"></div>
 				<div className="value text-3">{component.plastic}</div>
 				<div className="value-orange text-3">{plasticSellPrice}</div>
 				<div className="value-orange text-3">{plasticCost}</div>
@@ -72,7 +72,7 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	if (component.batteries) {
 		resoursesArr.push(
 			<React.Fragment key={resourcePrices[4].dbId}>
-				<div className="resourses-img_4"></div>
+				<div className="batteries"></div>
 				<div className="value text-3">{component.batteries}</div>
 				<div className="value-orange text-3">{batteriesSellPrice}</div>
 				<div className="value-orange text-3">{batteriesCost}</div>
@@ -82,7 +82,7 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	if (component.electronics) {
 		resoursesArr.push(
 			<React.Fragment key={resourcePrices[5].dbId}>
-				<div className="resourses-img_2"></div>
+				<div className="electronics"></div>
 				<div className="value text-3">{component.electronics}</div>
 				<div className="value-orange text-3">{electronicsSellPrice}</div>
 				<div className="value-orange text-3">{electronicsCost }</div>
@@ -93,7 +93,7 @@ const RequiredResourses = ({ component, resourcePrices }) => {
 	if (component.engravedCasings) {
 		resoursesArr.push(
 			<React.Fragment key={resourcePrices[6].dbId}>
-				<div className="resourses-img_6"></div>
+				<div className="engravedcasigs"></div>
 				<div className="value text-3">{component.engravedCasings}</div>
 				<div className="value-orange text-3">{engravedCasingsSellPrice}</div>
 				<div className="value-orange text-3">{engravedCasingsCost}</div>
