@@ -14,7 +14,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
 
     
     function clickHandler() {
-        setBtnSwitchBuyFabricate((prev) => { return !prev} )
+        setBtnSwitchBuyFabricate((prev) => { return !prev });
     }
 
     function setInstanceSellPrice(ingredientsArr, instancePricesArr) {
@@ -37,11 +37,11 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
     }
     
     setInstanceSellPrice(component.ingredients, classInstances);
-    counter = setCounterOfIngredients(component.ingredients)
+    counter = setCounterOfIngredients(component.ingredients);
     
     totalIngredientsCost = component.ingredients.reduce((a, b) => {
         return a + b.sellPrice
-    },0)
+    }, 0);
 
 
 
