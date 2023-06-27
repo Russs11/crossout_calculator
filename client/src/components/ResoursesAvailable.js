@@ -54,7 +54,7 @@ console.log(resoursesFromInput);
                 <div className="resourses-grid">
                     <div className="text-5">Ресурсы:</div>
                     <div className="text-5">Количество:</div>
-                    <div className="resourses-img_1"></div>
+                    <div className="scrapmetal"></div>
                     <input className="value text-3 input"
                         type="number"
                         placeholder='input your value'
@@ -62,42 +62,42 @@ console.log(resoursesFromInput);
                         onChange={inputScrapMetalHandler}>
 
                     </input>
-                    <div className="resourses-img_2"></div>
+                    <div className="electronics"></div>
                     <input className="value text-3 input"
                         type="number"
                         placeholder='input your value'
                         value={resoursesFromInput.electronics !== 0 ? resoursesFromInput.electronics : ''}
                         onChange={inputElectronicsHandler}>
                     </input>
-                    <div className="resourses-img_3"></div>
+                    <div className="copper"></div>
                     <input className="value text-3 input"
                         type="number"
                         placeholder='input your value'
                         value={resoursesFromInput.copper !== 0 ? resoursesFromInput.copper : ''}
                         onChange={inputCopperHandler}>
                     </input>
-                    <div className="resourses-img_4"></div>
+                    <div className="batteries"></div>
                     <input className="value text-3 input"
                         type="number"
                         placeholder='input your value'
                         value={resoursesFromInput.batteries !== 0 ? resoursesFromInput.batteries : ''}
                         onChange={inputBatteriesHandler}>
                     </input>
-                    <div className="resourses-img_5"></div>
+                    <div className="wires"></div>
                     <input className="value text-3 input"
                         type="number"
                         placeholder='input your value'
                         value={resoursesFromInput.wires !== 0 ? resoursesFromInput.wires : ''}
                         onChange={inputWiresHandler}>
                     </input>
-                    <div className="resourses-img_6"></div>
+                    <div className="engravedcasings"></div>
                     <input className="value text-3 input"
                         type="text"
                         placeholder='input your value'
                         value={resoursesFromInput.engravedCasings !== 0 ? resoursesFromInput.engravedCasings : ''}
                         onChange={inputEngravedCasingsHandler}>
                     </input>
-                    <div className="resourses-img_7"></div>
+                    <div className="plastic"></div>
                     <input className="value text-3 input"
                         type="number"
                         placeholder='input your value'
