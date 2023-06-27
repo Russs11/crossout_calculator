@@ -2,11 +2,15 @@ import React from 'react';
 import './ProductionCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
-const ProductionCost = ({ component, resourcePrices }) => {
+const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate }) => {
 
     let resoursesArr3 = []
 
 
+    let scrapMetalRequires = component.getScrapMetal()
+    console.log('scrapMetalRequires: ', scrapMetalRequires);
+    let allScrapMetalRequires = component.getAllScrapMetal()
+    console.log('allScrapMetalRequires: ', allScrapMetalRequires);
 
     let scrapMetalSellPrice = resourcePrices[0].sellPrice
     let copperSellPrice = resourcePrices[1].sellPrice
@@ -16,11 +20,11 @@ const ProductionCost = ({ component, resourcePrices }) => {
     let electronicsSellPrice = resourcePrices[5].sellPrice
     let engravedCasingsSellPrice = resourcePrices[6].sellPrice
 
-    let scrapMetalCost = component.getAllScrapMetal() ? Math.round((component.getAllScrapMetal() * scrapMetalSellPrice / 100) * 100) / 100 : 0
-    let copperCost = component.getAllCopper() ? Math.round((component.getAllCopper() * copperSellPrice / 100) * 100) / 100 : 0
-    let wiresCost = component.getAllWires() ? Math.round((component.getAllWires() * wiresSellPrice / 100) * 100) / 100 : 0
-    let plasticCost = component.getAllPlastic() ? Math.round((component.getAllPlastic() * plasticSellPrice / 100) * 100) / 100 : 0
-    let engravedCasingsCost = component.getAllEngravedCasings() ? Math.round((component.getAllEngravedCasings() * engravedCasingsSellPrice / 100) * 100) / 100 : 0
+    let scrapMetalCost = component?.getAllScrapMetal() ? Math.round((component?.getAllScrapMetal() * scrapMetalSellPrice / 100) * 100) / 100 : 0
+    let copperCost = component?.getAllCopper() ? Math.round((component?.getAllCopper() * copperSellPrice / 100) * 100) / 100 : 0
+    let wiresCost = component?.getAllWires() ? Math.round((component?.getAllWires() * wiresSellPrice / 100) * 100) / 100 : 0
+    let plasticCost = component?.getAllPlastic() ? Math.round((component?.getAllPlastic() * plasticSellPrice / 100) * 100) / 100 : 0
+    let engravedCasingsCost = component?.getAllEngravedCasings() ? Math.round((component?.getAllEngravedCasings() * engravedCasingsSellPrice / 100) * 100) / 100 : 0
     let batteriesCost = component.batteries ? Math.round((component.batteries * batteriesSellPrice / 100) * 100) / 100 : 0
     // let electronicsCost = component.electronics ? Math.round((component.electronics * electronicsSellPrice) * 100) / 100 : 0
 
@@ -28,11 +32,14 @@ const ProductionCost = ({ component, resourcePrices }) => {
 
 
 
-    if (component.scrapMetal) {
+    if (component.scrapMetal !== 0) {
+        console.log('btnSwitchBuyFabricate', btnSwitchBuyFabricate);
+        console.log('scrapMetalRequires', scrapMetalRequires);
+        console.log('allScrapMetalRequires', allScrapMetalRequires);
         resoursesArr3.push(
             <React.Fragment key={resourcePrices[0].dbId}>
                 <div className="resourses-img_1"></div>
-                <div className="value text-3">{component.getAllScrapMetal()}</div>
+                <div className="value text-3">{btnSwitchBuyFabricate ? scrapMetalRequires : allScrapMetalRequires  }</div>
                 <div className="value-orange text-3">{scrapMetalSellPrice}</div>
                 <div className="value-orange text-3">{scrapMetalCost}</div>
             </React.Fragment>

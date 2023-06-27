@@ -49,7 +49,7 @@ function App() {
   const [selectedItem, setSelectedItem] = useState(null)
   const [classInstances, setClassInstances] = useState([])
   const [resourcePrices, setResourcePrices] = useState()
-
+  const [btnSwitchBuyFabricate, setBtnSwitchBuyFabricate] = useState(false)
   const [resoursesFromInput, setResoursesFromInput] = useState({
     scrapMetal: 0,
     copper: 0,
@@ -57,7 +57,7 @@ function App() {
     plastic: 0,
     engravedCasings: 0,
     batteries: 0,
-    electronics: 0, 
+    electronics: 0,
   })
 
 
@@ -131,7 +131,6 @@ function App() {
   //   return obj
   // });
   // console.log(classInstances);
-
   useEffect(() => {
     fetch('http://45.12.73.147:3001/prices/start')
       .then((response) => response.json())
@@ -223,7 +222,7 @@ function App() {
   if (selectedItem) {
     selectedInstance = classInstances.find(inst => inst.id === selectedItem);
   }
-  console.log('scrapmetalInput', resoursesFromInput.scrapMetal);
+  // console.log('scrapmetalInput', resoursesFromInput.scrapMetal);
 
   // function inputClickHandler(event) {
 
@@ -266,11 +265,16 @@ function App() {
               <ProductionCostWrapper>
                 <ProductionCost
                   component={selectedInstance}
-                  resourcePrices={resourcePrices} />
+                  resourcePrices={resourcePrices}
+                  btnSwitchBuyFabricate={btnSwitchBuyFabricate}
+                />
                 {selectedInstance.sellPrice ?
                   <ComponentsCost
                     component={selectedInstance}
-                    classInstances={classInstances} /> :
+                    classInstances={classInstances}
+                    btnSwitchBuyFabricate={btnSwitchBuyFabricate}
+                    setBtnSwitchBuyFabricate={setBtnSwitchBuyFabricate}
+                  /> :
                   <LoadingSpinnerForBlock />}
                 <HorizontalSeparator />
                 <Profit />

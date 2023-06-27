@@ -3,18 +3,18 @@ import './ComponentsCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
 
-const ComponentsCost = ({ component, classInstances }) => {
+const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate }) => {
     let localIngredientArr = []
     let renderIngredientsArr = []
     let counter
     let ingredientsCost
     let totalIngredientsCost
     // component.ingredients.push(component.ingredients[0])
-
+    let btnClasses = btnSwitchBuyFabricate ? "switch-btn switch-on" : "switch-btn "
 
     
-    function clickHandler(event) {
-        event.currentTarget.classList.toggle("switch-on")
+    function clickHandler() {
+        setBtnSwitchBuyFabricate((prev) => { return !prev} )
     }
 
     function setInstanceSellPrice(ingredientsArr, instancePricesArr) {
@@ -69,7 +69,7 @@ const ComponentsCost = ({ component, classInstances }) => {
         <>
             <div className="components-cost">
                 <div className="components-cost-title text-4">Купить компоненты
-                    <div className="switch-btn" onClick={clickHandler}></div>
+                    <div className={btnClasses} onClick={clickHandler}></div>
                 </div>
                 <div className="components-cost-grid">
                     <div className="text-5">Ресурсы:</div>
