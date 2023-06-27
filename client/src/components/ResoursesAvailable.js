@@ -56,7 +56,7 @@ console.log(resoursesFromInput);
                     <div className="text-5">Количество:</div>
                     <div className="resourses-img_1"></div>
                     <input className="value text-3 input"
-                        type="text"
+                        type="number"
                         placeholder='input your value'
                         value={resoursesFromInput.scrapMetal !== 0 ? resoursesFromInput.scrapMetal : ''}
                         onChange={inputScrapMetalHandler}>
@@ -64,28 +64,28 @@ console.log(resoursesFromInput);
                     </input>
                     <div className="resourses-img_2"></div>
                     <input className="value text-3 input"
-                        type="text"
+                        type="number"
                         placeholder='input your value'
                         value={resoursesFromInput.electronics !== 0 ? resoursesFromInput.electronics : ''}
                         onChange={inputElectronicsHandler}>
                     </input>
                     <div className="resourses-img_3"></div>
                     <input className="value text-3 input"
-                        type="text"
+                        type="number"
                         placeholder='input your value'
                         value={resoursesFromInput.copper !== 0 ? resoursesFromInput.copper : ''}
                         onChange={inputCopperHandler}>
                     </input>
                     <div className="resourses-img_4"></div>
                     <input className="value text-3 input"
-                        type="text"
+                        type="number"
                         placeholder='input your value'
                         value={resoursesFromInput.batteries !== 0 ? resoursesFromInput.batteries : ''}
                         onChange={inputBatteriesHandler}>
                     </input>
                     <div className="resourses-img_5"></div>
                     <input className="value text-3 input"
-                        type="text"
+                        type="number"
                         placeholder='input your value'
                         value={resoursesFromInput.wires !== 0 ? resoursesFromInput.wires : ''}
                         onChange={inputWiresHandler}>
@@ -99,7 +99,7 @@ console.log(resoursesFromInput);
                     </input>
                     <div className="resourses-img_7"></div>
                     <input className="value text-3 input"
-                        type="text"
+                        type="number"
                         placeholder='input your value'
                         value={resoursesFromInput.plastic !== 0 ? resoursesFromInput.plastic : ''}
                         onChange={inputPlasticHandler}>
