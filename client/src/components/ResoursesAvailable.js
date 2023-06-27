@@ -5,14 +5,7 @@ import HorizontalSeparator from './HorizontalSeparator';
 
 const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, }) => {
 
-    let scrapmetalInput = ''
 
-
-    // function inputScrapMetalHandler(event) {
-    //     setResoursesFromInput((prev) => {
-    //         return Object.assign({ resoursesFromInput, ...prev, scrapMetal: +event.target.value })
-    //     });
-    // }
     function inputScrapMetalHandler(event) {
         setResoursesFromInput((prev) => {
             return Object.assign({...prev, scrapMetal: +event.target.value })
@@ -48,6 +41,7 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, }) => {
             return Object.assign({...prev, engravedCasings: +event.target.value })
         });
     }
+
 console.log(resoursesFromInput);
 
 
@@ -60,7 +54,7 @@ console.log(resoursesFromInput);
                     <div className="text-5">Ресурсы:</div>
                     <div className="text-5">Количество:</div>
                     <div className="resourses-img_1"></div>
-                    <input className="value text-3 rectangle"
+                    <input className="value text-3 input"
                         type="text"
                         placeholder='input your value'
                         value={resoursesFromInput.scrapMetal !== 0 ? resoursesFromInput.scrapMetal : ''}
@@ -68,38 +62,44 @@ console.log(resoursesFromInput);
 
                     </input>
                     <div className="resourses-img_2"></div>
-                    <input className="value text-3 rectangle"
+                    <input className="value text-3 input"
                         type="text"
+                        placeholder='input your value'
                         value={resoursesFromInput.electronics !== 0 ? resoursesFromInput.electronics : ''}
                         onChange={inputElectronicsHandler}>
                     </input>
                     <div className="resourses-img_3"></div>
-                    <input className="value text-3 rectangle"
+                    <input className="value text-3 input"
                         type="text"
+                        placeholder='input your value'
                         value={resoursesFromInput.copper !== 0 ? resoursesFromInput.copper : ''}
                         onChange={inputCopperHandler}>
                     </input>
                     <div className="resourses-img_4"></div>
-                    <input className="value text-3 rectangle"
+                    <input className="value text-3 input"
                         type="text"
+                        placeholder='input your value'
                         value={resoursesFromInput.batteries !== 0 ? resoursesFromInput.batteries : ''}
                         onChange={inputBatteriesHandler}>
                     </input>
                     <div className="resourses-img_5"></div>
-                    <input className="value text-3 rectangle"
+                    <input className="value text-3 input"
                         type="text"
+                        placeholder='input your value'
                         value={resoursesFromInput.wires !== 0 ? resoursesFromInput.wires : ''}
                         onChange={inputWiresHandler}>
                     </input>
                     <div className="resourses-img_6"></div>
-                    <input className="value text-3 rectangle"
+                    <input className="value text-3 input"
                         type="text"
+                        placeholder='input your value'
                         value={resoursesFromInput.engravedCasings !== 0 ? resoursesFromInput.engravedCasings : ''}
                         onChange={inputEngravedCasingsHandler}>
                     </input>
                     <div className="resourses-img_7"></div>
-                    <input className="value text-3 rectangle"
+                    <input className="value text-3 input"
                         type="text"
+                        placeholder='input your value'
                         value={resoursesFromInput.plastic !== 0 ? resoursesFromInput.plastic : ''}
                         onChange={inputPlasticHandler}>
                     </input>
@@ -110,11 +110,11 @@ console.log(resoursesFromInput);
                     <div className="text-5">Компоненты:</div>
                     <div className="text-5">Количество:</div>
                     <div className="component-image_8 small-component-img"></div>
-                    <input type="text" className="value text-3 rectangle"></input>
+                    <input type="text" className="value text-3 input"></input>
                     <div className="component-img-small_2 small-component-img"></div>
-                    <input type="text" className="value text-3 rectangle"></input>
+                    <input type="text" className="value text-3 input"></input>
                     <div className="component-img-small_3 small-component-img"></div>
-                    <input type="text" className="value text-3 rectangle"></input>
+                    <input type="text" className="value text-3 input"></input>
                     <div className="text-5">Стоимость:</div>
                     <div className="value-orange text-3">2123</div>
                 </div>

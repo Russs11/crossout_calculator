@@ -18,7 +18,7 @@
 	margin-right: 80px;
 }
 
-.rectangle {
+.input {
 	display: grid;
 	background: #334562;
 	width: 120px;
@@ -29,7 +29,9 @@
 	border: none;
 	outline:none;
 }
-
+.input::placeholder{
+	font-size: 16px;
+}
 
 .components-grid {
 	display: grid;
