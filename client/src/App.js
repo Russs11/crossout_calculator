@@ -50,6 +50,7 @@ function App() {
   const [classInstances, setClassInstances] = useState([])
   const [resourcePrices, setResourcePrices] = useState()
   const [btnSwitchBuyFabricate, setBtnSwitchBuyFabricate] = useState(false)
+  const [costPrice, setCostPrice] = useState(0)
   const [resoursesFromInput, setResoursesFromInput] = useState({
     scrapMetal: 0,
     copper: 0,
@@ -267,6 +268,9 @@ function App() {
                   component={selectedInstance}
                   resourcePrices={resourcePrices}
                   btnSwitchBuyFabricate={btnSwitchBuyFabricate}
+                  resoursesFromInput={resoursesFromInput}
+                  setCostPrice={setCostPrice}
+                  costPrice={costPrice}
                 />
                 {selectedInstance.sellPrice ?
                   <ComponentsCost

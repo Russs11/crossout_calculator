@@ -57,7 +57,7 @@ console.log(resoursesFromInput);
                     <div className="scrapmetal"></div>
                     <input className="value text-3 input"
                         type="number"
-                        placeholder='input your value'
+                        placeholder={resoursesFromInput.scrapMetal}
                         value={resoursesFromInput.scrapMetal !== 0 ? resoursesFromInput.scrapMetal : ''}
                         onChange={inputScrapMetalHandler}>
 

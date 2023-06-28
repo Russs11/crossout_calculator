@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ProductionCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
-const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate }) => {
+const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, resoursesFromInput, setCostPrice, costPrice }) => {
 
     let resoursesArr3 = []
 
@@ -13,9 +13,9 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate }) =>
     let plasticRequires = component.getPlastic()
     let batteriesRequires = component.getBatteries()
     let electronicsRequires = component?.getElectronics?.()
-    let engravedCasingsRequires = component.getEngravedCasings()
+    let engravedCasingsRequires = component.getEngravedCasings?.()
 
-    let allScrapMetalRequires = component.getAllScrapMetal()
+    let allScrapMetalRequires = component.getAllScrapMetal?.()
     let allCopperRequires = component.getAllCopper?.()
     let allWiresRequires = component.getAllWires?.()
     let allPlasticRequires = component.getAllPlastic?.()
@@ -42,6 +42,20 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate }) =>
     let totalResoursesСost = scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost
 
 
+    useEffect(()=>{
+        setCostPrice(totalResoursesСost)
+    }, [costPrice])
+
+    if (resoursesFromInput.scrapMetal > 0) {
+        allScrapMetalRequires  -= resoursesFromInput.scrapMetal
+        scrapMetalRequires -= resoursesFromInput.scrapMetal
+        if (allScrapMetalRequires < 0) {
+            allScrapMetalRequires = 0
+        }
+        if (scrapMetalRequires < 0) {
+            scrapMetalRequires = 0
+        }
+    }
 
     if (component.scrapMetal !== 0) {
         console.log('btnSwitchBuyFabricate', btnSwitchBuyFabricate);
