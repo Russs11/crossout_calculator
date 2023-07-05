@@ -289,6 +289,7 @@ function App() {
                   resoursesFromInput={resoursesFromInput}
                   setResoursesFromInput={setResoursesFromInput}
                   component={selectedInstance}
+                  resourcePrices={resourcePrices}
                 // inputClickHandler={inputClickHandler}
                 />
               </ResoursesAvailableWrapper>

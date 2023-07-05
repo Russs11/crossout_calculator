@@ -3,23 +3,50 @@ import './ResoursesAvailable.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
 
-const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, component }) => {
+const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, component, resourcePrices }) => {
+
     let renderIngredientsArr = []
     let localIngredientsArr = [...new Set(component.ingredients)];
 
+    let scrapMetalSellPrice = resourcePrices[0].sellPrice
+    let copperSellPrice = resourcePrices[1].sellPrice
+    let wiresSellPrice = resourcePrices[2].sellPrice
+    let plasticSellPrice = resourcePrices[3].sellPrice
+    let batteriesSellPrice = resourcePrices[4].sellPrice
+    let electronicsSellPrice = resourcePrices[5].sellPrice
+    let engravedCasingsSellPrice = resourcePrices[6].sellPrice
+
+
+
+    let scrapMetalCost = resoursesFromInput.scrapMetal ? Math.round((resoursesFromInput.scrapMetal * scrapMetalSellPrice / 100) * 100) / 100 : 0
+    let copperCost = resoursesFromInput.copper ? Math.round((resoursesFromInput.copper * copperSellPrice / 100) * 100) / 100 : 0
+    let wiresCost = resoursesFromInput.wires ? Math.round((resoursesFromInput.wires * wiresSellPrice / 100) * 100) / 100 : 0
+    let plasticCost = resoursesFromInput.plastic ? Math.round((resoursesFromInput.plastic * plasticSellPrice / 100) * 100) / 100 : 0
+    let batteriesCost = resoursesFromInput.batteries ? Math.round((resoursesFromInput.batteries * batteriesSellPrice / 100) * 100) / 100 : 0
+    let electronicsCost = resoursesFromInput.electronics ? Math.round((resoursesFromInput.electronics * electronicsSellPrice / 100) * 100) / 100 : 0
+    let engravedCasingsCost = resoursesFromInput.engravedCasings ? Math.round((resoursesFromInput.engravedCasings * engravedCasingsSellPrice / 100) * 100) / 100 : 0
+
+
+
+    let resoursesCost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
+
+
+
+
+
     function inputScrapMetalHandler(event) {
         setResoursesFromInput((prev) => {
-            return Object.assign({...prev, scrapMetal: +event.target.value })
+            return Object.assign({ ...prev, scrapMetal: +event.target.value })
         });
     }
     function inputCopperHandler(event) {
         setResoursesFromInput((prev) => {
-            return Object.assign({...prev, copper: +event.target.value })
+            return Object.assign({ ...prev, copper: +event.target.value })
         });
     }
     function inputWiresHandler(event) {
         setResoursesFromInput((prev) => {
-            return Object.assign({...prev, wires: +event.target.value })
+            return Object.assign({ ...prev, wires: +event.target.value })
         });
     }
     function inputElectronicsHandler(event) {
@@ -34,12 +61,12 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
     }
     function inputPlasticHandler(event) {
         setResoursesFromInput((prev) => {
-            return Object.assign({...prev, plastic: +event.target.value })
+            return Object.assign({ ...prev, plastic: +event.target.value })
         });
     }
     function inputEngravedCasingsHandler(event) {
         setResoursesFromInput((prev) => {
-            return Object.assign({...prev, engravedCasings: +event.target.value })
+            return Object.assign({ ...prev, engravedCasings: +event.target.value })
         });
     }
 
@@ -52,7 +79,7 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
             </React.Fragment>
         )
     })
-// console.log(resoursesFromInput);
+    // console.log(resoursesFromInput);
 
 
 
@@ -69,7 +96,6 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
                         placeholder={resoursesFromInput.scrapMetal}
                         value={resoursesFromInput.scrapMetal !== 0 ? resoursesFromInput.scrapMetal : ''}
                         onChange={inputScrapMetalHandler}>
-
                     </input>
                     <div className="electronics"></div>
                     <input className="value text-3 input"
@@ -114,17 +140,11 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
                         onChange={inputPlasticHandler}>
                     </input>
                     <div className="text-5">Стоимость:</div>
-                    <div className="value-orange text-3">2704</div>
+                    <div className="value-orange text-3">{resoursesCost ? Math.round(resoursesCost * 100) / 100 : 0}</div>
                 </div>
                 <div className="components-grid">
                     <div className="text-5">Компоненты:</div>
                     <div className="text-5">Количество:</div>
-                    {/* <div className="component-image_8 small-component-img"></div>
-                    <input type="text" className="value text-3 input"></input>
-                    <div className="component-img-small_2 small-component-img"></div>
-                    <input type="text" className="value text-3 input"></input>
-                    <div className="component-img-small_3 small-component-img"></div>
-                    <input type="text" className="value text-3 input"></input> */}
                     {renderIngredientsArr}
                     <div className="text-5">Стоимость:</div>
                     <div className="value-orange text-3">2123</div>
