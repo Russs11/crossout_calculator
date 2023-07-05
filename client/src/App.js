@@ -281,7 +281,7 @@ function App() {
                   /> :
                   <LoadingSpinnerForBlock />}
                 <HorizontalSeparator />
-                <Profit />
+                <Profit component={selectedInstance} />
               </ProductionCostWrapper>
               <VerticalSeparator />
               <ResoursesAvailableWrapper>
@@ -294,7 +294,6 @@ function App() {
                 />
               </ResoursesAvailableWrapper>
             </MainCard> :
-            //  <Spinner/>}
             <LoadingSpinnerForBlock />}
         </Main>
       </Container>
