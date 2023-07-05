@@ -3,8 +3,9 @@ import './ResoursesAvailable.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
 
-const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, }) => {
-
+const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, component }) => {
+    let renderIngredientsArr = []
+    let localIngredientsArr = [...new Set(component.ingredients)];
 
     function inputScrapMetalHandler(event) {
         setResoursesFromInput((prev) => {
@@ -42,8 +43,16 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, }) => {
         });
     }
 
-
-console.log(resoursesFromInput);
+    renderIngredientsArr = localIngredientsArr.map(item => {
+        return (
+            <React.Fragment key={item.name}>
+                <div className="component-image_8 small-component-img"
+                    style={{ backgroundImage: "url(" + item.img + ")" }}></div>
+                <input className="value text-3 input" type="text" placeholder="0"></input>
+            </React.Fragment>
+        )
+    })
+// console.log(resoursesFromInput);
 
 
 
@@ -110,12 +119,13 @@ console.log(resoursesFromInput);
                 <div className="components-grid">
                     <div className="text-5">Компоненты:</div>
                     <div className="text-5">Количество:</div>
-                    <div className="component-image_8 small-component-img"></div>
+                    {/* <div className="component-image_8 small-component-img"></div>
                     <input type="text" className="value text-3 input"></input>
                     <div className="component-img-small_2 small-component-img"></div>
                     <input type="text" className="value text-3 input"></input>
                     <div className="component-img-small_3 small-component-img"></div>
-                    <input type="text" className="value text-3 input"></input>
+                    <input type="text" className="value text-3 input"></input> */}
+                    {renderIngredientsArr}
                     <div className="text-5">Стоимость:</div>
                     <div className="value-orange text-3">2123</div>
                 </div>

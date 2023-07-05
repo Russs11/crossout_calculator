@@ -288,6 +288,7 @@ function App() {
                 <ResoursesAvailable
                   resoursesFromInput={resoursesFromInput}
                   setResoursesFromInput={setResoursesFromInput}
+                  component={selectedInstance}
                 // inputClickHandler={inputClickHandler}
                 />
               </ResoursesAvailableWrapper>
