@@ -54,7 +54,9 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     useEffect(() => {
         setCostPrice(totalAllResoursesСost)
     }, [costPrice])
+    console.log('costPrice', costPrice);
 
+    
     if (resoursesFromInput.scrapMetal > 0) {
         allScrapMetalRequires -= resoursesFromInput.scrapMetal
         scrapMetalRequires -= resoursesFromInput.scrapMetal
