@@ -51,6 +51,7 @@ function App() {
   const [resourcePrices, setResourcePrices] = useState()
   const [btnSwitchBuyFabricate, setBtnSwitchBuyFabricate] = useState(false)
   const [costPrice, setCostPrice] = useState(0)
+  const [allIngredientsPrice, setAllIngredientsPrice] = useState(0)
   const [resoursesFromInput, setResoursesFromInput] = useState({
     scrapMetal: 0,
     copper: 0,
@@ -271,6 +272,7 @@ function App() {
                   resoursesFromInput={resoursesFromInput}
                   setCostPrice={setCostPrice}
                   costPrice={costPrice}
+                  allIngredientsPrice={allIngredientsPrice}
                 />
                 {selectedInstance.sellPrice ?
                   <ComponentsCost
@@ -278,10 +280,14 @@ function App() {
                     classInstances={classInstances}
                     btnSwitchBuyFabricate={btnSwitchBuyFabricate}
                     setBtnSwitchBuyFabricate={setBtnSwitchBuyFabricate}
+                    setAllIngredientsPrice={setAllIngredientsPrice}
+                    
                   /> :
                   <LoadingSpinnerForBlock />}
                 <HorizontalSeparator />
-                <Profit component={selectedInstance} />
+                <Profit component={selectedInstance}
+                  allIngredientsPrice={allIngredientsPrice}
+                  costPrice={costPrice } />
               </ProductionCostWrapper>
               <VerticalSeparator />
               <ResoursesAvailableWrapper>

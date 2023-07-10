@@ -1,9 +1,9 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './ComponentsCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
 
-const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate }) => {
+const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, setAllIngredientsPrice }) => {
     let localIngredientArr = []
     let renderIngredientsArr = []
     let counter
@@ -39,9 +39,13 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
     setInstanceSellPrice(component.ingredients, classInstances);
     counter = setCounterOfIngredients(component.ingredients);
     
-    totalIngredientsCost = component.ingredients.reduce((a, b) => {
+    totalIngredientsCost = Math.round(component.ingredients.reduce((a, b) => {
         return a + b.sellPrice
-    }, 0);
+    }, 0));
+
+    useEffect(() => {
+        setAllIngredientsPrice(btnSwitchBuyFabricate ? totalIngredientsCost : 0);
+    }, [btnSwitchBuyFabricate])
 
 
 
@@ -90,7 +94,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
                     <div className="value-orange text-3">483</div> */}
                     {renderIngredientsArr}
                     <div className="total text-7">Всего:</div>
-                    <div className="value-orange text-3">{Math.round((totalIngredientsCost * 100) / 100 )}</div>
+                    <div className="value-orange text-3">{totalIngredientsCost}</div>
                 </div>
             </div>
         </>

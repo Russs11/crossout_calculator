@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './ProductionCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
-const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, resoursesFromInput, setCostPrice, costPrice }) => {
+const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, resoursesFromInput, setCostPrice, costPrice, allIngredientsPrice }) => {
 
     let resoursesArr3 = []
 
@@ -52,7 +52,8 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     let totalResoursesCost = scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost
 
     useEffect(() => {
-        setCostPrice(totalAllResoursesСost)
+        
+        setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
     }, [costPrice])
     console.log('costPrice', costPrice);
 
