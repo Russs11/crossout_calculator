@@ -20,7 +20,10 @@ import Profit from "./components/Profit";
 import ResoursesAvailableWrapper from "./containers/ResoursesAvailableWrapper";
 import ResoursesAvailable from "./components/ResoursesAvailable";
 import { data, dataForList, dataId } from './data'
-import { CommonVehicleComponent, RareVehicleComponent, EpicVehicleComponent, SpecialVehicleComponent  } from "./entity/commonVehicleComponent";
+import { CommonVehicleComponent } from "./entity/commonVehicleComponent";
+import { RareVehicleComponent } from "./entity/rareVehicleComponent"
+import { SpecialVehicleComponent } from "./entity/specialVehicleComponent"
+import { EpicVehicleComponent } from "./entity/epicVehicleComponent"
 import * as WeaponsCommon from "./entity/weapons/common";
 import * as WeaponsRare from "./entity/weapons/rare"
 import * as WeaponsSpecial from "./entity/weapons/special"
@@ -47,7 +50,7 @@ import HorizontalSeparator from "./components/HorizontalSeparator";
 
 function App() {
 
-  interface resFromInput{
+  interface resFromInput {
     scrapMetal: number;
     copper: number;
     wires: number;
@@ -56,9 +59,21 @@ function App() {
     batteries: number;
     electronics: number;
   }
-  const [itemsList, setItemsList] = useState<[]>([]);
-  const [selectedItem, setSelectedItem] = useState(null)
-  const [classInstances, setClassInstances] = useState<[CommonVehicleComponent | RareVehicleComponent | EpicVehicleComponent | SpecialVehicleComponent]>([])
+  interface IComponent {
+    id: number;
+    name: string;
+    type: string;
+    rarity: string;
+    buyPrice: number;
+    sellPrice: number;
+    scrapMetal: number;
+    copper: number;
+    img: string;
+  }
+
+  const [itemsList, setItemsList] = useState<any[]>([]);
+  const [selectedItem, setSelectedItem] = useState<number>(0)
+  const [classInstances, setClassInstances] = useState<IComponent[]>([])
   const [resourcePrices, setResourcePrices] = useState()
   const [btnSwitchBuyFabricate, setBtnSwitchBuyFabricate] = useState(false)
   const [costPrice, setCostPrice] = useState(0)
@@ -73,62 +88,83 @@ function App() {
     electronics: 0,
   })
 
+ 
 
   // const [selectedInstance, setSelectedInstance] = useState()
   let selectedInstance
   let itemsArr: JSX.Element[] = []
   // console.log(typeof(WeaponsCommon));
   useEffect(() => {
-    let entityArr: {}[] = []
-    for (const item in WeaponsCommon) {
-      const newItem: any = new WeaponsCommon[item]()
+    let entityArr:IComponent[] = []
+
+
+    let wCommon: keyof typeof WeaponsCommon;
+    let wRare: keyof typeof WeaponsRare;
+    let wSpecial: keyof typeof WeaponsSpecial;
+    let wEpic: keyof typeof WeaponsEpic;
+    let mEpic: keyof typeof MovementEpic;
+
+
+    for (wCommon in WeaponsCommon) {
+      const newItem = new WeaponsCommon[wCommon]()
       entityArr.push(newItem)
     }
-    for (const item in WeaponsRare) {
-      entityArr.push(new WeaponsRare[item]())
+    for (wRare in WeaponsRare) {
+      const newItem = new WeaponsRare[wRare]()
+      entityArr.push(newItem)
     }
-    for (const item in WeaponsSpecial) {
-      entityArr.push(new WeaponsSpecial[item]())
+    
+    for (wSpecial in WeaponsSpecial) {
+      const newItem = new WeaponsSpecial[wSpecial]()
+      entityArr.push(newItem)
     }
-    for (const item in WeaponsEpic) {
-      entityArr.push(new WeaponsEpic[item]())
+    for (wEpic in WeaponsEpic) {
+      const newItem = new WeaponsEpic[wEpic]()
+      entityArr.push(newItem)
     }
-    for (const item in CabinsCommon) {
-      entityArr.push(new CabinsCommon[item]())
+    for (mEpic in MovementEpic) {
+      const newItem = new MovementEpic[mEpic]()
+      entityArr.push(newItem)
     }
-    for (const item in CabinsRare) {
-      entityArr.push(new CabinsRare[item]())
-    }
-    for (const item in CabinsSpecial) {
-      entityArr.push(new CabinsSpecial[item]())
-    }
-    for (const item in CabinsEpic) {
-      entityArr.push(new CabinsEpic[item]())
-    }
-    for (const item in HardwareCommon) {
-      entityArr.push(new HardwareCommon[item]())
-    }
-    for (const item in HardwareRare) {
-      entityArr.push(new HardwareRare[item]())
-    }
-    for (const item in HardwareSpecial) {
-      entityArr.push(new HardwareSpecial[item]())
-    }
-    for (const item in HardwareEpic) {
-      entityArr.push(new HardwareEpic[item]())
-    }
-    for (const item in MovementCommon) {
-      entityArr.push(new MovementCommon[item]())
-    }
-    for (const item in MovementRare) {
-      entityArr.push(new MovementRare[item]())
-    }
-    for (const item in MovementSpecial) {
-      entityArr.push(new MovementSpecial[item]())
-    }
-    for (const item in MovementEpic) {
-      entityArr.push(new MovementEpic[item]())
-    }
+    // for (const item in WeaponsEpic) {
+    //   entityArr.push(new WeaponsEpic[item]())
+    // }
+    // for (const item in CabinsCommon) {
+    //   entityArr.push(new CabinsCommon[item]())
+    // }
+    // for (const item in CabinsRare) {
+    //   entityArr.push(new CabinsRare[item]())
+    // }
+    // for (const item in CabinsSpecial) {
+    //   entityArr.push(new CabinsSpecial[item]())
+    // }
+    // for (const item in CabinsEpic) {
+    //   entityArr.push(new CabinsEpic[item]())
+    // }
+    // for (const item in HardwareCommon) {
+    //   entityArr.push(new HardwareCommon[item]())
+    // }
+    // for (const item in HardwareRare) {
+    //   entityArr.push(new HardwareRare[item]())
+    // }
+    // for (const item in HardwareSpecial) {
+    //   entityArr.push(new HardwareSpecial[item]())
+    // }
+    // for (const item in HardwareEpic) {
+    //   entityArr.push(new HardwareEpic[item]())
+    // }
+    // for (const item in MovementCommon) {
+    //   entityArr.push(new MovementCommon[item]())
+    // }
+    // for (const item in MovementRare) {
+    //   entityArr.push(new MovementRare[item]())
+    // }
+    // for (const item in MovementSpecial) {
+    //   entityArr.push(new MovementSpecial[item]())
+    // }
+    // for (const item in MovementEpic) {
+    //   entityArr.push(new MovementEpic[item]())
+    // }
     setClassInstances(entityArr)
 
   }, [])
@@ -148,7 +184,7 @@ function App() {
     fetch('http://45.12.73.147:3001/prices/start')
       .then((response) => response.json())
       .then(({ prices, list }) => {
-
+        
         setItemsList(list)
         setSelectedItem(list[0].id)
         setResourcePrices(prices.resourcePrices)
@@ -246,7 +282,7 @@ function App() {
 
 
 
-  function handleClick(id) {
+  function handleClick(id:number) {
     setSelectedItem(id)
   }
 
@@ -292,13 +328,13 @@ function App() {
                     btnSwitchBuyFabricate={btnSwitchBuyFabricate}
                     setBtnSwitchBuyFabricate={setBtnSwitchBuyFabricate}
                     setAllIngredientsPrice={setAllIngredientsPrice}
-                    
+
                   /> :
                   <LoadingSpinnerForBlock />}
                 <HorizontalSeparator />
                 <Profit component={selectedInstance}
                   allIngredientsPrice={allIngredientsPrice}
-                  costPrice={costPrice } />
+                  costPrice={costPrice} />
               </ProductionCostWrapper>
               <VerticalSeparator />
               <ResoursesAvailableWrapper>
