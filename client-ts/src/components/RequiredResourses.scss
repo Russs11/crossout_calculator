@@ -1,0 +1,92 @@
+.production-requirements-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	// grid-template-rows: 45px repeat(5, 40px) 50px 3px;
+	grid-template-rows: repeat(auto-fit, 40px) 55px 45px;
+	width: 500px;
+	justify-items: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.scrapmetal {
+	background: url("../images/res_1.png");
+}
+
+.electronics {
+	background: url("../images/res_2.png");
+}
+
+.copper {
+	background: url("../images/res_3.png");
+}
+
+.batteries {
+	background: url("../images/res_4.png");
+}
+
+.wires {
+	background: url("../images/res_5.png");
+}
+
+.engravedcasings {
+	background: url("../images/res_6.png");
+}
+
+.plastic {
+	background: url("../images/res_7.png");
+}
+
+.scrapmetal,
+.copper,
+.wires,
+.plastic,
+.batteries,
+.electronics,
+.engravedcasings{
+	width: 40px;
+	height: 40px;
+	background-position: center;
+	background-size: cover;
+}
+
+.value-white {
+	color: #fff;
+}
+
+.value-orange {
+	color: #ff9900;
+}
+
+.total-resourses-cost {
+	display: grid;
+	grid-column: 1/4;
+	justify-self: left;
+	margin-left: 20px;
+}
+
+
+.item-required-resources-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(auto-fit, 20px) 25px;
+	row-gap: 5px;
+	width: 70%;
+	justify-items: center;
+	align-items: center;
+	margin-left: 105px;
+	
+}
+
+.animated{
+transition: all 0.2s ease-out;
+
+}
+.invisible{
+	opacity: 0;
+	height: 0;
+}
+.small {
+	width: 20px;
+	height: 20px;
+}

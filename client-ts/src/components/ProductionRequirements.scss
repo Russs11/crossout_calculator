@@ -1,0 +1,17 @@
+.production-requirements {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 30px 3px 1fr 3px;
+	grid-column: 2;
+	width: 100%;
+	justify-items: left;
+	color: #fff;
+	height: fit-content;
+}
+
+.production-requirements-title {
+	display: grid;
+	grid-template-rows: 30px;
+	justify-self: left;
+}
+

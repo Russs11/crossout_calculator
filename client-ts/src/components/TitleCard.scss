@@ -1,0 +1,46 @@
+.main-card-left-side-head {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 180px;
+	justify-items: left;
+	color: #fff;
+	overflow-y: auto;
+}
+
+.main-card-head-item-img {
+	background: url("../images/component_1.png");
+	width: 96px;
+	height: 96px;
+}
+
+.item-info {
+	display: grid;
+	grid-template-rows: repeat(4, 30px);
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+}
+
+.item-name-title,
+.item-type {
+	display: grid;
+	grid-column: 1/3;
+}
+
+.token {
+	display: grid;
+	grid-template-columns: 32px 32px;
+	grid-template-rows: 1fr;
+	row-gap: 10px;
+	column-gap:5px;
+	
+}
+
+.token-img {
+	background: url("../images/token-img.png");
+	width: 100%;
+	height: 100%;
+	background-size:contain;
+	background-repeat:no-repeat;
+}
+
+

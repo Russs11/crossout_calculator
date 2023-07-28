@@ -1,0 +1,67 @@
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    src: url("./fonts/Roboto-Regular.ttf");
+}
+html,
+body {
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.App{
+    width: 100%;
+}
+.text-1,
+.text-2,
+.text-3,
+.text-4,
+.text-5,
+.text-6,
+.text-7,
+.text-8 {
+	font-family: "Roboto";
+	color: #fff;
+}
+
+.text-1 {
+	font-weight: 700;
+	font-size: 24px;
+}
+
+.text-2 {
+	font-weight: 400;
+	font-size: 24px;
+}
+
+.text-3 {
+	font-weight: 700;
+	font-size: 20px;
+}
+
+.text-4 {
+	font-weight: 400;
+	font-size: 20px;
+}
+
+.text-5 {
+	font-weight: 400;
+	font-size: 18px;
+}
+
+.text-6 {
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.text-7 {
+	font-weight: 400;
+	font-size: 14px;
+}
+
+.text-8 {
+	font-weight: 700;
+	font-size: 14px;
+}
