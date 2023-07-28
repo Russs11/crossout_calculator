@@ -240,7 +240,7 @@ function App() {
   }
 
   // console.log(selectedInstance);
-
+console.log(allIngredientsPrice);
 
   return (
     <div className="App">
