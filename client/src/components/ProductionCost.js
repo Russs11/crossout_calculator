@@ -50,11 +50,12 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
 
     let totalAllResoursesСost = allScrapMetalCost + allCopperCost + allWiresCost + allPlasticCost + allEngravedCasingsCost + allBatteriesCost + allElectronicsCost + benchCost
     let totalResoursesCost = scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost
-
+console.log('totalResoursesCost', totalResoursesCost);
+console.log('totalAllResoursesСost', totalAllResoursesСost);
     useEffect(() => {
         
         setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
-    }, [costPrice])
+    }, [costPrice, btnSwitchBuyFabricate ])
     console.log('costPrice', costPrice);
 
     
@@ -71,8 +72,8 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
 
     if (component.scrapMetal) {
         console.log('btnSwitchBuyFabricate', btnSwitchBuyFabricate);
-        console.log('scrapMetalRequires', scrapMetalRequires);
-        console.log('allScrapMetalRequires', allScrapMetalRequires);
+        // console.log('scrapMetalRequires', scrapMetalRequires);
+        // console.log('allScrapMetalRequires', allScrapMetalRequires);
         resoursesArr3.push(
             <React.Fragment key={resourcePrices[0].dbId}>
                 <div className="scrapmetal"></div>

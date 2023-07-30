@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect, useCallback} from 'react';
 import './ComponentsCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
@@ -44,8 +44,11 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
     }, 0));
 
     useEffect(() => {
+        
         setAllIngredientsPrice(btnSwitchBuyFabricate ? totalIngredientsCost : 0);
-    }, [btnSwitchBuyFabricate])
+    }, [btnSwitchBuyFabricate]);
+
+   
 
 
 
