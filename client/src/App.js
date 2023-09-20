@@ -61,6 +61,7 @@ function App() {
     batteries: 0,
     electronics: 0,
   })
+  const [ingredientsFromInput, setIngredientsFromInput] = useState({})
 
 
   // const [selectedInstance, setSelectedInstance] = useState()
@@ -296,6 +297,8 @@ console.log("allIngredientsPrice", allIngredientsPrice);
                   setResoursesFromInput={setResoursesFromInput}
                   component={selectedInstance}
                   resourcePrices={resourcePrices}
+                  setIngredientsFromInput={setIngredientsFromInput}
+                  ingredientsFromInput={ingredientsFromInput}
                 // inputClickHandler={inputClickHandler}
                 />
               </ResoursesAvailableWrapper>
