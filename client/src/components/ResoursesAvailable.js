@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ResoursesAvailable.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
 
 const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, component, resourcePrices, ingredientsFromInput, setIngredientsFromInput }) => {
+
+    const [ingredientsCost, setIngredientsCost] = useState(0)
 
     let renderIngredientsArr = []
     let localIngredientsArr = [...new Set(component.ingredients)];
@@ -31,8 +33,22 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
     let resoursesCost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
 
 
+    let ingredienstFromInputCost = {}
 
+    for (let i = 0; i < localIngredientsArr.length; i++) {
+        for (const id in ingredientsFromInput) {
+            console.log(ingredientsFromInput[id]);
 
+            if (localIngredientsArr[i].id === +id) {
+                // ingredientsFromInput.id
+                console.log(ingredientsFromInput[id] * localIngredientsArr[i].sellPrice);
+                ingredienstFromInputCost = ingredientsFromInput[id] * localIngredientsArr[i].sellPrice
+               
+            }
+        }
+    }
+console.log(ingredientsCost);
+    // console.log(localIngredientsArr);
 
     function inputScrapMetalHandler(event) {
         setResoursesFromInput((prev) => {
@@ -71,17 +87,33 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
     }
 
 
+    function inputIngredient(id, event) {
 
-    renderIngredientsArr = localIngredientsArr.map(item => {
+        setIngredientsFromInput((prev) => ({
+            ...prev, [id]: +event.target.value,
+        }));
+
+        // setIngredientsFromInput((prev) => {
+        // return Object.assign({ ...prev, [name]: +event.target.value })
+        // })
+        // const newArr = [...ingredientsFromInput];
+        // newArr[name] = event.target.value;
+        // setIngredientsFromInput(newArr)
+    }
+
+    // console.log('ingredientsFromInput', ingredientsFromInput);
+
+    renderIngredientsArr = localIngredientsArr.map((item, index) => {
+
         return (
             <React.Fragment key={item.name}>
                 <div className="component-image_8 small-component-img"
                     style={{ backgroundImage: "url(" + item.img + ")" }}></div>
                 <input className="value text-3 input"
                     type="text"
-                    placeholder="0">
-                    
-                    </input>
+                    placeholder="0"
+                    onChange={(event) => inputIngredient(item.id, event)}>
+                </input>
             </React.Fragment>
         )
     })
@@ -153,7 +185,7 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
                     <div className="text-5">Количество:</div>
                     {renderIngredientsArr}
                     <div className="text-5">Стоимость:</div>
-                    <div className="value-orange text-3">2123</div>
+                    <div className="value-orange text-3">{ingredienstFromInputCost}</div>
                 </div>
                 <HorizontalSeparator />
             </div>

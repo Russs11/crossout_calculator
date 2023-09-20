@@ -61,7 +61,7 @@ function App() {
     batteries: 0,
     electronics: 0,
   })
-  const [ingredientsFromInput, setIngredientsFromInput] = useState({})
+  const [ingredientsFromInput, setIngredientsFromInput] = useState([])
 
 
   // const [selectedInstance, setSelectedInstance] = useState()
@@ -241,7 +241,7 @@ function App() {
   }
 
   // console.log(selectedInstance);
-console.log("allIngredientsPrice", allIngredientsPrice);
+
 
   return (
     <div className="App">
