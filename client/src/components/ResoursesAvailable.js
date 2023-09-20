@@ -37,20 +37,23 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
     let ingredienstFromInputCost = 0;
 
 
-    console.log('ingredienstFromInputCost', ingredienstFromInputCost);
 
-    for (let i = 0; i < localIngredientsArr.length; i++) {
+
+
+    for (const item of localIngredientsArr) {
         for (const id in ingredientsFromInput) {
 
-            if (localIngredientsArr[i].id === +id) {
+            if (item.id === +id) {
 
-                ingredientsFromInputPrices.push(ingredientsFromInput[id] * localIngredientsArr[i].sellPrice)
+                ingredientsFromInputPrices.push(ingredientsFromInput[id] * item.sellPrice)
             }
         }
     }
 
     if (ingredientsFromInputPrices.length > 0) {
-        ingredienstFromInputCost = ingredientsFromInputPrices.reduce((a, b) => { return a + b }, 0);
+        ingredienstFromInputCost = Math.round((ingredientsFromInputPrices.reduce((a, b) => { return a + b }, 0) / 100) * 100);
+
+
     };
     console.log(ingredienstFromInputCost);
 
