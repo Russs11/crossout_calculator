@@ -33,22 +33,26 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
     let resoursesCost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
 
 
-    let ingredienstFromInputCost 
+    let ingredientsFromInputPrices = []
+    let ingredienstFromInputCost = 0;
+
+
+    console.log('ingredienstFromInputCost', ingredienstFromInputCost);
 
     for (let i = 0; i < localIngredientsArr.length; i++) {
         for (const id in ingredientsFromInput) {
-            console.log(ingredientsFromInput[id]);
 
             if (localIngredientsArr[i].id === +id) {
-                // ingredientsFromInput.id
-                console.log(ingredientsFromInput[id] * localIngredientsArr[i].sellPrice);
-                ingredienstFromInputCost = ingredientsFromInput[id] * localIngredientsArr[i].sellPrice
-               
+
+                ingredientsFromInputPrices.push(ingredientsFromInput[id] * localIngredientsArr[i].sellPrice)
             }
         }
     }
-console.log(ingredientsCost);
-    // console.log(localIngredientsArr);
+
+    if (ingredientsFromInputPrices.length > 0) {
+        ingredienstFromInputCost = ingredientsFromInputPrices.reduce((a, b) => { return a + b }, 0);
+    };
+    console.log(ingredienstFromInputCost);
 
     function inputScrapMetalHandler(event) {
         setResoursesFromInput((prev) => {
