@@ -139,9 +139,9 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
 
 
     if (component.scrapMetal) {
-        console.log('btnSwitchBuyFabricate', btnSwitchBuyFabricate);
-        // console.log('scrapMetalRequires', scrapMetalRequires);
-        // console.log('allScrapMetalRequires', allScrapMetalRequires);
+        // console.log('btnSwitchBuyFabricate', btnSwitchBuyFabricate);
+        // // console.log('scrapMetalRequires', scrapMetalRequires);
+        // // console.log('allScrapMetalRequires', allScrapMetalRequires);
         resoursesArr3.push(
             <React.Fragment key={resourcePrices[0].dbId}>
                 <div className="scrapmetal"></div>
@@ -222,14 +222,6 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
                     <div className="text-5">Цена:</div>
                     <div className="text-5">Стоимость:</div>
                     {resoursesArr3}
-                    {/* <div className="resourses-img_4"></div>
-                    <div className="value text-3">750</div>
-                    <div className="value-orange text-3">1.89</div>
-                    <div className="value-orange text-3">141.75</div>
-                    <div className="resourses-img_2"></div>
-                    <div className="value text-3">750</div>
-                    <div className="value-orange text-3">4.49</div>
-                    <div className="value-orange text-3">336.75</div> */}
                     <div className="machine-rental text-7">Аренда станка:</div>
                     <div className="value-orange text-3">{benchCost ? benchCost : 0}</div>
                     <div className="total text-7">Всего:</div>
