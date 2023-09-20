@@ -70,14 +70,18 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
         });
     }
 
-    
+
 
     renderIngredientsArr = localIngredientsArr.map(item => {
         return (
             <React.Fragment key={item.name}>
                 <div className="component-image_8 small-component-img"
                     style={{ backgroundImage: "url(" + item.img + ")" }}></div>
-                <input className="value text-3 input" type="text" placeholder="0"></input>
+                <input className="value text-3 input"
+                    type="text"
+                    placeholder="0">
+                    
+                    </input>
             </React.Fragment>
         )
     })
