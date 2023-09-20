@@ -9,7 +9,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
     let counter
     let ingredientsCost
     let totalIngredientsCost
-    // component.ingredients.push(component.ingredients[0])
+    let quantityOfIngredients 
     let btnClasses = btnSwitchBuyFabricate ? "switch-btn switch-on" : "switch-btn "
 
     
@@ -53,7 +53,6 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
 
 
     renderIngredientsArr = localIngredientArr.map(ingredient => {
-        let quantityOfIngredients 
         for (const id in counter) {
             if (ingredient.id === +id) {
                 quantityOfIngredients = counter[id]
