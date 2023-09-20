@@ -33,7 +33,7 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
     let resoursesCost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
 
 
-    let ingredienstFromInputCost = {}
+    let ingredienstFromInputCost 
 
     for (let i = 0; i < localIngredientsArr.length; i++) {
         for (const id in ingredientsFromInput) {
