@@ -110,7 +110,7 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
 
     // console.log('ingredientsFromInput', ingredientsFromInput);
 
-    renderIngredientsArr = localIngredientsArr.map((item, index) => {
+    renderIngredientsArr = localIngredientsArr.map((item) => {
 
         return (
             <React.Fragment key={item.name}>
