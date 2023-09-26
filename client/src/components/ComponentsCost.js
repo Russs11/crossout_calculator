@@ -3,7 +3,7 @@ import './ComponentsCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
 
-const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, setAllIngredientsPrice }) => {
+const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, setAllIngredientsPrice, allIngredientsPrice }) => {
     let localIngredientArr = []
     let renderIngredientsArr = []
     let counter
@@ -48,7 +48,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
         setAllIngredientsPrice(btnSwitchBuyFabricate ? totalIngredientsCost : 0);
     }, [btnSwitchBuyFabricate]);
 
-   
+
 
 
 

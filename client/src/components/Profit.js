@@ -8,7 +8,8 @@ const Profit = ({ component, allIngredientsPrice, costPrice }) => {
     let selfPrice = Math.round(allIngredientsPrice + costPrice)
     let profit = Math.round(componentBuyPrice - commission - selfPrice)
 
-
+    console.log('allIngredientsPrice', allIngredientsPrice);
+    console.log('costPrice', costPrice);
 
     return (
         <>

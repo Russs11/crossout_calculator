@@ -238,6 +238,11 @@ function App() {
 
   function handleClick(id) {
     setSelectedItem(id)
+    const totalIngredientsCost = Math.round(selectedInstance.ingredients.reduce((a, b) => {
+      return a + b.sellPrice
+    }, 0));
+    setAllIngredientsPrice(totalIngredientsCost);
+    setBtnSwitchBuyFabricate(false);
   }
 
   // console.log(selectedInstance);
@@ -282,6 +287,7 @@ function App() {
                     btnSwitchBuyFabricate={btnSwitchBuyFabricate}
                     setBtnSwitchBuyFabricate={setBtnSwitchBuyFabricate}
                     setAllIngredientsPrice={setAllIngredientsPrice}
+                    allIngredientsPrice={allIngredientsPrice}
                     
                   /> :
                   <LoadingSpinnerForBlock />}

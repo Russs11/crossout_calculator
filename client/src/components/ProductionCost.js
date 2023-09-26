@@ -54,7 +54,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     useEffect(() => {
 
         setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
-    }, [btnSwitchBuyFabricate, setCostPrice, costPrice, totalResoursesCost, totalAllResoursesСost])
+    }, [btnSwitchBuyFabricate]);
 
 
 
