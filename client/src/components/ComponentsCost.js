@@ -45,7 +45,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
 
     useEffect(() => {
         
-        setAllIngredientsPrice(btnSwitchBuyFabricate ? totalIngredientsCost : 0);
+        setAllIngredientsPrice(btnSwitchBuyFabricate ? allIngredientsPrice : 0);
     }, [btnSwitchBuyFabricate]);
 
 

@@ -222,9 +222,7 @@ function App() {
     }
   }
 
-  if (selectedItem) {
-    selectedInstance = classInstances.find(inst => inst.id === selectedItem);
-  }
+  
   // console.log('scrapmetalInput', resoursesFromInput.scrapMetal);
 
   // function inputClickHandler(event) {
@@ -243,8 +241,12 @@ function App() {
     }, 0));
     setAllIngredientsPrice(totalIngredientsCost);
     setBtnSwitchBuyFabricate(false);
+  
   }
+if (selectedItem) {
+    selectedInstance = classInstances.find(inst => inst.id === selectedItem);
 
+  }
   // console.log(selectedInstance);
 
 
