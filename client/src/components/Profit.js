@@ -1,11 +1,11 @@
 import React from 'react';
 import './Profit.scss'
 
-const Profit = ({ component, allIngredientsPrice, costPrice }) => {
+const Profit = ({ component, allIngredientsPrice, costPrice, btnSwitchBuyFabricate }) => {
 
     let componentBuyPrice = component.buyPrice
     let commission = Math.round(component.buyPrice / 10)
-    let selfPrice = Math.round(allIngredientsPrice + costPrice)
+    let selfPrice = Math.round(!btnSwitchBuyFabricate? costPrice: allIngredientsPrice + costPrice)
     let profit = Math.round(componentBuyPrice - commission - selfPrice)
 
     console.log('allIngredientsPrice', allIngredientsPrice);

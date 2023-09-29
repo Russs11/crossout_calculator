@@ -8,7 +8,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
     let renderIngredientsArr = []
     let counter
     let ingredientsCost
-    let totalIngredientsCost
+    // let totalIngredientsCost
     let quantityOfIngredients 
     let btnClasses = btnSwitchBuyFabricate ? "switch-btn switch-on" : "switch-btn "
 
@@ -39,14 +39,14 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
     setInstanceSellPrice(component.ingredients, classInstances);
     counter = setCounterOfIngredients(component.ingredients);
     
-    totalIngredientsCost = Math.round(component.ingredients.reduce((a, b) => {
-        return a + b.sellPrice
-    }, 0));
+    // totalIngredientsCost = Math.round(component.ingredients.reduce((a, b) => {
+    //     return a + b.sellPrice
+    // }, 0));
 
-    useEffect(() => {
+    // useEffect(() => {
         
-        setAllIngredientsPrice(btnSwitchBuyFabricate ? allIngredientsPrice : 0);
-    }, [btnSwitchBuyFabricate]);
+    //     setAllIngredientsPrice(btnSwitchBuyFabricate ? allIngredientsPrice : 0);
+    // }, [btnSwitchBuyFabricate]);
 
 
 
@@ -84,7 +84,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
                     <div className="text-5">Стоимость:</div>
                     {renderIngredientsArr}
                     <div className="total text-7">Всего:</div>
-                    <div className="value-orange text-3">{totalIngredientsCost}</div>
+                    <div className="value-orange text-3">{allIngredientsPrice}</div>
                 </div>
             </div>
         </>

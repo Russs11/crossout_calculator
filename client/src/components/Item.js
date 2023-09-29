@@ -14,7 +14,7 @@ const Item = ({ id, active, handleClick, img }) => {
 	if (active) {
 		return (
 			<>
-				<div className="component-image component-image-active" style={itemImg} onClick={() => handleClick(id)}>{id}</div>
+				<div className="component-image component-image-active" style={itemImg}>{id}</div>
 			</>
 		);
 	}

@@ -51,12 +51,10 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     let totalAllResoursesСost = allScrapMetalCost + allCopperCost + allWiresCost + allPlasticCost + allEngravedCasingsCost + allBatteriesCost + allElectronicsCost + benchCost
     let totalResoursesCost = scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost
 
-    useEffect(() => {
+  
+    setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
 
-        setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
-    }, [btnSwitchBuyFabricate]);
-
-
+    console.log('costPrice2', costPrice);
 
 
     if (resoursesFromInput.scrapMetal > 0) {

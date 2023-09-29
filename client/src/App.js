@@ -204,7 +204,6 @@ function App() {
                   key={inst.name}
                   id={inst.id}
                   active={true}
-                  handleClick={handleClick}
                   img={inst.img}
                 />)
             }
@@ -222,7 +221,7 @@ function App() {
     }
   }
 
-  
+
   // console.log('scrapmetalInput', resoursesFromInput.scrapMetal);
 
   // function inputClickHandler(event) {
@@ -231,9 +230,12 @@ function App() {
   //   return Object.assign({resoursesFromInput, ...prev, scrapMetal: +event.target.value })
   // });
   // }
-
-
-
+  if (selectedItem) {
+    selectedInstance = classInstances.find(inst => inst.id === selectedItem);
+    
+  }
+  
+  
   function handleClick(id) {
     setSelectedItem(id)
     const totalIngredientsCost = Math.round(selectedInstance.ingredients.reduce((a, b) => {
@@ -241,12 +243,9 @@ function App() {
     }, 0));
     setAllIngredientsPrice(totalIngredientsCost);
     setBtnSwitchBuyFabricate(false);
-  
-  }
-if (selectedItem) {
-    selectedInstance = classInstances.find(inst => inst.id === selectedItem);
 
   }
+  
   // console.log(selectedInstance);
 
 
@@ -290,13 +289,14 @@ if (selectedItem) {
                     setBtnSwitchBuyFabricate={setBtnSwitchBuyFabricate}
                     setAllIngredientsPrice={setAllIngredientsPrice}
                     allIngredientsPrice={allIngredientsPrice}
-                    
+
                   /> :
                   <LoadingSpinnerForBlock />}
                 <HorizontalSeparator />
                 <Profit component={selectedInstance}
                   allIngredientsPrice={allIngredientsPrice}
-                  costPrice={costPrice } />
+                  costPrice={costPrice}
+                  btnSwitchBuyFabricate={btnSwitchBuyFabricate} />
               </ProductionCostWrapper>
               <VerticalSeparator />
               <ResoursesAvailableWrapper>
