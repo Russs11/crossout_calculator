@@ -5,7 +5,7 @@ const Profit = ({ component, allIngredientsPrice, costPrice, btnSwitchBuyFabrica
 
     let componentBuyPrice = component.buyPrice
     let commission = Math.round(component.buyPrice / 10)
-    let selfPrice = Math.round(!btnSwitchBuyFabricate? costPrice: allIngredientsPrice + costPrice)
+    let selfPrice = btnSwitchBuyFabricate ? allIngredientsPrice + costPrice : costPrice
     let profit = Math.round(componentBuyPrice - commission - selfPrice)
 
     console.log('allIngredientsPrice', allIngredientsPrice);

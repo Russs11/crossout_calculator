@@ -230,23 +230,36 @@ function App() {
   //   return Object.assign({resoursesFromInput, ...prev, scrapMetal: +event.target.value })
   // });
   // }
-  if (selectedItem) {
+  
+    if (selectedItem) {
     selectedInstance = classInstances.find(inst => inst.id === selectedItem);
     
   }
-  
-  
+
+  // console.log('selectedInstance', selectedInstance.ingredients);
+  // useEffect(()=> {
+  //   const totalIngredientsCost = Math.round(selectedInstance.ingredients.reduce((a, b) => {
+  //     return a + b.sellPrice
+  //   }, 0));
+  //   // console.log('func', selectedInstance.ingredients);
+  //   setAllIngredientsPrice(totalIngredientsCost);
+  // },[selectedInstance]); 
+
+
+
+
   function handleClick(id) {
     setSelectedItem(id)
-    const totalIngredientsCost = Math.round(selectedInstance.ingredients.reduce((a, b) => {
-      return a + b.sellPrice
-    }, 0));
-    setAllIngredientsPrice(totalIngredientsCost);
+    // const totalIngredientsCost = Math.round(selectedInstance.ingredients.reduce((a, b) => {
+    //   return a + b.sellPrice
+    // }, 0));
+    // // console.log('func', selectedInstance.ingredients);
+    // setAllIngredientsPrice(totalIngredientsCost);
     setBtnSwitchBuyFabricate(false);
 
   }
-  
-  // console.log(selectedInstance);
+
+  // console.log('selectedInstanceAPP', selectedInstance.ingredients);
 
 
   return (

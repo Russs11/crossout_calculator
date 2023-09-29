@@ -48,8 +48,8 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     let batteriesCost = batteriesRequires ? Math.round((batteriesRequires * batteriesSellPrice / 100) * 100) / 100 : 0
     let electronicsCost = electronicsRequires ? Math.round((electronicsRequires * electronicsSellPrice) * 100) / 100 : 0
 
-    let totalAllResoursesСost = allScrapMetalCost + allCopperCost + allWiresCost + allPlasticCost + allEngravedCasingsCost + allBatteriesCost + allElectronicsCost + benchCost
-    let totalResoursesCost = scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost
+    let totalAllResoursesСost = Math.round(allScrapMetalCost + allCopperCost + allWiresCost + allPlasticCost + allEngravedCasingsCost + allBatteriesCost + allElectronicsCost + benchCost)
+    let totalResoursesCost = Math.round(scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost)
 
   
     setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
@@ -223,7 +223,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
                     <div className="machine-rental text-7">Аренда станка:</div>
                     <div className="value-orange text-3">{benchCost ? benchCost : 0}</div>
                     <div className="total text-7">Всего:</div>
-                    <div className="value-orange text-3">{btnSwitchBuyFabricate ? Math.round(totalResoursesCost * 100) / 100 : Math.round(totalAllResoursesСost * 100) / 100}</div>
+                    <div className="value-orange text-3">{btnSwitchBuyFabricate ?totalResoursesCost : totalAllResoursesСost }</div>
                 </div>
             </div>
             <HorizontalSeparator />

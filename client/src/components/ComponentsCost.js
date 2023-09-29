@@ -12,10 +12,11 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
     let quantityOfIngredients 
     let btnClasses = btnSwitchBuyFabricate ? "switch-btn switch-on" : "switch-btn "
 
-    
+        console.log('component', component);
+  
     function clickHandler() {
         setBtnSwitchBuyFabricate((prev) => { return !prev });
-    }
+    };
 
     function setInstanceSellPrice(ingredientsArr, instancePricesArr) {
         for (const item of ingredientsArr) {
@@ -26,7 +27,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
                 }
             }
         }
-    }
+    };
 
     function setCounterOfIngredients(ingredientsArr) {
         let count = {};
@@ -39,14 +40,14 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
     setInstanceSellPrice(component.ingredients, classInstances);
     counter = setCounterOfIngredients(component.ingredients);
     
-    // totalIngredientsCost = Math.round(component.ingredients.reduce((a, b) => {
-    //     return a + b.sellPrice
-    // }, 0));
+   let totalIngredientsCost = Math.round(component.ingredients.reduce((a, b) => {
+        return a + b.sellPrice
+    }, 0));
 
-    // useEffect(() => {
+    useEffect(() => {
         
-    //     setAllIngredientsPrice(btnSwitchBuyFabricate ? allIngredientsPrice : 0);
-    // }, [btnSwitchBuyFabricate]);
+        setAllIngredientsPrice(btnSwitchBuyFabricate ? totalIngredientsCost : 0);
+    }, [btnSwitchBuyFabricate]);
 
 
 
@@ -70,7 +71,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
             </React.Fragment>
         )
     });
-
+console.log('ingredient.sellPrice', component.ingredients[0].sellPrice);
     return (
         <>
             <div className="components-cost">
@@ -84,7 +85,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
                     <div className="text-5">Стоимость:</div>
                     {renderIngredientsArr}
                     <div className="total text-7">Всего:</div>
-                    <div className="value-orange text-3">{allIngredientsPrice}</div>
+                    <div className="value-orange text-3">{totalIngredientsCost}</div>
                 </div>
             </div>
         </>
