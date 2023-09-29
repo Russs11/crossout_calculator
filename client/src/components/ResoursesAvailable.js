@@ -5,7 +5,6 @@ import HorizontalSeparator from './HorizontalSeparator';
 
 const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, component, resourcePrices, ingredientsFromInput, setIngredientsFromInput }) => {
 
-    const [ingredientsCost, setIngredientsCost] = useState(0)
 
     let renderIngredientsArr = []
     let localIngredientsArr = [...new Set(component.ingredients)];
