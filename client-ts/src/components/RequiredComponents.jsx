@@ -12,7 +12,7 @@ const RequiredComponents = ({ component, resourcePrices }) => {
   const [selectedIngredient, setSelectedIngredient] = useState(null)
   const [isActive, setIsActive] = useState(false)
 
- 
+
   let ingredientsArr = [];
   // console.log("component.ingredients", component.ingredients);
   if (component.ingredients) {
@@ -58,6 +58,7 @@ const RequiredComponents = ({ component, resourcePrices }) => {
       </>
     );
   }
+  return null;
 };
 
 export default RequiredComponents;
