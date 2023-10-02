@@ -122,18 +122,8 @@ function App() {
     setClassInstances(entityArr)
 
   }, [])
-  // console.log('classInstances', classInstances);
 
-  // const data1 = JSON.parse(data())
-  // const resData = data1.map((item) => {
-  //   const obj = {}
-  //   obj.id = item.id
-  //   obj.name = item.name
-  //   obj.formatBuyPrice = item.formatBuyPrice
-  //   obj.formatSellPrice = item.formatSellPrice
-  //   return obj
-  // });
-  // console.log(classInstances);
+  
   useEffect(() => {
     fetch('http://45.12.73.147:3001/prices/start')
       .then((response) => response.json())
