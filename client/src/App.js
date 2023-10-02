@@ -186,16 +186,14 @@ function App() {
     // const listArr = JSON.parse(dataId())
 
   }, [classInstances]);
-  // console.log(itemsList);
-  // console.log(resourcePrices);
-  // console.log('itemsList', itemsList);
+
   if (itemsList) {
     const instanceFromData = []
     for (const item of itemsList) {
 
       for (const instance of classInstances) {
         if (item.id === instance.id) { // Сравниваем id объекта с id экземпляра класса
-          // console.log('instance', item.id, instance.id);
+ 
           instanceFromData.push(instance)
           itemsArr = instanceFromData.map(inst => {
             if (selectedItem === inst.id) {
