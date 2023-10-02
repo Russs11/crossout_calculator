@@ -193,7 +193,7 @@ function App() {
 
       for (const instance of classInstances) {
         if (item.id === instance.id) { // Сравниваем id объекта с id экземпляра класса
- 
+
           instanceFromData.push(instance)
           itemsArr = instanceFromData.map(inst => {
             if (selectedItem === inst.id) {
@@ -219,10 +219,10 @@ function App() {
     }
   }
 
-  
-    if (selectedItem) {
+
+  if (selectedItem) {
     selectedInstance = classInstances.find(inst => inst.id === selectedItem);
-    
+
   }
 
 
@@ -272,14 +272,15 @@ function App() {
                     setBtnSwitchBuyFabricate={setBtnSwitchBuyFabricate}
                     setAllIngredientsPrice={setAllIngredientsPrice}
                     allIngredientsPrice={allIngredientsPrice}
-
                   /> :
                   <LoadingSpinnerForBlock />}
                 <HorizontalSeparator />
-                <Profit component={selectedInstance}
-                  allIngredientsPrice={allIngredientsPrice}
-                  costPrice={costPrice}
-                  btnSwitchBuyFabricate={btnSwitchBuyFabricate} />
+                {selectedInstance.sellPrice ?
+                  <Profit component={selectedInstance}
+                    allIngredientsPrice={allIngredientsPrice}
+                    costPrice={costPrice}
+                    btnSwitchBuyFabricate={btnSwitchBuyFabricate} /> :
+                  <LoadingSpinnerForBlock />}
               </ProductionCostWrapper>
               <VerticalSeparator />
               <ResoursesAvailableWrapper>
@@ -290,7 +291,6 @@ function App() {
                   resourcePrices={resourcePrices}
                   setIngredientsFromInput={setIngredientsFromInput}
                   ingredientsFromInput={ingredientsFromInput}
-                // inputClickHandler={inputClickHandler}
                 />
               </ResoursesAvailableWrapper>
             </MainCard> :
