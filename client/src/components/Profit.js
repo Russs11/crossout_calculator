@@ -8,8 +8,6 @@ const Profit = ({ component, allIngredientsPrice, costPrice, btnSwitchBuyFabrica
     let selfPrice = btnSwitchBuyFabricate ? allIngredientsPrice + costPrice : costPrice
     let profit = Math.round(componentBuyPrice - commission - selfPrice)
 
-    // console.log('allIngredientsPrice', allIngredientsPrice);
-    // console.log('costPrice', costPrice);
 
     return (
         <>
@@ -21,7 +19,7 @@ const Profit = ({ component, allIngredientsPrice, costPrice, btnSwitchBuyFabrica
                 <div className="text-5">Комиссия</div>
                 <div className="value-orange text-3">{commission}</div>
                 <div className="text-5">Прибыль</div>
-                <div className="value-orange text-3">{profit > 0 ? `+ ${profit}` : `- ${profit * -1}`}</div>
+                <div className="value-orange text-3">{profit > 0 ? `+ ${profit}` : profit === 0 ? '0' :  `- ${profit * -1}`}</div>
             </div>
         </>
     );
