@@ -50,7 +50,7 @@ import HorizontalSeparator from "./components/HorizontalSeparator";
 
 function App() {
 
-  interface resFromInput {
+  interface IResourcesFromInput {
     scrapMetal: number;
     copper: number;
     wires: number;
@@ -76,7 +76,7 @@ function App() {
     profitRatio: number
   }
 
-  interface IresourcePrices {
+  interface IResourcePrices {
     buyPrice: number,
     dbId: number,
     dbName: string,
@@ -87,16 +87,16 @@ function App() {
   const [itemsList, setItemsList] = useState<IItem[]>([]);
   const [selectedItem, setSelectedItem] = useState<number>(0)
   const [classInstances, setClassInstances] = useState<IComponent[]>([])
-  const [resourcePrices, setResourcePrices] = useState<IresourcePrices[]>([])
+  const [resourcePrices, setResourcePrices] = useState<IResourcePrices[]>([])
   const [btnSwitchBuyFabricate, setBtnSwitchBuyFabricate] = useState<boolean>(false)
   const [costPrice, setCostPrice] = useState<number>(0)
   const [allIngredientsPrice, setAllIngredientsPrice] = useState<number>(0)
-  const [resoursesFromInput, setResoursesFromInput] = useState<resFromInput>()
+  const [resoursesFromInput, setResoursesFromInput] = useState<IResourcesFromInput>()
 
 
 
   // const [selectedInstance, setSelectedInstance] = useState()
-  let selectedInstance
+  let selectedInstance: IComponent | undefined
   let itemsArr: JSX.Element[] = []
   // console.log(typeof(WeaponsCommon));
   useEffect(() => {
@@ -107,7 +107,16 @@ function App() {
     let wRare: keyof typeof WeaponsRare;
     let wSpecial: keyof typeof WeaponsSpecial;
     let wEpic: keyof typeof WeaponsEpic;
+
+    let mCommon: keyof typeof MovementCommon;
+    let mRare: keyof typeof MovementRare;
+    let mSpecial: keyof typeof MovementSpecial;
     let mEpic: keyof typeof MovementEpic;
+
+    let cCommon: keyof typeof CabinsCommon;
+    let cRare: keyof typeof CabinsRare;
+    let cSpecial: keyof typeof CabinsSpecial;
+    let cEpic: keyof typeof CabinsEpic;
 
 
     for (wCommon in WeaponsCommon) {
@@ -127,16 +136,28 @@ function App() {
       const newItem = new WeaponsEpic[wEpic]()
       entityArr.push(newItem)
     }
+
+    for (mCommon in MovementCommon) {
+      const newItem = new MovementCommon[mCommon]()
+      entityArr.push(newItem)
+    }
+    for (mRare in MovementRare) {
+      const newItem = new MovementRare[mRare]()
+      entityArr.push(newItem)
+    }
+    for (mSpecial in MovementSpecial) {
+      const newItem = new MovementSpecial[mSpecial]()
+      entityArr.push(newItem)
+    }
     for (mEpic in MovementEpic) {
       const newItem = new MovementEpic[mEpic]()
       entityArr.push(newItem)
     }
-    // for (const item in WeaponsEpic) {
-    //   entityArr.push(new WeaponsEpic[item]())
-    // }
-    // for (const item in CabinsCommon) {
-    //   entityArr.push(new CabinsCommon[item]())
-    // }
+
+    for (cCommon in CabinsCommon) {
+      const newItem = new CabinsCommon[cCommon]()
+      entityArr.push(newItem)
+    }
     // for (const item in CabinsRare) {
     //   entityArr.push(new CabinsRare[item]())
     // }
@@ -287,8 +308,9 @@ function App() {
 
 
 
-  function handleClick(id: number) {
+  function handleClick(id: number):void {
     setSelectedItem(id)
+    setBtnSwitchBuyFabricate(false);
   }
 
   // console.log(selectedInstance);

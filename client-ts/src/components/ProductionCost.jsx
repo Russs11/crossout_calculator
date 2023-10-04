@@ -4,7 +4,7 @@ import HorizontalSeparator from './HorizontalSeparator';
 
 const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, resoursesFromInput, setCostPrice, costPrice, allIngredientsPrice }) => {
 
-    let resoursesArr3 = []
+    let resoursesArr3: htm[] = []
 
     let benchCost = component.getAllBenchCost?.() ? component.getAllBenchCost?.() : 0
 
@@ -48,16 +48,15 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     let batteriesCost = batteriesRequires ? Math.round((batteriesRequires * batteriesSellPrice / 100) * 100) / 100 : 0
     let electronicsCost = electronicsRequires ? Math.round((electronicsRequires * electronicsSellPrice) * 100) / 100 : 0
 
-    let totalAllResoursesСost = allScrapMetalCost + allCopperCost + allWiresCost + allPlasticCost + allEngravedCasingsCost + allBatteriesCost + allElectronicsCost + benchCost
-    let totalResoursesCost = scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost
+    let totalAllResoursesСost = Math.round(allScrapMetalCost + allCopperCost + allWiresCost + allPlasticCost + allEngravedCasingsCost + allBatteriesCost + allElectronicsCost + benchCost)
+    let totalResoursesCost = Math.round(scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost)
 
-    useEffect(() => {
-        
-        setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
-    }, [costPrice])
-    console.log('costPrice', costPrice);
+  
+    setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
 
-    
+    console.log('costPrice2', costPrice);
+
+
     if (resoursesFromInput.scrapMetal > 0) {
         allScrapMetalRequires -= resoursesFromInput.scrapMetal
         scrapMetalRequires -= resoursesFromInput.scrapMetal
@@ -69,10 +68,78 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
         }
     }
 
+    if (resoursesFromInput.electronics > 0) {
+        allElectronicsRequires -= resoursesFromInput.electronics
+        electronicsRequires -= resoursesFromInput.electronics
+        if (allElectronicsRequires < 0) {
+            allElectronicsRequires = 0
+        }
+        if (electronicsRequires < 0) {
+            electronicsRequires = 0
+        }
+    }
+
+    if (resoursesFromInput.copper > 0) {
+        allCopperRequires -= resoursesFromInput.copper
+        copperRequires -= resoursesFromInput.copper
+        if (allCopperRequires < 0) {
+            allCopperRequires = 0
+        }
+        if (copperRequires < 0) {
+            copperRequires = 0
+        }
+    }
+
+    if (resoursesFromInput.wires > 0) {
+        allWiresRequires -= resoursesFromInput.wires
+        wiresRequires -= resoursesFromInput.wires
+        if (allWiresRequires < 0) {
+            allWiresRequires = 0
+        }
+        if (wiresRequires < 0) {
+            wiresRequires = 0
+        }
+    }
+
+    if (resoursesFromInput.plastic > 0) {
+        allPlasticRequires -= resoursesFromInput.plastic
+        plasticRequires -= resoursesFromInput.plasric
+        if (allPlasticRequires < 0) {
+            allPlasticRequires = 0
+        }
+        if (plasticRequires < 0) {
+            plasticRequires = 0
+        }
+    }
+
+    if (resoursesFromInput.batteries > 0) {
+        allBatterriesRequires -= resoursesFromInput.batteries
+        batteriesRequires -= resoursesFromInput.batteries
+        if (allBatterriesRequires < 0) {
+            allBatterriesRequires = 0
+        }
+        if (batteriesRequires < 0) {
+            batteriesRequires = 0
+        }
+    }
+
+    if (resoursesFromInput.engravedCasings > 0) {
+        allEngravedCasingsRequires -= resoursesFromInput.engravedCasings
+        engravedCasingsRequires -= resoursesFromInput.engravedCasings
+        if (allEngravedCasingsRequires < 0) {
+            allEngravedCasingsRequires = 0
+        }
+        if (engravedCasingsRequires < 0) {
+            engravedCasingsRequires = 0
+        }
+    }
+
+
+
     if (component.scrapMetal) {
-        console.log('btnSwitchBuyFabricate', btnSwitchBuyFabricate);
-        console.log('scrapMetalRequires', scrapMetalRequires);
-        console.log('allScrapMetalRequires', allScrapMetalRequires);
+        // console.log('btnSwitchBuyFabricate', btnSwitchBuyFabricate);
+        // // console.log('scrapMetalRequires', scrapMetalRequires);
+        // // console.log('allScrapMetalRequires', allScrapMetalRequires);
         resoursesArr3.push(
             <React.Fragment key={resourcePrices[0].dbId}>
                 <div className="scrapmetal"></div>
@@ -98,7 +165,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
                 <div className="wires"></div>
                 <div className="value text-3">{btnSwitchBuyFabricate ? wiresRequires : allWiresRequires}</div>
                 <div className="value-orange text-3">{wiresSellPrice}</div>
-                <div className="value-orange text-3">{btnSwitchBuyFabricate? wiresCost: allWiresCost}</div>
+                <div className="value-orange text-3">{btnSwitchBuyFabricate ? wiresCost : allWiresCost}</div>
             </React.Fragment>
         )
     }
@@ -108,7 +175,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
                 <div className="plastic"></div>
                 <div className="value text-3">{btnSwitchBuyFabricate ? plasticRequires : allPlasticRequires}</div>
                 <div className="value-orange text-3">{plasticSellPrice}</div >
-                <div className="value-orange text-3">{btnSwitchBuyFabricate ? plasticCost: allPlasticCost}</div>
+                <div className="value-orange text-3">{btnSwitchBuyFabricate ? plasticCost : allPlasticCost}</div>
             </React.Fragment>
         )
     }
@@ -127,7 +194,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
             <React.Fragment key={resourcePrices[5].dbId}>
                 <div className="batteries"></div>
                 <div className="value text-3">{btnSwitchBuyFabricate ? batteriesRequires : allBatterriesRequires}</div>
-                <div className="value-orange text-3">{ batteriesSellPrice}</div>
+                <div className="value-orange text-3">{batteriesSellPrice}</div>
                 <div className="value-orange text-3">{btnSwitchBuyFabricate ? batteriesCost : allBatteriesCost}</div>
             </React.Fragment>
         )
@@ -153,18 +220,10 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
                     <div className="text-5">Цена:</div>
                     <div className="text-5">Стоимость:</div>
                     {resoursesArr3}
-                    {/* <div className="resourses-img_4"></div>
-                    <div className="value text-3">750</div>
-                    <div className="value-orange text-3">1.89</div>
-                    <div className="value-orange text-3">141.75</div>
-                    <div className="resourses-img_2"></div>
-                    <div className="value text-3">750</div>
-                    <div className="value-orange text-3">4.49</div>
-                    <div className="value-orange text-3">336.75</div> */}
                     <div className="machine-rental text-7">Аренда станка:</div>
                     <div className="value-orange text-3">{benchCost ? benchCost : 0}</div>
                     <div className="total text-7">Всего:</div>
-                    <div className="value-orange text-3">{btnSwitchBuyFabricate ? Math.round(totalResoursesCost * 100) / 100 : Math.round(totalAllResoursesСost * 100) / 100}</div>
+                    <div className="value-orange text-3">{btnSwitchBuyFabricate ?totalResoursesCost : totalAllResoursesСost }</div>
                 </div>
             </div>
             <HorizontalSeparator />
