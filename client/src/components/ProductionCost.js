@@ -8,7 +8,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
 
     let benchCost = component.getAllBenchCost?.() ? component.getAllBenchCost?.() : 0
 
-    let scrapMetalRequires = component.getScrapMetal()
+    let scrapMetalRequires = component.getScrapMetal?.()
     let copperRequires = component.getCopper?.()
     let wiresRequires = component.getWires?.()
     let plasticRequires = component.getPlastic?.()

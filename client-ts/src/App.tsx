@@ -346,7 +346,6 @@ function App() {
                   resoursesFromInput={resoursesFromInput}
                   setCostPrice={setCostPrice}
                   costPrice={costPrice}
-                  allIngredientsPrice={allIngredientsPrice}
                 />
                 {selectedInstance.sellPrice ?
                   <ComponentsCost

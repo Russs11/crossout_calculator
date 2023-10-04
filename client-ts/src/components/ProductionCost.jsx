@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { ReactElement, ReactFragment, useEffect } from 'react';
 import './ProductionCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
-const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, resoursesFromInput, setCostPrice, costPrice, allIngredientsPrice }) => {
+const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, resoursesFromInput, setCostPrice, costPrice }) => {
 
-    let resoursesArr3: htm[] = []
+    let resoursesArr3 = []
 
     let benchCost = component.getAllBenchCost?.() ? component.getAllBenchCost?.() : 0
 
-    let scrapMetalRequires = component.getScrapMetal()
+    let scrapMetalRequires = component.getScrapMetal?.()
     let copperRequires = component.getCopper?.()
     let wiresRequires = component.getWires?.()
     let plasticRequires = component.getPlastic?.()
@@ -223,7 +223,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
                     <div className="machine-rental text-7">Аренда станка:</div>
                     <div className="value-orange text-3">{benchCost ? benchCost : 0}</div>
                     <div className="total text-7">Всего:</div>
-                    <div className="value-orange text-3">{btnSwitchBuyFabricate ?totalResoursesCost : totalAllResoursesСost }</div>
+                    <div className="value-orange text-3">{btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost }</div>
                 </div>
             </div>
             <HorizontalSeparator />
