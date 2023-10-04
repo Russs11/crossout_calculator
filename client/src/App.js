@@ -123,12 +123,12 @@ function App() {
 
   }, [])
 
-  
+
   useEffect(() => {
     fetch('http://45.12.73.147:3001/prices/start')
       .then((response) => response.json())
       .then(({ prices, list }) => {
-
+        console.log('prices', prices.resourcePrices);
         setItemsList(list)
         setSelectedItem(list[0].id)
         setResourcePrices(prices.resourcePrices)

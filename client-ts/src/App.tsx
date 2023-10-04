@@ -70,32 +70,37 @@ function App() {
     copper: number;
     img: string;
   }
+  interface IItem {
+    id: number,
+    name: string,
+    profitRatio: number
+  }
 
-  const [itemsList, setItemsList] = useState<any[]>([]);
+  interface IresourcePrices {
+    buyPrice: number,
+    dbId: number,
+    dbName: string,
+    id: number,
+    name: string,
+    sellPrice: number
+  }
+  const [itemsList, setItemsList] = useState<IItem[]>([]);
   const [selectedItem, setSelectedItem] = useState<number>(0)
   const [classInstances, setClassInstances] = useState<IComponent[]>([])
-  const [resourcePrices, setResourcePrices] = useState()
-  const [btnSwitchBuyFabricate, setBtnSwitchBuyFabricate] = useState(false)
-  const [costPrice, setCostPrice] = useState(0)
-  const [allIngredientsPrice, setAllIngredientsPrice] = useState(0)
-  const [resoursesFromInput, setResoursesFromInput] = useState<resFromInput>({
-    scrapMetal: 0,
-    copper: 0,
-    wires: 0,
-    plastic: 0,
-    engravedCasings: 0,
-    batteries: 0,
-    electronics: 0,
-  })
+  const [resourcePrices, setResourcePrices] = useState<IresourcePrices[]>([])
+  const [btnSwitchBuyFabricate, setBtnSwitchBuyFabricate] = useState<boolean>(false)
+  const [costPrice, setCostPrice] = useState<number>(0)
+  const [allIngredientsPrice, setAllIngredientsPrice] = useState<number>(0)
+  const [resoursesFromInput, setResoursesFromInput] = useState<resFromInput>()
 
- 
+
 
   // const [selectedInstance, setSelectedInstance] = useState()
   let selectedInstance
   let itemsArr: JSX.Element[] = []
   // console.log(typeof(WeaponsCommon));
   useEffect(() => {
-    let entityArr:IComponent[] = []
+    let entityArr: IComponent[] = []
 
 
     let wCommon: keyof typeof WeaponsCommon;
@@ -113,7 +118,7 @@ function App() {
       const newItem = new WeaponsRare[wRare]()
       entityArr.push(newItem)
     }
-    
+
     for (wSpecial in WeaponsSpecial) {
       const newItem = new WeaponsSpecial[wSpecial]()
       entityArr.push(newItem)
@@ -184,7 +189,7 @@ function App() {
     fetch('http://45.12.73.147:3001/prices/start')
       .then((response) => response.json())
       .then(({ prices, list }) => {
-        
+
         setItemsList(list)
         setSelectedItem(list[0].id)
         setResourcePrices(prices.resourcePrices)
@@ -282,7 +287,7 @@ function App() {
 
 
 
-  function handleClick(id:number) {
+  function handleClick(id: number) {
     setSelectedItem(id)
   }
 
