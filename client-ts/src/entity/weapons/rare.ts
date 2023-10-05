@@ -12,7 +12,10 @@ import WeaponsCommonArray from "./common";
 import * as WeaponImages from "./WeaponImages";
 
 let [P54MAccord, Lupara, Avenger57mm] = WeaponsCommonArray;
+
+
 console.log("WeaponsCommonArray", P54MAccord);
+
 export class STM23Defender extends RareVehicleComponent {
   constructor() {
     super();

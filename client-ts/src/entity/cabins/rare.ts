@@ -5,7 +5,7 @@ import { Docker, Huntsman, Sprinter } from './common'
 import * as CabinsImages from './CabinsImages'
 import WeaponsCommonArray from '../weapons/common'
 
-let [Lupara] = WeaponsCommonArray
+
 
 console.log(Lupara);
 export class Growl extends RareVehicleComponent {
