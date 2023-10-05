@@ -24,7 +24,7 @@ import { CommonVehicleComponent } from "./entity/commonVehicleComponent";
 import { RareVehicleComponent } from "./entity/rareVehicleComponent"
 import { SpecialVehicleComponent } from "./entity/specialVehicleComponent"
 import { EpicVehicleComponent } from "./entity/epicVehicleComponent"
-import * as WeaponsCommon from "./entity/weapons/common";
+import WeaponsCommonArray from "./entity/weapons/common";
 import * as WeaponsRare from "./entity/weapons/rare"
 import * as WeaponsSpecial from "./entity/weapons/special"
 import * as WeaponsEpic from "./entity/weapons/epic"
@@ -103,61 +103,65 @@ function App() {
     let entityArr: IComponent[] = []
 
 
-    let wCommon: keyof typeof WeaponsCommon;
-    let wRare: keyof typeof WeaponsRare;
-    let wSpecial: keyof typeof WeaponsSpecial;
-    let wEpic: keyof typeof WeaponsEpic;
+    // let wCommon: keyof typeof WeaponsCommon;
+    // let wRare: keyof typeof WeaponsRare;
+    // let wSpecial: keyof typeof WeaponsSpecial;
+    // let wEpic: keyof typeof WeaponsEpic;
 
-    let mCommon: keyof typeof MovementCommon;
-    let mRare: keyof typeof MovementRare;
-    let mSpecial: keyof typeof MovementSpecial;
-    let mEpic: keyof typeof MovementEpic;
+    // let mCommon: keyof typeof MovementCommon;
+    // let mRare: keyof typeof MovementRare;
+    // let mSpecial: keyof typeof MovementSpecial;
+    // let mEpic: keyof typeof MovementEpic;
 
-    let cCommon: keyof typeof CabinsCommon;
-    let cRare: keyof typeof CabinsRare;
-    let cSpecial: keyof typeof CabinsSpecial;
-    let cEpic: keyof typeof CabinsEpic;
+    // let cCommon: keyof typeof CabinsCommon;
+    // let cRare: keyof typeof CabinsRare;
+    // let cSpecial: keyof typeof CabinsSpecial;
+    // let cEpic: keyof typeof CabinsEpic;
 
-
-    for (wCommon in WeaponsCommon) {
-      const newItem = new WeaponsCommon[wCommon]()
-      entityArr.push(newItem)
-    }
-    for (wRare in WeaponsRare) {
-      const newItem = new WeaponsRare[wRare]()
-      entityArr.push(newItem)
+    for (const item of WeaponsCommonArray) {
+      entityArr.push(item)
     }
 
-    for (wSpecial in WeaponsSpecial) {
-      const newItem = new WeaponsSpecial[wSpecial]()
-      entityArr.push(newItem)
-    }
-    for (wEpic in WeaponsEpic) {
-      const newItem = new WeaponsEpic[wEpic]()
-      entityArr.push(newItem)
-    }
+    console.log(entityArr);
+    // for (wCommon in WeaponsCommon) {
+    //   const newItem = new WeaponsCommon[wCommon]()
+    //   entityArr.push(newItem)
+    // }
+    // for (wRare in WeaponsRare) {
+    //   const newItem = new WeaponsRare[wRare]()
+    //   entityArr.push(newItem)
+    // }
 
-    for (mCommon in MovementCommon) {
-      const newItem = new MovementCommon[mCommon]()
-      entityArr.push(newItem)
-    }
-    for (mRare in MovementRare) {
-      const newItem = new MovementRare[mRare]()
-      entityArr.push(newItem)
-    }
-    for (mSpecial in MovementSpecial) {
-      const newItem = new MovementSpecial[mSpecial]()
-      entityArr.push(newItem)
-    }
-    for (mEpic in MovementEpic) {
-      const newItem = new MovementEpic[mEpic]()
-      entityArr.push(newItem)
-    }
+    // for (wSpecial in WeaponsSpecial) {
+    //   const newItem = new WeaponsSpecial[wSpecial]()
+    //   entityArr.push(newItem)
+    // }
+    // for (wEpic in WeaponsEpic) {
+    //   const newItem = new WeaponsEpic[wEpic]()
+    //   entityArr.push(newItem)
+    // }
 
-    for (cCommon in CabinsCommon) {
-      const newItem = new CabinsCommon[cCommon]()
-      entityArr.push(newItem)
-    }
+    // for (mCommon in MovementCommon) {
+    //   const newItem = new MovementCommon[mCommon]()
+    //   entityArr.push(newItem)
+    // }
+    // for (mRare in MovementRare) {
+    //   const newItem = new MovementRare[mRare]()
+    //   entityArr.push(newItem)
+    // }
+    // for (mSpecial in MovementSpecial) {
+    //   const newItem = new MovementSpecial[mSpecial]()
+    //   entityArr.push(newItem)
+    // }
+    // for (mEpic in MovementEpic) {
+    //   const newItem = new MovementEpic[mEpic]()
+    //   entityArr.push(newItem)
+    // }
+
+    // for (cCommon in CabinsCommon) {
+    //   const newItem = new CabinsCommon[cCommon]()
+    //   entityArr.push(newItem)
+    // }
     // for (const item in CabinsRare) {
     //   entityArr.push(new CabinsRare[item]())
     // }
@@ -308,7 +312,7 @@ function App() {
 
 
 
-  function handleClick(id: number):void {
+  function handleClick(id: number): void {
     setSelectedItem(id)
     setBtnSwitchBuyFabricate(false);
   }

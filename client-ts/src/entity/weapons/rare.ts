@@ -8,16 +8,18 @@ import {
   RS1Ruby,
 } from "../hardware/common";
 import { MediumWheelST } from "../movement/common";
-import { Avenger57mm, Lupara, P54MAccord } from "./common";
+import WeaponsCommonArray from "./common";
 import * as WeaponImages from "./WeaponImages";
 
+
+console.log("WeaponsCommonArray", WeaponsCommonArray);
 export class STM23Defender extends RareVehicleComponent {
   constructor() {
     super();
     this.id = 204;
     this.name = "П-23 Защитник";
     this.type = "Пулемет";
-    this.ingredients = [new P54MAccord(), new R1Breese()];
+    this.ingredients = [WeaponsCommonArray[0], new R1Breese()];
     this.img = WeaponImages.STM23Defender;
   }
 }
