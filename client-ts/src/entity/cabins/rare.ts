@@ -1,8 +1,13 @@
 import { RareVehicleComponent } from '../rareVehicleComponent'
 import { RS1Ruby } from '../hardware/common'
-import { Lupara } from '../weapons/common'
+// import { Lupara } from '../weapons/common'
 import { Docker, Huntsman, Sprinter } from './common'
 import * as CabinsImages from './CabinsImages'
+import WeaponsCommonArray from '../weapons/common'
+
+let [Lupara] = WeaponsCommonArray
+
+console.log(Lupara);
 export class Growl extends RareVehicleComponent {
   constructor() {
     super()
@@ -10,7 +15,7 @@ export class Growl extends RareVehicleComponent {
     this.name = 'Рык'
     this.type = 'Легкая кабина'
     this.scrapMetal = 700
-    this.ingredients = [new Sprinter(), new Lupara()]
+    this.ingredients = [new Sprinter(), Lupara]
     this.img = CabinsImages.Growl
   }
 }

@@ -11,15 +11,15 @@ import { MediumWheelST } from "../movement/common";
 import WeaponsCommonArray from "./common";
 import * as WeaponImages from "./WeaponImages";
 
-
-console.log("WeaponsCommonArray", WeaponsCommonArray);
+let [P54MAccord, Lupara, Avenger57mm] = WeaponsCommonArray;
+console.log("WeaponsCommonArray", P54MAccord);
 export class STM23Defender extends RareVehicleComponent {
   constructor() {
     super();
     this.id = 204;
     this.name = "П-23 Защитник";
     this.type = "Пулемет";
-    this.ingredients = [WeaponsCommonArray[0], new R1Breese()];
+    this.ingredients = [P54MAccord, new R1Breese()];
     this.img = WeaponImages.STM23Defender;
   }
 }
@@ -29,7 +29,7 @@ export class Vector extends RareVehicleComponent {
     this.id = 205;
     this.name = "Вектор";
     this.type = "Пулемет";
-    this.ingredients = [new P54MAccord(), new CarJack()];
+    this.ingredients = [P54MAccord, new CarJack()];
     this.img = WeaponImages.Vector;
   }
 }
@@ -39,7 +39,7 @@ export class Sledgehammer extends RareVehicleComponent {
     this.id = 206;
     this.name = "Кувалда";
     this.type = "Дробовик";
-    this.ingredients = [new Lupara(), new CarJack()];
+    this.ingredients = [Lupara, new CarJack()];
     this.img = WeaponImages.Sledgehammer
   }
 }
@@ -49,7 +49,7 @@ export class Spitfire extends RareVehicleComponent {
     this.id = 207;
     this.name = "Очаг";
     this.type = "Дробовик";
-    this.ingredients = [new Lupara(), new B1Aviator()];
+    this.ingredients = [Lupara, new B1Aviator()];
     this.img = WeaponImages.Spitfire
   }
 }
@@ -59,7 +59,7 @@ export class AC43Rapier extends RareVehicleComponent {
     this.id = 208;
     this.name = "АП43 Рапира";
     this.type = "Автопушка";
-    this.ingredients = [new B1Aviator(), new P54MAccord()];
+    this.ingredients = [new B1Aviator(), P54MAccord];
     this.img = WeaponImages.AC43Rapier
   }
 }
@@ -69,7 +69,7 @@ export class LittleBoy6LB extends RareVehicleComponent {
     this.id = 209;
     this.name = "Малыш 6Ф";
     this.type = "Пушка";
-    this.ingredients = [new Avenger57mm(), new FuelBarrel()];
+    this.ingredients = [Avenger57mm, new FuelBarrel()];
     this.img = WeaponImages.LittleBoy6LB
   }
 }
@@ -79,7 +79,7 @@ export class Judge76mm extends RareVehicleComponent {
     this.id = 210;
     this.name = "Судья 76мм";
     this.type = "Пушка";
-    this.ingredients = [new Avenger57mm(), new MediumWheelST()];
+    this.ingredients = [ Avenger57mm, new MediumWheelST()];
     this.img = WeaponImages.Judge76mm
   }
 }
@@ -89,7 +89,7 @@ export class Wasp extends RareVehicleComponent {
     this.id = 211;
     this.name = "Оса";
     this.type = "Ракетница";
-    this.ingredients = [new Avenger57mm(), new FuelBarrel()];
+    this.ingredients = [Avenger57mm, new FuelBarrel()];
     this.img = WeaponImages.Wasp
   }
 }
@@ -109,7 +109,7 @@ export class AD12Falcon extends RareVehicleComponent {
     this.id = 213;
     this.name = "АД-12 Сокол";
     this.type = "Дрон";
-    this.ingredients = [new P54MAccord(), new RS1Ruby()];
+    this.ingredients = [P54MAccord, new RS1Ruby()];
     this.img = WeaponImages.AD12Falcon
   }
 }
@@ -119,7 +119,7 @@ export class DTCobra extends RareVehicleComponent {
     this.id = 214;
     this.name = "Т3 Кобра";
     this.type = "Дрон";
-    this.ingredients = [new Radio(), new Lupara()];
+    this.ingredients = [new Radio(), Lupara];
     this.img = WeaponImages.DTCobra
   }
 }

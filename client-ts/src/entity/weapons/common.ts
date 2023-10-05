@@ -34,12 +34,12 @@ import * as WeaponImages from "./WeaponImages";
     }
   }
 
-const WeaponsCommonArray = new Map()
-
-WeaponsCommonArray.set(['P54MAccord', new P54MAccord()]);
-WeaponsCommonArray.set(["Lupara", new Lupara()]);
-WeaponsCommonArray.set(["Avenger57mm", new Avenger57mm()]);
-export default WeaponsCommonArray;
+const WeaponsCommonArray: CommonVehicleComponent[] = [
+  new P54MAccord(),
+  new Lupara(),
+  new Avenger57mm()
+];
+export default WeaponsCommonArray
 // export class P54MAccord extends CommonVehicleComponent {
 //   constructor() {
 //     super();
