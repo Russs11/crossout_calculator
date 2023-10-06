@@ -1,7 +1,7 @@
 import { RareVehicleComponent } from "../rareVehicleComponent";
-import { WWT1 } from "../cabins/common";
-// import { MediumWheel, MediumWheelST, SmallWheel, SmallWheelST } from './common'
 import * as MovementImages from "./MovementImages";
+// import { WWT1 } from "../cabins/common";
+// import { MediumWheel, MediumWheelST, SmallWheel, SmallWheelST } from './common'
 import MovementCommonArray from "./common";
 import CabinsCommonArray from "../cabins/common";
 
