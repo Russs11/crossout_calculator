@@ -54,7 +54,7 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
 
 
     };
-    console.log(ingredienstFromInputCost);
+    // console.log(ingredienstFromInputCost);
 
     function inputScrapMetalHandler(event) {
         setResoursesFromInput((prev) => {
@@ -94,17 +94,9 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
 
 
     function inputIngredient(id, event) {
-
         setIngredientsFromInput((prev) => ({
             ...prev, [id]: +event.target.value,
         }));
-
-        // setIngredientsFromInput((prev) => {
-        // return Object.assign({ ...prev, [name]: +event.target.value })
-        // })
-        // const newArr = [...ingredientsFromInput];
-        // newArr[name] = event.target.value;
-        // setIngredientsFromInput(newArr)
     }
 
     // console.log('ingredientsFromInput', ingredientsFromInput);

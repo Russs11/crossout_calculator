@@ -12,7 +12,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
     let quantityOfIngredients 
     let btnClasses = btnSwitchBuyFabricate ? "switch-btn switch-on" : "switch-btn "
 
-        console.log('component', component);
+        // console.log('component', component);
   
     function clickHandler() {
         setBtnSwitchBuyFabricate((prev) => { return !prev });
@@ -71,7 +71,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
             </React.Fragment>
         )
     });
-console.log('ingredient.sellPrice', component.ingredients[0].sellPrice);
+// console.log('ingredient.sellPrice', component.ingredients[0].sellPrice);
     return (
         <>
             <div className="components-cost">

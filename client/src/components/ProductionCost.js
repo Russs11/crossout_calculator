@@ -10,7 +10,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
 
     let scrapMetalRequires = component.getScrapMetal?.()
     let copperRequires = component.getCopper?.()
-    let wiresRequires = component.getWires?.() 
+    let wiresRequires = component.getWires?.()
     let plasticRequires = component.getPlastic?.()
     let batteriesRequires = component.getBatteries?.()
     let electronicsRequires = component?.getElectronics?.()
@@ -49,7 +49,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     let batteriesCost = batteriesRequires ? Math.round((batteriesRequires * batteriesSellPrice / 100) * 100) / 100 : 0
     let electronicsCost = electronicsRequires ? Math.round((electronicsRequires * electronicsSellPrice) * 100) / 100 : 0
 
-   
+
 
     let totalAllResoursesСost = Math.round(allScrapMetalCost + allCopperCost + allWiresCost + allPlasticCost + allEngravedCasingsCost + allBatteriesCost + allElectronicsCost + benchCost)
     let totalResoursesCost = Math.round(scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost)
@@ -58,8 +58,11 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
 
     setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
 
-    
-    
+
+
+
+
+
 
     if (resoursesFromInput.scrapMetal > 0) {
         allScrapMetalRequires -= resoursesFromInput.scrapMetal
