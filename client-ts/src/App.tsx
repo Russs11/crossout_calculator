@@ -123,7 +123,7 @@ function App() {
     }
     let [P54MAccord, Lupara, Avenger57mm] = WeaponsCommonArray;
 
-    console.log(P54MAccord);
+    console.log(entityArr);
     // for (wCommon in WeaponsCommon) {
     //   const newItem = new WeaponsCommon[wCommon]()
     //   entityArr.push(newItem)
