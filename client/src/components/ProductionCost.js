@@ -74,6 +74,10 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
             scrapMetalRequires = 0
         }
         allScrapMetalCost = allScrapMetalRequires ? Math.round((allScrapMetalRequires * scrapMetalSellPrice / 100) * 100) / 100 : 0
+        scrapMetalCost = scrapMetalRequires ? Math.round((scrapMetalRequires * scrapMetalSellPrice / 100) * 100) / 100 : 0
+        // if (btnSwitchBuyFabricate) {
+
+        // }
     }
 
     if (resoursesFromInput.electronics > 0) {
@@ -86,6 +90,8 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
             electronicsRequires = 0
         }
         allElectronicsCost = allElectronicsRequires ? Math.round((allElectronicsRequires * electronicsSellPrice) * 100) / 100 : 0
+        electronicsCost = electronicsRequires ? Math.round((electronicsRequires * electronicsSellPrice) * 100) / 100 : 0
+
 
     }
 
@@ -99,6 +105,8 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
             copperRequires = 0
         }
         allCopperCost = allCopperRequires ? Math.round((allCopperRequires * copperSellPrice / 100) * 100) / 100 : 0
+        copperCost = copperRequires ? Math.round((copperRequires * copperSellPrice / 100) * 100) / 100 : 0
+
     }
 
     if (resoursesFromInput.wires > 0) {
@@ -111,11 +119,13 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
             wiresRequires = 0
         }
         allWiresCost = allWiresRequires ? Math.round((allWiresRequires * wiresSellPrice / 100) * 100) / 100 : 0
+        wiresCost = wiresRequires ? Math.round((wiresRequires * wiresSellPrice / 100) * 100) / 100 : 0
+
     }
 
     if (resoursesFromInput.plastic > 0) {
         allPlasticRequires -= resoursesFromInput.plastic
-        plasticRequires -= resoursesFromInput.plasric
+        plasticRequires -= resoursesFromInput.plastic
         if (allPlasticRequires < 0) {
             allPlasticRequires = 0
         }
@@ -123,6 +133,8 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
             plasticRequires = 0
         }
         allPlasticCost = allPlasticRequires ? Math.round((allPlasticRequires * plasticSellPrice / 100) * 100) / 100 : 0
+        plasticCost = plasticRequires ? Math.round((plasticRequires * plasticSellPrice / 100) * 100) / 100 : 0
+
     }
 
     if (resoursesFromInput.batteries > 0) {
@@ -135,6 +147,8 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
             batteriesRequires = 0
         }
         allBatteriesCost = allBatterriesRequires ? Math.round((allBatterriesRequires * batteriesSellPrice / 100) * 100) / 100 : 0
+        batteriesCost = batteriesRequires ? Math.round((batteriesRequires * batteriesSellPrice / 100) * 100) / 100 : 0
+
     }
 
     if (resoursesFromInput.engravedCasings > 0) {
@@ -147,6 +161,8 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
             engravedCasingsRequires = 0
         }
         allEngravedCasingsCost = allEngravedCasingsRequires ? Math.round((allEngravedCasingsRequires * engravedCasingsSellPrice / 100) * 100) / 100 : 0
+        engravedCasingsCost = engravedCasingsRequires ? Math.round((engravedCasingsRequires * engravedCasingsSellPrice / 100) * 100) / 100 : 0
+
     }
     totalAllResoursesСost = Math.round(allScrapMetalCost + allCopperCost + allWiresCost + allPlasticCost + allEngravedCasingsCost + allBatteriesCost + allElectronicsCost + benchCost)
     totalResoursesCost = Math.round(scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost)

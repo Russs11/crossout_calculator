@@ -58,44 +58,44 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
 
     function inputScrapMetalHandler(event) {
         setResoursesFromInput((prev) => {
-            return Object.assign({ ...prev, scrapMetal: +event.target.value })
+            return Object.assign({ ...prev, scrapMetal: +event.target.value.replace(/[^\d]/g, '') })
         });
     }
     function inputCopperHandler(event) {
         setResoursesFromInput((prev) => {
-            return Object.assign({ ...prev, copper: +event.target.value })
+            return Object.assign({ ...prev, copper: +event.target.value.replace(/[^\d]/g, '') })
         });
     }
     function inputWiresHandler(event) {
         setResoursesFromInput((prev) => {
-            return Object.assign({ ...prev, wires: +event.target.value })
+            return Object.assign({ ...prev, wires: +event.target.value.replace(/[^\d]/g, '') })
         });
     }
     function inputElectronicsHandler(event) {
         setResoursesFromInput((prev) => {
-            return Object.assign({ ...prev, electronics: +event.target.value })
+            return Object.assign({ ...prev, electronics: +event.target.value.replace(/[^\d]/g, '') })
         });
     }
     function inputBatteriesHandler(event) {
         setResoursesFromInput((prev) => {
-            return Object.assign({ ...prev, batteries: +event.target.value })
+            return Object.assign({ ...prev, batteries: +event.target.value.replace(/[^\d]/g, '') })
         });
     }
     function inputPlasticHandler(event) {
         setResoursesFromInput((prev) => {
-            return Object.assign({ ...prev, plastic: +event.target.value })
+            return Object.assign({ ...prev, plastic: +event.target.value.replace(/[^\d]/g, '') })
         });
     }
     function inputEngravedCasingsHandler(event) {
         setResoursesFromInput((prev) => {
-            return Object.assign({ ...prev, engravedCasings: +event.target.value })
+            return Object.assign({ ...prev, engravedCasings: +event.target.value.replace(/[^\d]/g, '') })
         });
     }
 
 
     function inputIngredient(id, event) {
         setIngredientsFromInput((prev) => ({
-            ...prev, [id]: +event.target.value,
+            ...prev, [id]: +event.target.value.replace(/[^\d]/g, '')
         }));
     }
 
@@ -110,7 +110,10 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
                 <input className="value text-3 input"
                     type="text"
                     placeholder="0"
-                    onChange={(event) => inputIngredient(item.id, event)}>
+                    onChange={(event) => inputIngredient(item.id, event)}
+                    // value={ingredientsFromInput[idText] ? ingredientsFromInput[idText] : 0}
+                    >
+
                 </input>
             </React.Fragment>
         )
