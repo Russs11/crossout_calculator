@@ -3,7 +3,7 @@ import './ComponentsCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
 
-const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, setAllIngredientsPrice, allIngredientsPrice }) => {
+const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, setAllIngredientsPrice, allIngredientsPrice, ingredientsFromInput }) => {
     let localIngredientArr = []
     let renderIngredientsArr = []
     let counter
@@ -55,14 +55,24 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
 
     renderIngredientsArr = localIngredientArr.map(ingredient => {
         for (const id in counter) {
+            if (counter[id] === +ingredientsFromInput[id] && ingredientsFromInput[id] > 0) {
+                counter[id] -= ingredientsFromInput[id]
+                if (counter[id] < 0) {
+                    counter[id] = 0
+                }
+            }
+
             if (ingredient.id === +id) {
                 quantityOfIngredients = counter[id]
             }
+
+
+
         }
         ingredientsCost = Math.round((quantityOfIngredients * ingredient.sellPrice) * 100) / 100
 
         return (
-            <React.Fragment key={ingredient.name}>
+            <React.Fragment key={ingredient.id}>
                 <div className="component-image_8 small-component-img"
                     style={{ backgroundImage: "url(" + ingredient.img + ")" }}></div>
                 <div className="value text-3">{quantityOfIngredients}</div>

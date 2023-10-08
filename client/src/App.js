@@ -198,6 +198,7 @@ function App() {
                     setBtnSwitchBuyFabricate={setBtnSwitchBuyFabricate}
                     setAllIngredientsPrice={setAllIngredientsPrice}
                     allIngredientsPrice={allIngredientsPrice}
+                    ingredientsFromInput={ingredientsFromInput}
                   /> :
                   <LoadingSpinnerForBlock />}
                 <HorizontalSeparator />
