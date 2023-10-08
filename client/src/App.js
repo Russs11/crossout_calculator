@@ -154,6 +154,7 @@ function App() {
   function handleClick(id) {
     setSelectedItem(id)
     setBtnSwitchBuyFabricate(false);
+    setIngredientsFromInput([])
   }
 
 

@@ -93,10 +93,15 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
     }
 
 
+    // function inputIngredient(id, event) {
+    //     setIngredientsFromInput((prev) => ({
+    //         ...prev, [id]: +event.target.value.replace(/[^\d]/g, '')
+    //     }));
+    // }
     function inputIngredient(id, event) {
-        setIngredientsFromInput((prev) => ({
-            ...prev, [id]: +event.target.value.replace(/[^\d]/g, '')
-        }));
+        setIngredientsFromInput((prev) => {
+            return Object.assign({ ...prev, [id]: +event.target.value.replace(/[^\d]/g, '') });
+        });
     }
 
     // console.log('ingredientsFromInput', ingredientsFromInput);
@@ -108,12 +113,10 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
                 <div className="component-image_8 small-component-img"
                     style={{ backgroundImage: "url(" + item.img + ")" }}></div>
                 <input className="value text-3 input"
-                    type="text"
+                    type="number"
                     placeholder="0"
                     onChange={(event) => inputIngredient(item.id, event)}
-                    // value={ingredientsFromInput[idText] ? ingredientsFromInput[idText] : 0}
-                    >
-
+                >
                 </input>
             </React.Fragment>
         )
