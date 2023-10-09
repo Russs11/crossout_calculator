@@ -55,13 +55,13 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
 
     renderIngredientsArr = localIngredientArr.map(ingredient => {
         for (const id in counter) {
-            if (counter[id] === +ingredientsFromInput[id] && ingredientsFromInput[id] > 0) {
+            if (counter[id] === +ingredientsFromInput[id] || ingredientsFromInput[id] > 0) {
                 counter[id] -= ingredientsFromInput[id]
                 if (counter[id] < 0) {
                     counter[id] = 0
                 }
             }
-
+            
             if (ingredient.id === +id) {
                 quantityOfIngredients = counter[id]
             }
@@ -81,7 +81,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
             </React.Fragment>
         )
     });
-// console.log('ingredient.sellPrice', component.ingredients[0].sellPrice);
+    console.log('renderIngredientsArr', renderIngredientsArr);
     return (
         <>
             <div className="components-cost">
