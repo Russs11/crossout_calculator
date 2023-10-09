@@ -1,4 +1,4 @@
-import React,{useEffect, useCallback} from 'react';
+import React, { useEffect, useCallback } from 'react';
 import './ComponentsCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
@@ -9,11 +9,11 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
     let counter
     let ingredientsCost
     // let totalIngredientsCost
-    let quantityOfIngredients 
+    let quantityOfIngredients
     let btnClasses = btnSwitchBuyFabricate ? "switch-btn switch-on" : "switch-btn "
 
-        // console.log('component', component);
-  
+    // console.log('component', component);
+
     function clickHandler() {
         setBtnSwitchBuyFabricate((prev) => { return !prev });
     };
@@ -33,25 +33,25 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
         let count = {};
         ingredientsArr.forEach(function (i) { count[i.id] = (count[i.id] || 0) + 1; });
         localIngredientArr = [...new Set(ingredientsArr)];
-        
+
         return count
     }
-    
+
     setInstanceSellPrice(component.ingredients, classInstances);
     counter = setCounterOfIngredients(component.ingredients);
-    
-   let totalIngredientsCost = Math.round(component.ingredients.reduce((a, b) => {
+
+    let totalIngredientsCost  = Math.round(component.ingredients.reduce((a, b) => {
         return a + b.sellPrice
     }, 0));
 
     useEffect(() => {
-        
+
         setAllIngredientsPrice(btnSwitchBuyFabricate ? totalIngredientsCost : 0);
     }, [btnSwitchBuyFabricate]);
 
 
-
-
+    
+console.log(totalIngredientsCost);
 
     renderIngredientsArr = localIngredientArr.map(ingredient => {
         for (const id in counter) {
@@ -59,18 +59,14 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
                 counter[id] -= ingredientsFromInput[id]
                 if (counter[id] < 0) {
                     counter[id] = 0
-                }
+                } 
             }
-            
             if (ingredient.id === +id) {
                 quantityOfIngredients = counter[id]
             }
-
-
-
         }
         ingredientsCost = Math.round((quantityOfIngredients * ingredient.sellPrice) * 100) / 100
-
+        // totalIngredientsCost += ingredientsCost
         return (
             <React.Fragment key={ingredient.id}>
                 <div className="component-image_8 small-component-img"
@@ -81,7 +77,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
             </React.Fragment>
         )
     });
-    console.log('renderIngredientsArr', renderIngredientsArr);
+    // console.log('renderIngredientsArr', renderIngredientsArr);
     return (
         <>
             <div className="components-cost">
