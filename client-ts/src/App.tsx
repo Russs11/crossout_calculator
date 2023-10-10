@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { useState, useEffect } from "react";
 import "./App.css";
 import Container from "./containers/Container";
@@ -267,14 +267,14 @@ function App() {
   // console.log(resourcePrices);
   // console.log('itemsList', itemsList);
   if (itemsList) {
-    const instanceFromData = []
+    const instanceFromData:IComponent[] = []
     for (const item of itemsList) {
 
       for (const instance of classInstances) {
         if (item.id === instance.id) { // Сравниваем id объекта с id экземпляра класса
           // console.log('instance', item.id, instance.id);
           instanceFromData.push(instance)
-          itemsArr = instanceFromData.map(inst => {
+          itemsArr = instanceFromData.map((inst: IComponent): ReactElement => {
             if (selectedItem === inst.id) {
               return (
                 <Item
@@ -300,7 +300,7 @@ function App() {
   }
 
   if (selectedItem) {
-    selectedInstance = classInstances.find(inst => inst.id === selectedItem);
+    selectedInstance = classInstances.find((inst: IComponent): boolean => inst.id === selectedItem);
   }
   // console.log('scrapmetalInput', resoursesFromInput.scrapMetal);
 
