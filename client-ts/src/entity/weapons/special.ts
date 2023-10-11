@@ -1,29 +1,35 @@
 import { SpecialVehicleComponent } from "../specialVehicleComponent";
 import { Growl, Wyvern } from "../cabins/rare";
-import {
-  AmmoPack,
-  BigG,
-  Blastoff,
-  CSTaymyr,
-  FuelTank,
-  R2Chill,
-  RD1Listener,
-} from "../hardware/rare";
-import {
-  AC43Rapier,
-  AD12Falcon,
-  Borer,
-  DTCobra,
-  Judge76mm,
-  LittleBoy6LB,
-  Sledgehammer,
-  Spitfire,
-  STM23Defender,
-  Vector,
-  Wasp,
-} from "./rare";
+import CabinsRareArray from "../cabins/rare";
+import HardwareRareArray from "../hardware/rare";
+import WeaponsRareArray from "./rare";
+// import {
+//   AmmoPack,
+//   BigG,
+//   Blastoff,
+//   CSTaymyr,
+//   FuelTank,
+//   R2Chill,
+//   RD1Listener,
+// } from "../hardware/rare";
+// import {
+//   AC43Rapier,
+//   AD12Falcon,
+//   Borer,
+//   DTCobra,
+//   Judge76mm,
+//   LittleBoy6LB,
+//   Sledgehammer,
+//   Spitfire,
+//   STM23Defender,
+//   Vector,
+//   Wasp,
+// } from "./rare";
 import * as WeaponImages from "./WeaponImages";
-export class M37Piercer extends SpecialVehicleComponent {
+
+let [Growl, Wyvern, Trucker] = CabinsRareArray
+
+class M37Piercer extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 215;
@@ -35,7 +41,7 @@ export class M37Piercer extends SpecialVehicleComponent {
     this.img = WeaponImages.M37Piercer;
   }
 }
-export class Sinus0 extends SpecialVehicleComponent {
+class Sinus0 extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 216;
@@ -45,7 +51,7 @@ export class Sinus0 extends SpecialVehicleComponent {
     this.img = WeaponImages.Sinus0;
   }
 }
-export class Goblin extends SpecialVehicleComponent {
+class Goblin extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 217;
@@ -55,7 +61,7 @@ export class Goblin extends SpecialVehicleComponent {
     this.img = WeaponImages.Goblin
   }
 }
-export class Junkbow extends SpecialVehicleComponent {
+class Junkbow extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 218;
@@ -65,7 +71,7 @@ export class Junkbow extends SpecialVehicleComponent {
     this.img = WeaponImages.Junkbow
   }
 }
-export class Mace extends SpecialVehicleComponent {
+class Mace extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 219;
@@ -75,7 +81,7 @@ export class Mace extends SpecialVehicleComponent {
     this.img = WeaponImages.Mace
   }
 }
-export class AC50Storm extends SpecialVehicleComponent {
+class AC50Storm extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 220;
@@ -85,7 +91,7 @@ export class AC50Storm extends SpecialVehicleComponent {
     this.img = WeaponImages.AC50Storm
   }
 }
-export class ZS33Hulk extends SpecialVehicleComponent {
+class ZS33Hulk extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 221;
@@ -95,7 +101,7 @@ export class ZS33Hulk extends SpecialVehicleComponent {
     this.img = WeaponImages.ZS33Hulk
   }
 }
-export class Prosecutor76mm extends SpecialVehicleComponent {
+class Prosecutor76mm extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 222;
@@ -105,7 +111,7 @@ export class Prosecutor76mm extends SpecialVehicleComponent {
     this.img = WeaponImages.Prosecutor76mm
   }
 }
-export class Synthesis extends SpecialVehicleComponent {
+class Synthesis extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 223;
@@ -115,7 +121,7 @@ export class Synthesis extends SpecialVehicleComponent {
     this.img = WeaponImages.Synthesis
   }
 }
-export class Boom extends SpecialVehicleComponent {
+class Boom extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 224;
@@ -125,7 +131,7 @@ export class Boom extends SpecialVehicleComponent {
     this.img = WeaponImages.Boom
   }
 }
-export class Tempura extends SpecialVehicleComponent {
+class Tempura extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 225;
@@ -138,7 +144,7 @@ export class Tempura extends SpecialVehicleComponent {
     this.img = WeaponImages.Tempura
   }
 }
-export class Buzzsaw extends SpecialVehicleComponent {
+class Buzzsaw extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 226;
@@ -148,7 +154,7 @@ export class Buzzsaw extends SpecialVehicleComponent {
     this.img = WeaponImages.Buzzsaw
   }
 }
-export class AD13Hawk extends SpecialVehicleComponent {
+class AD13Hawk extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 227;
@@ -158,7 +164,7 @@ export class AD13Hawk extends SpecialVehicleComponent {
     this.img = WeaponImages.AD13Hawk
   }
 }
-export class Sidekick extends SpecialVehicleComponent {
+class Sidekick extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 228;
@@ -168,7 +174,7 @@ export class Sidekick extends SpecialVehicleComponent {
     this.img = WeaponImages.Sidekick
   }
 }
-export class T3Python extends SpecialVehicleComponent {
+class T3Python extends SpecialVehicleComponent {
   constructor() {
     super();
     this.id = 229;
