@@ -1,15 +1,16 @@
 import { RareVehicleComponent } from "../rareVehicleComponent";
-import {CommonVehicleComponent} from "../commonVehicleComponent"
+import { CommonVehicleComponent } from "../commonVehicleComponent";
 import HardwareCommonArray from "../hardware/common";
 import MovementCommonArray from "../movement/common";
 import WeaponsCommonArray from "./common";
 import * as WeaponImages from "./WeaponImages";
 
-let [P54MAccord, Lupara, Avenger57mm] = WeaponsCommonArray;
-let [FuelBarrel, CarJack, Radio, RS1Ruby, B1Aviator, R1Breese] =
+let [P54MAccord, Lupara, Avenger57mm]: CommonVehicleComponent[] =
+  WeaponsCommonArray;
+let [FuelBarrel, CarJack, Radio, RS1Ruby, B1Aviator, R1Breese]:CommonVehicleComponent[] =
   HardwareCommonArray;
 
-  let MediumWheelST: CommonVehicleComponent = MovementCommonArray[3];
+let MediumWheelST: CommonVehicleComponent = MovementCommonArray[3];
 class STM23Defender extends RareVehicleComponent {
   constructor() {
     super();
