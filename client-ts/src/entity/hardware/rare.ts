@@ -1,27 +1,15 @@
 import { RareVehicleComponent } from "../rareVehicleComponent";
 import * as HardwareImages from "./HardwareImages";
-// import { Docker, Huntsman } from "../cabins/common";
-// import { SmallWheel } from "../movement/common";
-// // import { Avenger57mm } from '../weapons/common'
-// import {
-//   B1Aviator,
-//   CarJack,
-//   FuelBarrel,
-//   R1Breese,
-//   Radio,
-//   RS1Ruby,
-// } from "./common";
 import WeaponsCommonArray from "../weapons/common";
 import HardwareCommonArray from "./common";
 import MovementCommonArray from "../movement/common";
 import CabinsCommonArray from "../cabins/common";
+import { CommonVehicleComponent } from "../commonVehicleComponent";
 
-let [P54MAccord, Lupara, Avenger57mm] = WeaponsCommonArray;
-let [FuelBarrel, CarJack, Radio, RS1Ruby, B1Aviator, R1Breese] =
-  HardwareCommonArray;
-let [SmallWheel, SmallWheelST, MediumWheel, MediumWheelST] =
-  MovementCommonArray;
-let [Sprinter, Huntsman, WWT1, Docker] = CabinsCommonArray;
+let [FuelBarrel, CarJack, Radio, RS1Ruby, B1Aviator, R1Breese]: CommonVehicleComponent[] = HardwareCommonArray;
+let [Sprinter, Huntsman, WWT1, Docker]: CommonVehicleComponent[] = CabinsCommonArray;
+let Avenger57mm: CommonVehicleComponent = WeaponsCommonArray[2];
+let SmallWheel: CommonVehicleComponent = MovementCommonArray[0];
 
 class FuelTank extends RareVehicleComponent {
   constructor() {

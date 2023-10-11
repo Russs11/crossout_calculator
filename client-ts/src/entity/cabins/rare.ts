@@ -1,15 +1,15 @@
 import { RareVehicleComponent } from "../rareVehicleComponent";
 import * as CabinsImages from "./CabinsImages";
-// import { RS1Ruby } from "../hardware/common";
-// import { Lupara } from '../weapons/common'
 import CabinsCommonArray from "./common";
 import WeaponsCommonArray from "../weapons/common";
 import HardwareCommonArray from "../hardware/common";
+import { CommonVehicleComponent } from "../commonVehicleComponent";
 
-let [P54MAccord, Lupara, Avenger57mm] = WeaponsCommonArray;
-let [Sprinter, Huntsman, WWT1, Docker] = CabinsCommonArray;
-let [FuelBarrel, CarJack, Radio, RS1Ruby, B1Aviator, R1Breese] =
-  HardwareCommonArray;
+let [Sprinter, Huntsman, WWT1, Docker]: CommonVehicleComponent[] =
+  CabinsCommonArray;
+let Lupara: CommonVehicleComponent = WeaponsCommonArray[1];
+let RS1Ruby: CommonVehicleComponent = HardwareCommonArray[3];
+  
 class Growl extends RareVehicleComponent {
   constructor() {
     super();
