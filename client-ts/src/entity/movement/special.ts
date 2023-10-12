@@ -134,7 +134,7 @@ new ShivST(),
 new APCWheel(),
 new APCWheelST(),
 new TwinWheel(),
-new TwinWheelST()
+new TwinWheelST() 
 ]
 
 export default MovementSpecialArray;
