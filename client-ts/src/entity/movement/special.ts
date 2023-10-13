@@ -125,7 +125,8 @@ class TwinWheelST extends SpecialVehicleComponent {
 }
 
 
-const MovementSpecialArray: SpecialVehicleComponent[] = [new LunarIV(),
+const MovementSpecialArray: SpecialVehicleComponent[] = [
+new LunarIV(),
 new LunarIVST(),
 new Camber(),
 new CamberST(),

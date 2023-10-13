@@ -42,10 +42,10 @@ class Jawbreaker extends SpecialVehicleComponent {
     this.img = CabinsImages.Jawbreaker;
   }
 }
-const SpecialCabinsArray: SpecialVehicleComponent[] = [
+const CabinsSpecialArray: SpecialVehicleComponent[] = [
   new Bat(),
   new Pilgrim(),
   new Jawbreaker(),
 ];
 
-export default SpecialCabinsArray;
+export default CabinsSpecialArray;
