@@ -1,28 +1,13 @@
 import { SpecialVehicleComponent } from "../specialVehicleComponent";
-// import { Trucker } from "../cabins/rare";
-// import MovementRareArray, {
-//   RacingWheelST,
-//   LandingGearST,
-//   RacingWheel,
-//   LandingGear,
-// } from "../movement/rare";
-// import { LittleBoy6LB, DTCobra, AD12Falcon } from "../weapons/rare";
-// import HardwareRareArray, {
-//   R2Chill,
-//   AmmoPack,
-//   Blastoff,
-//   CSTaymyr,
-//   TS1Horizon,
-//   RD1Listener,
-// } from "./rare";
 import * as HardwareImages from "./HardwareImages";
-import CabinsCommonArray from "../cabins/common";
+import CabinsRareArray from "../cabins/rare";
 import HardwareRareArray from "./rare";
 import MovementRareArray from "../movement/rare";
+import WeaponsRareArray from "../weapons/rare";
 import { RareVehicleComponent } from "../rareVehicleComponent";
 import { CommonVehicleComponent } from "../commonVehicleComponent";
 
-let Trucker: CommonVehicleComponent = CabinsCommonArray[2];
+let Trucker: RareVehicleComponent = CabinsRareArray[2];
 let LittleBoy6LB: RareVehicleComponent = WeaponsRareArray[5];
 let AD12Falcon: RareVehicleComponent = WeaponsRareArray[9];
 let DTCobra: RareVehicleComponent = WeaponsRareArray[10];

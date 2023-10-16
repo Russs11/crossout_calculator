@@ -1,3 +1,4 @@
+import { CommonVehicleComponent } from './commonVehicleComponent'
 import { RareVehicleComponent } from './rareVehicleComponent'
 
 export class SpecialVehicleComponent {
@@ -14,7 +15,7 @@ export class SpecialVehicleComponent {
   wires: number
   plastic: number
   engravedCasings: number
-  ingredients: RareVehicleComponent[]
+  ingredients: RareVehicleComponent[] 
   img: string
 
   constructor() {

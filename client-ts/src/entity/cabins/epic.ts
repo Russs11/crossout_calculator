@@ -22,7 +22,9 @@ let [Chameleon,
   Genesis,]: SpecialVehicleComponent[] = HardwareSpecialArray;
 
 
-let [LunarIVST,
+let [
+  LunarIV,
+  LunarIVST,
   Camber,
   CamberST,
   Shiv,
@@ -30,7 +32,8 @@ let [LunarIVST,
   APCWheel,
   APCWheelST,
   TwinWheel,
-  TwinWheelST]: SpecialVehicleComponent[] = MovementSpecialArray
+  TwinWheelST,
+]: SpecialVehicleComponent[] = MovementSpecialArray;
 
 let [M37Piercer,
   Sinus0,
