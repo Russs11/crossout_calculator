@@ -1,6 +1,13 @@
-import { Gasgen } from '../hardware/epic'
+import { EpicVehicleComponent } from '../epicVehicleComponent';
+import HardwareEpicArray from '../hardware/epic'
 import { LegendaryVehicleComponent } from '../legendaryVehicleComponent'
-import { MG13Equalizer, RTAnaconda } from './epic'
+import WeaponsEpicArray from './epic'
+
+const MG13Equalizer: EpicVehicleComponent = WeaponsEpicArray[3];
+
+const RTAnaconda: EpicVehicleComponent = WeaponsEpicArray[26];
+
+const Gasgen: EpicVehicleComponent = HardwareEpicArray[6];
 
 export class MG14Arbiter extends LegendaryVehicleComponent {
   constructor() {
@@ -11,6 +18,6 @@ export class MG14Arbiter extends LegendaryVehicleComponent {
     this.electronics = 750
     this.copper = 750
     this.batteries = 750
-    this.ingredients = [new MG13Equalizer(), new MG13Equalizer(), new Gasgen(), new RTAnaconda(), new RTAnaconda()]
+    this.ingredients = [ MG13Equalizer,  MG13Equalizer,  Gasgen,  RTAnaconda,  RTAnaconda]
   }
 }
