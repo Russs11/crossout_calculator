@@ -3,14 +3,12 @@ import './Item.scss'
 import { useState } from 'react';
 
 
-const Item = ({ id, active, handleClick, img }) => {
+const Item = ({ id, active, handleClick, img }: { id: number, active: boolean, handleClick: (id: number) => void, img: string }) => {
 	// console.log(typeof(img));
 	const itemImg: {} = {
 		backgroundImage: 'url(' + img + ')'
-		// background: 'green'
 	}
 
-	// console.log(itemImg);
 	if (active) {
 		return (
 			<>

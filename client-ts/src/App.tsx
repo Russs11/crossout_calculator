@@ -69,6 +69,8 @@ function App() {
     scrapMetal: number;
     copper: number;
     img: string;
+    productionTime?: number;
+    benchCost?: number;
   }
   interface IItem {
     id: number,
@@ -101,22 +103,6 @@ function App() {
   // console.log(typeof(WeaponsCommon));
   useEffect(() => {
     let entityArr: IComponent[] = []
-
-
-    // let wCommon: keyof typeof WeaponsCommon;
-    // let wRare: keyof typeof WeaponsRare;
-    // let wSpecial: keyof typeof WeaponsSpecial;
-    // let wEpic: keyof typeof WeaponsEpic;
-
-    // let mCommon: keyof typeof MovementCommon;
-    // let mRare: keyof typeof MovementRare;
-    // let mSpecial: keyof typeof MovementSpecial;
-    // let mEpic: keyof typeof MovementEpic;
-
-    // let cCommon: keyof typeof CabinsCommon;
-    // let cRare: keyof typeof CabinsRare;
-    // let cSpecial: keyof typeof CabinsSpecial;
-    // let cEpic: keyof typeof CabinsEpic;
 
     for (const item of WeaponsCommonArray) {
       entityArr.push(item)
@@ -157,80 +143,20 @@ function App() {
       entityArr.push(item)
     }
 
-
+    for (const item of MovementCommonArray) {
+      entityArr.push(item)
+    }
+    for (const item of MovementRareArray) {
+      entityArr.push(item)
+    }
+    for (const item of MovementSpecialArray) {
+      entityArr.push(item)
+    }
+    for (const item of MovementEpicArray) {
+      entityArr.push(item)
+    }
     console.log(entityArr);
-    // for (wCommon in WeaponsCommon) {
-    //   const newItem = new WeaponsCommon[wCommon]()
-    //   entityArr.push(newItem)
-    // }
-    // for (wRare in WeaponsRare) {
-    //   const newItem = new WeaponsRare[wRare]()
-    //   entityArr.push(newItem)
-    // }
 
-    // for (wSpecial in WeaponsSpecial) {
-    //   const newItem = new WeaponsSpecial[wSpecial]()
-    //   entityArr.push(newItem)
-    // }
-    // for (wEpic in WeaponsEpic) {
-    //   const newItem = new WeaponsEpic[wEpic]()
-    //   entityArr.push(newItem)
-    // }
-
-    // for (mCommon in MovementCommon) {
-    //   const newItem = new MovementCommon[mCommon]()
-    //   entityArr.push(newItem)
-    // }
-    // for (mRare in MovementRare) {
-    //   const newItem = new MovementRare[mRare]()
-    //   entityArr.push(newItem)
-    // }
-    // for (mSpecial in MovementSpecial) {
-    //   const newItem = new MovementSpecial[mSpecial]()
-    //   entityArr.push(newItem)
-    // }
-    // for (mEpic in MovementEpic) {
-    //   const newItem = new MovementEpic[mEpic]()
-    //   entityArr.push(newItem)
-    // }
-
-    // for (cCommon in CabinsCommon) {
-    //   const newItem = new CabinsCommon[cCommon]()
-    //   entityArr.push(newItem)
-    // }
-    // for (const item in CabinsRare) {
-    //   entityArr.push(new CabinsRare[item]())
-    // }
-    // for (const item in CabinsSpecial) {
-    //   entityArr.push(new CabinsSpecial[item]())
-    // }
-    // for (const item in CabinsEpic) {
-    //   entityArr.push(new CabinsEpic[item]())
-    // }
-    // for (const item in HardwareCommon) {
-    //   entityArr.push(new HardwareCommon[item]())
-    // }
-    // for (const item in HardwareRare) {
-    //   entityArr.push(new HardwareRare[item]())
-    // }
-    // for (const item in HardwareSpecial) {
-    //   entityArr.push(new HardwareSpecial[item]())
-    // }
-    // for (const item in HardwareEpic) {
-    //   entityArr.push(new HardwareEpic[item]())
-    // }
-    // for (const item in MovementCommon) {
-    //   entityArr.push(new MovementCommon[item]())
-    // }
-    // for (const item in MovementRare) {
-    //   entityArr.push(new MovementRare[item]())
-    // }
-    // for (const item in MovementSpecial) {
-    //   entityArr.push(new MovementSpecial[item]())
-    // }
-    // for (const item in MovementEpic) {
-    //   entityArr.push(new MovementEpic[item]())
-    // }
     setClassInstances(entityArr)
 
   }, [])
@@ -355,7 +281,7 @@ function App() {
 
   // console.log(selectedInstance);
 
-
+console.log('selectedInstance', selectedInstance);
   return (
     <div className="App">
       <Container>
