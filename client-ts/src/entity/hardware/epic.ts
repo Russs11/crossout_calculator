@@ -1,33 +1,4 @@
 import { EpicVehicleComponent } from "../epicVehicleComponent";
-// import MovementSpecialArray, {
-//   LunarIV,
-//   ShivST,
-//   TwinWheel,
-//   TwinWheelST,
-// } from "../movement/special";
-// import {
-//   Prosecutor76mm,
-//   Buzzsaw,
-//   Goblin,
-//   Boom,
-//   Junkbow,
-//   Mace,
-//   AC50Storm,
-//   ZS33Hulk,
-//   AD13Hawk,
-// } from "../weapons/special";
-// import {
-//   Ampere,
-//   Chameleon,
-//   DunHorse,
-//   Genesis,
-//   Hardcore,
-//   KA1Discharger,
-//   Maxwell,
-//   OculusVI,
-//   PU1Charge,
-//   Razorback,
-// } from "./special";
 import * as HardwareImages from "./HardwareImages";
 import { SpecialVehicleComponent } from "../specialVehicleComponent";
 import CabinsSpecialArray from "../cabins/special";

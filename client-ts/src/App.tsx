@@ -25,21 +25,21 @@ import { RareVehicleComponent } from "./entity/rareVehicleComponent"
 import { SpecialVehicleComponent } from "./entity/specialVehicleComponent"
 import { EpicVehicleComponent } from "./entity/epicVehicleComponent"
 import WeaponsCommonArray from "./entity/weapons/common";
-import * as WeaponsRare from "./entity/weapons/rare"
-import * as WeaponsSpecial from "./entity/weapons/special"
-import * as WeaponsEpic from "./entity/weapons/epic"
-import * as CabinsCommon from "./entity/cabins/common"
-import * as CabinsRare from "./entity/cabins/rare"
-import * as CabinsSpecial from "./entity/cabins/special"
-import * as CabinsEpic from "./entity/cabins/epic"
-import * as HardwareCommon from "./entity/hardware/common"
-import * as HardwareRare from "./entity/hardware/rare"
-import * as HardwareSpecial from "./entity/hardware/special"
-import * as HardwareEpic from "./entity/hardware/epic"
-import * as MovementCommon from "./entity/movement/common"
-import * as MovementRare from "./entity/movement/rare"
-import * as MovementSpecial from "./entity/movement/special"
-import * as MovementEpic from "./entity/movement/epic"
+import WeaponsRareArray from "./entity/weapons/rare"
+import WeaponsSpecialArray from "./entity/weapons/special"
+import WeaponsEpicArray from "./entity/weapons/epic"
+import CabinsCommonArray from "./entity/cabins/common"
+import CabinsRareArray from "./entity/cabins/rare"
+import CabinsSpecialArray from "./entity/cabins/special"
+import CabinsEpicArray from "./entity/cabins/epic"
+import HardwareCommonArray from "./entity/hardware/common"
+import HardwareRareArray from "./entity/hardware/rare"
+import HardwareSpecialArray from "./entity/hardware/special"
+import HardwareEpicArray from "./entity/hardware/epic"
+import MovementCommonArray from "./entity/movement/common"
+import MovementRareArray from "./entity/movement/rare"
+import MovementSpecialArray from "./entity/movement/special"
+import MovementEpicArray from "./entity/movement/epic"
 
 import LoadingSpinner from "./components/LoadingSpinner";
 import LoadingSpinnerForBlock from "./components/LoadingSpinnerForBlock";
@@ -121,7 +121,42 @@ function App() {
     for (const item of WeaponsCommonArray) {
       entityArr.push(item)
     }
-    let [P54MAccord, Lupara, Avenger57mm] = WeaponsCommonArray;
+    for (const item of WeaponsRareArray) {
+      entityArr.push(item)
+    }
+    for (const item of WeaponsSpecialArray) {
+      entityArr.push(item)
+    }
+    for (const item of WeaponsEpicArray) {
+      entityArr.push(item)
+    }
+
+    for (const item of CabinsCommonArray) {
+      entityArr.push(item)
+    }
+    for (const item of CabinsRareArray) {
+      entityArr.push(item)
+    }
+    for (const item of CabinsSpecialArray) {
+      entityArr.push(item)
+    }
+    for (const item of CabinsEpicArray) {
+      entityArr.push(item)
+    }
+
+    for (const item of HardwareCommonArray) {
+      entityArr.push(item)
+    }
+    for (const item of HardwareRareArray) {
+      entityArr.push(item)
+    }
+    for (const item of HardwareSpecialArray) {
+      entityArr.push(item)
+    }
+    for (const item of HardwareEpicArray) {
+      entityArr.push(item)
+    }
+
 
     console.log(entityArr);
     // for (wCommon in WeaponsCommon) {
@@ -267,7 +302,7 @@ function App() {
   // console.log(resourcePrices);
   // console.log('itemsList', itemsList);
   if (itemsList) {
-    const instanceFromData:IComponent[] = []
+    const instanceFromData: IComponent[] = []
     for (const item of itemsList) {
 
       for (const instance of classInstances) {
@@ -344,14 +379,14 @@ function App() {
               </ItemCard>
               <VerticalSeparator />
               <ProductionCostWrapper>
-                <ProductionCost
+                {/* <ProductionCost
                   component={selectedInstance}
                   resourcePrices={resourcePrices}
                   btnSwitchBuyFabricate={btnSwitchBuyFabricate}
                   resoursesFromInput={resoursesFromInput}
                   setCostPrice={setCostPrice}
                   costPrice={costPrice}
-                />
+                /> */}
                 {selectedInstance.sellPrice ?
                   <ComponentsCost
                     component={selectedInstance}
@@ -369,13 +404,13 @@ function App() {
               </ProductionCostWrapper>
               <VerticalSeparator />
               <ResoursesAvailableWrapper>
-                <ResoursesAvailable
+                {/* <ResoursesAvailable
                   resoursesFromInput={resoursesFromInput}
                   setResoursesFromInput={setResoursesFromInput}
                   component={selectedInstance}
                   resourcePrices={resourcePrices}
                 // inputClickHandler={inputClickHandler}
-                />
+                /> */}
               </ResoursesAvailableWrapper>
             </MainCard> :
             <LoadingSpinnerForBlock />}
