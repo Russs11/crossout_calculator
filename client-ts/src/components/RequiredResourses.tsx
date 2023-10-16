@@ -1,10 +1,11 @@
 import React from 'react';
 import './RequiredResourses.scss'
 import HorizontalSeparator from './HorizontalSeparator';
+import { IComponent, IResourcePrices } from '../interfaces/Interfaces';
 
 
 
-const RequiredResourses = ({ component, resourcePrices }) => {
+const RequiredResourses = ({ component, resourcePrices }: { component: IComponent, resourcePrices: IResourcePrices[] }) => {
 	
 	const resoursesArr = []
 

@@ -45,47 +45,46 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import LoadingSpinnerForBlock from "./components/LoadingSpinnerForBlock";
 import Spinner from "./components/Spinner";
 import HorizontalSeparator from "./components/HorizontalSeparator";
-
-
+import { IComponent, IResourcesFromInput, IResourcePrices, IItem, } from "./interfaces/Interfaces";
 
 function App() {
 
-  interface IResourcesFromInput {
-    scrapMetal: number;
-    copper: number;
-    wires: number;
-    plastic: number;
-    engravedCasings: number;
-    batteries: number;
-    electronics: number;
-  }
-  interface IComponent {
-    id: number;
-    name: string;
-    type: string;
-    rarity: string;
-    buyPrice: number;
-    sellPrice: number;
-    scrapMetal: number;
-    copper: number;
-    img: string;
-    productionTime?: number;
-    benchCost?: number;
-  }
-  interface IItem {
-    id: number,
-    name: string,
-    profitRatio: number
-  }
+  // interface IResourcesFromInput {
+  //   scrapMetal: number;
+  //   copper: number;
+  //   wires: number;
+  //   plastic: number;
+  //   engravedCasings: number;
+  //   batteries: number;
+  //   electronics: number;
+  // }
+  // interface IComponent {
+  //   id: number;
+  //   name: string;
+  //   type: string;
+  //   rarity: string;
+  //   buyPrice: number;
+  //   sellPrice: number;
+  //   scrapMetal: number;
+  //   copper: number;
+  //   img: string;
+  //   productionTime?: number;
+  //   benchCost?: number;
+  // }
+  // interface IItem {
+  //   id: number,
+  //   name: string,
+  //   profitRatio: number
+  // }
 
-  interface IResourcePrices {
-    buyPrice: number,
-    dbId: number,
-    dbName: string,
-    id: number,
-    name: string,
-    sellPrice: number
-  }
+  // interface IResourcePrices {
+  //   buyPrice: number,
+  //   dbId: number,
+  //   dbName: string,
+  //   id: number,
+  //   name: string,
+  //   sellPrice: number
+  // }
   const [itemsList, setItemsList] = useState<IItem[]>([]);
   const [selectedItem, setSelectedItem] = useState<number>(0)
   const [classInstances, setClassInstances] = useState<IComponent[]>([])
