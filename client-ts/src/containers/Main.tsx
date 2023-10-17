@@ -1,8 +1,11 @@
 import React from 'react';
 import "./Main.scss"
 
+interface IMainPropsDto{
+    children: JSX.Element[];
+}
 
-const Main = ({ children }) => {
+const Main = ({ children }: IMainPropsDto) => {
     return (
         <>
             <div className="main">

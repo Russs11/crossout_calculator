@@ -51,10 +51,10 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     let totalAllResoursesСost = Math.round(allScrapMetalCost + allCopperCost + allWiresCost + allPlasticCost + allEngravedCasingsCost + allBatteriesCost + allElectronicsCost + benchCost)
     let totalResoursesCost = Math.round(scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost)
 
-  
+
     setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
 
-    console.log('costPrice2', costPrice);
+    console.log('resoursesFromInput', resoursesFromInput);
 
 
     if (resoursesFromInput.scrapMetal > 0) {

@@ -92,7 +92,15 @@ function App() {
   const [btnSwitchBuyFabricate, setBtnSwitchBuyFabricate] = useState<boolean>(false)
   const [costPrice, setCostPrice] = useState<number>(0)
   const [allIngredientsPrice, setAllIngredientsPrice] = useState<number>(0)
-  const [resoursesFromInput, setResoursesFromInput] = useState<IResourcesFromInput>()
+  const [resoursesFromInput, setResoursesFromInput] = useState<IResourcesFromInput>({
+    scrapMetal: 0,
+    copper: 0,
+    wires: 0,
+    plastic: 0,
+    engravedCasings: 0,
+    batteries: 0,
+    electronics: 0,
+  });
 
 
 
@@ -304,14 +312,14 @@ console.log('selectedInstance', selectedInstance);
               </ItemCard>
               <VerticalSeparator />
               <ProductionCostWrapper>
-                {/* <ProductionCost
+                <ProductionCost
                   component={selectedInstance}
                   resourcePrices={resourcePrices}
                   btnSwitchBuyFabricate={btnSwitchBuyFabricate}
                   resoursesFromInput={resoursesFromInput}
                   setCostPrice={setCostPrice}
                   costPrice={costPrice}
-                /> */}
+                />
                 {selectedInstance.sellPrice ?
                   <ComponentsCost
                     component={selectedInstance}
@@ -329,13 +337,13 @@ console.log('selectedInstance', selectedInstance);
               </ProductionCostWrapper>
               <VerticalSeparator />
               <ResoursesAvailableWrapper>
-                {/* <ResoursesAvailable
+                <ResoursesAvailable
                   resoursesFromInput={resoursesFromInput}
                   setResoursesFromInput={setResoursesFromInput}
                   component={selectedInstance}
                   resourcePrices={resourcePrices}
                 // inputClickHandler={inputClickHandler}
-                /> */}
+                />
               </ResoursesAvailableWrapper>
             </MainCard> :
             <LoadingSpinnerForBlock />}

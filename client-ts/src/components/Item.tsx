@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { StyleHTMLAttributes } from 'react';
 import './Item.scss'
 import { useState } from 'react';
 
+interface IItemPropsDto{
+	id: number;
+	active: boolean;
+	handleClick: (id: number) => void;
+	img: string;
+}
 
-const Item = ({ id, active, handleClick, img }: { id: number, active: boolean, handleClick: (id: number) => void, img: string }) => {
-	// console.log(typeof(img));
+const Item = ({ id, active, handleClick, img }: IItemPropsDto) => {
+
 	const itemImg: {} = {
 		backgroundImage: 'url(' + img + ')'
 	}
