@@ -1,11 +1,8 @@
-// .loading-spinner-for-block {
-// 	display: grid;
-// 	grid-template-columns: 1fr;
-// 	grid-template-rows: 1fr;
-// 	justify-content: center;
-// 	align-items: center;
-// 	// margin-top: 10px;
-// }
+.loading-spinner-for-block {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
 
 .loader,
 .loader:before,

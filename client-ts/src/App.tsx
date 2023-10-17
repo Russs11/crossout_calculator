@@ -19,24 +19,6 @@ import ComponentsCost from "./components/ComponentsCost";
 import Profit from "./components/Profit";
 import ResoursesAvailableWrapper from "./containers/ResoursesAvailableWrapper";
 import ResoursesAvailable from "./components/ResoursesAvailable";
-
-import WeaponsCommonArray from "./entity/weapons/common";
-import WeaponsRareArray from "./entity/weapons/rare"
-import WeaponsSpecialArray from "./entity/weapons/special"
-import WeaponsEpicArray from "./entity/weapons/epic"
-import CabinsCommonArray from "./entity/cabins/common"
-import CabinsRareArray from "./entity/cabins/rare"
-import CabinsSpecialArray from "./entity/cabins/special"
-import CabinsEpicArray from "./entity/cabins/epic"
-import HardwareCommonArray from "./entity/hardware/common"
-import HardwareRareArray from "./entity/hardware/rare"
-import HardwareSpecialArray from "./entity/hardware/special"
-import HardwareEpicArray from "./entity/hardware/epic"
-import MovementCommonArray from "./entity/movement/common"
-import MovementRareArray from "./entity/movement/rare"
-import MovementSpecialArray from "./entity/movement/special"
-import MovementEpicArray from "./entity/movement/epic"
-
 import LoadingSpinner from "./components/LoadingSpinner";
 import LoadingSpinnerForBlock from "./components/LoadingSpinnerForBlock";
 import Spinner from "./components/Spinner";
@@ -72,64 +54,64 @@ function App() {
   let itemsArr: JSX.Element[] = []
   // console.log(typeof(WeaponsCommon));
   useEffect(() => {
-    
-    setClassInstances(instancesToArr())
+    const entityArr = instancesToArr()
+    setClassInstances(entityArr)
 
   }, [])
 
 
-  // useEffect(() => {
-  //   fetch('http://45.12.73.147:3001/prices/start')
-  //     .then((response) => response.json())
-  //     .then(({ prices, list }) => {
+  useEffect(() => {
+    fetch('http://45.12.73.147:3001/prices/start')
+      .then((response) => response.json())
+      .then(({ prices, list }) => {
 
-  //       setItemsList(list)
-  //       setSelectedItem(list[0].id)
-  //       setResourcePrices(prices.resourcePrices)
-  //       // console.log('prices', prices);
-  //       for (const item of prices.cabinPrices) {
-  //         for (const instance of classInstances) {
-  //           if (item.id === instance.id) {
-  //             instance.sellPrice = item.sellPrice
-  //             instance.buyPrice = item.buyPrice
-  //             break;
-  //           }
-  //         }
-  //       }
+        setItemsList(list)
+        setSelectedItem(list[0].id)
+        setResourcePrices(prices.resourcePrices)
+        // console.log('prices', prices);
+        for (const item of prices.cabinPrices) {
+          for (const instance of classInstances) {
+            if (item.id === instance.id) {
+              instance.sellPrice = item.sellPrice
+              instance.buyPrice = item.buyPrice
+              break;
+            }
+          }
+        }
 
-  //       for (const item of prices.weaponPrices) {
-  //         for (const instance of classInstances) {
-  //           if (item.id === instance.id) {
-  //             instance.sellPrice = item.sellPrice
-  //             instance.buyPrice = item.buyPrice
-  //             break;
-  //           }
-  //         }
-  //       }
-  //       for (const item of prices.hardwarePrices) {
-  //         for (const instance of classInstances) {
-  //           if (item.id === instance.id) {
-  //             instance.sellPrice = item.sellPrice
-  //             instance.buyPrice = item.buyPrice
-  //             break;
-  //           }
-  //         }
-  //       }
-  //       for (const item of prices.movementPrices) {
-  //         for (const instance of classInstances) {
-  //           if (item.id === instance.id) {
-  //             instance.sellPrice = item.sellPrice
-  //             instance.buyPrice = item.buyPrice
-  //             break;
-  //           }
-  //         }
-  //       }
-  //       // console.log(classInstances);
+        for (const item of prices.weaponPrices) {
+          for (const instance of classInstances) {
+            if (item.id === instance.id) {
+              instance.sellPrice = item.sellPrice
+              instance.buyPrice = item.buyPrice
+              break;
+            }
+          }
+        }
+        for (const item of prices.hardwarePrices) {
+          for (const instance of classInstances) {
+            if (item.id === instance.id) {
+              instance.sellPrice = item.sellPrice
+              instance.buyPrice = item.buyPrice
+              break;
+            }
+          }
+        }
+        for (const item of prices.movementPrices) {
+          for (const instance of classInstances) {
+            if (item.id === instance.id) {
+              instance.sellPrice = item.sellPrice
+              instance.buyPrice = item.buyPrice
+              break;
+            }
+          }
+        }
+        // console.log(classInstances);
 
-  //     });
-  //   // const listArr = JSON.parse(dataId())
+      });
+    // const listArr = JSON.parse(dataId())
 
-  // }, [classInstances]);
+  }, [classInstances]);
 
 
   if (itemsList) {
