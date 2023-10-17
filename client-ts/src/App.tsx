@@ -19,11 +19,7 @@ import ComponentsCost from "./components/ComponentsCost";
 import Profit from "./components/Profit";
 import ResoursesAvailableWrapper from "./containers/ResoursesAvailableWrapper";
 import ResoursesAvailable from "./components/ResoursesAvailable";
-import { data, dataForList, dataId } from './data'
-import { CommonVehicleComponent } from "./entity/commonVehicleComponent";
-import { RareVehicleComponent } from "./entity/rareVehicleComponent"
-import { SpecialVehicleComponent } from "./entity/specialVehicleComponent"
-import { EpicVehicleComponent } from "./entity/epicVehicleComponent"
+
 import WeaponsCommonArray from "./entity/weapons/common";
 import WeaponsRareArray from "./entity/weapons/rare"
 import WeaponsSpecialArray from "./entity/weapons/special"
@@ -46,45 +42,12 @@ import LoadingSpinnerForBlock from "./components/LoadingSpinnerForBlock";
 import Spinner from "./components/Spinner";
 import HorizontalSeparator from "./components/HorizontalSeparator";
 import { IComponent, IResourcesFromInput, IResourcePrices, IItem, } from "./interfaces/Interfaces";
+import { instancesToArr } from "./helpers/helpers";
+
 
 function App() {
 
-  // interface IResourcesFromInput {
-  //   scrapMetal: number;
-  //   copper: number;
-  //   wires: number;
-  //   plastic: number;
-  //   engravedCasings: number;
-  //   batteries: number;
-  //   electronics: number;
-  // }
-  // interface IComponent {
-  //   id: number;
-  //   name: string;
-  //   type: string;
-  //   rarity: string;
-  //   buyPrice: number;
-  //   sellPrice: number;
-  //   scrapMetal: number;
-  //   copper: number;
-  //   img: string;
-  //   productionTime?: number;
-  //   benchCost?: number;
-  // }
-  // interface IItem {
-  //   id: number,
-  //   name: string,
-  //   profitRatio: number
-  // }
 
-  // interface IResourcePrices {
-  //   buyPrice: number,
-  //   dbId: number,
-  //   dbName: string,
-  //   id: number,
-  //   name: string,
-  //   sellPrice: number
-  // }
   const [itemsList, setItemsList] = useState<IItem[]>([]);
   const [selectedItem, setSelectedItem] = useState<number>(0)
   const [classInstances, setClassInstances] = useState<IComponent[]>([])
@@ -109,131 +72,66 @@ function App() {
   let itemsArr: JSX.Element[] = []
   // console.log(typeof(WeaponsCommon));
   useEffect(() => {
-    let entityArr: IComponent[] = []
-
-    for (const item of WeaponsCommonArray) {
-      entityArr.push(item)
-    }
-    for (const item of WeaponsRareArray) {
-      entityArr.push(item)
-    }
-    for (const item of WeaponsSpecialArray) {
-      entityArr.push(item)
-    }
-    for (const item of WeaponsEpicArray) {
-      entityArr.push(item)
-    }
-
-    for (const item of CabinsCommonArray) {
-      entityArr.push(item)
-    }
-    for (const item of CabinsRareArray) {
-      entityArr.push(item)
-    }
-    for (const item of CabinsSpecialArray) {
-      entityArr.push(item)
-    }
-    for (const item of CabinsEpicArray) {
-      entityArr.push(item)
-    }
-
-    for (const item of HardwareCommonArray) {
-      entityArr.push(item)
-    }
-    for (const item of HardwareRareArray) {
-      entityArr.push(item)
-    }
-    for (const item of HardwareSpecialArray) {
-      entityArr.push(item)
-    }
-    for (const item of HardwareEpicArray) {
-      entityArr.push(item)
-    }
-
-    for (const item of MovementCommonArray) {
-      entityArr.push(item)
-    }
-    for (const item of MovementRareArray) {
-      entityArr.push(item)
-    }
-    for (const item of MovementSpecialArray) {
-      entityArr.push(item)
-    }
-    for (const item of MovementEpicArray) {
-      entityArr.push(item)
-    }
-    console.log(entityArr);
-
-    setClassInstances(entityArr)
+    
+    setClassInstances(instancesToArr())
 
   }, [])
-  // console.log('classInstances', classInstances);
 
-  // const data1 = JSON.parse(data())
-  // const resData = data1.map((item) => {
-  //   const obj = {}
-  //   obj.id = item.id
-  //   obj.name = item.name
-  //   obj.formatBuyPrice = item.formatBuyPrice
-  //   obj.formatSellPrice = item.formatSellPrice
-  //   return obj
-  // });
-  // console.log(classInstances);
-  useEffect(() => {
-    fetch('http://45.12.73.147:3001/prices/start')
-      .then((response) => response.json())
-      .then(({ prices, list }) => {
 
-        setItemsList(list)
-        setSelectedItem(list[0].id)
-        setResourcePrices(prices.resourcePrices)
-        // console.log('prices', prices);
-        for (const item of prices.cabinPrices) {
-          for (const instance of classInstances) {
-            if (item.id === instance.id) {
-              instance.sellPrice = item.sellPrice
-              instance.buyPrice = item.buyPrice
-              break;
-            }
-          }
-        }
+  // useEffect(() => {
+  //   fetch('http://45.12.73.147:3001/prices/start')
+  //     .then((response) => response.json())
+  //     .then(({ prices, list }) => {
 
-        for (const item of prices.weaponPrices) {
-          for (const instance of classInstances) {
-            if (item.id === instance.id) {
-              instance.sellPrice = item.sellPrice
-              instance.buyPrice = item.buyPrice
-              break;
-            }
-          }
-        }
-        for (const item of prices.hardwarePrices) {
-          for (const instance of classInstances) {
-            if (item.id === instance.id) {
-              instance.sellPrice = item.sellPrice
-              instance.buyPrice = item.buyPrice
-              break;
-            }
-          }
-        }
-        for (const item of prices.movementPrices) {
-          for (const instance of classInstances) {
-            if (item.id === instance.id) {
-              instance.sellPrice = item.sellPrice
-              instance.buyPrice = item.buyPrice
-              break;
-            }
-          }
-        }
-        // console.log(classInstances);
+  //       setItemsList(list)
+  //       setSelectedItem(list[0].id)
+  //       setResourcePrices(prices.resourcePrices)
+  //       // console.log('prices', prices);
+  //       for (const item of prices.cabinPrices) {
+  //         for (const instance of classInstances) {
+  //           if (item.id === instance.id) {
+  //             instance.sellPrice = item.sellPrice
+  //             instance.buyPrice = item.buyPrice
+  //             break;
+  //           }
+  //         }
+  //       }
 
-      });
-    // const listArr = JSON.parse(dataId())
+  //       for (const item of prices.weaponPrices) {
+  //         for (const instance of classInstances) {
+  //           if (item.id === instance.id) {
+  //             instance.sellPrice = item.sellPrice
+  //             instance.buyPrice = item.buyPrice
+  //             break;
+  //           }
+  //         }
+  //       }
+  //       for (const item of prices.hardwarePrices) {
+  //         for (const instance of classInstances) {
+  //           if (item.id === instance.id) {
+  //             instance.sellPrice = item.sellPrice
+  //             instance.buyPrice = item.buyPrice
+  //             break;
+  //           }
+  //         }
+  //       }
+  //       for (const item of prices.movementPrices) {
+  //         for (const instance of classInstances) {
+  //           if (item.id === instance.id) {
+  //             instance.sellPrice = item.sellPrice
+  //             instance.buyPrice = item.buyPrice
+  //             break;
+  //           }
+  //         }
+  //       }
+  //       // console.log(classInstances);
 
-  }, [classInstances]);
-  // console.log(itemsList);
-  // console.log(resourcePrices);
-  // console.log('itemsList', itemsList);
+  //     });
+  //   // const listArr = JSON.parse(dataId())
+
+  // }, [classInstances]);
+
+
   if (itemsList) {
     const instanceFromData: IComponent[] = []
     for (const item of itemsList) {
@@ -327,7 +225,6 @@ console.log('selectedInstance', selectedInstance);
                     btnSwitchBuyFabricate={btnSwitchBuyFabricate}
                     setBtnSwitchBuyFabricate={setBtnSwitchBuyFabricate}
                     setAllIngredientsPrice={setAllIngredientsPrice}
-
                   /> :
                   <LoadingSpinnerForBlock />}
                 <HorizontalSeparator />
@@ -346,7 +243,8 @@ console.log('selectedInstance', selectedInstance);
                 />
               </ResoursesAvailableWrapper>
             </MainCard> :
-            <LoadingSpinnerForBlock />}
+            <LoadingSpinnerForBlock />
+          }
         </Main>
       </Container>
     </div>
