@@ -2,21 +2,36 @@ import React from "react";
 import { useState } from "react";
 import "./RequiredComponents.scss";
 import HorizontalSeparator from "./HorizontalSeparator";
-import ResoursesForIngredients from "./ResoursesForIngredients";
 import Ingredient from "./Ingredient";
+import { IComponent, IResourcePrices } from "../interfaces/Interfaces";
+
+interface IRequiredComponentsPropsDto {
+  component: IComponent;
+  resourcePrices: IResourcePrices[];
+}
 
 
+const RequiredComponents = ({ component, resourcePrices }: IRequiredComponentsPropsDto) => {
 
 
-const RequiredComponents = ({ component, resourcePrices }) => {
-  const [selectedIngredient, setSelectedIngredient] = useState(null)
-  const [isActive, setIsActive] = useState(false)
+  const [selectedIngredient, setSelectedIngredient] = useState<number | null>(null)
+  const [isActive, setIsActive] = useState<boolean>(false)
 
 
-  let ingredientsArr = [];
-  // console.log("component.ingredients", component.ingredients);
+  let ingredientsArr: JSX.Element[] = [];
+
+
+  function clickHandler(id:number): void {
+    setSelectedIngredient(id)
+    setIsActive(true)
+    if (isActive && id === selectedIngredient) {
+      setIsActive(false)
+    }
+  }
+
+
   if (component.ingredients) {
-    ingredientsArr = component.ingredients.map((ingredient) => {
+    ingredientsArr = component.ingredients.map((ingredient: IComponent) => {
       if (selectedIngredient === ingredient.id && isActive) {
         return (
           <Ingredient
@@ -36,17 +51,6 @@ const RequiredComponents = ({ component, resourcePrices }) => {
           active={false} />
       )
     });
-    // }
-
-
-    // console.log(childrenItems);
-    function clickHandler(id) {
-      setSelectedIngredient(id)
-      setIsActive(true)
-      if(isActive && id === selectedIngredient){
-        setIsActive(false)
-      }
-    }
 
     return (
       <>

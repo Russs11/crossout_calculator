@@ -1,31 +1,33 @@
 import React from 'react';
 import './RequiredResourses.scss'
-import HorizontalSeparator from './HorizontalSeparator';
 import { IComponent, IResourcePrices } from '../interfaces/Interfaces';
 
+interface IRequiredResoursesPropsDto {
+	component: IComponent;
+	resourcePrices: IResourcePrices[];
+}
 
+const RequiredResourses = ({ component, resourcePrices }: IRequiredResoursesPropsDto) => {
 
-const RequiredResourses = ({ component, resourcePrices }: { component: IComponent, resourcePrices: IResourcePrices[] }) => {
-	
-	const resoursesArr = []
+	const resoursesArr: JSX.Element[] = []
 
-	let scrapMetalSellPrice = resourcePrices[0].sellPrice
-	let copperSellPrice = resourcePrices[1].sellPrice
-	let wiresSellPrice = resourcePrices[2].sellPrice
-	let plasticSellPrice = resourcePrices[3].sellPrice
-	let batteriesSellPrice = resourcePrices[4].sellPrice 
-	let electronicsSellPrice = resourcePrices[5].sellPrice 
-	let engravedCasingsSellPrice = resourcePrices[6].sellPrice
+	const scrapMetalSellPrice = resourcePrices[0].sellPrice
+	const copperSellPrice = resourcePrices[1].sellPrice
+	const wiresSellPrice = resourcePrices[2].sellPrice
+	const plasticSellPrice = resourcePrices[3].sellPrice
+	const batteriesSellPrice = resourcePrices[4].sellPrice
+	const electronicsSellPrice = resourcePrices[5].sellPrice
+	const engravedCasingsSellPrice = resourcePrices[6].sellPrice
 
-	let scrapMetalCost = component.scrapMetal ? Math.round((component.scrapMetal * scrapMetalSellPrice / 100) * 100) / 100 : 0
-	let copperCost = component.copper ? Math.round((component.copper * copperSellPrice / 100) * 100) / 100 : 0
-	let wiresCost = component.wires ? Math.round((component.wires * wiresSellPrice /100) * 100) / 100 : 0
-	let plasticCost = component.plastic ? Math.round((component.plastic * plasticSellPrice / 100) * 100) / 100 : 0
-	let batteriesCost = component.batteries ? Math.round((component.batteries * batteriesSellPrice / 10) * 100) / 100 : 0
-	let electronicsCost = component.electronics ? Math.round((component.electronics * electronicsSellPrice / 10) * 100) / 100 : 0
-	let engravedCasingsCost = component.engravedCasings ? Math.round((component.engravedCasings * engravedCasingsSellPrice) * 100) / 100 : 0
+	const scrapMetalCost = component.scrapMetal ? Math.round((component.scrapMetal * scrapMetalSellPrice / 100) * 100) / 100 : 0
+	const copperCost = component.copper ? Math.round((component.copper * copperSellPrice / 100) * 100) / 100 : 0
+	const wiresCost = component.wires ? Math.round((component.wires * wiresSellPrice / 100) * 100) / 100 : 0
+	const plasticCost = component.plastic ? Math.round((component.plastic * plasticSellPrice / 100) * 100) / 100 : 0
+	const batteriesCost = component.batteries ? Math.round((component.batteries * batteriesSellPrice / 10) * 100) / 100 : 0
+	const electronicsCost = component.electronics ? Math.round((component.electronics * electronicsSellPrice / 10) * 100) / 100 : 0
+	const engravedCasingsCost = component.engravedCasings ? Math.round((component.engravedCasings * engravedCasingsSellPrice) * 100) / 100 : 0
 
-	let totalResoursesСost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
+	const totalResoursesСost = Math.round((scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost) * 100) / 100
 
 
 
@@ -86,7 +88,7 @@ const RequiredResourses = ({ component, resourcePrices }: { component: IComponen
 				<div className="electronics"></div>
 				<div className="value text-3">{component.electronics}</div>
 				<div className="value-orange text-3">{electronicsSellPrice}</div>
-				<div className="value-orange text-3">{electronicsCost }</div>
+				<div className="value-orange text-3">{electronicsCost}</div>
 			</React.Fragment>
 		)
 	}
@@ -111,7 +113,7 @@ const RequiredResourses = ({ component, resourcePrices }: { component: IComponen
 				<div className="text-5">Стоимость:</div>
 				{component && resoursesArr}
 				<div className="total-resourses-cost text-5">Общая стоимость ресурсов:</div>
-				<div className="value-orange text-3">{Math.round((totalResoursesСost) * 100) / 100}</div>
+				<div className="value-orange text-3">{totalResoursesСost}</div>
 			</div>
 		</>
 	);

@@ -1,5 +1,7 @@
-
-
+import { CommonVehicleComponent } from "../entity/commonVehicleComponent";
+import { RareVehicleComponent } from "../entity/rareVehicleComponent";
+import { SpecialVehicleComponent } from "../entity/specialVehicleComponent";
+import { EpicVehicleComponent } from "../entity/epicVehicleComponent";
 export interface IResourcesFromInput {
     scrapMetal: number;
     copper: number;
@@ -26,6 +28,25 @@ export interface IComponent {
     img: string;
     productionTime?: number;
     benchCost?: number;
+    ingredients?: CommonVehicleComponent[] | RareVehicleComponent[] | SpecialVehicleComponent[] | EpicVehicleComponent[];
+    getScrapMetal?: () => number;
+    getCopper?: () => number;
+    getElectronics?: () => number;
+    getBatteries?: () => number;
+    getWires?: () => number;
+    getPlastic?: () => number;
+    getEngravedCasings?: () => number;
+    getBenchCost?: () => number;
+
+    getAllScrapMetal?: () => number;
+    getAllCopper?: () => number;
+    getAllBatteries?: () => number;
+    getAllWires?: () => number;
+    getAllPlastic?: () => number;
+    getAllEngravedCasings?: () => number;
+    getAllBenchCost?: () => number;
+    getAllElectronics?: () => number;
+
 }
 export interface IItem {
     id: number,

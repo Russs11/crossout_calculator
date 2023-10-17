@@ -1,13 +1,15 @@
 import React from 'react';
 import './ProductionCostWrapper.scss'
 
-
-const ProductionCostWrapper = ({children}) => {
+interface IProductionCostWrapperPropsDto {
+    children: JSX.Element[];
+}
+const ProductionCostWrapper = ({ children }: IProductionCostWrapperPropsDto) => {
     return (
         <>
             <div className="main-card-middle-side">
-					{children}
-			</div>
+                {children}
+            </div>
         </>
     );
 };

@@ -1,8 +1,17 @@
 import React, { ReactElement, ReactFragment, useEffect } from 'react';
 import './ProductionCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
+import { IComponent, IResourcePrices, IResourcesFromInput } from '../interfaces/Interfaces';
 
-const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, resoursesFromInput, setCostPrice, costPrice }) => {
+interface IProductionCostPropsDto {
+    component: IComponent;
+    resourcePrices: IResourcePrices[];
+    btnSwitchBuyFabricate: boolean;
+    resoursesFromInput: IResourcesFromInput;
+    setCostPrice: number;
+}
+
+const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, resoursesFromInput, setCostPrice }: IProductionCostPropsDto) => {
 
     let resoursesArr3 = []
 
@@ -52,12 +61,17 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     let totalResoursesCost = Math.round(scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost)
 
 
+
     setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
 
-    console.log('resoursesFromInput', resoursesFromInput);
+   
 
 
     if (resoursesFromInput.scrapMetal > 0) {
+        if(!allScrapMetalRequires || !scrapMetalRequires){
+            allScrapMetalRequires = 0
+            scrapMetalRequires = 0
+        }
         allScrapMetalRequires -= resoursesFromInput.scrapMetal
         scrapMetalRequires -= resoursesFromInput.scrapMetal
         if (allScrapMetalRequires < 0) {
@@ -223,7 +237,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
                     <div className="machine-rental text-7">Аренда станка:</div>
                     <div className="value-orange text-3">{benchCost ? benchCost : 0}</div>
                     <div className="total text-7">Всего:</div>
-                    <div className="value-orange text-3">{btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost }</div>
+                    <div className="value-orange text-3">{btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost}</div>
                 </div>
             </div>
             <HorizontalSeparator />

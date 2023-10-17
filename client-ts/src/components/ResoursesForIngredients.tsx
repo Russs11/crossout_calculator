@@ -1,29 +1,35 @@
 import React from 'react';
 import HorizontalSeparator from './HorizontalSeparator';
-// import './RequiredResourses.scss'
+import { IComponent, IResourcePrices } from '../interfaces/Interfaces';
 
 
-const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
+interface IResoursesForIngredientsPropsDto {
+	ingredient: IComponent;
+	resourcePrices: IResourcePrices[];
+	active: boolean;
+}
 
-	const resoursesArr2 = []
+const ResoursesForIngredients = ({ ingredient, resourcePrices, active }: IResoursesForIngredientsPropsDto) => {
 
-	let scrapMetalSellPrice = resourcePrices[0].sellPrice
-	let copperSellPrice = resourcePrices[1].sellPrice
-	let wiresSellPrice = resourcePrices[2].sellPrice
-	let plasticSellPrice = resourcePrices[3].sellPrice
-	let batteriesSellPrice = resourcePrices[4].sellPrice
-	let electronicsSellPrice = resourcePrices[5].sellPrice
-	let engravedCasingsSellPrice = resourcePrices[6].sellPrice
+	const resoursesArr2: JSX.Element[] = []
 
-	let scrapMetalCost = ingredient.scrapMetal ? Math.round((ingredient.scrapMetal * scrapMetalSellPrice / 100) * 100) / 100 : 0
-	let copperCost = ingredient.copper ? Math.round((ingredient.copper * copperSellPrice / 100) * 100) / 100 : 0
-	let wiresCost = ingredient.wires ? Math.round((ingredient.wires * wiresSellPrice / 100) * 100) / 100 : 0
-	let plasticCost = ingredient.plastic ? Math.round((ingredient.plastic * plasticSellPrice / 100) * 100) / 100 : 0
-	let batteriesCost = ingredient.batteries ? Math.round((ingredient.batteries * batteriesSellPrice / 10) * 100) / 100 : 0
-	let electronicsCost = ingredient.electronics ? Math.round((ingredient.electronics * electronicsSellPrice / 10) * 100) / 100 : 0
-	let engravedCasingsCost = ingredient.engravedCasings ? Math.round((ingredient.engravedCasings * engravedCasingsSellPrice / 100) * 100) / 100 : 0
+	const scrapMetalSellPrice = resourcePrices[0].sellPrice
+	const copperSellPrice = resourcePrices[1].sellPrice
+	const wiresSellPrice = resourcePrices[2].sellPrice
+	const plasticSellPrice = resourcePrices[3].sellPrice
+	const batteriesSellPrice = resourcePrices[4].sellPrice
+	const electronicsSellPrice = resourcePrices[5].sellPrice
+	const engravedCasingsSellPrice = resourcePrices[6].sellPrice
 
-	let totalResoursesСost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
+	const scrapMetalCost = ingredient.scrapMetal ? Math.round((ingredient.scrapMetal * scrapMetalSellPrice / 100) * 100) / 100 : 0
+	const copperCost = ingredient.copper ? Math.round((ingredient.copper * copperSellPrice / 100) * 100) / 100 : 0
+	const wiresCost = ingredient.wires ? Math.round((ingredient.wires * wiresSellPrice / 100) * 100) / 100 : 0
+	const plasticCost = ingredient.plastic ? Math.round((ingredient.plastic * plasticSellPrice / 100) * 100) / 100 : 0
+	const batteriesCost = ingredient.batteries ? Math.round((ingredient.batteries * batteriesSellPrice / 10) * 100) / 100 : 0
+	const electronicsCost = ingredient.electronics ? Math.round((ingredient.electronics * electronicsSellPrice / 10) * 100) / 100 : 0
+	const engravedCasingsCost = ingredient.engravedCasings ? Math.round((ingredient.engravedCasings * engravedCasingsSellPrice / 100) * 100) / 100 : 0
+
+	const totalResoursesСost = Math.round((scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost) * 100) / 100
 
 
 
@@ -108,7 +114,7 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 					<div className="text-7">Стоимость:</div>
 					{resoursesArr2}
 					<div className="total-resourses-cost text-7">Общая стоимость ресурсов:</div>
-					<div className="value-orange text-8">{Math.round(totalResoursesСost * 100) / 100}</div>
+					<div className="value-orange text-8">{totalResoursesСost}</div>
 				</div>
 				<HorizontalSeparator />
 			</>
@@ -117,7 +123,6 @@ const ResoursesForIngredients = ({ ingredient, resourcePrices, active }) => {
 	return (
 		<>
 			<div className="invisible"></div>
-			{/* <HorizontalSeparator/> */}
 		</>
 	);
 

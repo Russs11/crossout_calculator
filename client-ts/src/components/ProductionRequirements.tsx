@@ -1,11 +1,15 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import './ProductionRequirements.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 import RequiredResourses from './RequiredResourses';
 import { IComponent, IResourcePrices } from '../interfaces/Interfaces';
 
+interface IProductionRequirementsPropsDto {
+    component: IComponent;
+    resourcePrices: IResourcePrices[];
+}
 
-const ProductionRequirements = ({ component, resourcePrices }: { component: IComponent, resourcePrices: IResourcePrices[] }): ReactElement =>  {
+const ProductionRequirements = ({ component, resourcePrices }: IProductionRequirementsPropsDto) => {
 
     return (
         <>

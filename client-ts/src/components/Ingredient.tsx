@@ -1,8 +1,17 @@
 import React from 'react';
 import ResoursesForIngredients from './ResoursesForIngredients';
+import { IComponent, IResourcePrices } from '../interfaces/Interfaces';
 
-const Ingredient = ({ ingredient, resourcePrices, clickHandler, active }) => {
-	const itemImg = {
+interface IIngredientPropsDto {
+	ingredient: IComponent;
+	resourcePrices: IResourcePrices[];
+	clickHandler: (id: number) => void;
+	active: boolean;
+}
+
+const Ingredient = ({ ingredient, resourcePrices, clickHandler, active }: IIngredientPropsDto) => {
+
+	const itemImg: {} = {
 		backgroundImage: "url(" + ingredient.img + ")",
 	};
 
@@ -26,10 +35,10 @@ const Ingredient = ({ ingredient, resourcePrices, clickHandler, active }) => {
 						</div>
 					</div>
 				</div>
-				<ResoursesForIngredients 
-				ingredient={ingredient} 
-				resourcePrices={resourcePrices}
-				active={true}/>
+				<ResoursesForIngredients
+					ingredient={ingredient}
+					resourcePrices={resourcePrices}
+					active={true} />
 			</>
 		);
 	}
@@ -52,10 +61,10 @@ const Ingredient = ({ ingredient, resourcePrices, clickHandler, active }) => {
 						</div>
 					</div>
 				</div>
-				<ResoursesForIngredients 
-				ingredient={ingredient} 
-				resourcePrices={resourcePrices}
-				active={false}/>
+				<ResoursesForIngredients
+					ingredient={ingredient}
+					resourcePrices={resourcePrices}
+					active={false} />
 			</>
 		);
 	}

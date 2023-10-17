@@ -1,19 +1,7 @@
 import React from 'react';
 import './TitleCard.scss'
+import { IComponent } from '../interfaces/Interfaces';
 
-interface IComponent {
-	id: number;
-	name: string;
-	type: string;
-	rarity: string;
-	buyPrice: number;
-	sellPrice: number;
-	scrapMetal: number;
-	copper: number;
-	img: string;
-	productionTime?: number;
-    benchCost?: number;
-}
 
 const TitleCard = ({ component }: { component: IComponent }) => {
 
