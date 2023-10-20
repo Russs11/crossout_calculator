@@ -13,7 +13,7 @@ interface IProductionCostPropsDto {
 
 const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, resoursesFromInput, setCostPrice }: IProductionCostPropsDto) => {
 
-    let resoursesArr3 = []
+    let resoursesArr3: JSX.Element[] = []
 
     let benchCost = component.getAllBenchCost?.() ? component.getAllBenchCost?.() : 0
 
@@ -57,12 +57,12 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     let batteriesCost = batteriesRequires ? Math.round((batteriesRequires * batteriesSellPrice / 100) * 100) / 100 : 0
     let electronicsCost = electronicsRequires ? Math.round((electronicsRequires * electronicsSellPrice) * 100) / 100 : 0
 
-    let totalAllResoursesСost = Math.round(allScrapMetalCost + allCopperCost + allWiresCost + allPlasticCost + allEngravedCasingsCost + allBatteriesCost + allElectronicsCost + benchCost)
-    let totalResoursesCost = Math.round(scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost)
+    let totalAllResoursesСost: number = Math.round(allScrapMetalCost + allCopperCost + allWiresCost + allPlasticCost + allEngravedCasingsCost + allBatteriesCost + allElectronicsCost + benchCost)
+    let totalResoursesCost: number = Math.round(scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost)
 
 
 
-    setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
+    // setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
 
    
 
@@ -83,6 +83,10 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     }
 
     if (resoursesFromInput.electronics > 0) {
+        if (!allElectronicsRequires || !electronicsRequires) {
+            allElectronicsRequires = 0
+            electronicsRequires = 0
+        }
         allElectronicsRequires -= resoursesFromInput.electronics
         electronicsRequires -= resoursesFromInput.electronics
         if (allElectronicsRequires < 0) {
@@ -94,6 +98,10 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     }
 
     if (resoursesFromInput.copper > 0) {
+        if (!allCopperRequires || !copperRequires) {
+            allCopperRequires = 0
+            copperRequires = 0
+        }
         allCopperRequires -= resoursesFromInput.copper
         copperRequires -= resoursesFromInput.copper
         if (allCopperRequires < 0) {
@@ -105,6 +113,10 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     }
 
     if (resoursesFromInput.wires > 0) {
+        if (!allWiresRequires || !wiresRequires) {
+            allWiresRequires = 0
+            wiresRequires = 0
+        }
         allWiresRequires -= resoursesFromInput.wires
         wiresRequires -= resoursesFromInput.wires
         if (allWiresRequires < 0) {
@@ -116,8 +128,12 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     }
 
     if (resoursesFromInput.plastic > 0) {
+        if (!allPlasticRequires || !plasticRequires) {
+            allPlasticRequires = 0
+            plasticRequires = 0
+        }
         allPlasticRequires -= resoursesFromInput.plastic
-        plasticRequires -= resoursesFromInput.plasric
+        plasticRequires -= resoursesFromInput.plastic
         if (allPlasticRequires < 0) {
             allPlasticRequires = 0
         }
@@ -127,6 +143,10 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     }
 
     if (resoursesFromInput.batteries > 0) {
+        if (!allBatterriesRequires || !batteriesRequires) {
+            allBatterriesRequires = 0
+            batteriesRequires = 0
+        }
         allBatterriesRequires -= resoursesFromInput.batteries
         batteriesRequires -= resoursesFromInput.batteries
         if (allBatterriesRequires < 0) {
@@ -138,6 +158,10 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     }
 
     if (resoursesFromInput.engravedCasings > 0) {
+        if (!allEngravedCasingsRequires || !engravedCasingsRequires) {
+            allEngravedCasingsRequires = 0
+            engravedCasingsRequires = 0
+        }
         allEngravedCasingsRequires -= resoursesFromInput.engravedCasings
         engravedCasingsRequires -= resoursesFromInput.engravedCasings
         if (allEngravedCasingsRequires < 0) {

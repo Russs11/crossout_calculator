@@ -198,7 +198,7 @@ console.log('selectedInstance', selectedInstance);
                   btnSwitchBuyFabricate={btnSwitchBuyFabricate}
                   resoursesFromInput={resoursesFromInput}
                   setCostPrice={setCostPrice}
-                  costPrice={costPrice}
+                  // costPrice={costPrice}
                 />
                 {selectedInstance.sellPrice ?
                   <ComponentsCost
