@@ -8,7 +8,7 @@ interface IProductionCostPropsDto {
     resourcePrices: IResourcePrices[];
     btnSwitchBuyFabricate: boolean;
     resoursesFromInput: IResourcesFromInput;
-    setCostPrice: number;
+    setCostPrice: React.Dispatch<number>;
 }
 
 const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, resoursesFromInput, setCostPrice }: IProductionCostPropsDto) => {
@@ -60,11 +60,8 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     let totalAllResoursesСost = Math.round(allScrapMetalCost + allCopperCost + allWiresCost + allPlasticCost + allEngravedCasingsCost + allBatteriesCost + allElectronicsCost + benchCost)
     let totalResoursesCost = Math.round(scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost)
 
-    // console.log(typeof (totalAllResoursesСost), typeof (totalResoursesCost));
 
     setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost);
-
-
 
 
     if (resoursesFromInput.scrapMetal > 0) {
@@ -172,8 +169,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
         }
     }
 
-
-
+    
     if (component.scrapMetal) {
 
         resoursesArr3.push(
