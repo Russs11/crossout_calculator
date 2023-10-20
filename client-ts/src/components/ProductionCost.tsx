@@ -15,7 +15,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
 
     let resoursesArr3: JSX.Element[] = []
 
-    let benchCost = component.getAllBenchCost?.() ? component.getAllBenchCost?.() : 0
+    let benchCost: number = component.getAllBenchCost?.() ? component.getAllBenchCost?.() : 0
 
     let scrapMetalRequires = component.getScrapMetal?.()
     let copperRequires = component.getCopper?.()
@@ -57,18 +57,18 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     let batteriesCost = batteriesRequires ? Math.round((batteriesRequires * batteriesSellPrice / 100) * 100) / 100 : 0
     let electronicsCost = electronicsRequires ? Math.round((electronicsRequires * electronicsSellPrice) * 100) / 100 : 0
 
-    let totalAllResoursesСost: number = Math.round(allScrapMetalCost + allCopperCost + allWiresCost + allPlasticCost + allEngravedCasingsCost + allBatteriesCost + allElectronicsCost + benchCost)
-    let totalResoursesCost: number = Math.round(scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost)
+    let totalAllResoursesСost = Math.round(allScrapMetalCost + allCopperCost + allWiresCost + allPlasticCost + allEngravedCasingsCost + allBatteriesCost + allElectronicsCost + benchCost)
+    let totalResoursesCost = Math.round(scrapMetalCost + copperCost + wiresCost + plasticCost + engravedCasingsCost + batteriesCost + electronicsCost + benchCost)
+
+    // console.log(typeof (totalAllResoursesСost), typeof (totalResoursesCost));
+
+    setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost);
 
 
-
-    // setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
-
-   
 
 
     if (resoursesFromInput.scrapMetal > 0) {
-        if(!allScrapMetalRequires || !scrapMetalRequires){
+        if (!allScrapMetalRequires || !scrapMetalRequires) {
             allScrapMetalRequires = 0
             scrapMetalRequires = 0
         }
@@ -175,9 +175,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
 
 
     if (component.scrapMetal) {
-        // console.log('btnSwitchBuyFabricate', btnSwitchBuyFabricate);
-        // // console.log('scrapMetalRequires', scrapMetalRequires);
-        // // console.log('allScrapMetalRequires', allScrapMetalRequires);
+
         resoursesArr3.push(
             <React.Fragment key={resourcePrices[0].dbId}>
                 <div className="scrapmetal"></div>
