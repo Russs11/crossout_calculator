@@ -14,6 +14,9 @@ interface IComponentCostPropsDto {
     setBtnSwitchBuyFabricate: React.Dispatch<React.SetStateAction<boolean>>;
     setAllIngredientsPrice: React.Dispatch<number>;
 }
+type count = {
+    [key: string]: number;
+};
 
 const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, setAllIngredientsPrice }: IComponentCostPropsDto ) => {
     let localIngredientArr: IComponent[] = [];
@@ -29,7 +32,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
         setBtnSwitchBuyFabricate((prev): boolean => { return !prev });
     }
 
-    function setInstanceSellPrice(ingredientsArr: CommonVehicleComponent[] | RareVehicleComponent[] | SpecialVehicleComponent[] | EpicVehicleComponent[], instancePricesArr: IComponent[]) {
+    function setInstanceSellPrice(ingredientsArr: CommonVehicleComponent[] | RareVehicleComponent[] | SpecialVehicleComponent[] | EpicVehicleComponent[] , instancePricesArr: IComponent[]) {
         for (const item of ingredientsArr) {
             for (const inst of instancePricesArr) {
                 if (item.id === inst.id) {
@@ -40,10 +43,12 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
         }
     }
 
-    function setCounterOfIngredients(ingredientsArr: CommonVehicleComponent[] | RareVehicleComponent[] | SpecialVehicleComponent[] | EpicVehicleComponent[]): {} {
-        let count: {} = {};
-        ingredientsArr.forEach(function (i) { count[i.id] = (count[i.id] || 0) + 1; });
-        localIngredientArr = [...new Set(ingredientsArr)];
+    function setCounterOfIngredients(ingredientsArr: CommonVehicleComponent[] | RareVehicleComponent[] | SpecialVehicleComponent[] | EpicVehicleComponent[] ): {} {
+        let count: count = {};
+        ingredientsArr.forEach(function (i) { count[i.id as keyof typeof count] = (count[i.id as keyof typeof count] || 0) + 1; });
+        // localIngredientArr = [...new Set(ingredientsArr)];
+        localIngredientArr = ingredientsArr.filter((value, index, array) => array.indexOf(value) === index);
+;
         
         return count
     }
