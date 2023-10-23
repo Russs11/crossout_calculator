@@ -36,7 +36,7 @@ function App() {
   const [resourcePrices, setResourcePrices] = useState<IResourcePrices[]>([])
   const [btnSwitchBuyFabricate, setBtnSwitchBuyFabricate] = useState<boolean>(false)
   const [costPrice, setCostPrice] = useState<number>(0)
-  const [allIngredientsPrice, setAllIngredientsPrice] = useState<number>(0)
+  const [allIngredientsPrice, setAllIngredientsPrice] = useState<number | undefined>(0)
   const [resoursesFromInput, setResoursesFromInput] = useState<IResourcesFromInput>({
     scrapMetal: 0,
     copper: 0,

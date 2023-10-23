@@ -11,6 +11,100 @@ export interface IResourcesFromInput {
     batteries: number;
     electronics: number;
 }
+
+export interface ICommonVehicleComponent {
+    id: number;
+    name: string;
+    type: string;
+    rarity: string;
+    buyPrice: number;
+    sellPrice: number;
+    scrapMetal: number;
+    copper: number;
+    img: string;
+    getScrapMetal: () => number;
+    getCopper: () => number;
+}
+
+export interface IRareVehicleComponent {
+    id: number;
+    name: string;
+    type: string;
+    rarity: string;
+    buyPrice: number;
+    sellPrice: number;
+    productionTime: number;
+    benchCost: number;
+    scrapMetal: number;
+    copper: number;
+    ingredients: ICommonVehicleComponent[];
+    img: string;
+    getScrapMetal: () => number;
+    getCopper: () => number;
+    getBenchCost: () => number;
+    getAllScrapMetal: () => number;
+    getAllCopper: () => number;
+}
+
+export interface ISpecialVehicleComponent {
+    id: number;
+    name: string;
+    type: string;
+    rarity: string;
+    buyPrice: number;
+    sellPrice: number;
+    productionTime: number;
+    benchCost: number;
+    scrapMetal: number;
+    copper: number;
+    wires: number;
+    plastic: number;
+    engravedCasings: number;
+    ingredients: IRareVehicleComponent[];
+    img: string;
+    getScrapMetal: () => number;
+    getCopper: () => number;
+    getWires: () => number;
+    getPlastic: () => number;
+    getEngravedCasings: () => number;
+    getBenchCost: () => number;
+    getAllScrapMetal: () => number;
+    getAllCopper: () => number;
+    getAllBenchCost: () => number;
+}
+
+export interface IEpicVehicleComponent {
+    id: number;
+    name: string;
+    type: string;
+    rarity: string;
+    buyPrice: number;
+    sellPrice: number;
+    productionTime: number;
+    benchCost: number;
+    scrapMetal: number;
+    copper: number;
+    wires: number;
+    plastic: number;
+    batteries: number;
+    electronics: number;
+    engravedCasings: number;
+    ingredients: ISpecialVehicleComponent[];
+    img: string;
+    getScrapMetal: () => number;
+    getCopper: () => number;
+    getWires: () => number;
+    getPlastic: () => number;
+    getBatteries: () => number;
+    getEngravedCasings: () => number;
+    getBenchCost: () => number;
+    getAllScrapMetal: () => number;
+    getAllCopper: () => number;
+    getAllWires: () => number;
+    getAllPlastic: () => number;
+    getAllEngravedCasings: () => number;
+    getAllBenchCost: () => number;
+}
 export interface IComponent {
     id: number;
     name: string;
@@ -28,7 +122,7 @@ export interface IComponent {
     img: string;
     productionTime?: number;
     benchCost?: number;
-    ingredients?: CommonVehicleComponent[] | RareVehicleComponent[] | SpecialVehicleComponent[] | EpicVehicleComponent[];
+    ingredients?: ICommonVehicleComponent[] | IRareVehicleComponent[] | ISpecialVehicleComponent[] | IEpicVehicleComponent[];
     getScrapMetal?: () => number;
     getCopper?: () => number;
     getElectronics?: () => number;
@@ -49,16 +143,18 @@ export interface IComponent {
 
 }
 export interface IItem {
-    id: number,
-    name: string,
-    profitRatio: number
+    id: number;
+    name: string;
+    profitRatio: number;
 }
 
 export interface IResourcePrices {
-    buyPrice: number,
-    dbId: number,
-    dbName: string,
-    id: number,
-    name: string,
-    sellPrice: number
+    buyPrice: number;
+    dbId: number;
+    dbName: string;
+    id: number;
+    name: string;
+    sellPrice: number;
 }
+
+
