@@ -1,23 +1,35 @@
 import React,{useEffect} from 'react';
 import './ComponentsCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
+import { IComponent } from '../interfaces/Interfaces';
+import { CommonVehicleComponent } from '../entity/commonVehicleComponent';
+import { EpicVehicleComponent } from '../entity/epicVehicleComponent';
+import { RareVehicleComponent } from '../entity/rareVehicleComponent';
+import { SpecialVehicleComponent } from '../entity/specialVehicleComponent';
 
+interface IComponentCostPropsDto {
+    component: IComponent;
+    classInstances: IComponent[];
+    btnSwitchBuyFabricate: boolean;
+    setBtnSwitchBuyFabricate: React.Dispatch<React.SetStateAction<boolean>>;
+    setAllIngredientsPrice: React.Dispatch<number>;
+}
 
-const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, setAllIngredientsPrice }) => {
-    let localIngredientArr = []
-    let renderIngredientsArr = []
-    let counter
-    let ingredientsCost
-    let totalIngredientsCost
+const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, setAllIngredientsPrice }: IComponentCostPropsDto ) => {
+    let localIngredientArr: IComponent[] = [];
+    let renderIngredientsArr: JSX.Element[] = [];
+    let counter: {}
+    let ingredientsCost: number;
+    let totalIngredientsCost: number;
     // component.ingredients.push(component.ingredients[0])
-    let btnClasses = btnSwitchBuyFabricate ? "switch-btn switch-on" : "switch-btn "
+    let btnClasses:string = btnSwitchBuyFabricate ? "switch-btn switch-on" : "switch-btn "
 
     
     function clickHandler() {
-        setBtnSwitchBuyFabricate((prev) => { return !prev });
+        setBtnSwitchBuyFabricate((prev): boolean => { return !prev });
     }
 
-    function setInstanceSellPrice(ingredientsArr, instancePricesArr) {
+    function setInstanceSellPrice(ingredientsArr: CommonVehicleComponent[] | RareVehicleComponent[] | SpecialVehicleComponent[] | EpicVehicleComponent[], instancePricesArr: IComponent[]) {
         for (const item of ingredientsArr) {
             for (const inst of instancePricesArr) {
                 if (item.id === inst.id) {
@@ -28,8 +40,8 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
         }
     }
 
-    function setCounterOfIngredients(ingredientsArr) {
-        let count = {};
+    function setCounterOfIngredients(ingredientsArr: CommonVehicleComponent[] | RareVehicleComponent[] | SpecialVehicleComponent[] | EpicVehicleComponent[]): {} {
+        let count: {} = {};
         ingredientsArr.forEach(function (i) { count[i.id] = (count[i.id] || 0) + 1; });
         localIngredientArr = [...new Set(ingredientsArr)];
         
@@ -50,9 +62,9 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
 
 
     renderIngredientsArr = localIngredientArr.map(ingredient => {
-        let quantityOfIngredients 
+        let quantityOfIngredients: string
         for (const id in counter) {
-            if (ingredient.id === +id) {
+            if (ingredient.id === Number(id)) {
                 quantityOfIngredients = counter[id]
             }
         }
@@ -80,18 +92,6 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
                     <div className="text-5">Количество:</div>
                     <div className="text-5">Цена:</div>
                     <div className="text-5">Стоимость:</div>
-                    {/* <div className="component-image_8 small-component-img"></div>
-                    <div className="value text-3">2</div>
-                    <div className="value-orange text-3">352</div>
-                    <div className="value-orange text-3">704</div>
-                    <div className="component-img-small_2 small-component-img"></div>
-                    <div className="value text-3">1</div>
-                    <div className="value-orange text-3">396</div>
-                    <div className="value-orange text-3">396</div>
-                    <div className="component-img-small_3 small-component-img"></div>
-                    <div className="value text-3">2</div>
-                    <div className="value-orange text-3">241.5</div>
-                    <div className="value-orange text-3">483</div> */}
                     {renderIngredientsArr}
                     <div className="total text-7">Всего:</div>
                     <div className="value-orange text-3">{totalIngredientsCost}</div>
