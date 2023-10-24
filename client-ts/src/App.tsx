@@ -23,7 +23,7 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import LoadingSpinnerForBlock from "./components/LoadingSpinnerForBlock";
 import Spinner from "./components/Spinner";
 import HorizontalSeparator from "./components/HorizontalSeparator";
-import { IComponent, IResourcesFromInput, IResourcePrices, IItem, } from "./interfaces/Interfaces";
+import { IComponent, IResourcesFromInput, IResourcePrices, IItem, ICommonVehicleComponent, IEpicVehicleComponent, IRareVehicleComponent, ISpecialVehicleComponent, } from "./interfaces/Interfaces";
 import { instancesToArr } from "./helpers/helpers";
 
 
@@ -150,87 +150,107 @@ function App() {
   if (selectedItem) {
     selectedInstance = classInstances.find((inst: IComponent): boolean => inst.id === selectedItem);
   }
-  // console.log('scrapmetalInput', resoursesFromInput.scrapMetal);
-
-  // function inputClickHandler(event) {
-
-  //   setResoursesFromInput((prev) => {    
-  //   return Object.assign({resoursesFromInput, ...prev, scrapMetal: +event.target.value })
-  // });
-  // }
-
-
 
   function handleClick(id: number): void {
     setSelectedItem(id)
     setBtnSwitchBuyFabricate(false);
   }
 
-  // console.log(selectedInstance);
+  function componentCostDto(ingridientsArr: ICommonVehicleComponent[] | IRareVehicleComponent[] | ISpecialVehicleComponent[] | IEpicVehicleComponent[]) {
 
-console.log('selectedInstance', selectedInstance);
-  return (
-    <div className="App">
-      <Container>
-        <Header>
-          <Logo />
-        </Header>
-        <Main>
-          <ItemList>
-            {itemsArr}
-          </ItemList>
-          {selectedInstance ?
-            <MainCard>
-              <ItemCard>
-                <TitleCard component={selectedInstance} />
-                <ProductionRequirements
-                  component={selectedInstance}
-                  resourcePrices={resourcePrices} />
-                <RequiredComponents
-                  component={selectedInstance}
-                  resourcePrices={resourcePrices} />
-              </ItemCard>
-              <VerticalSeparator />
-              <ProductionCostWrapper>
-                <ProductionCost
-                  component={selectedInstance}
-                  resourcePrices={resourcePrices}
-                  btnSwitchBuyFabricate={btnSwitchBuyFabricate}
-                  resoursesFromInput={resoursesFromInput}
-                  setCostPrice={setCostPrice}
-                  // costPrice={costPrice}
-                />
-                {selectedInstance.sellPrice ?
-                  <ComponentsCost
+    const componentObjArr: [] = []
+
+    ingridientsArr.forEach((item: ICommonVehicleComponent | IRareVehicleComponent | ISpecialVehicleComponent | IEpicVehicleComponent) => {
+      const obj = {
+        id: 0,
+        img: '',
+        count: 0
+      }
+      if (ingridientsArr) {
+        if (!componentObjArr.length) {
+          obj.id = item.id,
+            obj.img = item.img
+          componentObjArr.push(obj)
+        } else {
+          obj.id = item.id,
+            obj.img = item.img
+         const newArr = componentObjArr.map((item) => {
+            if (obj.id === item.id) {
+              item.count ++
+              return item
+           }else{
+              return item
+            }
+          })
+        }
+      }
+    })
+    
+
+    console.log('selectedInstance', selectedInstance);
+    return (
+      <div className="App">
+        <Container>
+          <Header>
+            <Logo />
+          </Header>
+          <Main>
+            <ItemList>
+              {itemsArr}
+            </ItemList>
+            {selectedInstance ?
+              <MainCard>
+                <ItemCard>
+                  <TitleCard component={selectedInstance} />
+                  <ProductionRequirements
                     component={selectedInstance}
-                    classInstances={classInstances}
+                    resourcePrices={resourcePrices} />
+                  <RequiredComponents
+                    component={selectedInstance}
+                    resourcePrices={resourcePrices} />
+                </ItemCard>
+                <VerticalSeparator />
+                <ProductionCostWrapper>
+                  <ProductionCost
+                    component={selectedInstance}
+                    resourcePrices={resourcePrices}
                     btnSwitchBuyFabricate={btnSwitchBuyFabricate}
-                    setBtnSwitchBuyFabricate={setBtnSwitchBuyFabricate}
-                    setAllIngredientsPrice={setAllIngredientsPrice}
-                  /> :
-                  <LoadingSpinnerForBlock />}
-                <HorizontalSeparator />
-                <Profit component={selectedInstance}
-                  allIngredientsPrice={allIngredientsPrice}
-                  costPrice={costPrice} />
-              </ProductionCostWrapper>
-              <VerticalSeparator />
-              <ResoursesAvailableWrapper>
-                <ResoursesAvailable
-                  resoursesFromInput={resoursesFromInput}
-                  setResoursesFromInput={setResoursesFromInput}
-                  component={selectedInstance}
-                  resourcePrices={resourcePrices}
-                // inputClickHandler={inputClickHandler}
-                />
-              </ResoursesAvailableWrapper>
-            </MainCard> :
-            <LoadingSpinnerForBlock />
-          }
-        </Main>
-      </Container>
-    </div>
-  );
-}
+                    resoursesFromInput={resoursesFromInput}
+                    setCostPrice={setCostPrice}
+                  // costPrice={costPrice}
+                  />
+                  {selectedInstance.sellPrice ?
+                    <ComponentsCost
+                      component={selectedInstance}
+                      classInstances={classInstances}
+                      btnSwitchBuyFabricate={btnSwitchBuyFabricate}
+                      setBtnSwitchBuyFabricate={setBtnSwitchBuyFabricate}
+                      setAllIngredientsPrice={setAllIngredientsPrice}
+                      test={test()}
+                    /> :
+                    <LoadingSpinnerForBlock />}
+                  <HorizontalSeparator />
+                  <Profit component={selectedInstance}
+                    allIngredientsPrice={allIngredientsPrice}
+                    costPrice={costPrice} />
+                </ProductionCostWrapper>
+                <VerticalSeparator />
+                <ResoursesAvailableWrapper>
+                  <ResoursesAvailable
+                    resoursesFromInput={resoursesFromInput}
+                    setResoursesFromInput={setResoursesFromInput}
+                    component={selectedInstance}
+                    resourcePrices={resourcePrices}
+                  // inputClickHandler={inputClickHandler}
+                  />
+                </ResoursesAvailableWrapper>
+              </MainCard> :
+              <LoadingSpinnerForBlock />
+            }
+          </Main>
+        </Container>
+      </div>
+    );
+  }
 
-export default App;
+  export default App;

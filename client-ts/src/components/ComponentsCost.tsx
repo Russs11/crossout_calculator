@@ -13,6 +13,7 @@ interface IComponentCostPropsDto {
     btnSwitchBuyFabricate: boolean;
     setBtnSwitchBuyFabricate: React.Dispatch<React.SetStateAction<boolean>>;
     setAllIngredientsPrice: React.Dispatch<number | undefined>;
+    test: string;
 }
 interface ICount {
     [key: string]: number;
@@ -20,7 +21,7 @@ interface ICount {
 
 
 
-const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, setAllIngredientsPrice }: IComponentCostPropsDto) => {
+const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, setAllIngredientsPrice, test }: IComponentCostPropsDto) => {
     let localIngredientArr: IComponent[] = [];
     let renderIngredientsArr: ReactElement[] = [];
     let counter: {}
@@ -30,12 +31,12 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
     // component.ingredients.push(component.ingredients[0])
     let btnClasses: string = btnSwitchBuyFabricate ? "switch-btn switch-on" : "switch-btn "
 
-
+    // console.log('test()', test);
     function clickHandler() {
         setBtnSwitchBuyFabricate((prev): boolean => { return !prev });
     }
 
-    function setInstanceSellPrice(ingredientsArr: ICommonVehicleComponent[] | IRareVehicleComponent[] | ISpecialVehicleComponent[] | IEpicVehicleComponent[] | undefined, instancePricesArr: IComponent[]): void {
+    function setInstanceSellPrice(ingredientsArr: IComponent[] | undefined, instancePricesArr: IComponent[]): void {
         if (ingredientsArr) {
             for (const item of ingredientsArr) {
                 for (const inst of instancePricesArr) {
@@ -48,10 +49,10 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
         }
     }
 
-    function setCounterOfIngredients(ingredientsArr: ICommonVehicleComponent[] | IRareVehicleComponent[] | ISpecialVehicleComponent[] | IEpicVehicleComponent[] | undefined): ICount {
+    function setCounterOfIngredients(ingredientsArr: IComponent[] | undefined): ICount {
         let count: ICount = {};
         if (ingredientsArr) {
-            ingredientsArr.forEach(function (i) { count[i.id as keyof typeof count] = (count[i.id as keyof typeof count] || 0) + 1; });
+            ingredientsArr.forEach((i) => { count[i.id as keyof typeof count] = (count[i.id as keyof typeof count] || 0) + 1; });
             localIngredientArr = ingredientsArr.filter((value, index, array) => array.indexOf(value) === index);
         }
         // localIngredientArr = [...new Set(ingredientsArr)];
@@ -60,11 +61,18 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
 
     setInstanceSellPrice(component.ingredients, classInstances);
     counter = setCounterOfIngredients(component.ingredients);
-    // if (component.ingredients) {
-    //     totalIngredientsCost = Math.round(component.ingredients.reduce((a: number, b: IComponent) => {
-    //         return a + b.sellPrice
-    //     }, 0));
-    // }
+
+    if (component.ingredients) {
+        // totalIngredientsCost = Math.round(component.ingredients.reduce((a: number, b: IComponent) => {
+        //     return b ? a + b.sellPrice : 0;
+        // }, 0));
+        let accum: number = 0;
+        component.ingredients.forEach((item: ICommonVehicleComponent | IRareVehicleComponent | ISpecialVehicleComponent | IEpicVehicleComponent) => {
+            accum += item.sellPrice
+        })
+        totalIngredientsCost = Math.round(accum);
+
+    }
 
     useEffect(() => {
         setAllIngredientsPrice(btnSwitchBuyFabricate ? totalIngredientsCost : 0);
