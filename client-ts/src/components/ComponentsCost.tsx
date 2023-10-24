@@ -13,7 +13,6 @@ interface IComponentCostPropsDto {
     btnSwitchBuyFabricate: boolean;
     setBtnSwitchBuyFabricate: React.Dispatch<React.SetStateAction<boolean>>;
     setAllIngredientsPrice: React.Dispatch<number | undefined>;
-    test: string;
 }
 interface ICount {
     [key: string]: number;
@@ -21,7 +20,7 @@ interface ICount {
 
 
 
-const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, setAllIngredientsPrice, test }: IComponentCostPropsDto) => {
+const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, setAllIngredientsPrice }: IComponentCostPropsDto) => {
     let localIngredientArr: IComponent[] = [];
     let renderIngredientsArr: ReactElement[] = [];
     let counter: {}
