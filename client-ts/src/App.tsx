@@ -182,6 +182,7 @@ function App() {
             // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             obj.id = item.id
             obj.img = item.img
+            obj.sellPrice = item.sellPrice
             componentObjArr.push(obj)
             idArr.push(item.id)
           }
@@ -189,6 +190,7 @@ function App() {
             // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             obj.id = item.id
             obj.img = item.img
+            obj.sellPrice = item.sellPrice
             for (let i = 0; i < idArr.length; i++){
               if (obj.id === idArr[i]) {
                 componentObjArr.forEach((item) => {
@@ -203,6 +205,7 @@ function App() {
               }
             }
           }
+        obj.cost = obj.count * obj.sellPrice
       })
     }
     return componentObjArr
