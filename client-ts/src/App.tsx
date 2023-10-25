@@ -50,6 +50,9 @@ function App() {
     id: number;
     img: string;
     count: number;
+    sellPrice: number;
+    cost: number;
+
   }
 
 
@@ -162,35 +165,43 @@ function App() {
 
   function componentCostDto(ingridientsArr: ICommonVehicleComponent[] | IRareVehicleComponent[] | ISpecialVehicleComponent[] | IEpicVehicleComponent[] | undefined):obj[] {
 
-   
-    const componentObjArr: obj[] = []
 
+    const componentObjArr: obj[] = []
+    const idArr: number[] = []
     if (ingridientsArr) {
       ingridientsArr.forEach((item: ICommonVehicleComponent | IRareVehicleComponent | ISpecialVehicleComponent | IEpicVehicleComponent) => {
         const obj: obj = {
           id: 0,
           img: '',
-          count: 0
+          count: 1,
+          sellPrice: 0,
+          cost: 0,
         }
 
           if (!componentObjArr.length) {
             // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-            obj.id = item.id,
-              obj.img = item.img
+            obj.id = item.id
+            obj.img = item.img
             componentObjArr.push(obj)
+            idArr.push(item.id)
           }
           else {
             // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-            obj.id = item.id,
+            obj.id = item.id
             obj.img = item.img
-            componentObjArr.forEach((item) => {
-              if (obj.id === item.id) {
-                item.count++
-                return item
+            for (let i = 0; i < idArr.length; i++){
+              if (obj.id === idArr[i]) {
+                componentObjArr.forEach((item) => {
+                  if (obj.id === item.id) {
+                    item.count++
+                  }
+                })
               } else {
-                return item
+                componentObjArr.push(obj)
+                idArr.push(obj.id)
+                break;
               }
-            })
+            }
           }
       })
     }
