@@ -1,101 +1,38 @@
 import React, { ReactElement, ReactFragment, useEffect } from 'react';
 import './ComponentsCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
-import { ICommonVehicleComponent, IComponent, IEpicVehicleComponent, IRareVehicleComponent, ISpecialVehicleComponent } from '../interfaces/Interfaces';
-import { CommonVehicleComponent } from '../entity/commonVehicleComponent';
-import { EpicVehicleComponent } from '../entity/epicVehicleComponent';
-import { RareVehicleComponent } from '../entity/rareVehicleComponent';
-import { SpecialVehicleComponent } from '../entity/specialVehicleComponent';
+import { IComponentCostPropDto } from '../interfaces/Interfaces';
+
 
 interface IComponentCostPropsDto {
-    component: IComponent;
-    classInstances: IComponent[];
     btnSwitchBuyFabricate: boolean;
     setBtnSwitchBuyFabricate: React.Dispatch<React.SetStateAction<boolean>>;
-    setAllIngredientsPrice: React.Dispatch<number | undefined>;
+    componentCostPropDto: IComponentCostPropDto
 }
-interface ICount {
-    [key: string]: number;
-};
 
-
-
-const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, setAllIngredientsPrice }: IComponentCostPropsDto) => {
-    let localIngredientArr: IComponent[] = [];
+const ComponentsCost = ({  btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, componentCostPropDto }: IComponentCostPropsDto) => {
+    
     let renderIngredientsArr: ReactElement[] = [];
-    let counter: {}
-    let ingredientsCost: number;
-    let totalIngredientsCost: number | undefined;
-    let quantityOfIngredients: number;
-    // component.ingredients.push(component.ingredients[0])
-    let btnClasses: string = btnSwitchBuyFabricate ? "switch-btn switch-on" : "switch-btn "
 
-    // console.log('test()', test);
+    let btnClasses: string = btnSwitchBuyFabricate ? "switch-btn switch-on" : "switch-btn "
+    
     function clickHandler() {
         setBtnSwitchBuyFabricate((prev): boolean => { return !prev });
     }
 
-    function setInstanceSellPrice(ingredientsArr: IComponent[] | undefined, instancePricesArr: IComponent[]): void {
-        if (ingredientsArr) {
-            for (const item of ingredientsArr) {
-                for (const inst of instancePricesArr) {
-                    if (item.id === inst.id) {
-                        item.sellPrice = inst.sellPrice
-                        item.buyPrice = inst.buyPrice
-                    }
-                }
-            }
-        }
-    }
+    // useEffect(() => {
+    //     setAllIngredientsPrice(btnSwitchBuyFabricate ? componentCostPropDto.totalIngridientsCost : 0);
+    // }, [btnSwitchBuyFabricate])
 
-    function setCounterOfIngredients(ingredientsArr: IComponent[] | undefined): ICount {
-        let count: ICount = {};
-        if (ingredientsArr) {
-            ingredientsArr.forEach((i) => { count[i.id as keyof typeof count] = (count[i.id as keyof typeof count] || 0) + 1; });
-            localIngredientArr = ingredientsArr.filter((value, index, array) => array.indexOf(value) === index);
-        }
-        // localIngredientArr = [...new Set(ingredientsArr)];
-        return count;
-    }
-
-    setInstanceSellPrice(component.ingredients, classInstances);
-    counter = setCounterOfIngredients(component.ingredients);
-
-    if (component.ingredients) {
-        // totalIngredientsCost = Math.round(component.ingredients.reduce((a: number, b: IComponent) => {
-        //     return b ? a + b.sellPrice : 0;
-        // }, 0));
-        let accum: number = 0;
-        component.ingredients.forEach((item: ICommonVehicleComponent | IRareVehicleComponent | ISpecialVehicleComponent | IEpicVehicleComponent) => {
-            accum += item.sellPrice
-        })
-        totalIngredientsCost = Math.round(accum);
-
-    }
-
-    useEffect(() => {
-        setAllIngredientsPrice(btnSwitchBuyFabricate ? totalIngredientsCost : 0);
-    }, [btnSwitchBuyFabricate])
-
-
-
-
-    renderIngredientsArr = localIngredientArr.map(ingredient => {
-        for (const id in counter) {
-            if (ingredient.id === Number(id)) {
-                quantityOfIngredients = counter[id as keyof typeof counter]
-            }
-        }
-
-        ingredientsCost = Math.round((quantityOfIngredients * ingredient.sellPrice) * 100) / 100
-
+    renderIngredientsArr = componentCostPropDto.ingridients.map(ingredient => {
+        
         return (
-            <React.Fragment key={ingredient.name}>
+            <React.Fragment key={ingredient.id}>
                 <div className="component-image_8 small-component-img"
                     style={{ backgroundImage: "url(" + ingredient.img + ")" }}></div>
-                <div className="value text-3">{quantityOfIngredients}</div>
+                <div className="value text-3">{ingredient.count}</div>
                 <div className="value-orange text-3">{ingredient.sellPrice}</div>
-                <div className="value-orange text-3">{ingredientsCost}</div>
+                <div className="value-orange text-3">{ingredient.cost}</div>
             </React.Fragment>
         )
     });
@@ -113,7 +50,7 @@ const ComponentsCost = ({ component, classInstances, btnSwitchBuyFabricate, setB
                     <div className="text-5">Стоимость:</div>
                     {renderIngredientsArr}
                     <div className="total text-7">Всего:</div>
-                    <div className="value-orange text-3">{totalIngredientsCost ? totalIngredientsCost : 0}</div>
+                    <div className="value-orange text-3">{ componentCostPropDto.totalIngridientsCost }</div>
                 </div>
             </div>
         </>

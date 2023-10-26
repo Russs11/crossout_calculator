@@ -158,3 +158,14 @@ export interface IResourcePrices {
 }
 
 
+export interface IComponentIngridientObject {
+    id: number;
+    img: string;
+    count: number;
+    sellPrice: number;
+    cost: number;
+}
+export interface IComponentCostPropDto {
+    ingridients: IComponentIngridientObject[];
+    totalIngridientsCost: number;
+}

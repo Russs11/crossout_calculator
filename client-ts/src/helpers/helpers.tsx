@@ -15,7 +15,7 @@ import MovementRareArray from "../entity/movement/rare"
 import MovementSpecialArray from "../entity/movement/special"
 import MovementEpicArray from "../entity/movement/epic"
 
-import { IComponent } from "../interfaces/Interfaces";
+import { ICommonVehicleComponent, IComponent, IComponentCostPropDto, IComponentIngridientObject, IEpicVehicleComponent, IRareVehicleComponent, ISpecialVehicleComponent } from "../interfaces/Interfaces";
 
 export function instancesToArr(): IComponent[] {
 
@@ -73,4 +73,62 @@ export function instancesToArr(): IComponent[] {
 		entityArr.push(item)
 	}
 	return entityArr
+}
+
+export function componentCostDto(ingridientsArr: ICommonVehicleComponent[] | IRareVehicleComponent[] | ISpecialVehicleComponent[] | IEpicVehicleComponent[] | undefined): IComponentCostPropDto {
+
+
+	const componentCostPropDto: IComponentCostPropDto = {
+		ingridients: [],
+		totalIngridientsCost: 0
+	}
+	const componentObjArr: IComponentIngridientObject[] = []
+	const idArr: number[] = []
+	if (ingridientsArr) {
+		ingridientsArr.forEach((item: ICommonVehicleComponent | IRareVehicleComponent | ISpecialVehicleComponent | IEpicVehicleComponent) => {
+			const obj: IComponentIngridientObject = {
+				id: 0,
+				img: '',
+				count: 1,
+				sellPrice: 0,
+				cost: 0,
+			}
+
+			if (!componentObjArr.length) {
+				// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+				obj.id = item.id
+				obj.img = item.img
+				obj.sellPrice = item.sellPrice
+				componentObjArr.push(obj)
+				idArr.push(item.id)
+			}
+			else {
+				// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+				obj.id = item.id
+				obj.img = item.img
+				obj.sellPrice = item.sellPrice
+				for (let i = 0; i < idArr.length; i++) {
+					if (obj.id === idArr[i]) {
+						componentObjArr.forEach((item) => {
+							if (obj.id === item.id) {
+								item.count++
+							}
+						})
+					} else {
+						componentObjArr.push(obj)
+						idArr.push(obj.id)
+						break;
+					}
+				}
+			}
+			obj.cost = obj.count * obj.sellPrice
+		})
+	}
+	componentCostPropDto.ingridients = componentObjArr
+
+	componentCostPropDto.ingridients.forEach(item => {
+		componentCostPropDto.totalIngridientsCost += item.cost
+	})
+	componentCostPropDto.totalIngridientsCost = Math.round(componentCostPropDto.totalIngridientsCost)
+	return componentCostPropDto
 }

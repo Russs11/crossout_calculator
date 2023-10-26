@@ -23,8 +23,8 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import LoadingSpinnerForBlock from "./components/LoadingSpinnerForBlock";
 import Spinner from "./components/Spinner";
 import HorizontalSeparator from "./components/HorizontalSeparator";
-import { IComponent, IResourcesFromInput, IResourcePrices, IItem, ICommonVehicleComponent, IEpicVehicleComponent, IRareVehicleComponent, ISpecialVehicleComponent, } from "./interfaces/Interfaces";
-import { instancesToArr } from "./helpers/helpers";
+import { IComponent, IResourcesFromInput, IResourcePrices, IItem, ICommonVehicleComponent, IEpicVehicleComponent, IRareVehicleComponent, ISpecialVehicleComponent, IComponentCostPropDto, IComponentIngridientObject } from "./interfaces/Interfaces";
+import { instancesToArr, componentCostDto } from "./helpers/helpers";
 
 
 function App() {
@@ -46,20 +46,21 @@ function App() {
     batteries: 0,
     electronics: 0,
   });
-  interface obj {
-    id: number;
-    img: string;
-    count: number;
-    sellPrice: number;
-    cost: number;
-
-  }
 
 
   // const [selectedInstance, setSelectedInstance] = useState()
   let selectedInstance: IComponent | undefined
   let itemsArr: JSX.Element[] = []
+  let componentCostPropDto: IComponentCostPropDto = {
+    ingridients: [],
+    totalIngridientsCost: 0
+  }
   // console.log(typeof(WeaponsCommon));
+
+  
+
+
+
   useEffect(() => {
     const entityArr = instancesToArr()
     setClassInstances(entityArr)
@@ -156,63 +157,21 @@ function App() {
 
   if (selectedItem) {
     selectedInstance = classInstances.find((inst: IComponent): boolean => inst.id === selectedItem);
+    componentCostPropDto = componentCostDto(selectedInstance ? selectedInstance.ingredients : undefined)
+
   }
+
 
   function handleClick(id: number): void {
     setSelectedItem(id)
     setBtnSwitchBuyFabricate(false);
   }
-
-  function componentCostDto(ingridientsArr: ICommonVehicleComponent[] | IRareVehicleComponent[] | ISpecialVehicleComponent[] | IEpicVehicleComponent[] | undefined):obj[] {
-
-
-    const componentObjArr: obj[] = []
-    const idArr: number[] = []
-    if (ingridientsArr) {
-      ingridientsArr.forEach((item: ICommonVehicleComponent | IRareVehicleComponent | ISpecialVehicleComponent | IEpicVehicleComponent) => {
-        const obj: obj = {
-          id: 0,
-          img: '',
-          count: 1,
-          sellPrice: 0,
-          cost: 0,
-        }
-
-          if (!componentObjArr.length) {
-            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-            obj.id = item.id
-            obj.img = item.img
-            obj.sellPrice = item.sellPrice
-            componentObjArr.push(obj)
-            idArr.push(item.id)
-          }
-          else {
-            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-            obj.id = item.id
-            obj.img = item.img
-            obj.sellPrice = item.sellPrice
-            for (let i = 0; i < idArr.length; i++){
-              if (obj.id === idArr[i]) {
-                componentObjArr.forEach((item) => {
-                  if (obj.id === item.id) {
-                    item.count++
-                  }
-                })
-              } else {
-                componentObjArr.push(obj)
-                idArr.push(obj.id)
-                break;
-              }
-            }
-          }
-        obj.cost = obj.count * obj.sellPrice
-      })
-    }
-    return componentObjArr
-  }
+  let appTimeStart = Number(Date.now())
   
-
-  console.log(selectedInstance ? componentCostDto(selectedInstance.ingredients) : null);
+  
+  let appTimeStop = Number(Date.now())
+  // console.log(selectedInstance ? componentCostDto(selectedInstance.ingredients) : null);
+  console.log('appTime', appTimeStop - appTimeStart);
 
   console.log('selectedInstance', selectedInstance);
   return (
@@ -246,16 +205,11 @@ function App() {
                   setCostPrice={setCostPrice}
                 // costPrice={costPrice}
                 />
-                {selectedInstance.sellPrice ?
                   <ComponentsCost
-                    component={selectedInstance}
-                    classInstances={classInstances}
-                    btnSwitchBuyFabricate={btnSwitchBuyFabricate}
                     setBtnSwitchBuyFabricate={setBtnSwitchBuyFabricate}
-                    setAllIngredientsPrice={setAllIngredientsPrice}
-                  // test={test()}
-                  /> :
-                  <LoadingSpinnerForBlock />}
+                    btnSwitchBuyFabricate={btnSwitchBuyFabricate}
+                    componentCostPropDto={componentCostPropDto}
+                  /> 
                 <HorizontalSeparator />
                 <Profit component={selectedInstance}
                   allIngredientsPrice={allIngredientsPrice}
