@@ -122,6 +122,33 @@ function App() {
   }, [classInstances]);
 
 
+
+  function productionCostDto(component: IComponent, resourcePrices: IResourcePrices[]) {
+
+    const productionCostPropDto = {
+      resourcesArr: [],
+
+    }
+
+    const resourceObj = {
+      
+    }
+    let benchCost: number = component.getAllBenchCost?.() ? component.getAllBenchCost?.() : 0
+    let scrapMetalRequires = component.getScrapMetal?.()
+
+    let allScrapMetalRequires = component.getAllScrapMetal?.()
+
+    let allScrapMetalCost = allScrapMetalRequires ? Math.round((allScrapMetalRequires * scrapMetalSellPrice / 100) * 100) / 100 : 0
+
+    let scrapMetalCost = scrapMetalRequires ? Math.round((scrapMetalRequires * scrapMetalSellPrice / 100) * 100) / 100 : 0
+
+
+    console.log('log');
+
+
+  }
+  productionCostPropDto(selectedItem, resourcePrices)
+
   if (itemsList) {
     const instanceFromData: IComponent[] = []
     for (const item of itemsList) {
