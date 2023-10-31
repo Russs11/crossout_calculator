@@ -3,15 +3,61 @@ import './ProductionCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 import { IComponent, IResourcePrices, IResourcesFromInput } from '../interfaces/Interfaces';
 
+
+interface IProductionCostPropDto {
+    scrapMetalRequires: number | undefined;
+    copperRequires: number | undefined;
+    wiresRequires: number | undefined;
+    plasticRequires: number | undefined;
+    batteriesRequires: number | undefined;
+    electronicsRequires: number | undefined;
+    engravedCasingsRequires: number | undefined;
+
+    allScrapMetalRequires: number | undefined;
+    allWiresRequires: number | undefined;
+    allCopperRequires: number | undefined;
+    allPlasticRequires: number | undefined;
+    allBatterriesRequires: number | undefined;
+    allElectronicsRequires: number | undefined;
+    allEngravedCasingsRequires: number | undefined;
+
+    scrapMetalSellPrice: number;
+    copperSellPrice: number;
+    wiresSellPrice: number;
+    plasticSellPrice: number;
+    batteriesSellPrice: number;
+    electronicsSellPrice: number;
+    engravedCasingsSellPrice: number;
+
+    allScrapMetalCost: number;
+    allCopperCost: number;
+    allWiresCost: number;
+    allPlasticCost: number;
+    allEngravedCasingsCost: number;
+    allBatteriesCost: number;
+    allElectronicsCost: number;
+
+    scrapMetalCost: number;
+    copperCost: number;
+    wiresCost: number;
+    plasticCost: number;
+    engravedCasingsCost: number;
+    batteriesCost: number;
+    electronicsCost: number;
+
+    totalAllResoursesСost: number;
+    totalResoursesCost: number;
+}
 interface IProductionCostPropsDto {
     component: IComponent;
     resourcePrices: IResourcePrices[];
     btnSwitchBuyFabricate: boolean;
     resoursesFromInput: IResourcesFromInput;
     setCostPrice: React.Dispatch<number>;
+    productionCostPropDto: IProductionCostPropDto | undefined
 }
 
-const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, resoursesFromInput, setCostPrice }: IProductionCostPropsDto) => {
+const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, resoursesFromInput, setCostPrice, productionCostPropDto }: IProductionCostPropsDto) => {
 
     let resoursesArr3: JSX.Element[] = []
 
@@ -170,14 +216,14 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, reso
     }
 
     
-    if (component.scrapMetal) {
+    if (component.scrapMetal && productionCostPropDto) {
 
         resoursesArr3.push(
             <React.Fragment key={resourcePrices[0].dbId}>
                 <div className="scrapmetal"></div>
-                <div className="value text-3">{btnSwitchBuyFabricate ? scrapMetalRequires : allScrapMetalRequires}</div>
-                <div className="value-orange text-3">{scrapMetalSellPrice}</div>
-                <div className="value-orange text-3">{btnSwitchBuyFabricate ? scrapMetalCost : allScrapMetalCost}</div>
+                <div className="value text-3">{btnSwitchBuyFabricate ? productionCostPropDto.scrapMetalRequires : productionCostPropDto.allScrapMetalRequires}</div>
+                <div className="value-orange text-3">{productionCostPropDto.scrapMetalSellPrice}</div>
+                <div className="value-orange text-3">{btnSwitchBuyFabricate ? productionCostPropDto.scrapMetalCost : productionCostPropDto.allScrapMetalCost}</div>
             </React.Fragment>
         )
     }
