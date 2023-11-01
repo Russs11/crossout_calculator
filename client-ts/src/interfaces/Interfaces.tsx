@@ -169,3 +169,50 @@ export interface IComponentCostPropDto {
     ingridients: IComponentIngridientObject[];
     totalIngridientsCost: number;
 }
+
+export interface IProductionCostPropDto {
+
+    benchCost: number;
+    scrapMetalRequires: number | undefined;
+    copperRequires: number | undefined;
+    wiresRequires: number | undefined;
+    plasticRequires: number | undefined;
+    batteriesRequires: number | undefined;
+    electronicsRequires: number | undefined;
+    engravedCasingsRequires: number | undefined;
+
+    allScrapMetalRequires: number | undefined;
+    allWiresRequires: number | undefined;
+    allCopperRequires: number | undefined;
+    allPlasticRequires: number | undefined;
+    allBatterriesRequires: number | undefined;
+    allElectronicsRequires: number | undefined;
+    allEngravedCasingsRequires: number | undefined;
+
+    scrapMetalSellPrice: number;
+    copperSellPrice: number;
+    wiresSellPrice: number;
+    plasticSellPrice: number;
+    batteriesSellPrice: number;
+    electronicsSellPrice: number;
+    engravedCasingsSellPrice: number;
+
+    allScrapMetalCost: number;
+    allCopperCost: number;
+    allWiresCost: number;
+    allPlasticCost: number;
+    allEngravedCasingsCost: number;
+    allBatteriesCost: number;
+    allElectronicsCost: number;
+
+    scrapMetalCost: number;
+    copperCost: number;
+    wiresCost: number;
+    plasticCost: number;
+    engravedCasingsCost: number;
+    batteriesCost: number;
+    electronicsCost: number;
+
+    totalAllResoursesСost: number;
+    totalResoursesCost: number;
+}
