@@ -3,7 +3,7 @@ import './ProductionCost.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 import { IComponent, IResourcePrices, IProductionCostPropDto, IResourcesFromInput } from '../interfaces/Interfaces';
 
-interface IProductionCostPropsDto {
+interface IProductionCostProps {
     component: IComponent;
     resourcePrices: IResourcePrices[]
     btnSwitchBuyFabricate: boolean;
@@ -11,7 +11,7 @@ interface IProductionCostPropsDto {
     productionCostPropDto: IProductionCostPropDto | undefined
 }
 
-const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, setCostPrice, productionCostPropDto }: IProductionCostPropsDto) => {
+const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, setCostPrice, productionCostPropDto }: IProductionCostProps) => {
 
     let resoursesArr3: JSX.Element[] = []
 
@@ -23,7 +23,7 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, setC
         totalResoursesCost = productionCostPropDto.totalResoursesCost
         totalAllResoursesСost = productionCostPropDto.totalAllResoursesСost
     }
-    console.log(totalAllResoursesСost, totalResoursesCost);
+    // console.log(totalAllResoursesСost, totalResoursesCost);
 
     // setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
 

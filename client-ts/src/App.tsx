@@ -196,6 +196,15 @@ function App() {
     }
   }
 
+  // function profitDto(component, allIngredientsPrice, costPrice){
+
+  //   let componentBuyPrice = component.buyPrice
+  //   let commission = Math.round(component.buyPrice / 10)
+  //   let selfPrice = Math.round(allIngredientsPrice + costPrice)
+  //   let profit = Math.round(componentBuyPrice - commission - selfPrice)
+  
+  // }
+
   if (selectedItem) {
     selectedInstance = classInstances.find((inst: IComponent): boolean => inst.id === selectedItem);
     componentCostPropDto = componentCostDto(selectedInstance ? selectedInstance.ingredients : undefined);
