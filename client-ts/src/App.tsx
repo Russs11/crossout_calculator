@@ -196,26 +196,31 @@ function App() {
     }
   }
 
-  // function profitDto(component, allIngredientsPrice, costPrice){
-
-  //   let componentBuyPrice = component.buyPrice
-  //   let commission = Math.round(component.buyPrice / 10)
-  //   let selfPrice = Math.round(allIngredientsPrice + costPrice)
-  //   let profit = Math.round(componentBuyPrice - commission - selfPrice)
-  
-  // }
+  function profitDto(component: IComponent, allIngredientsPrice: number | undefined, costPrice: number){
+    let componentBuyPrice: number = component.buyPrice
+    let commission: number = Math.round(component.buyPrice / 10)
+    let selfPrice: number = Math.round(allIngredientsPrice ? allIngredientsPrice + costPrice : costPrice)
+    let profit: number = Math.round(componentBuyPrice - commission - selfPrice)
+    console.log('componentBuyPrice', componentBuyPrice);
+    console.log('allIngredientsPrice', allIngredientsPrice);
+    console.log('selfPrice', selfPrice);
+    console.log('costPrice' , costPrice);
+    console.log('profit', profit);
+  }
 
   if (selectedItem) {
     selectedInstance = classInstances.find((inst: IComponent): boolean => inst.id === selectedItem);
     componentCostPropDto = componentCostDto(selectedInstance ? selectedInstance.ingredients : undefined);
     if (selectedInstance) {
       productionCostPropDto = productionCostDto(selectedInstance, resourcePrices, resoursesFromInput);
+      profitDto(selectedInstance, allIngredientsPrice, costPrice);
     }
+
   }
 
 
   function handleClick(id: number): void {
-    setSelectedItem(id)
+    setSelectedItem(id);
     setBtnSwitchBuyFabricate(false);
   }
   // let appTimeStart = Number(Date.now())
