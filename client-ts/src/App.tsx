@@ -196,26 +196,28 @@ function App() {
     }
   }
 
-  // function profitDto(component, allIngredientsPrice, costPrice){
+  function profitDto(component: IComponent, allIngredientsPrice: number | undefined, costPrice: number){
 
-  //   let componentBuyPrice = component.buyPrice
-  //   let commission = Math.round(component.buyPrice / 10)
-  //   let selfPrice = Math.round(allIngredientsPrice + costPrice)
-  //   let profit = Math.round(componentBuyPrice - commission - selfPrice)
-  
-  // }
+    let componentBuyPrice: number = component.buyPrice
+    let commission: number = Math.round(component.buyPrice / 10)
+    let selfPrice: number = Math.round(allIngredientsPrice ? allIngredientsPrice + costPrice: 0)
+    let profit: number = Math.round(componentBuyPrice - commission - selfPrice)
+    console.log('profit', profit);
+  }
 
   if (selectedItem) {
     selectedInstance = classInstances.find((inst: IComponent): boolean => inst.id === selectedItem);
     componentCostPropDto = componentCostDto(selectedInstance ? selectedInstance.ingredients : undefined);
     if (selectedInstance) {
       productionCostPropDto = productionCostDto(selectedInstance, resourcePrices, resoursesFromInput);
+      profitDto(selectedInstance, allIngredientsPrice, costPrice);
     }
+
   }
 
 
   function handleClick(id: number): void {
-    setSelectedItem(id)
+    setSelectedItem(id);
     setBtnSwitchBuyFabricate(false);
   }
   // let appTimeStart = Number(Date.now())
