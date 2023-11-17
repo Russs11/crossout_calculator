@@ -8,11 +8,6 @@ interface IProfitProps {
 
 const Profit = ({ profitPropDto }: IProfitProps) => {
 
-    // let componentBuyPrice = component.buyPrice
-    // let commission = Math.round(component.buyPrice / 10)
-    // let selfPrice = Math.round(allIngredientsPrice + costPrice)
-    // let profit = Math.round(componentBuyPrice - commission - selfPrice)
-
 
 
     return (
