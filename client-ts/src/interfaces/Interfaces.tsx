@@ -216,3 +216,10 @@ export interface IProductionCostPropDto {
     totalAllResoursesСost: number;
     totalResoursesCost: number;
 }
+
+export interface IProfitPropDto {
+    componentBuyPrice: number;
+    commission: number;
+    selfPrice: number;
+    profit: number;
+}

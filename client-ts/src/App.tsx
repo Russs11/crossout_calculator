@@ -23,7 +23,7 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import LoadingSpinnerForBlock from "./components/LoadingSpinnerForBlock";
 import Spinner from "./components/Spinner";
 import HorizontalSeparator from "./components/HorizontalSeparator";
-import { IComponent, IResourcesFromInput, IResourcePrices, IItem, IProductionCostPropDto, ICommonVehicleComponent, IEpicVehicleComponent, IRareVehicleComponent, ISpecialVehicleComponent, IComponentCostPropDto, IComponentIngridientObject } from "./interfaces/Interfaces";
+import { IComponent, IResourcesFromInput, IResourcePrices, IItem, IProductionCostPropDto, ICommonVehicleComponent, IEpicVehicleComponent, IRareVehicleComponent, ISpecialVehicleComponent, IComponentCostPropDto, IComponentIngridientObject, IProfitPropDto } from "./interfaces/Interfaces";
 import { instancesToArr, componentCostDto, productionCostDto } from "./helpers/helpers";
 
 
@@ -99,6 +99,13 @@ function App() {
 
     totalAllResoursesСost: 0,
     totalResoursesCost: 0,
+  }
+
+  let profitPropDto: IProfitPropDto = {
+    componentBuyPrice: 0,
+    commission: 0,
+    selfPrice: 0,
+    profit: 0,
   }
 
 
@@ -196,16 +203,11 @@ function App() {
     }
   }
 
-  interface profitPropDto {
-  componentBuyPrice: number;
-  commission: number;
-  selfPrice: number;
-  profit: number;
-  }
 
-  function profitDto(component: IComponent, allIngredientsPrice: number | undefined, costPrice: number): profitPropDto{
+
+  function profitDto(component: IComponent, allIngredientsPrice: number | undefined, costPrice: number): IProfitPropDto{
     
-    const profitPropDto: profitPropDto = {
+    const profitPropDto: IProfitPropDto = {
       componentBuyPrice: component.buyPrice,
       commission: Math.round(component.buyPrice / 10),
       selfPrice: Math.round(allIngredientsPrice ? allIngredientsPrice + costPrice : costPrice),
@@ -221,7 +223,7 @@ function App() {
     componentCostPropDto = componentCostDto(selectedInstance ? selectedInstance.ingredients : undefined);
     if (selectedInstance) {
       productionCostPropDto = productionCostDto(selectedInstance, resourcePrices, resoursesFromInput);
-      profitDto(selectedInstance, allIngredientsPrice, costPrice);
+      profitPropDto = profitDto(selectedInstance, allIngredientsPrice, costPrice);
     }
 
   }
@@ -276,9 +278,11 @@ function App() {
                   componentCostPropDto={componentCostPropDto}
                 />
                 <HorizontalSeparator />
-                <Profit component={selectedInstance}
-                  allIngredientsPrice={allIngredientsPrice}
-                  costPrice={costPrice} />
+                <Profit
+                  // component={selectedInstance}
+                  // allIngredientsPrice={allIngredientsPrice}
+                  // costPrice={costPrice}
+                  profitPropDto={profitPropDto} />
               </ProductionCostWrapper>
               <VerticalSeparator />
               <ResoursesAvailableWrapper>
