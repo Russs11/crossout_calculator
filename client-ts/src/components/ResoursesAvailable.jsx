@@ -70,14 +70,33 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
         });
     }
 
-    
+    function inputIngredient(id, event) {
+        setIngredientsFromInput((prev) => {
+            return Object.assign({ ...prev, [id]: +event.target.value.replace(/[^\d]/g, '') });
+        });
+    }
 
-    renderIngredientsArr = localIngredientsArr.map(item => {
+    // renderIngredientsArr = localIngredientsArr.map(item => {
+    //     return (
+    //         <React.Fragment key={item.name}>
+    //             <div className="component-image_8 small-component-img"
+    //                 style={{ backgroundImage: "url(" + item.img + ")" }}></div>
+    //             <input className="value text-3 input" type="text" placeholder="0"></input>
+    //         </React.Fragment>
+    //     )
+    // })
+
+    renderIngredientsArr = localIngredientsArr.map((item) => {
         return (
             <React.Fragment key={item.name}>
                 <div className="component-image_8 small-component-img"
                     style={{ backgroundImage: "url(" + item.img + ")" }}></div>
-                <input className="value text-3 input" type="text" placeholder="0"></input>
+                <input className="value text-3 input"
+                    type="number"
+                    placeholder="0"
+                    onChange={(event) => inputIngredient(item.id, event)}
+                >
+                </input>
             </React.Fragment>
         )
     })

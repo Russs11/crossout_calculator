@@ -24,7 +24,7 @@ import LoadingSpinnerForBlock from "./components/LoadingSpinnerForBlock";
 import Spinner from "./components/Spinner";
 import HorizontalSeparator from "./components/HorizontalSeparator";
 import { IComponent, IResourcesFromInput, IResourcePrices, IItem, IProductionCostPropDto, ICommonVehicleComponent, IEpicVehicleComponent, IRareVehicleComponent, ISpecialVehicleComponent, IComponentCostPropDto, IComponentIngridientObject, IProfitPropDto } from "./interfaces/Interfaces";
-import { instancesToArr, componentCostDto, productionCostDto } from "./helpers/helpers";
+import { instancesToArr, componentCostDto, productionCostDto, profitDto } from "./helpers/helpers";
 
 
 function App() {
@@ -37,6 +37,7 @@ function App() {
   const [btnSwitchBuyFabricate, setBtnSwitchBuyFabricate] = useState<boolean>(false)
   const [costPrice, setCostPrice] = useState<number>(0)
   const [allIngredientsPrice, setAllIngredientsPrice] = useState<number | undefined>(0)
+  const [ingredientsFromInput, setIngredientsFromInput] = useState([])
   const [resoursesFromInput, setResoursesFromInput] = useState<IResourcesFromInput>({
     scrapMetal: 0,
     copper: 0,
@@ -205,18 +206,7 @@ function App() {
 
 
 
-  function profitDto(component: IComponent, allIngredientsPrice: number | undefined, costPrice: number): IProfitPropDto{
-    
-    const profitPropDto: IProfitPropDto = {
-      componentBuyPrice: component.buyPrice,
-      commission: Math.round(component.buyPrice / 10),
-      selfPrice: Math.round(allIngredientsPrice ? allIngredientsPrice + costPrice : costPrice),
-      profit: 0,
-    }
-    profitPropDto.profit = Math.round(profitPropDto.componentBuyPrice - profitPropDto.commission - profitPropDto.selfPrice);
-
-    return profitPropDto;
-  }
+  
 
   if (selectedItem) {
     selectedInstance = classInstances.find((inst: IComponent): boolean => inst.id === selectedItem);

@@ -15,7 +15,7 @@ import MovementRareArray from "../entity/movement/rare"
 import MovementSpecialArray from "../entity/movement/special"
 import MovementEpicArray from "../entity/movement/epic"
 
-import { ICommonVehicleComponent, IComponent, IComponentCostPropDto, IComponentIngridientObject, IEpicVehicleComponent, IProductionCostPropDto, IRareVehicleComponent, IResourcePrices, IResourcesFromInput, ISpecialVehicleComponent } from "../interfaces/Interfaces";
+import { ICommonVehicleComponent, IComponent, IComponentCostPropDto, IComponentIngridientObject, IEpicVehicleComponent, IProductionCostPropDto, IProfitPropDto, IRareVehicleComponent, IResourcePrices, IResourcesFromInput, ISpecialVehicleComponent } from "../interfaces/Interfaces";
 
 export function instancesToArr(): IComponent[] {
 
@@ -309,4 +309,17 @@ export function productionCostDto(component: IComponent, resourcePrices: IResour
 	productionCostPropDto.totalResoursesCost = Math.round(productionCostPropDto.scrapMetalCost + productionCostPropDto.copperCost + productionCostPropDto.wiresCost + productionCostPropDto.plasticCost + productionCostPropDto.engravedCasingsCost + productionCostPropDto.batteriesCost + productionCostPropDto.electronicsCost + productionCostPropDto.benchCost)
 
 	return productionCostPropDto;
+}
+
+export function profitDto(component: IComponent, allIngredientsPrice: number | undefined, costPrice: number): IProfitPropDto {
+
+	const profitPropDto: IProfitPropDto = {
+		componentBuyPrice: component.buyPrice,
+		commission: Math.round(component.buyPrice / 10),
+		selfPrice: Math.round(allIngredientsPrice ? allIngredientsPrice + costPrice : costPrice),
+		profit: 0,
+	}
+	profitPropDto.profit = Math.round(profitPropDto.componentBuyPrice - profitPropDto.commission - profitPropDto.selfPrice);
+
+	return profitPropDto;
 }
