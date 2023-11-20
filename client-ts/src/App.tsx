@@ -281,6 +281,7 @@ function App() {
                   setResoursesFromInput={setResoursesFromInput}
                   component={selectedInstance}
                   resourcePrices={resourcePrices}
+                  setIngredientsFromInput={setIngredientsFromInput}
                 // inputClickHandler={inputClickHandler}
                 />
               </ResoursesAvailableWrapper>

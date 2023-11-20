@@ -3,7 +3,7 @@ import './ResoursesAvailable.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
 
-const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, component, resourcePrices }) => {
+const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, component, resourcePrices, setIngredientsFromInput }) => {
 
     let renderIngredientsArr = []
     let localIngredientsArr = [...new Set(component.ingredients)];
