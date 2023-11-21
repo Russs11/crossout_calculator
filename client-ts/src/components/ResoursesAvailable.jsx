@@ -3,7 +3,7 @@ import './ResoursesAvailable.scss'
 import HorizontalSeparator from './HorizontalSeparator';
 
 
-const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, component, resourcePrices, setIngredientsFromInput }) => {
+const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, component, resourcePrices, setIngredientsFromInput, ingredientsFromInput }) => {
 
     let renderIngredientsArr = []
     let localIngredientsArr = [...new Set(component.ingredients)];
@@ -73,18 +73,11 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
     function inputIngredient(id, event) {
         setIngredientsFromInput((prev) => {
             return Object.assign({ ...prev, [id]: +event.target.value.replace(/[^\d]/g, '') });
+        
         });
+        console.log(ingredientsFromInput);
     }
 
-    // renderIngredientsArr = localIngredientsArr.map(item => {
-    //     return (
-    //         <React.Fragment key={item.name}>
-    //             <div className="component-image_8 small-component-img"
-    //                 style={{ backgroundImage: "url(" + item.img + ")" }}></div>
-    //             <input className="value text-3 input" type="text" placeholder="0"></input>
-    //         </React.Fragment>
-    //     )
-    // })
 
     renderIngredientsArr = localIngredientsArr.map((item) => {
         return (
@@ -92,7 +85,7 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
                 <div className="component-image_8 small-component-img"
                     style={{ backgroundImage: "url(" + item.img + ")" }}></div>
                 <input className="value text-3 input"
-                    type="number"
+                    type="text"
                     placeholder="0"
                     onChange={(event) => inputIngredient(item.id, event)}
                 >

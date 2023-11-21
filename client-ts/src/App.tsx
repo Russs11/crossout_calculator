@@ -108,7 +108,7 @@ function App() {
     selfPrice: 0,
     profit: 0,
   }
-
+  console.log('ingredientsFromInput', ingredientsFromInput);
 
   useEffect(() => {
     const entityArr = instancesToArr()
@@ -282,6 +282,7 @@ function App() {
                   component={selectedInstance}
                   resourcePrices={resourcePrices}
                   setIngredientsFromInput={setIngredientsFromInput}
+                  ingredientsFromInput={ingredientsFromInput}
                 // inputClickHandler={inputClickHandler}
                 />
               </ResoursesAvailableWrapper>
