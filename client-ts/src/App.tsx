@@ -36,7 +36,7 @@ function App() {
   const [resourcePrices, setResourcePrices] = useState<IResourcePrices[]>([])
   const [btnSwitchBuyFabricate, setBtnSwitchBuyFabricate] = useState<boolean>(false)
   const [costPrice, setCostPrice] = useState<number>(0)
-  const [allIngredientsPrice, setAllIngredientsPrice] = useState<number | undefined>(0)
+  // const [allIngredientsPrice, setAllIngredientsPrice] = useState<number>(0)
   const [ingredientsFromInput, setIngredientsFromInput] = useState([])
   const [resoursesFromInput, setResoursesFromInput] = useState<IResourcesFromInput>({
     scrapMetal: 0,
@@ -213,7 +213,13 @@ function App() {
     componentCostPropDto = componentCostDto(selectedInstance ? selectedInstance.ingredients : undefined);
     if (selectedInstance) {
       productionCostPropDto = productionCostDto(selectedInstance, resourcePrices, resoursesFromInput);
-      profitPropDto = profitDto(selectedInstance, allIngredientsPrice, costPrice);
+      let ingredientCostForProfit: number = 0
+      if (btnSwitchBuyFabricate) {
+        ingredientCostForProfit = componentCostPropDto.totalIngridientsCost
+      }
+
+      profitPropDto = profitDto(selectedInstance, costPrice, ingredientCostForProfit);
+  
     }
 
   }
@@ -269,9 +275,6 @@ function App() {
                 />
                 <HorizontalSeparator />
                 <Profit
-                  // component={selectedInstance}
-                  // allIngredientsPrice={allIngredientsPrice}
-                  // costPrice={costPrice}
                   profitPropDto={profitPropDto} />
               </ProductionCostWrapper>
               <VerticalSeparator />

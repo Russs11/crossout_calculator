@@ -20,9 +20,6 @@ const ComponentsCost = ({  btnSwitchBuyFabricate, setBtnSwitchBuyFabricate, comp
         setBtnSwitchBuyFabricate((prev): boolean => { return !prev });
     }
 
-    // useEffect(() => {
-    //     setAllIngredientsPrice(btnSwitchBuyFabricate ? componentCostPropDto.totalIngridientsCost : 0);
-    // }, [btnSwitchBuyFabricate])
 
     renderIngredientsArr = componentCostPropDto.ingridients.map(ingredient => {
         

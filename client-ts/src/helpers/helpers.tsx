@@ -311,12 +311,12 @@ export function productionCostDto(component: IComponent, resourcePrices: IResour
 	return productionCostPropDto;
 }
 
-export function profitDto(component: IComponent, allIngredientsPrice: number | undefined, costPrice: number): IProfitPropDto {
+export function profitDto(component: IComponent, costPrice: number, ingridientsCost: number): IProfitPropDto {
 
 	const profitPropDto: IProfitPropDto = {
 		componentBuyPrice: component.buyPrice,
 		commission: Math.round(component.buyPrice / 10),
-		selfPrice: Math.round(allIngredientsPrice ? allIngredientsPrice + costPrice : costPrice),
+		selfPrice: Math.round( costPrice + ingridientsCost),
 		profit: 0,
 	}
 	profitPropDto.profit = Math.round(profitPropDto.componentBuyPrice - profitPropDto.commission - profitPropDto.selfPrice);
