@@ -71,15 +71,57 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
     }
 
     function inputIngredient(id, event) {
-        setIngredientsFromInput((prev) => {
-            return Object.assign({ ...prev, [id]: +event.target.value.replace(/[^\d]/g, '') });
-        
-        });
-        console.log(ingredientsFromInput);
+
+
+
+        const isNumber = (value) => {
+            console.log(value);
+            const numberValue = Number(value)
+            if (numberValue || numberValue === 0) {
+                console.log(numberValue);
+                return numberValue;
+            }
+
+            return null
+        }
+
+        const obj = {
+            id: id,
+            count: isNumber(event.target.value)
+        }
+        if (obj.count !== null) {
+            if (!ingredientsFromInput.length) {
+                setIngredientsFromInput(() => {
+                    const newState = []
+                    newState.push(obj)
+                    return newState
+                })
+            } else {
+                setIngredientsFromInput((prev) => {
+                    const newState = [...prev]
+                    newState.forEach(item => {
+                        if (item.id === obj.id) {
+                            item.count = item.count * 10 + obj.count
+                        } else {
+                            newState.push(obj)
+                        }
+                    })
+                    return newState
+                })
+            }
+        }
+
     }
 
 
+
     renderIngredientsArr = localIngredientsArr.map((item) => {
+        let count = 0
+        ingredientsFromInput.forEach(obj => {
+            if (obj.id === item.id) {
+                count = obj.count
+            }
+        })
         return (
             <React.Fragment key={item.name}>
                 <div className="component-image_8 small-component-img"
@@ -87,6 +129,7 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
                 <input className="value text-3 input"
                     type="text"
                     placeholder="0"
+                    value={count}
                     onChange={(event) => inputIngredient(item.id, event)}
                 >
                 </input>
