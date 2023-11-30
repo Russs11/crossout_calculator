@@ -128,7 +128,7 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
                     style={{ backgroundImage: "url(" + item.img + ")" }}></div>
                 <input className="value text-3 input"
                     type="text"
-                    placeholder="0"
+                    // placeholder="0"
                     value={count}
                     onChange={(event) => inputIngredient(item.id, event)}
                 >
