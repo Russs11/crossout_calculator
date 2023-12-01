@@ -75,10 +75,10 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
 
 
         const isNumber = (value) => {
-            console.log(value);
+           
             const numberValue = Number(value)
             if (numberValue || numberValue === 0) {
-                console.log(numberValue);
+              
                 return numberValue;
             }
 
@@ -94,18 +94,23 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
                 setIngredientsFromInput(() => {
                     const newState = []
                     newState.push(obj)
+                    console.log('1', obj );
                     return newState
                 })
             } else {
                 setIngredientsFromInput((prev) => {
                     const newState = [...prev]
+                    let isMatch = false
                     newState.forEach(item => {
                         if (item.id === obj.id) {
-                            item.count = item.count * 10 + obj.count
-                        } else {
-                            newState.push(obj)
+                            item.count = obj.count
+                            isMatch = true
                         }
-                    })
+                    });
+                    if (!isMatch) {
+                        newState.push(obj);
+                    }
+                    console.log('newState', newState);
                     return newState
                 })
             }
