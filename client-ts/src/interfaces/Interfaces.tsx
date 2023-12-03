@@ -223,3 +223,8 @@ export interface IProfitPropDto {
     selfPrice: number;
     profit: number;
 }
+
+export interface IIngridientsFromInput{
+id: number;
+count: number | null;
+}

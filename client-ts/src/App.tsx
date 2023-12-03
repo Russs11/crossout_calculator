@@ -23,7 +23,7 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import LoadingSpinnerForBlock from "./components/LoadingSpinnerForBlock";
 import Spinner from "./components/Spinner";
 import HorizontalSeparator from "./components/HorizontalSeparator";
-import { IComponent, IResourcesFromInput, IResourcePrices, IItem, IProductionCostPropDto, ICommonVehicleComponent, IEpicVehicleComponent, IRareVehicleComponent, ISpecialVehicleComponent, IComponentCostPropDto, IComponentIngridientObject, IProfitPropDto } from "./interfaces/Interfaces";
+import { IComponent, IResourcesFromInput, IResourcePrices, IItem, IProductionCostPropDto, ICommonVehicleComponent, IEpicVehicleComponent, IRareVehicleComponent, ISpecialVehicleComponent, IComponentCostPropDto, IComponentIngridientObject, IProfitPropDto, IIngridientsFromInput } from "./interfaces/Interfaces";
 import { instancesToArr, componentCostDto, productionCostDto, profitDto } from "./helpers/helpers";
 
 
@@ -37,7 +37,7 @@ function App() {
   const [btnSwitchBuyFabricate, setBtnSwitchBuyFabricate] = useState<boolean>(false)
   const [costPrice, setCostPrice] = useState<number>(0)
   // const [allIngredientsPrice, setAllIngredientsPrice] = useState<number>(0)
-  const [ingredientsFromInput, setIngredientsFromInput] = useState([])
+  const [ingredientsFromInput, setIngredientsFromInput] = useState<IIngridientsFromInput[]>([])
   const [resoursesFromInput, setResoursesFromInput] = useState<IResourcesFromInput>({
     scrapMetal: 0,
     copper: 0,
@@ -229,14 +229,7 @@ function App() {
     setSelectedItem(id);
     setBtnSwitchBuyFabricate(false);
   }
-  // let appTimeStart = Number(Date.now())
 
-
-  // let appTimeStop = Number(Date.now())
-  // // console.log(selectedInstance ? componentCostDto(selectedInstance.ingredients) : null);
-  // console.log('appTime', appTimeStop - appTimeStart);
-
-  // console.log('selectedInstance', selectedInstance);
   return (
     <div className="App">
       <Container>

@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { ReactElement, ReactFragment } from 'react';
 import './ResoursesAvailable.scss'
 import HorizontalSeparator from './HorizontalSeparator';
+import { IComponent, IIngridientsFromInput, IResourcePrices, IResourcesFromInput } from '../interfaces/Interfaces';
 
+interface IResoursesAvailabale {
+    resoursesFromInput: IResourcesFromInput;
+    setResoursesFromInput: React.Dispatch<React.SetStateAction<IResourcesFromInput>>;
+    component: IComponent;
+    resourcePrices: IResourcePrices[];
+    ingredientsFromInput: IIngridientsFromInput[];
+    setIngredientsFromInput: React.Dispatch<React.SetStateAction<IIngridientsFromInput[]>>
+}
 
-const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, component, resourcePrices, setIngredientsFromInput, ingredientsFromInput }) => {
+const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, component, resourcePrices, setIngredientsFromInput, ingredientsFromInput }: IResoursesAvailabale) => {
 
-    let renderIngredientsArr = []
+    let renderIngredientsArr: ReactElement[] = []
     let localIngredientsArr = [...new Set(component.ingredients)];
 
     let scrapMetalSellPrice = resourcePrices[0].sellPrice
@@ -34,71 +43,66 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
 
 
 
-    function inputScrapMetalHandler(event) {
+    function inputScrapMetalHandler(event: React.ChangeEvent<HTMLInputElement>) {
         setResoursesFromInput((prev) => {
             return Object.assign({ ...prev, scrapMetal: +event.target.value })
         });
     }
-    function inputCopperHandler(event) {
+    function inputCopperHandler(event: React.ChangeEvent<HTMLInputElement>) {
         setResoursesFromInput((prev) => {
             return Object.assign({ ...prev, copper: +event.target.value })
         });
     }
-    function inputWiresHandler(event) {
+    function inputWiresHandler(event: React.ChangeEvent<HTMLInputElement>) {
         setResoursesFromInput((prev) => {
             return Object.assign({ ...prev, wires: +event.target.value })
         });
     }
-    function inputElectronicsHandler(event) {
+    function inputElectronicsHandler(event: React.ChangeEvent<HTMLInputElement>) {
         setResoursesFromInput((prev) => {
             return Object.assign({ ...prev, electronics: +event.target.value })
         });
     }
-    function inputBatteriesHandler(event) {
+    function inputBatteriesHandler(event: React.ChangeEvent<HTMLInputElement>) {
         setResoursesFromInput((prev) => {
             return Object.assign({ ...prev, batteries: +event.target.value })
         });
     }
-    function inputPlasticHandler(event) {
+    function inputPlasticHandler(event: React.ChangeEvent<HTMLInputElement>) {
         setResoursesFromInput((prev) => {
             return Object.assign({ ...prev, plastic: +event.target.value })
         });
     }
-    function inputEngravedCasingsHandler(event) {
+    function inputEngravedCasingsHandler(event: React.ChangeEvent<HTMLInputElement>) {
         setResoursesFromInput((prev) => {
             return Object.assign({ ...prev, engravedCasings: +event.target.value })
         });
     }
 
-    function inputIngredient(id, event) {
+    function inputIngredient(id: number, event: React.ChangeEvent<HTMLInputElement>): void {
 
+        const isNumber = (value: number | string): number | null => {
 
-
-        const isNumber = (value) => {
-           
             const numberValue = Number(value)
             if (numberValue || numberValue === 0) {
-              
                 return numberValue;
             }
-
             return null
         }
-
-        const obj = {
+        const obj: IIngridientsFromInput = {
             id: id,
             count: isNumber(event.target.value)
         }
         if (obj.count !== null) {
             if (!ingredientsFromInput.length) {
                 setIngredientsFromInput(() => {
-                    const newState = []
+                    const newState: IIngridientsFromInput[] = []
                     newState.push(obj)
-                    console.log('1', obj );
+                    // console.log('1', obj);
                     return newState
                 })
             } else {
-                setIngredientsFromInput((prev) => {
+                setIngredientsFromInput((prev: IIngridientsFromInput[]) => {
                     const newState = [...prev]
                     let isMatch = false
                     newState.forEach(item => {
@@ -110,20 +114,19 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
                     if (!isMatch) {
                         newState.push(obj);
                     }
-                    console.log('newState', newState);
+                    // console.log('newState', newState);
                     return newState
                 })
             }
         }
-
     }
 
 
 
     renderIngredientsArr = localIngredientsArr.map((item) => {
-        let count = 0
+        let count: number | null = 0
         ingredientsFromInput.forEach(obj => {
-            if (obj.id === item.id) {
+            if (obj.id === item.id && count !== null) {
                 count = obj.count
             }
         })
@@ -133,7 +136,7 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
                     style={{ backgroundImage: "url(" + item.img + ")" }}></div>
                 <input className="value text-3 input"
                     type="text"
-                    // placeholder="0"
+                    placeholder="0"
                     value={count}
                     onChange={(event) => inputIngredient(item.id, event)}
                 >
@@ -155,49 +158,49 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
                     <div className="scrapmetal"></div>
                     <input className="value text-3 input"
                         type='text'
-                        placeholder={resoursesFromInput.scrapMetal}
+                        placeholder={resoursesFromInput.scrapMetal.toString()}
                         value={resoursesFromInput.scrapMetal !== 0 ? resoursesFromInput.scrapMetal : ''}
                         onChange={inputScrapMetalHandler}>
                     </input>
                     <div className="electronics"></div>
                     <input className="value text-3 input"
                         type="text"
-                        placeholder={resoursesFromInput.electronics}
+                        placeholder={resoursesFromInput.electronics.toString()}
                         value={resoursesFromInput.electronics !== 0 ? resoursesFromInput.electronics : ''}
                         onChange={inputElectronicsHandler}>
                     </input>
                     <div className="copper"></div>
                     <input className="value text-3 input"
                         type="text"
-                        placeholder={resoursesFromInput.copper}
+                        placeholder={resoursesFromInput.copper.toString()}
                         value={resoursesFromInput.copper !== 0 ? resoursesFromInput.copper : ''}
                         onChange={inputCopperHandler}>
                     </input>
                     <div className="batteries"></div>
                     <input className="value text-3 input"
                         type="text"
-                        placeholder={resoursesFromInput.batteries}
+                        placeholder={resoursesFromInput.batteries.toString()}
                         value={resoursesFromInput.batteries !== 0 ? resoursesFromInput.batteries : ''}
                         onChange={inputBatteriesHandler}>
                     </input>
                     <div className="wires"></div>
                     <input className="value text-3 input"
                         type="text"
-                        placeholder={resoursesFromInput.wires}
+                        placeholder={resoursesFromInput.wires.toString()}
                         value={resoursesFromInput.wires !== 0 ? resoursesFromInput.wires : ''}
                         onChange={inputWiresHandler}>
                     </input>
                     <div className="engravedcasings"></div>
                     <input className="value text-3 input"
                         type="text"
-                        placeholder={resoursesFromInput.engravedCasings}
+                        placeholder={resoursesFromInput.engravedCasings.toString()}
                         value={resoursesFromInput.engravedCasings !== 0 ? resoursesFromInput.engravedCasings : ''}
                         onChange={inputEngravedCasingsHandler}>
                     </input>
                     <div className="plastic"></div>
                     <input className="value text-3 input"
                         type="text"
-                        placeholder={resoursesFromInput.plastic}
+                        placeholder={resoursesFromInput.plastic.toString()}
                         value={resoursesFromInput.plastic !== 0 ? resoursesFromInput.plastic : ''}
                         onChange={inputPlasticHandler}>
                     </input>
