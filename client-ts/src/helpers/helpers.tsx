@@ -129,7 +129,7 @@ export function componentCostDto(ingridientsArr: ICommonVehicleComponent[] | IRa
 	componentCostPropDto.ingridients.forEach(item => {
 		componentCostPropDto.totalIngridientsCost += item.cost
 	})
-	componentCostPropDto.totalIngridientsCost = Math.round(componentCostPropDto.totalIngridientsCost)
+	componentCostPropDto.totalIngridientsCost = Math.round(componentCostPropDto.totalIngridientsCost * 100) / 100
 	return componentCostPropDto
 }
 

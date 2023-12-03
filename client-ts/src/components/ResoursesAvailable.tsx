@@ -40,7 +40,7 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
     let resoursesCost = scrapMetalCost + copperCost + wiresCost + plasticCost + batteriesCost + electronicsCost + engravedCasingsCost
 
 
-
+    let ingridientFromInputPrice: number = 0
 
 
     function inputScrapMetalHandler(event: React.ChangeEvent<HTMLInputElement>) {
@@ -128,8 +128,12 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
         ingredientsFromInput.forEach(obj => {
             if (obj.id === item.id && count !== null) {
                 count = obj.count
+                if(count!== null){
+                    ingridientFromInputPrice += item.sellPrice * count
+                }
             }
         })
+        console.log('ingridientFromInputPrice', ingridientFromInputPrice);
         return (
             <React.Fragment key={item.name}>
                 <div className="component-image_8 small-component-img"
@@ -212,7 +216,7 @@ const ResoursesAvailable = ({ resoursesFromInput, setResoursesFromInput, compone
                     <div className="text-5">Количество:</div>
                     {renderIngredientsArr}
                     <div className="text-5">Стоимость:</div>
-                    <div className="value-orange text-3">2123</div>
+                    <div className="value-orange text-3">{Math.round(ingridientFromInputPrice * 100) / 100}</div>
                 </div>
                 <HorizontalSeparator />
             </div>
