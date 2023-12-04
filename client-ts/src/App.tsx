@@ -52,7 +52,7 @@ function App() {
   let itemsArr: JSX.Element[] = []
   let componentCostPropDto: IComponentCostPropDto = {
     ingridients: [],
-    totalIngridientsCost: 0
+    totalIngridientsCost: 0,
   }
 
   let productionCostPropDto: IProductionCostPropDto = {
@@ -210,7 +210,7 @@ function App() {
 
   if (selectedItem) {
     selectedInstance = classInstances.find((inst: IComponent): boolean => inst.id === selectedItem);
-    componentCostPropDto = componentCostDto(selectedInstance ? selectedInstance.ingredients : undefined);
+    componentCostPropDto = componentCostDto(selectedInstance ? selectedInstance.ingredients : undefined, ingredientsFromInput);
     if (selectedInstance) {
       productionCostPropDto = productionCostDto(selectedInstance, resourcePrices, resoursesFromInput);
       let ingredientCostForProfit: number = 0
