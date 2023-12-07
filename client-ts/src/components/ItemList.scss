@@ -1,8 +1,8 @@
 .components {
 	display: grid;
-	grid-template-rows: 50px 1fr;
+	grid-template-rows: 25px 1fr;
 	justify-items: center;
-	gap: 30px;
+	// gap: 30px;
 
 	margin: 40px 0 40px 40px;
 
@@ -18,6 +18,7 @@
 	font-size: 20px;
 	text-align: center;
 	color: #fff;
+	padding-top: 10px;
 }
 
 .components-wrapper {
@@ -25,8 +26,9 @@
 	grid-template-rows: repeat(auto-fill, 126px);
 	justify-items: center;
 	width: 100%;
-	height: calc(100vh - 50px - 40px - 50px - 30px - 40px - 2px);
+	height: calc(100vh - 25px - 40px - 50px - 30px - 40px - 2px);
 	overflow-y: auto;
+	padding-top: 30px;
 }
 
 .components-wrapper::-webkit-scrollbar {
