@@ -1,8 +1,11 @@
 import React from 'react';
 import './ItemList.scss'
 
+interface IItemList {
+	children: JSX.Element[]
+}
 
-const ItemList = ({ children }) => {
+const ItemList = ({ children }: IItemList) => {
 
 
 
