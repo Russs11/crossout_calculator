@@ -1,7 +1,7 @@
-import React, { ReactElement, ReactFragment, useEffect } from 'react';
+import React from 'react'
+import { IComponent, IProductionCostPropDto, IResourcePrices } from '../interfaces/Interfaces'
+import HorizontalSeparator from './HorizontalSeparator'
 import './ProductionCost.scss'
-import HorizontalSeparator from './HorizontalSeparator';
-import { IComponent, IResourcePrices, IProductionCostPropDto, IResourcesFromInput } from '../interfaces/Interfaces';
 
 interface IProductionCostProps {
     component: IComponent;
@@ -23,11 +23,6 @@ const ProductionCost = ({ component, resourcePrices, btnSwitchBuyFabricate, setC
         totalResoursesCost = productionCostPropDto.totalResoursesCost
         totalAllResoursesСost = productionCostPropDto.totalAllResoursesСost
     }
-    // console.log(totalAllResoursesСost, totalResoursesCost);
-
-    // setCostPrice(btnSwitchBuyFabricate ? totalResoursesCost : totalAllResoursesСost)
-
-
 
     if (component.scrapMetal && productionCostPropDto) {
 
