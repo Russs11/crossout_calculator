@@ -171,7 +171,7 @@ function App() {
   }, [classInstances]);
 
 
-  if (itemsList) {
+  if (itemsList.length) {
     const instanceFromData: IComponent[] = []
     for (const item of itemsList) {
 
